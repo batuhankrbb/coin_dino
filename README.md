@@ -4,7 +4,7 @@ Big cryptocurrency application with Clean Code + Layered Architecture.
 
 ## Features
 
-The list of features I'm planning to add:
+List of the features I'm planning to add:
 
 - Notifications
 - Theme (Dark, Light)
