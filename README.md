@@ -15,3 +15,6 @@ List of the features I'm planning to add:
 - Remote Database (API)
 - Responsive User Interface (even for tablet)
 - Both Platform (iOS, Android)
+- Share Activity
+- Copy Clipboard
+- User Preference Save (Theme, Base Currency etc.)
