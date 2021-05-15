@@ -13,3 +13,5 @@ The list of features I'm planning to add:
 - In-App Purchase
 - Local Database (Hive)
 - Remote Database (API)
+- Responsive User Interface (even for tablet)
+- Both Platform (iOS, Android)
