@@ -1,3 +1,5 @@
+import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
+
 class MarketCoinModel {
   MarketCoinModel({
     required this.id,
@@ -145,6 +147,21 @@ class MarketCoinModel {
         "price_change_percentage_7d_in_currency":
             priceChangePercentage7DInCurrency,
       };
+
+  MarketCoinEntity toEntity() {
+    return MarketCoinEntity(
+        marketCapRank: marketCapRank,
+        imageUrl: image,
+        symbol: symbol,
+        name: name,
+        currentPrice: currentPrice,
+        marketCap: marketCap,
+        id: id,
+        priceChangePercentage1h: priceChangePercentage1HInCurrency,
+        priceChangePercentage24h: priceChangePercentage24HInCurrency,
+        priceChangePercentage7d: priceChangePercentage7DInCurrency,
+        priceChangePercentage30d: priceChangePercentage30DInCurrency);
+  }
 }
 
 class Roi {
