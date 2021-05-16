@@ -30,7 +30,6 @@ class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
     } on DioError catch (e) {
       ErrorHelper().printError(
           "ActivityRemoteDataSourceImplementation/getActivityByType", e);
-
       /// TODO : BU ALAN DEĞİŞECEK UNUTMA AMK
       throw "$e";
     }
