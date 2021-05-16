@@ -1,5 +1,4 @@
 import 'package:coin_dino/features/market/domain/entities/market_coin_category_entity.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
 
 class MarketCoinCategoryModel {
   MarketCoinCategoryModel({

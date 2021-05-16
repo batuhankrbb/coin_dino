@@ -797,7 +797,7 @@ class Ath {
         "cny": cny,
         "czk": czk,
         "dkk": dkk,
-        "dot": dot == null ? null : dot,
+        "dot":  dot,
         "eos": eos,
         "eth": eth,
         "eur": eur,
@@ -837,7 +837,7 @@ class Ath {
         "xdr": xdr,
         "xlm": xlm,
         "xrp": xrp,
-        "yfi": yfi == null ? null : yfi,
+        "yfi": yfi,
         "zar": zar,
         "bits": bits,
         "link": link,
@@ -1216,10 +1216,10 @@ class Ticker {
         "last_fetch_at": lastFetchAt.toIso8601String(),
         "is_anomaly": isAnomaly,
         "is_stale": isStale,
-        "trade_url": tradeUrl == null ? null : tradeUrl,
+        "trade_url": tradeUrl,
         "token_info_url": tokenInfoUrl,
         "coin_id": coinId,
-        "target_coin_id": targetCoinId == null ? null : targetCoinId,
+        "target_coin_id":  targetCoinId,
       };
 }
 
