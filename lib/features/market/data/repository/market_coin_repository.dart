@@ -6,7 +6,9 @@ import 'package:coin_dino/core/result_types/result.dart';
 import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
 
 class MarketCoinRepository extends IMarketCoinRepository {
-  MarketCoinRepository({required this.remoteMarketDataSource, required this.localeMarketDataSource});
+  MarketCoinRepository(
+      {required this.remoteMarketDataSource,
+      required this.localeMarketDataSource});
 
   final IRemoteMarketDataSource remoteMarketDataSource;
   final ILocalMarketDataSource localeMarketDataSource;
@@ -24,15 +26,17 @@ class MarketCoinRepository extends IMarketCoinRepository {
 
   @override
   Future<Result<List<MarketCoinEntity>>> getCryptoCurrencies(
+    //TODO "usd" yazan yer preferencesdan alınacak
       {required MarketDate date,
       required MarketSort sort,
       MarketCoinCategoryEntity? category}) async {
-        try{
-            
-        }catch(e){
-
-        }
-   
-    throw UnimplementedError();
+    try {
+      var currencies = await remoteMarketDataSource.getCryptoCurrencies(
+          date.rawValue, sort.rawValue, category?.categoryID, "usd");
+      var entities = currencies.map((e) => e.toEntity()).toList();
+      return Result.success(entities.toList());
+    } catch (e) {
+        throw UnimplementedError();
+    }
   }
 }

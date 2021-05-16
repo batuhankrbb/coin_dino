@@ -13,7 +13,7 @@ abstract class IMarketCoinRepository {
 
 enum MarketDate { hour1, hour24, day1, day7, day30 }
 
-extension rawExtension on MarketDate {
+extension rawExtensionMarketDate on MarketDate {
   String get rawValue {
     switch (this) {
       case MarketDate.hour1:
@@ -23,9 +23,9 @@ extension rawExtension on MarketDate {
       case MarketDate.day1:
          return "1d";
       case MarketDate.day7:
-        return "";
+        return "7d";
       case MarketDate.day30:
-        return "";
+        return "30d";
     }
   }
 }
@@ -39,4 +39,27 @@ enum MarketSort {
   volume_desc,
   id_asc,
   id_desc
+}
+
+extension rawExtensionMarketSort on MarketSort {
+  String get rawValue {
+    switch (this) {
+      case MarketSort.gecko_asc:
+        return "gecko_asc";
+      case MarketSort.gecko_desc:
+        return "gecko_desc";
+      case MarketSort.id_asc:
+         return "id_asc";
+      case MarketSort.id_desc:
+        return "id_desc";
+      case MarketSort.market_cap_asc:
+        return "market_cap_asc";
+        case MarketSort.market_cap_desc:
+        return "market_cap_desc";
+        case MarketSort.volume_asc:
+        return "volume_asc";
+        case MarketSort.volume_desc:
+        return "volume_desc";
+    }
+  }
 }

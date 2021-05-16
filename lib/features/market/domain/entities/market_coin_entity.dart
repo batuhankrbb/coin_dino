@@ -4,7 +4,7 @@ class MarketCoinEntity {
   final String symbol;
   final String name;
   final double currentPrice;
-  final double marketCap;
+  final int marketCap;
   final String id;
   final double? priceChangePercentage1h;
   final double? priceChangePercentage24h;
