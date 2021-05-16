@@ -1,4 +1,6 @@
-class CoinDetailEntity {
+import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
+
+class CoinDetailEntity extends BaseNetworkModel{
   final String id;
   final String symbol;
   final String name;
@@ -11,14 +13,26 @@ class CoinDetailEntity {
   final String description;
 
   CoinDetailEntity(
-      this.id,
-      this.symbol,
-      this.name,
-      this.assetPlatformId,
-      this.blockTimeInMinutes,
-      this.hashingAlgorithm,
-      this.categories,
-      this.publicNotice,
-      this.additionalNotices,
-      this.description);
+      {required this.id,
+      required this.symbol,
+      required this.name,
+      required this.assetPlatformId,
+      required this.blockTimeInMinutes,
+      required this.hashingAlgorithm,
+      required this.categories,
+      required this.publicNotice,
+      required this.additionalNotices,
+      required this.description});
+
+  @override
+  fromJson(Map<String, dynamic> json) {
+    // TODO: implement BATUHAN DOLDUR
+    throw UnimplementedError();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement BATUHAN DOLDUR
+    throw UnimplementedError();
+  }
 }
