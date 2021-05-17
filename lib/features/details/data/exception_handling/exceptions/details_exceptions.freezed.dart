@@ -16,8 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$DetailsExceptionTearOff {
   const _$DetailsExceptionTearOff();
 
-  NoInternetException noInternetException() {
-    return const NoInternetException();
+  ChartFetchingException chartFetchingException() {
+    return const ChartFetchingException();
+  }
+
+  DetailsFetchingException detailsFetchingException() {
+    return const DetailsFetchingException();
   }
 }
 
@@ -28,23 +32,29 @@ const $DetailsException = _$DetailsExceptionTearOff();
 mixin _$DetailsException {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noInternetException,
+    required TResult Function() chartFetchingException,
+    required TResult Function() detailsFetchingException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noInternetException,
+    TResult Function()? chartFetchingException,
+    TResult Function()? detailsFetchingException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NoInternetException value) noInternetException,
+    required TResult Function(ChartFetchingException value)
+        chartFetchingException,
+    required TResult Function(DetailsFetchingException value)
+        detailsFetchingException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NoInternetException value)? noInternetException,
+    TResult Function(ChartFetchingException value)? chartFetchingException,
+    TResult Function(DetailsFetchingException value)? detailsFetchingException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,38 +78,38 @@ class _$DetailsExceptionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $NoInternetExceptionCopyWith<$Res> {
-  factory $NoInternetExceptionCopyWith(
-          NoInternetException value, $Res Function(NoInternetException) then) =
-      _$NoInternetExceptionCopyWithImpl<$Res>;
+abstract class $ChartFetchingExceptionCopyWith<$Res> {
+  factory $ChartFetchingExceptionCopyWith(ChartFetchingException value,
+          $Res Function(ChartFetchingException) then) =
+      _$ChartFetchingExceptionCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NoInternetExceptionCopyWithImpl<$Res>
+class _$ChartFetchingExceptionCopyWithImpl<$Res>
     extends _$DetailsExceptionCopyWithImpl<$Res>
-    implements $NoInternetExceptionCopyWith<$Res> {
-  _$NoInternetExceptionCopyWithImpl(
-      NoInternetException _value, $Res Function(NoInternetException) _then)
-      : super(_value, (v) => _then(v as NoInternetException));
+    implements $ChartFetchingExceptionCopyWith<$Res> {
+  _$ChartFetchingExceptionCopyWithImpl(ChartFetchingException _value,
+      $Res Function(ChartFetchingException) _then)
+      : super(_value, (v) => _then(v as ChartFetchingException));
 
   @override
-  NoInternetException get _value => super._value as NoInternetException;
+  ChartFetchingException get _value => super._value as ChartFetchingException;
 }
 
 /// @nodoc
 
 @Implements(Exception)
-class _$NoInternetException implements NoInternetException {
-  const _$NoInternetException();
+class _$ChartFetchingException implements ChartFetchingException {
+  const _$ChartFetchingException();
 
   @override
   String toString() {
-    return 'DetailsException.noInternetException()';
+    return 'DetailsException.chartFetchingException()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is NoInternetException);
+    return identical(this, other) || (other is ChartFetchingException);
   }
 
   @override
@@ -108,19 +118,21 @@ class _$NoInternetException implements NoInternetException {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noInternetException,
+    required TResult Function() chartFetchingException,
+    required TResult Function() detailsFetchingException,
   }) {
-    return noInternetException();
+    return chartFetchingException();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noInternetException,
+    TResult Function()? chartFetchingException,
+    TResult Function()? detailsFetchingException,
     required TResult orElse(),
   }) {
-    if (noInternetException != null) {
-      return noInternetException();
+    if (chartFetchingException != null) {
+      return chartFetchingException();
     }
     return orElse();
   }
@@ -128,24 +140,118 @@ class _$NoInternetException implements NoInternetException {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NoInternetException value) noInternetException,
+    required TResult Function(ChartFetchingException value)
+        chartFetchingException,
+    required TResult Function(DetailsFetchingException value)
+        detailsFetchingException,
   }) {
-    return noInternetException(this);
+    return chartFetchingException(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NoInternetException value)? noInternetException,
+    TResult Function(ChartFetchingException value)? chartFetchingException,
+    TResult Function(DetailsFetchingException value)? detailsFetchingException,
     required TResult orElse(),
   }) {
-    if (noInternetException != null) {
-      return noInternetException(this);
+    if (chartFetchingException != null) {
+      return chartFetchingException(this);
     }
     return orElse();
   }
 }
 
-abstract class NoInternetException implements DetailsException, Exception {
-  const factory NoInternetException() = _$NoInternetException;
+abstract class ChartFetchingException implements DetailsException, Exception {
+  const factory ChartFetchingException() = _$ChartFetchingException;
+}
+
+/// @nodoc
+abstract class $DetailsFetchingExceptionCopyWith<$Res> {
+  factory $DetailsFetchingExceptionCopyWith(DetailsFetchingException value,
+          $Res Function(DetailsFetchingException) then) =
+      _$DetailsFetchingExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$DetailsFetchingExceptionCopyWithImpl<$Res>
+    extends _$DetailsExceptionCopyWithImpl<$Res>
+    implements $DetailsFetchingExceptionCopyWith<$Res> {
+  _$DetailsFetchingExceptionCopyWithImpl(DetailsFetchingException _value,
+      $Res Function(DetailsFetchingException) _then)
+      : super(_value, (v) => _then(v as DetailsFetchingException));
+
+  @override
+  DetailsFetchingException get _value =>
+      super._value as DetailsFetchingException;
+}
+
+/// @nodoc
+
+@Implements(Exception)
+class _$DetailsFetchingException implements DetailsFetchingException {
+  const _$DetailsFetchingException();
+
+  @override
+  String toString() {
+    return 'DetailsException.detailsFetchingException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is DetailsFetchingException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() chartFetchingException,
+    required TResult Function() detailsFetchingException,
+  }) {
+    return detailsFetchingException();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? chartFetchingException,
+    TResult Function()? detailsFetchingException,
+    required TResult orElse(),
+  }) {
+    if (detailsFetchingException != null) {
+      return detailsFetchingException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChartFetchingException value)
+        chartFetchingException,
+    required TResult Function(DetailsFetchingException value)
+        detailsFetchingException,
+  }) {
+    return detailsFetchingException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChartFetchingException value)? chartFetchingException,
+    TResult Function(DetailsFetchingException value)? detailsFetchingException,
+    required TResult orElse(),
+  }) {
+    if (detailsFetchingException != null) {
+      return detailsFetchingException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DetailsFetchingException implements DetailsException, Exception {
+  const factory DetailsFetchingException() = _$DetailsFetchingException;
 }

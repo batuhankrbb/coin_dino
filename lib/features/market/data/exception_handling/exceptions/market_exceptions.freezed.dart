@@ -16,8 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$MarketExceptionTearOff {
   const _$MarketExceptionTearOff();
 
-  NoInternetException noInternetException() {
-    return const NoInternetException();
+  CategoryFetchingException categoryFetchingException() {
+    return const CategoryFetchingException();
+  }
+
+  CryptoCurrencyFetchingException cryptoCurrencyFetchingException() {
+    return const CryptoCurrencyFetchingException();
   }
 }
 
@@ -28,23 +32,31 @@ const $MarketException = _$MarketExceptionTearOff();
 mixin _$MarketException {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noInternetException,
+    required TResult Function() categoryFetchingException,
+    required TResult Function() cryptoCurrencyFetchingException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noInternetException,
+    TResult Function()? categoryFetchingException,
+    TResult Function()? cryptoCurrencyFetchingException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NoInternetException value) noInternetException,
+    required TResult Function(CategoryFetchingException value)
+        categoryFetchingException,
+    required TResult Function(CryptoCurrencyFetchingException value)
+        cryptoCurrencyFetchingException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NoInternetException value)? noInternetException,
+    TResult Function(CategoryFetchingException value)?
+        categoryFetchingException,
+    TResult Function(CryptoCurrencyFetchingException value)?
+        cryptoCurrencyFetchingException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,38 +80,39 @@ class _$MarketExceptionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $NoInternetExceptionCopyWith<$Res> {
-  factory $NoInternetExceptionCopyWith(
-          NoInternetException value, $Res Function(NoInternetException) then) =
-      _$NoInternetExceptionCopyWithImpl<$Res>;
+abstract class $CategoryFetchingExceptionCopyWith<$Res> {
+  factory $CategoryFetchingExceptionCopyWith(CategoryFetchingException value,
+          $Res Function(CategoryFetchingException) then) =
+      _$CategoryFetchingExceptionCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NoInternetExceptionCopyWithImpl<$Res>
+class _$CategoryFetchingExceptionCopyWithImpl<$Res>
     extends _$MarketExceptionCopyWithImpl<$Res>
-    implements $NoInternetExceptionCopyWith<$Res> {
-  _$NoInternetExceptionCopyWithImpl(
-      NoInternetException _value, $Res Function(NoInternetException) _then)
-      : super(_value, (v) => _then(v as NoInternetException));
+    implements $CategoryFetchingExceptionCopyWith<$Res> {
+  _$CategoryFetchingExceptionCopyWithImpl(CategoryFetchingException _value,
+      $Res Function(CategoryFetchingException) _then)
+      : super(_value, (v) => _then(v as CategoryFetchingException));
 
   @override
-  NoInternetException get _value => super._value as NoInternetException;
+  CategoryFetchingException get _value =>
+      super._value as CategoryFetchingException;
 }
 
 /// @nodoc
 
 @Implements(Exception)
-class _$NoInternetException implements NoInternetException {
-  const _$NoInternetException();
+class _$CategoryFetchingException implements CategoryFetchingException {
+  const _$CategoryFetchingException();
 
   @override
   String toString() {
-    return 'MarketException.noInternetException()';
+    return 'MarketException.categoryFetchingException()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is NoInternetException);
+    return identical(this, other) || (other is CategoryFetchingException);
   }
 
   @override
@@ -108,19 +121,21 @@ class _$NoInternetException implements NoInternetException {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noInternetException,
+    required TResult Function() categoryFetchingException,
+    required TResult Function() cryptoCurrencyFetchingException,
   }) {
-    return noInternetException();
+    return categoryFetchingException();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noInternetException,
+    TResult Function()? categoryFetchingException,
+    TResult Function()? cryptoCurrencyFetchingException,
     required TResult orElse(),
   }) {
-    if (noInternetException != null) {
-      return noInternetException();
+    if (categoryFetchingException != null) {
+      return categoryFetchingException();
     }
     return orElse();
   }
@@ -128,24 +143,127 @@ class _$NoInternetException implements NoInternetException {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(NoInternetException value) noInternetException,
+    required TResult Function(CategoryFetchingException value)
+        categoryFetchingException,
+    required TResult Function(CryptoCurrencyFetchingException value)
+        cryptoCurrencyFetchingException,
   }) {
-    return noInternetException(this);
+    return categoryFetchingException(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(NoInternetException value)? noInternetException,
+    TResult Function(CategoryFetchingException value)?
+        categoryFetchingException,
+    TResult Function(CryptoCurrencyFetchingException value)?
+        cryptoCurrencyFetchingException,
     required TResult orElse(),
   }) {
-    if (noInternetException != null) {
-      return noInternetException(this);
+    if (categoryFetchingException != null) {
+      return categoryFetchingException(this);
     }
     return orElse();
   }
 }
 
-abstract class NoInternetException implements MarketException, Exception {
-  const factory NoInternetException() = _$NoInternetException;
+abstract class CategoryFetchingException implements MarketException, Exception {
+  const factory CategoryFetchingException() = _$CategoryFetchingException;
+}
+
+/// @nodoc
+abstract class $CryptoCurrencyFetchingExceptionCopyWith<$Res> {
+  factory $CryptoCurrencyFetchingExceptionCopyWith(
+          CryptoCurrencyFetchingException value,
+          $Res Function(CryptoCurrencyFetchingException) then) =
+      _$CryptoCurrencyFetchingExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CryptoCurrencyFetchingExceptionCopyWithImpl<$Res>
+    extends _$MarketExceptionCopyWithImpl<$Res>
+    implements $CryptoCurrencyFetchingExceptionCopyWith<$Res> {
+  _$CryptoCurrencyFetchingExceptionCopyWithImpl(
+      CryptoCurrencyFetchingException _value,
+      $Res Function(CryptoCurrencyFetchingException) _then)
+      : super(_value, (v) => _then(v as CryptoCurrencyFetchingException));
+
+  @override
+  CryptoCurrencyFetchingException get _value =>
+      super._value as CryptoCurrencyFetchingException;
+}
+
+/// @nodoc
+
+@Implements(Exception)
+class _$CryptoCurrencyFetchingException
+    implements CryptoCurrencyFetchingException {
+  const _$CryptoCurrencyFetchingException();
+
+  @override
+  String toString() {
+    return 'MarketException.cryptoCurrencyFetchingException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is CryptoCurrencyFetchingException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() categoryFetchingException,
+    required TResult Function() cryptoCurrencyFetchingException,
+  }) {
+    return cryptoCurrencyFetchingException();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? categoryFetchingException,
+    TResult Function()? cryptoCurrencyFetchingException,
+    required TResult orElse(),
+  }) {
+    if (cryptoCurrencyFetchingException != null) {
+      return cryptoCurrencyFetchingException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryFetchingException value)
+        categoryFetchingException,
+    required TResult Function(CryptoCurrencyFetchingException value)
+        cryptoCurrencyFetchingException,
+  }) {
+    return cryptoCurrencyFetchingException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryFetchingException value)?
+        categoryFetchingException,
+    TResult Function(CryptoCurrencyFetchingException value)?
+        cryptoCurrencyFetchingException,
+    required TResult orElse(),
+  }) {
+    if (cryptoCurrencyFetchingException != null) {
+      return cryptoCurrencyFetchingException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CryptoCurrencyFetchingException
+    implements MarketException, Exception {
+  const factory CryptoCurrencyFetchingException() =
+      _$CryptoCurrencyFetchingException;
 }

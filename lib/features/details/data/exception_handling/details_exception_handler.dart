@@ -4,8 +4,10 @@ import 'package:coin_dino/features/details/data/exception_handling/exceptions/de
 
 class DetailsExceptionHandler {
   CustomFailure handleException(DetailsException exception) {
-    return exception.when(noInternetException: () {
-      return CustomFailure(message: "No Internet Connection in details");
+    return exception.when(chartFetchingException: () {
+      return CustomFailure(message: "There is an error in chart");
+    }, detailsFetchingException: () {
+      return CustomFailure(message: "There is an error in details");
     });
   }
 }

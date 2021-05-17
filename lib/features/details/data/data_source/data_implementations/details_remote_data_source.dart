@@ -5,7 +5,6 @@ import 'package:coin_dino/core/utils/error_printer.dart';
 import 'package:coin_dino/features/details/data/data_source/data_contracts/i_details_remote_data_source.dart';
 import 'package:coin_dino/features/details/data/exception_handling/exceptions/details_exceptions.dart';
 import 'package:coin_dino/features/details/data/models/coin_detail_model.dart';
-import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
 import 'package:coin_dino/features/details/data/models/coin_chart_model.dart';
 import 'package:dio/dio.dart';
 
@@ -27,7 +26,7 @@ class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
     } on DioError catch (e) {
       ErrorHelper().printError(
           "DetailRemoteDataSource/getChart", e);
-        throw DetailsException.noInternetException(); //TODO THROW EDİLEN EXCEPTIONU DEĞİŞTİRİRSİN    SERCAN
+        throw DetailsException.chartFetchingException(); 
     }
   }
 
@@ -46,7 +45,7 @@ class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
     } on DioError catch (e) {
       ErrorHelper().printError(
           "DetailRemoteDataSource/getDetails", e);
-       throw DetailsException.noInternetException(); //TODO THROW EDİLEN EXCEPTIONU DEĞİŞTİRİRSİN    SERCAN
+       throw DetailsException.detailsFetchingException();
     }
   }
 }

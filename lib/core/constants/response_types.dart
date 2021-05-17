@@ -1,5 +1,6 @@
 import 'package:coin_dino/features/details/data/models/coin_chart_model.dart';
 import 'package:coin_dino/features/details/data/models/coin_detail_model.dart';
+import 'package:coin_dino/features/market/data/models/market_coin_model.dart';
 
 class DefaultResponseTypes {
   static DefaultResponseTypes shared = DefaultResponseTypes();
@@ -7,6 +8,37 @@ class DefaultResponseTypes {
   var coinChart =
       CoinChartModel(prices: [[]], marketCaps: [[]], totalVolumes: [[]]);
 
+  var marketCoinModel = MarketCoinModel(
+      ath: 0,
+      athChangePercentage: 0,
+      atl: 0,
+      atlChangePercentage: 0,
+      circulatingSupply: 0,
+      currentPrice: 0,
+      fullyDilutedValuation: 1,
+      high24H: 10,
+      id: "",
+      image: "",
+      low24H: 0,
+      marketCap: 1,
+      marketCapChange24H: 0,
+      marketCapChangePercentage24H: 0,
+      marketCapRank: 0,
+      priceChange24H: 0,
+      name: "",
+      priceChangePercentage1HInCurrency: 0,
+      priceChangePercentage24H: 1,
+      priceChangePercentage24HInCurrency: 0,
+      priceChangePercentage30DInCurrency: 0,
+      priceChangePercentage7DInCurrency: 0,
+      symbol: "",
+      totalSupply: 0,
+      totalVolume: 0,
+      athDate: DateTime(1991),
+      atlDate: DateTime(1991),
+      lastUpdated: DateTime(1991),
+      maxSupply: 0,
+      roi: Roi(currency: "", percentage: 1, times: 1));
   var coinDetail = CoinDetailModel(
       id: "",
       symbol: "symbol",
