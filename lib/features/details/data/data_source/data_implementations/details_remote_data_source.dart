@@ -1,26 +1,23 @@
+import 'package:coin_dino/core/constants/response_types.dart';
 import 'package:coin_dino/core/network/network_clients/network_clients.dart';
 import 'package:coin_dino/core/network/network_fetching/network_executer.dart';
 import 'package:coin_dino/core/utils/error_printer.dart';
 import 'package:coin_dino/features/details/data/data_source/data_contracts/i_details_remote_data_source.dart';
+import 'package:coin_dino/features/details/data/exception_handling/exceptions/details_exceptions.dart';
+import 'package:coin_dino/features/details/data/models/coin_detail_model.dart';
 import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
-import 'package:coin_dino/features/details/data/models/coins_chart_model.dart';
+import 'package:coin_dino/features/details/data/models/coin_chart_model.dart';
 import 'package:dio/dio.dart';
 
 class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
-  var _exevuter = NetworkExecuter();
+  var _executer = NetworkExecuter();
 
   @override
   Future<CoinChartModel> getChart(
-      String id, String days, String vsCurrency, String interval) async {
+      {required String id, required String days, required String vsCurrency, required String interval}) async {
     try {
-      var response = await _exevuter.execute<CoinChartModel, CoinChartModel>(
-          responseType: CoinChartModel(prices: [
-            [0.0]
-          ], marketCaps: [
-            [0.0]
-          ], totalVolumes: [
-            [0.0]
-          ]),
+      var response = await _executer.execute<CoinChartModel, CoinChartModel>(
+          responseType: DefaultResponseTypes.shared.coinChart,
           options: NetworkClients.martketChart(id, vsCurrency, days, interval));
       if (response != null) {
         return response;
@@ -29,28 +26,17 @@ class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
       }
     } on DioError catch (e) {
       ErrorHelper().printError(
-          "ActivityRemoteDataSourceImplementation/getActivityByType", e);
-      /// TODO : BU ALAN DEĞİŞECEK UNUTMA AMK
-      throw "$e";
+          "DetailRemoteDataSource/getChart", e);
+        throw DetailsException.noInternetException(); //TODO THROW EDİLEN EXCEPTIONU DEĞİŞTİRİRSİN    SERCAN
     }
   }
 
   @override
-  Future<CoinDetailEntity> getDetails(String id) async {
+  Future<CoinDetailModel> getDetails({required String id}) async {
     try {
       var response =
-          await _exevuter.execute<CoinDetailEntity, CoinDetailEntity>(
-              responseType: CoinDetailEntity(
-                  additionalNotices: [""],
-                  assetPlatformId: 1,
-                  blockTimeInMinutes: 1,
-                  categories: [""],
-                  description: "",
-                  hashingAlgorithm: "",
-                  id: "",
-                  name: "",
-                  publicNotice: "",
-                  symbol: ""),
+          await _executer.execute<CoinDetailModel, CoinDetailModel>(
+              responseType: DefaultResponseTypes.shared.coinDetail,
               options: NetworkClients.coinsID(id));
       if (response != null) {
         return response;
@@ -59,8 +45,8 @@ class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
       }
     } on DioError catch (e) {
       ErrorHelper().printError(
-          "ActivityRemoteDataSourceImplementation/getRandomActivity", e);
-      throw "${e.response?.statusCode}";
+          "DetailRemoteDataSource/getDetails", e);
+       throw DetailsException.noInternetException(); //TODO THROW EDİLEN EXCEPTIONU DEĞİŞTİRİRSİN    SERCAN
     }
   }
 }

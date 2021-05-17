@@ -1,4 +1,5 @@
 import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
+import 'package:coin_dino/features/details/domain/entity/coin_chart_entity.dart';
 
 class CoinChartModel extends BaseNetworkModel {
   CoinChartModel({
@@ -30,5 +31,11 @@ class CoinChartModel extends BaseNetworkModel {
       totalVolumes: List<List<double>>.from(json["total_volumes"]
           .map((x) => List<double>.from(x.map((x) => x.toDouble())))),
     );
+  }
+
+  @override
+  CoinChartEntity toEntity() {
+    return CoinChartEntity(
+        prices: prices, marketCaps: marketCaps, totalVolumes: totalVolumes);
   }
 }

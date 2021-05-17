@@ -1,9 +1,8 @@
-/// Coin Detail Page Model
+import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
+import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
 
-
-
-class CoinsDetailModel {
-  CoinsDetailModel({
+class CoinDetailModel extends BaseNetworkModel {
+  CoinDetailModel({
     required this.id,
     required this.symbol,
     required this.name,
@@ -69,44 +68,6 @@ class CoinsDetailModel {
   final DateTime lastUpdated;
   final List<Ticker> tickers;
 
-  factory CoinsDetailModel.fromJson(Map<String, dynamic> json) =>
-      CoinsDetailModel(
-        id: json["id"],
-        symbol: json["symbol"],
-        name: json["name"],
-        assetPlatformId: json["asset_platform_id"],
-        platforms: Platforms.fromJson(json["platforms"]),
-        blockTimeInMinutes: json["block_time_in_minutes"],
-        hashingAlgorithm: json["hashing_algorithm"],
-        categories: List<String>.from(json["categories"].map((x) => x)),
-        publicNotice: json["public_notice"],
-        additionalNotices:
-            List<dynamic>.from(json["additional_notices"].map((x) => x)),
-        description: Description.fromJson(json["description"]),
-        links: Links.fromJson(json["links"]),
-        image: Image.fromJson(json["image"]),
-        countryOrigin: json["country_origin"],
-        genesisDate: DateTime.parse(json["genesis_date"]),
-        sentimentVotesUpPercentage: json["sentiment_votes_up_percentage"],
-        sentimentVotesDownPercentage: json["sentiment_votes_down_percentage"],
-        marketCapRank: json["market_cap_rank"],
-        coingeckoRank: json["coingecko_rank"],
-        coingeckoScore: json["coingecko_score"].toDouble(),
-        developerScore: json["developer_score"].toDouble(),
-        communityScore: json["community_score"].toDouble(),
-        liquidityScore: json["liquidity_score"].toDouble(),
-        publicInterestScore: json["public_interest_score"],
-        marketData: MarketData.fromJson(json["market_data"]),
-        communityData: CommunityData.fromJson(json["community_data"]),
-        developerData: DeveloperData.fromJson(json["developer_data"]),
-        publicInterestStats:
-            PublicInterestStats.fromJson(json["public_interest_stats"]),
-        statusUpdates: List<dynamic>.from(json["status_updates"].map((x) => x)),
-        lastUpdated: DateTime.parse(json["last_updated"]),
-        tickers:
-            List<Ticker>.from(json["tickers"].map((x) => Ticker.fromJson(x))),
-      );
-
   Map<String, dynamic> toJson() => {
         "id": id,
         "symbol": symbol,
@@ -142,6 +103,61 @@ class CoinsDetailModel {
         "last_updated": lastUpdated.toIso8601String(),
         "tickers": List<dynamic>.from(tickers.map((x) => x.toJson())),
       };
+
+  @override
+  fromJson(Map<String, dynamic> json) {
+    return CoinDetailModel(
+      id: json["id"],
+      symbol: json["symbol"],
+      name: json["name"],
+      assetPlatformId: json["asset_platform_id"],
+      platforms: Platforms.fromJson(json["platforms"]),
+      blockTimeInMinutes: json["block_time_in_minutes"],
+      hashingAlgorithm: json["hashing_algorithm"],
+      categories: List<String>.from(json["categories"].map((x) => x)),
+      publicNotice: json["public_notice"],
+      additionalNotices:
+          List<dynamic>.from(json["additional_notices"].map((x) => x)),
+      description: Description.fromJson(json["description"]),
+      links: Links.fromJson(json["links"]),
+      image: Image.fromJson(json["image"]),
+      countryOrigin: json["country_origin"],
+      genesisDate: DateTime.parse(json["genesis_date"]),
+      sentimentVotesUpPercentage: json["sentiment_votes_up_percentage"],
+      sentimentVotesDownPercentage: json["sentiment_votes_down_percentage"],
+      marketCapRank: json["market_cap_rank"],
+      coingeckoRank: json["coingecko_rank"],
+      coingeckoScore: json["coingecko_score"].toDouble(),
+      developerScore: json["developer_score"].toDouble(),
+      communityScore: json["community_score"].toDouble(),
+      liquidityScore: json["liquidity_score"].toDouble(),
+      publicInterestScore: json["public_interest_score"],
+      marketData: MarketData.fromJson(json["market_data"]),
+      communityData: CommunityData.fromJson(json["community_data"]),
+      developerData: DeveloperData.fromJson(json["developer_data"]),
+      publicInterestStats:
+          PublicInterestStats.fromJson(json["public_interest_stats"]),
+      statusUpdates: List<dynamic>.from(json["status_updates"].map((x) => x)),
+      lastUpdated: DateTime.parse(json["last_updated"]),
+      tickers:
+          List<Ticker>.from(json["tickers"].map((x) => Ticker.fromJson(x))),
+    );
+  }
+
+  @override
+  CoinDetailEntity toEntity() {
+    return CoinDetailEntity(
+        id: id,
+        symbol: symbol,
+        name: name,
+        assetPlatformId: assetPlatformId,
+        blockTimeInMinutes: blockTimeInMinutes,
+        hashingAlgorithm: hashingAlgorithm,
+        categories: categories,
+        publicNotice: publicNotice,
+        additionalNotices: additionalNotices,
+        description: description.en);
+  }
 }
 
 class CommunityData {
@@ -797,7 +813,7 @@ class Ath {
         "cny": cny,
         "czk": czk,
         "dkk": dkk,
-        "dot":  dot,
+        "dot": dot,
         "eos": eos,
         "eth": eth,
         "eur": eur,
@@ -1219,7 +1235,7 @@ class Ticker {
         "trade_url": tradeUrl,
         "token_info_url": tokenInfoUrl,
         "coin_id": coinId,
-        "target_coin_id":  targetCoinId,
+        "target_coin_id": targetCoinId,
       };
 }
 
