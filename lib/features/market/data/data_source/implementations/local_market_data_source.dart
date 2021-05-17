@@ -6,7 +6,7 @@ import 'package:flutter/services.dart' show rootBundle;
 class LocalMarketDataSource implements ILocalMarketDataSource {
   @override
   Future<List<MarketCoinCategoryModel>> getAllCategories() async {
-    final String localJsonPath = 'assets/JSON/crypto_categories.json';
+    final String localJsonPath = 'assets/json/crypto_categories.json';
     var localData = await rootBundle.loadString(localJsonPath);
     List<MarketCoinCategoryModel> categoryList = json.decode(localData);
     return categoryList;
