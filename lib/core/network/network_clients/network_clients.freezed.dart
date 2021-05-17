@@ -17,23 +17,12 @@ class _$NetworkClientsTearOff {
   const _$NetworkClientsTearOff();
 
   CoinsMarket coinsMarket(
-      String vsCurrency,
-      String? ids,
-      String? category,
-      String? order,
-      int? perPage,
-      int? page,
-      bool? sparkline,
-      String? priceChangePercentage) {
+      String date, String sort, String? category, String vsCurrency) {
     return CoinsMarket(
-      vsCurrency,
-      ids,
+      date,
+      sort,
       category,
-      order,
-      perPage,
-      page,
-      sparkline,
-      priceChangePercentage,
+      vsCurrency,
     );
   }
 
@@ -74,14 +63,7 @@ mixin _$NetworkClients {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)
+            String date, String sort, String? category, String vsCurrency)
         coinsMarket,
     required TResult Function(
             String id,
@@ -100,14 +82,7 @@ mixin _$NetworkClients {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)?
+            String date, String sort, String? category, String vsCurrency)?
         coinsMarket,
     TResult Function(
             String id,
@@ -163,15 +138,7 @@ abstract class $CoinsMarketCopyWith<$Res> {
   factory $CoinsMarketCopyWith(
           CoinsMarket value, $Res Function(CoinsMarket) then) =
       _$CoinsMarketCopyWithImpl<$Res>;
-  $Res call(
-      {String vsCurrency,
-      String? ids,
-      String? category,
-      String? order,
-      int? perPage,
-      int? page,
-      bool? sparkline,
-      String? priceChangePercentage});
+  $Res call({String date, String sort, String? category, String vsCurrency});
 }
 
 /// @nodoc
@@ -186,48 +153,28 @@ class _$CoinsMarketCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? vsCurrency = freezed,
-    Object? ids = freezed,
+    Object? date = freezed,
+    Object? sort = freezed,
     Object? category = freezed,
-    Object? order = freezed,
-    Object? perPage = freezed,
-    Object? page = freezed,
-    Object? sparkline = freezed,
-    Object? priceChangePercentage = freezed,
+    Object? vsCurrency = freezed,
   }) {
     return _then(CoinsMarket(
-      vsCurrency == freezed
-          ? _value.vsCurrency
-          : vsCurrency // ignore: cast_nullable_to_non_nullable
+      date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String,
-      ids == freezed
-          ? _value.ids
-          : ids // ignore: cast_nullable_to_non_nullable
-              as String?,
+      sort == freezed
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as String,
       category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String?,
-      order == freezed
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as String?,
-      perPage == freezed
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
-      page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      sparkline == freezed
-          ? _value.sparkline
-          : sparkline // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      priceChangePercentage == freezed
-          ? _value.priceChangePercentage
-          : priceChangePercentage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      vsCurrency == freezed
+          ? _value.vsCurrency
+          : vsCurrency // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -235,70 +182,46 @@ class _$CoinsMarketCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CoinsMarket extends CoinsMarket {
-  const _$CoinsMarket(this.vsCurrency, this.ids, this.category, this.order,
-      this.perPage, this.page, this.sparkline, this.priceChangePercentage)
+  const _$CoinsMarket(this.date, this.sort, this.category, this.vsCurrency)
       : super._();
 
   @override
-  final String vsCurrency;
+  final String date;
   @override
-  final String? ids;
+  final String sort;
   @override
   final String? category;
   @override
-  final String? order;
-  @override
-  final int? perPage;
-  @override
-  final int? page;
-  @override
-  final bool? sparkline;
-  @override
-  final String? priceChangePercentage;
+  final String vsCurrency;
 
   @override
   String toString() {
-    return 'NetworkClients.coinsMarket(vsCurrency: $vsCurrency, ids: $ids, category: $category, order: $order, perPage: $perPage, page: $page, sparkline: $sparkline, priceChangePercentage: $priceChangePercentage)';
+    return 'NetworkClients.coinsMarket(date: $date, sort: $sort, category: $category, vsCurrency: $vsCurrency)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is CoinsMarket &&
-            (identical(other.vsCurrency, vsCurrency) ||
-                const DeepCollectionEquality()
-                    .equals(other.vsCurrency, vsCurrency)) &&
-            (identical(other.ids, ids) ||
-                const DeepCollectionEquality().equals(other.ids, ids)) &&
+            (identical(other.date, date) ||
+                const DeepCollectionEquality().equals(other.date, date)) &&
+            (identical(other.sort, sort) ||
+                const DeepCollectionEquality().equals(other.sort, sort)) &&
             (identical(other.category, category) ||
                 const DeepCollectionEquality()
                     .equals(other.category, category)) &&
-            (identical(other.order, order) ||
-                const DeepCollectionEquality().equals(other.order, order)) &&
-            (identical(other.perPage, perPage) ||
+            (identical(other.vsCurrency, vsCurrency) ||
                 const DeepCollectionEquality()
-                    .equals(other.perPage, perPage)) &&
-            (identical(other.page, page) ||
-                const DeepCollectionEquality().equals(other.page, page)) &&
-            (identical(other.sparkline, sparkline) ||
-                const DeepCollectionEquality()
-                    .equals(other.sparkline, sparkline)) &&
-            (identical(other.priceChangePercentage, priceChangePercentage) ||
-                const DeepCollectionEquality().equals(
-                    other.priceChangePercentage, priceChangePercentage)));
+                    .equals(other.vsCurrency, vsCurrency)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(vsCurrency) ^
-      const DeepCollectionEquality().hash(ids) ^
+      const DeepCollectionEquality().hash(date) ^
+      const DeepCollectionEquality().hash(sort) ^
       const DeepCollectionEquality().hash(category) ^
-      const DeepCollectionEquality().hash(order) ^
-      const DeepCollectionEquality().hash(perPage) ^
-      const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(sparkline) ^
-      const DeepCollectionEquality().hash(priceChangePercentage);
+      const DeepCollectionEquality().hash(vsCurrency);
 
   @JsonKey(ignore: true)
   @override
@@ -309,14 +232,7 @@ class _$CoinsMarket extends CoinsMarket {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)
+            String date, String sort, String? category, String vsCurrency)
         coinsMarket,
     required TResult Function(
             String id,
@@ -331,22 +247,14 @@ class _$CoinsMarket extends CoinsMarket {
             String id, String vsCurrency, String days, String interval)
         martketChart,
   }) {
-    return coinsMarket(vsCurrency, ids, category, order, perPage, page,
-        sparkline, priceChangePercentage);
+    return coinsMarket(date, sort, category, vsCurrency);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)?
+            String date, String sort, String? category, String vsCurrency)?
         coinsMarket,
     TResult Function(
             String id,
@@ -363,8 +271,7 @@ class _$CoinsMarket extends CoinsMarket {
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
-      return coinsMarket(vsCurrency, ids, category, order, perPage, page,
-          sparkline, priceChangePercentage);
+      return coinsMarket(date, sort, category, vsCurrency);
     }
     return orElse();
   }
@@ -396,24 +303,14 @@ class _$CoinsMarket extends CoinsMarket {
 
 abstract class CoinsMarket extends NetworkClients {
   const factory CoinsMarket(
-      String vsCurrency,
-      String? ids,
-      String? category,
-      String? order,
-      int? perPage,
-      int? page,
-      bool? sparkline,
-      String? priceChangePercentage) = _$CoinsMarket;
+          String date, String sort, String? category, String vsCurrency) =
+      _$CoinsMarket;
   const CoinsMarket._() : super._();
 
-  String get vsCurrency => throw _privateConstructorUsedError;
-  String? get ids => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  String get sort => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
-  String? get order => throw _privateConstructorUsedError;
-  int? get perPage => throw _privateConstructorUsedError;
-  int? get page => throw _privateConstructorUsedError;
-  bool? get sparkline => throw _privateConstructorUsedError;
-  String? get priceChangePercentage => throw _privateConstructorUsedError;
+  String get vsCurrency => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CoinsMarketCopyWith<CoinsMarket> get copyWith =>
       throw _privateConstructorUsedError;
@@ -563,14 +460,7 @@ class _$CoinsID extends CoinsID {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)
+            String date, String sort, String? category, String vsCurrency)
         coinsMarket,
     required TResult Function(
             String id,
@@ -593,14 +483,7 @@ class _$CoinsID extends CoinsID {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)?
+            String date, String sort, String? category, String vsCurrency)?
         coinsMarket,
     TResult Function(
             String id,
@@ -767,14 +650,7 @@ class _$MarketChart extends MarketChart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)
+            String date, String sort, String? category, String vsCurrency)
         coinsMarket,
     required TResult Function(
             String id,
@@ -796,14 +672,7 @@ class _$MarketChart extends MarketChart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            String vsCurrency,
-            String? ids,
-            String? category,
-            String? order,
-            int? perPage,
-            int? page,
-            bool? sparkline,
-            String? priceChangePercentage)?
+            String date, String sort, String? category, String vsCurrency)?
         coinsMarket,
     TResult Function(
             String id,

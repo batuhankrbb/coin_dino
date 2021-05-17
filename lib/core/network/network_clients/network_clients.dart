@@ -8,14 +8,8 @@ abstract class NetworkClients extends NetworkOptionsGenerator
     with _$NetworkClients {
   const NetworkClients._() : super();
   const factory NetworkClients.coinsMarket(
-      String vsCurrency,
-      String? ids,
-      String? category,
-      String? order,
-      int? perPage,
-      int? page,
-      bool? sparkline,
-      String? priceChangePercentage) = CoinsMarket;
+          String date, String sort, String? category, String vsCurrency) =
+      CoinsMarket;
   factory NetworkClients.coinsID(String id,
       {String? localization,
       String? tickers,
@@ -39,15 +33,9 @@ abstract class NetworkClients extends NetworkOptionsGenerator
               String? developerdata,
               String? sparkline) =>
           "/coins/$id",
-      coinsMarket: (String vsCurrency,
-              String? ids,
-              String? category,
-              String? order,
-              int? perPage,
-              int? page,
-              bool? sparkline,
-              String? priceChangePercentage) =>
-          "/coins/markets",
+      coinsMarket:
+          (String date, String sort, String? category, String vsCurrency) =>
+              "/coins/markets",
       martketChart:
           (String id, String vsCurrency, String days, String interval) =>
               "/coins/$id/market_chart");
@@ -62,15 +50,9 @@ abstract class NetworkClients extends NetworkOptionsGenerator
               String? developerdata,
               String? sparkline) =>
           "GET",
-      coinsMarket: (String vsCurrency,
-              String? ids,
-              String? category,
-              String? order,
-              int? perPage,
-              int? page,
-              bool? sparkline,
-              String? priceChangePercentage) =>
-          "GET",
+      coinsMarket:
+          (String date, String sort, String? category, String vsCurrency) =>
+              "GET",
       martketChart: (_, String vsCurrency, String days, String interval) =>
           "GET");
 
@@ -95,24 +77,13 @@ abstract class NetworkClients extends NetworkOptionsGenerator
           "sparkline": sparkline ?? "false",
         };
       },
-      coinsMarket: (String vsCurrency,
-              String? ids,
-              String? category,
-              String? order,
-              int? perPage,
-              int? page,
-              bool? sparkline,
-              String? priceChangePercentage) =>
-          {
-            "vs_currency": vsCurrency,
-            "ids": ids,
-            "category": category,
-            "order": order,
-            "per_page": perPage ?? 100,
-            "page": page ?? 1,
-            "sparkline": sparkline ?? false,
-            "price_change_percentage": priceChangePercentage,
-          },
+      coinsMarket:
+          (String date, String sort, String? category, String vsCurrency) => {
+                "vs_currency": vsCurrency,
+                "category": category,
+                "order": sort,
+                "price_change_percentage": date,
+              },
       martketChart: (_, String vsCurrency, String days, String interval) =>
           {"vs_currency": vsCurrency, "days": days, "interval": interval});
 
