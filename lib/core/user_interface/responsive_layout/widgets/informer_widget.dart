@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/responsive_layout_helper.dart';
 import '../utils/screen_information_model.dart';
 
@@ -8,7 +7,6 @@ class InformerWidget extends StatelessWidget {
 
   final Widget Function(
       BuildContext context, ScreenInformation screenInformation) onPageBuild;
-
   late ResponsiveLayoutHelper _helper;
 
   @override
@@ -18,7 +16,6 @@ class InformerWidget extends StatelessWidget {
     return LayoutBuilder(builder: (context, boxConstraint) {
       var information =
           _helper.getAllInformations(boxConstraints: boxConstraint);
-
       return onPageBuild(context, information);
     });
   }

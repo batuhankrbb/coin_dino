@@ -14,7 +14,7 @@ class MarketCoinCategoryModel extends BaseNetworkModel{
   Map<String, dynamic> toJson() => {
         "category_id": categoryId,
         "name": name,
-      };
+      } ;
 
   MarketCoinCategoryEntity toEntity() {
     return MarketCoinCategoryEntity(categoryID: categoryId, categoryName: name);
