@@ -10,8 +10,6 @@ class SearchTrendModel extends BaseNetworkModel {
   final List<Coin> coins;
   final List<dynamic> exchanges;
 
-
-
   Map<String, dynamic> toJson() => {
         "coins": List<dynamic>.from(coins.map((x) => x.toJson())),
         "exchanges": List<dynamic>.from(exchanges.map((x) => x)),
@@ -19,18 +17,19 @@ class SearchTrendModel extends BaseNetworkModel {
 
   @override
   SearchTrendModel fromJson(Map<String, dynamic> json) {
- return SearchTrendModel(
-        coins: List<Coin>.from(json["coins"].map((x) => Coin.fromJson(x))),
-        exchanges: List<dynamic>.from(json["exchanges"].map((x) => x)),
-      );
+    return SearchTrendModel(
+      coins: List<Coin>.from(json["coins"].map((x) => Coin)),
+      exchanges: List<dynamic>.from(json["exchanges"].map((x) => x)),
+    );
   }
 
   @override
-  toEntity() {
-    // TODO: SERCAN
-  }
+  SearchTrendEntity toEntity() {
+    var coinEntityList = coins.map((e) => e.toEntity()).toList();
+    return SearchTrendEntity(
+        coinEntityList: coinEntityList, exchangeList: exchanges);
 
-  
+  }
 }
 
 class Coin {
@@ -40,13 +39,31 @@ class Coin {
 
   final Item item;
 
-  factory Coin.fromJson(Map<String, dynamic> json) => Coin(
-        item: Item.fromJson(json["item"]),
-      );
-
   Map<String, dynamic> toJson() => {
         "item": item.toJson(),
       };
+
+
+   factory Coin.fromJson(Map<String, dynamic> json) {
+    return Coin(
+      item: Item.fromJson(json["item"]),
+    );
+  }
+
+
+  SearchTrendCoinEntity toEntity() {
+    return SearchTrendCoinEntity(
+        id: item.id,
+        coinID: item.coinId,
+        name: item.name,
+        symbol: item.symbol,
+        thumbImage: item.thumb,
+        smallImage: item.small,
+        largeImage: item.large,
+        slug: item.slug,
+        btcPrice: item.priceBtc,
+        score: item.score);
+  }
 }
 
 class Item {
@@ -76,20 +93,6 @@ class Item {
   final double priceBtc;
   final int score;
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
-        id: json["id"],
-        coinId: json["coin_id"],
-        name: json["name"],
-        symbol: json["symbol"],
-        marketCapRank: json["market_cap_rank"],
-        thumb: json["thumb"],
-        small: json["small"],
-        large: json["large"],
-        slug: json["slug"],
-        priceBtc: json["price_btc"].toDouble(),
-        score: json["score"],
-      );
-
   Map<String, dynamic> toJson() => {
         "id": id,
         "coin_id": coinId,
@@ -103,4 +106,20 @@ class Item {
         "price_btc": priceBtc,
         "score": score,
       };
+
+  factory Item.fromJson(Map<String, dynamic> json) {
+    return Item(
+      id: json["id"],
+      coinId: json["coin_id"],
+      name: json["name"],
+      symbol: json["symbol"],
+      marketCapRank: json["market_cap_rank"],
+      thumb: json["thumb"],
+      small: json["small"],
+      large: json["large"],
+      slug: json["slug"],
+      priceBtc: json["price_btc"].toDouble(),
+      score: json["score"],
+    );
+  }
 }
