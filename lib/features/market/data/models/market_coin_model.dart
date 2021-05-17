@@ -1,6 +1,7 @@
+import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
 import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
 
-class MarketCoinModel {
+class MarketCoinModel extends BaseNetworkModel{
   MarketCoinModel({
     required this.id,
     required this.symbol,
@@ -65,8 +66,10 @@ class MarketCoinModel {
   final double priceChangePercentage30DInCurrency;
   final double priceChangePercentage7DInCurrency;
 
-  factory MarketCoinModel.fromJson(Map<String, dynamic> json) =>
-      MarketCoinModel(
+  
+ @override
+  fromJson(Map<String, dynamic> json) {
+    return  MarketCoinModel(
         id: json["id"],
         symbol: json["symbol"],
         name: json["name"],
@@ -109,6 +112,7 @@ class MarketCoinModel {
         priceChangePercentage7DInCurrency:
             json["price_change_percentage_7d_in_currency"].toDouble(),
       );
+  }
 
   Map<String, dynamic> toJson() => {
         "id": id,
@@ -148,6 +152,8 @@ class MarketCoinModel {
             priceChangePercentage7DInCurrency,
       };
 
+
+
   MarketCoinEntity toEntity() {
     return MarketCoinEntity(
         marketCapRank: marketCapRank,
@@ -162,6 +168,7 @@ class MarketCoinModel {
         priceChangePercentage7d: priceChangePercentage7DInCurrency,
         priceChangePercentage30d: priceChangePercentage30DInCurrency);
   }
+ 
 }
 
 class Roi {
