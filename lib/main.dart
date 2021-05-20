@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(EasyLocalization(
     path: "assets/language/",
-    supportedLocales: [Locale("tr","TR")],
+    supportedLocales: [Locale("tr", "TR")],
+    startLocale: Locale("tr","TR"),
     child: MyApp(),
   ));
 }
