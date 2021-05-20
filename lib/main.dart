@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(EasyLocalization(
-    path: "",
-    supportedLocales: [],
+    path: "assets/language/",
+    supportedLocales: [Locale("tr","TR")],
     child: MyApp(),
   ));
 }
