@@ -1,4 +1,3 @@
-import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
 
 class CoinDetailEntity {
   final String id;
