@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'network_clients.dart';
+part of 'coin_gecko_client.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$NetworkClientsTearOff {
-  const _$NetworkClientsTearOff();
+class _$CoinGeckoClientTearOff {
+  const _$CoinGeckoClientTearOff();
 
   CoinsMarket coinsMarket(
       String date, String sort, String? category, String vsCurrency) {
@@ -26,14 +26,14 @@ class _$NetworkClientsTearOff {
     );
   }
 
-  CoinsID coinsID(String id,
+  Details details(String id,
       {String? localization,
       String? tickers,
       String? marketdata,
       String? communitydata,
       String? developerdata,
       String? sparkline}) {
-    return CoinsID(
+    return Details(
       id,
       localization: localization,
       tickers: tickers,
@@ -44,7 +44,7 @@ class _$NetworkClientsTearOff {
     );
   }
 
-  MarketChart martketChart(
+  MarketChart marketChart(
       String id, String vsCurrency, String days, String interval) {
     return MarketChart(
       id,
@@ -58,8 +58,8 @@ class _$NetworkClientsTearOff {
     return const SearchTrends();
   }
 
-  GetCoinSearchClient getCoinSearchClient(String text, String vsCurrency) {
-    return GetCoinSearchClient(
+  CoinSearch coinSearch(String text, String vsCurrency) {
+    return CoinSearch(
       text,
       vsCurrency,
     );
@@ -67,10 +67,10 @@ class _$NetworkClientsTearOff {
 }
 
 /// @nodoc
-const $NetworkClients = _$NetworkClientsTearOff();
+const $CoinGeckoClient = _$CoinGeckoClientTearOff();
 
 /// @nodoc
-mixin _$NetworkClients {
+mixin _$CoinGeckoClient {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -84,13 +84,12 @@ mixin _$NetworkClients {
             String? communitydata,
             String? developerdata,
             String? sparkline)
-        coinsID,
+        details,
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
-        martketChart,
+        marketChart,
     required TResult Function() searchTrends,
-    required TResult Function(String text, String vsCurrency)
-        getCoinSearchClient,
+    required TResult Function(String text, String vsCurrency) coinSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,51 +105,51 @@ mixin _$NetworkClients {
             String? communitydata,
             String? developerdata,
             String? sparkline)?
-        coinsID,
+        details,
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
-        martketChart,
+        marketChart,
     TResult Function()? searchTrends,
-    TResult Function(String text, String vsCurrency)? getCoinSearchClient,
+    TResult Function(String text, String vsCurrency)? coinSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoinsMarket value) coinsMarket,
-    required TResult Function(CoinsID value) coinsID,
-    required TResult Function(MarketChart value) martketChart,
+    required TResult Function(Details value) details,
+    required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
-    required TResult Function(GetCoinSearchClient value) getCoinSearchClient,
+    required TResult Function(CoinSearch value) coinSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoinsMarket value)? coinsMarket,
-    TResult Function(CoinsID value)? coinsID,
-    TResult Function(MarketChart value)? martketChart,
+    TResult Function(Details value)? details,
+    TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
-    TResult Function(GetCoinSearchClient value)? getCoinSearchClient,
+    TResult Function(CoinSearch value)? coinSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NetworkClientsCopyWith<$Res> {
-  factory $NetworkClientsCopyWith(
-          NetworkClients value, $Res Function(NetworkClients) then) =
-      _$NetworkClientsCopyWithImpl<$Res>;
+abstract class $CoinGeckoClientCopyWith<$Res> {
+  factory $CoinGeckoClientCopyWith(
+          CoinGeckoClient value, $Res Function(CoinGeckoClient) then) =
+      _$CoinGeckoClientCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NetworkClientsCopyWithImpl<$Res>
-    implements $NetworkClientsCopyWith<$Res> {
-  _$NetworkClientsCopyWithImpl(this._value, this._then);
+class _$CoinGeckoClientCopyWithImpl<$Res>
+    implements $CoinGeckoClientCopyWith<$Res> {
+  _$CoinGeckoClientCopyWithImpl(this._value, this._then);
 
-  final NetworkClients _value;
+  final CoinGeckoClient _value;
   // ignore: unused_field
-  final $Res Function(NetworkClients) _then;
+  final $Res Function(CoinGeckoClient) _then;
 }
 
 /// @nodoc
@@ -162,7 +161,8 @@ abstract class $CoinsMarketCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CoinsMarketCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
+class _$CoinsMarketCopyWithImpl<$Res>
+    extends _$CoinGeckoClientCopyWithImpl<$Res>
     implements $CoinsMarketCopyWith<$Res> {
   _$CoinsMarketCopyWithImpl(
       CoinsMarket _value, $Res Function(CoinsMarket) _then)
@@ -216,7 +216,7 @@ class _$CoinsMarket extends CoinsMarket {
 
   @override
   String toString() {
-    return 'NetworkClients.coinsMarket(date: $date, sort: $sort, category: $category, vsCurrency: $vsCurrency)';
+    return 'CoinGeckoClient.coinsMarket(date: $date, sort: $sort, category: $category, vsCurrency: $vsCurrency)';
   }
 
   @override
@@ -262,13 +262,12 @@ class _$CoinsMarket extends CoinsMarket {
             String? communitydata,
             String? developerdata,
             String? sparkline)
-        coinsID,
+        details,
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
-        martketChart,
+        marketChart,
     required TResult Function() searchTrends,
-    required TResult Function(String text, String vsCurrency)
-        getCoinSearchClient,
+    required TResult Function(String text, String vsCurrency) coinSearch,
   }) {
     return coinsMarket(date, sort, category, vsCurrency);
   }
@@ -287,12 +286,12 @@ class _$CoinsMarket extends CoinsMarket {
             String? communitydata,
             String? developerdata,
             String? sparkline)?
-        coinsID,
+        details,
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
-        martketChart,
+        marketChart,
     TResult Function()? searchTrends,
-    TResult Function(String text, String vsCurrency)? getCoinSearchClient,
+    TResult Function(String text, String vsCurrency)? coinSearch,
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
@@ -305,10 +304,10 @@ class _$CoinsMarket extends CoinsMarket {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoinsMarket value) coinsMarket,
-    required TResult Function(CoinsID value) coinsID,
-    required TResult Function(MarketChart value) martketChart,
+    required TResult Function(Details value) details,
+    required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
-    required TResult Function(GetCoinSearchClient value) getCoinSearchClient,
+    required TResult Function(CoinSearch value) coinSearch,
   }) {
     return coinsMarket(this);
   }
@@ -317,10 +316,10 @@ class _$CoinsMarket extends CoinsMarket {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoinsMarket value)? coinsMarket,
-    TResult Function(CoinsID value)? coinsID,
-    TResult Function(MarketChart value)? martketChart,
+    TResult Function(Details value)? details,
+    TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
-    TResult Function(GetCoinSearchClient value)? getCoinSearchClient,
+    TResult Function(CoinSearch value)? coinSearch,
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
@@ -330,7 +329,7 @@ class _$CoinsMarket extends CoinsMarket {
   }
 }
 
-abstract class CoinsMarket extends NetworkClients {
+abstract class CoinsMarket extends CoinGeckoClient {
   const factory CoinsMarket(
           String date, String sort, String? category, String vsCurrency) =
       _$CoinsMarket;
@@ -346,9 +345,9 @@ abstract class CoinsMarket extends NetworkClients {
 }
 
 /// @nodoc
-abstract class $CoinsIDCopyWith<$Res> {
-  factory $CoinsIDCopyWith(CoinsID value, $Res Function(CoinsID) then) =
-      _$CoinsIDCopyWithImpl<$Res>;
+abstract class $DetailsCopyWith<$Res> {
+  factory $DetailsCopyWith(Details value, $Res Function(Details) then) =
+      _$DetailsCopyWithImpl<$Res>;
   $Res call(
       {String id,
       String? localization,
@@ -360,13 +359,13 @@ abstract class $CoinsIDCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CoinsIDCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
-    implements $CoinsIDCopyWith<$Res> {
-  _$CoinsIDCopyWithImpl(CoinsID _value, $Res Function(CoinsID) _then)
-      : super(_value, (v) => _then(v as CoinsID));
+class _$DetailsCopyWithImpl<$Res> extends _$CoinGeckoClientCopyWithImpl<$Res>
+    implements $DetailsCopyWith<$Res> {
+  _$DetailsCopyWithImpl(Details _value, $Res Function(Details) _then)
+      : super(_value, (v) => _then(v as Details));
 
   @override
-  CoinsID get _value => super._value as CoinsID;
+  Details get _value => super._value as Details;
 
   @override
   $Res call({
@@ -378,7 +377,7 @@ class _$CoinsIDCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
     Object? developerdata = freezed,
     Object? sparkline = freezed,
   }) {
-    return _then(CoinsID(
+    return _then(Details(
       id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -413,8 +412,8 @@ class _$CoinsIDCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CoinsID extends CoinsID {
-  _$CoinsID(this.id,
+class _$Details extends Details {
+  const _$Details(this.id,
       {this.localization,
       this.tickers,
       this.marketdata,
@@ -440,13 +439,13 @@ class _$CoinsID extends CoinsID {
 
   @override
   String toString() {
-    return 'NetworkClients.coinsID(id: $id, localization: $localization, tickers: $tickers, marketdata: $marketdata, communitydata: $communitydata, developerdata: $developerdata, sparkline: $sparkline)';
+    return 'CoinGeckoClient.details(id: $id, localization: $localization, tickers: $tickers, marketdata: $marketdata, communitydata: $communitydata, developerdata: $developerdata, sparkline: $sparkline)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is CoinsID &&
+        (other is Details &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.localization, localization) ||
@@ -482,8 +481,8 @@ class _$CoinsID extends CoinsID {
 
   @JsonKey(ignore: true)
   @override
-  $CoinsIDCopyWith<CoinsID> get copyWith =>
-      _$CoinsIDCopyWithImpl<CoinsID>(this, _$identity);
+  $DetailsCopyWith<Details> get copyWith =>
+      _$DetailsCopyWithImpl<Details>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -499,15 +498,14 @@ class _$CoinsID extends CoinsID {
             String? communitydata,
             String? developerdata,
             String? sparkline)
-        coinsID,
+        details,
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
-        martketChart,
+        marketChart,
     required TResult Function() searchTrends,
-    required TResult Function(String text, String vsCurrency)
-        getCoinSearchClient,
+    required TResult Function(String text, String vsCurrency) coinSearch,
   }) {
-    return coinsID(id, localization, tickers, marketdata, communitydata,
+    return details(id, localization, tickers, marketdata, communitydata,
         developerdata, sparkline);
   }
 
@@ -525,16 +523,16 @@ class _$CoinsID extends CoinsID {
             String? communitydata,
             String? developerdata,
             String? sparkline)?
-        coinsID,
+        details,
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
-        martketChart,
+        marketChart,
     TResult Function()? searchTrends,
-    TResult Function(String text, String vsCurrency)? getCoinSearchClient,
+    TResult Function(String text, String vsCurrency)? coinSearch,
     required TResult orElse(),
   }) {
-    if (coinsID != null) {
-      return coinsID(id, localization, tickers, marketdata, communitydata,
+    if (details != null) {
+      return details(id, localization, tickers, marketdata, communitydata,
           developerdata, sparkline);
     }
     return orElse();
@@ -544,40 +542,40 @@ class _$CoinsID extends CoinsID {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoinsMarket value) coinsMarket,
-    required TResult Function(CoinsID value) coinsID,
-    required TResult Function(MarketChart value) martketChart,
+    required TResult Function(Details value) details,
+    required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
-    required TResult Function(GetCoinSearchClient value) getCoinSearchClient,
+    required TResult Function(CoinSearch value) coinSearch,
   }) {
-    return coinsID(this);
+    return details(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoinsMarket value)? coinsMarket,
-    TResult Function(CoinsID value)? coinsID,
-    TResult Function(MarketChart value)? martketChart,
+    TResult Function(Details value)? details,
+    TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
-    TResult Function(GetCoinSearchClient value)? getCoinSearchClient,
+    TResult Function(CoinSearch value)? coinSearch,
     required TResult orElse(),
   }) {
-    if (coinsID != null) {
-      return coinsID(this);
+    if (details != null) {
+      return details(this);
     }
     return orElse();
   }
 }
 
-abstract class CoinsID extends NetworkClients {
-  factory CoinsID(String id,
+abstract class Details extends CoinGeckoClient {
+  const factory Details(String id,
       {String? localization,
       String? tickers,
       String? marketdata,
       String? communitydata,
       String? developerdata,
-      String? sparkline}) = _$CoinsID;
-  CoinsID._() : super._();
+      String? sparkline}) = _$Details;
+  const Details._() : super._();
 
   String get id => throw _privateConstructorUsedError;
   String? get localization => throw _privateConstructorUsedError;
@@ -587,7 +585,7 @@ abstract class CoinsID extends NetworkClients {
   String? get developerdata => throw _privateConstructorUsedError;
   String? get sparkline => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CoinsIDCopyWith<CoinsID> get copyWith => throw _privateConstructorUsedError;
+  $DetailsCopyWith<Details> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -599,7 +597,8 @@ abstract class $MarketChartCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MarketChartCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
+class _$MarketChartCopyWithImpl<$Res>
+    extends _$CoinGeckoClientCopyWithImpl<$Res>
     implements $MarketChartCopyWith<$Res> {
   _$MarketChartCopyWithImpl(
       MarketChart _value, $Res Function(MarketChart) _then)
@@ -639,7 +638,8 @@ class _$MarketChartCopyWithImpl<$Res> extends _$NetworkClientsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MarketChart extends MarketChart {
-  _$MarketChart(this.id, this.vsCurrency, this.days, this.interval) : super._();
+  const _$MarketChart(this.id, this.vsCurrency, this.days, this.interval)
+      : super._();
 
   @override
   final String id;
@@ -652,7 +652,7 @@ class _$MarketChart extends MarketChart {
 
   @override
   String toString() {
-    return 'NetworkClients.martketChart(id: $id, vsCurrency: $vsCurrency, days: $days, interval: $interval)';
+    return 'CoinGeckoClient.marketChart(id: $id, vsCurrency: $vsCurrency, days: $days, interval: $interval)';
   }
 
   @override
@@ -698,15 +698,14 @@ class _$MarketChart extends MarketChart {
             String? communitydata,
             String? developerdata,
             String? sparkline)
-        coinsID,
+        details,
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
-        martketChart,
+        marketChart,
     required TResult Function() searchTrends,
-    required TResult Function(String text, String vsCurrency)
-        getCoinSearchClient,
+    required TResult Function(String text, String vsCurrency) coinSearch,
   }) {
-    return martketChart(id, vsCurrency, days, interval);
+    return marketChart(id, vsCurrency, days, interval);
   }
 
   @override
@@ -723,16 +722,16 @@ class _$MarketChart extends MarketChart {
             String? communitydata,
             String? developerdata,
             String? sparkline)?
-        coinsID,
+        details,
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
-        martketChart,
+        marketChart,
     TResult Function()? searchTrends,
-    TResult Function(String text, String vsCurrency)? getCoinSearchClient,
+    TResult Function(String text, String vsCurrency)? coinSearch,
     required TResult orElse(),
   }) {
-    if (martketChart != null) {
-      return martketChart(id, vsCurrency, days, interval);
+    if (marketChart != null) {
+      return marketChart(id, vsCurrency, days, interval);
     }
     return orElse();
   }
@@ -741,36 +740,36 @@ class _$MarketChart extends MarketChart {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoinsMarket value) coinsMarket,
-    required TResult Function(CoinsID value) coinsID,
-    required TResult Function(MarketChart value) martketChart,
+    required TResult Function(Details value) details,
+    required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
-    required TResult Function(GetCoinSearchClient value) getCoinSearchClient,
+    required TResult Function(CoinSearch value) coinSearch,
   }) {
-    return martketChart(this);
+    return marketChart(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoinsMarket value)? coinsMarket,
-    TResult Function(CoinsID value)? coinsID,
-    TResult Function(MarketChart value)? martketChart,
+    TResult Function(Details value)? details,
+    TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
-    TResult Function(GetCoinSearchClient value)? getCoinSearchClient,
+    TResult Function(CoinSearch value)? coinSearch,
     required TResult orElse(),
   }) {
-    if (martketChart != null) {
-      return martketChart(this);
+    if (marketChart != null) {
+      return marketChart(this);
     }
     return orElse();
   }
 }
 
-abstract class MarketChart extends NetworkClients {
-  factory MarketChart(
+abstract class MarketChart extends CoinGeckoClient {
+  const factory MarketChart(
           String id, String vsCurrency, String days, String interval) =
       _$MarketChart;
-  MarketChart._() : super._();
+  const MarketChart._() : super._();
 
   String get id => throw _privateConstructorUsedError;
   String get vsCurrency => throw _privateConstructorUsedError;
@@ -790,7 +789,7 @@ abstract class $SearchTrendsCopyWith<$Res> {
 
 /// @nodoc
 class _$SearchTrendsCopyWithImpl<$Res>
-    extends _$NetworkClientsCopyWithImpl<$Res>
+    extends _$CoinGeckoClientCopyWithImpl<$Res>
     implements $SearchTrendsCopyWith<$Res> {
   _$SearchTrendsCopyWithImpl(
       SearchTrends _value, $Res Function(SearchTrends) _then)
@@ -807,7 +806,7 @@ class _$SearchTrends extends SearchTrends {
 
   @override
   String toString() {
-    return 'NetworkClients.searchTrends()';
+    return 'CoinGeckoClient.searchTrends()';
   }
 
   @override
@@ -832,13 +831,12 @@ class _$SearchTrends extends SearchTrends {
             String? communitydata,
             String? developerdata,
             String? sparkline)
-        coinsID,
+        details,
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
-        martketChart,
+        marketChart,
     required TResult Function() searchTrends,
-    required TResult Function(String text, String vsCurrency)
-        getCoinSearchClient,
+    required TResult Function(String text, String vsCurrency) coinSearch,
   }) {
     return searchTrends();
   }
@@ -857,12 +855,12 @@ class _$SearchTrends extends SearchTrends {
             String? communitydata,
             String? developerdata,
             String? sparkline)?
-        coinsID,
+        details,
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
-        martketChart,
+        marketChart,
     TResult Function()? searchTrends,
-    TResult Function(String text, String vsCurrency)? getCoinSearchClient,
+    TResult Function(String text, String vsCurrency)? coinSearch,
     required TResult orElse(),
   }) {
     if (searchTrends != null) {
@@ -875,10 +873,10 @@ class _$SearchTrends extends SearchTrends {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoinsMarket value) coinsMarket,
-    required TResult Function(CoinsID value) coinsID,
-    required TResult Function(MarketChart value) martketChart,
+    required TResult Function(Details value) details,
+    required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
-    required TResult Function(GetCoinSearchClient value) getCoinSearchClient,
+    required TResult Function(CoinSearch value) coinSearch,
   }) {
     return searchTrends(this);
   }
@@ -887,10 +885,10 @@ class _$SearchTrends extends SearchTrends {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoinsMarket value)? coinsMarket,
-    TResult Function(CoinsID value)? coinsID,
-    TResult Function(MarketChart value)? martketChart,
+    TResult Function(Details value)? details,
+    TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
-    TResult Function(GetCoinSearchClient value)? getCoinSearchClient,
+    TResult Function(CoinSearch value)? coinSearch,
     required TResult orElse(),
   }) {
     if (searchTrends != null) {
@@ -900,36 +898,34 @@ class _$SearchTrends extends SearchTrends {
   }
 }
 
-abstract class SearchTrends extends NetworkClients {
+abstract class SearchTrends extends CoinGeckoClient {
   const factory SearchTrends() = _$SearchTrends;
   const SearchTrends._() : super._();
 }
 
 /// @nodoc
-abstract class $GetCoinSearchClientCopyWith<$Res> {
-  factory $GetCoinSearchClientCopyWith(
-          GetCoinSearchClient value, $Res Function(GetCoinSearchClient) then) =
-      _$GetCoinSearchClientCopyWithImpl<$Res>;
+abstract class $CoinSearchCopyWith<$Res> {
+  factory $CoinSearchCopyWith(
+          CoinSearch value, $Res Function(CoinSearch) then) =
+      _$CoinSearchCopyWithImpl<$Res>;
   $Res call({String text, String vsCurrency});
 }
 
 /// @nodoc
-class _$GetCoinSearchClientCopyWithImpl<$Res>
-    extends _$NetworkClientsCopyWithImpl<$Res>
-    implements $GetCoinSearchClientCopyWith<$Res> {
-  _$GetCoinSearchClientCopyWithImpl(
-      GetCoinSearchClient _value, $Res Function(GetCoinSearchClient) _then)
-      : super(_value, (v) => _then(v as GetCoinSearchClient));
+class _$CoinSearchCopyWithImpl<$Res> extends _$CoinGeckoClientCopyWithImpl<$Res>
+    implements $CoinSearchCopyWith<$Res> {
+  _$CoinSearchCopyWithImpl(CoinSearch _value, $Res Function(CoinSearch) _then)
+      : super(_value, (v) => _then(v as CoinSearch));
 
   @override
-  GetCoinSearchClient get _value => super._value as GetCoinSearchClient;
+  CoinSearch get _value => super._value as CoinSearch;
 
   @override
   $Res call({
     Object? text = freezed,
     Object? vsCurrency = freezed,
   }) {
-    return _then(GetCoinSearchClient(
+    return _then(CoinSearch(
       text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -944,8 +940,8 @@ class _$GetCoinSearchClientCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetCoinSearchClient extends GetCoinSearchClient {
-  _$GetCoinSearchClient(this.text, this.vsCurrency) : super._();
+class _$CoinSearch extends CoinSearch {
+  _$CoinSearch(this.text, this.vsCurrency) : super._();
 
   @override
   final String text;
@@ -954,13 +950,13 @@ class _$GetCoinSearchClient extends GetCoinSearchClient {
 
   @override
   String toString() {
-    return 'NetworkClients.getCoinSearchClient(text: $text, vsCurrency: $vsCurrency)';
+    return 'CoinGeckoClient.coinSearch(text: $text, vsCurrency: $vsCurrency)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is GetCoinSearchClient &&
+        (other is CoinSearch &&
             (identical(other.text, text) ||
                 const DeepCollectionEquality().equals(other.text, text)) &&
             (identical(other.vsCurrency, vsCurrency) ||
@@ -976,8 +972,8 @@ class _$GetCoinSearchClient extends GetCoinSearchClient {
 
   @JsonKey(ignore: true)
   @override
-  $GetCoinSearchClientCopyWith<GetCoinSearchClient> get copyWith =>
-      _$GetCoinSearchClientCopyWithImpl<GetCoinSearchClient>(this, _$identity);
+  $CoinSearchCopyWith<CoinSearch> get copyWith =>
+      _$CoinSearchCopyWithImpl<CoinSearch>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -993,15 +989,14 @@ class _$GetCoinSearchClient extends GetCoinSearchClient {
             String? communitydata,
             String? developerdata,
             String? sparkline)
-        coinsID,
+        details,
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
-        martketChart,
+        marketChart,
     required TResult Function() searchTrends,
-    required TResult Function(String text, String vsCurrency)
-        getCoinSearchClient,
+    required TResult Function(String text, String vsCurrency) coinSearch,
   }) {
-    return getCoinSearchClient(text, vsCurrency);
+    return coinSearch(text, vsCurrency);
   }
 
   @override
@@ -1018,16 +1013,16 @@ class _$GetCoinSearchClient extends GetCoinSearchClient {
             String? communitydata,
             String? developerdata,
             String? sparkline)?
-        coinsID,
+        details,
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
-        martketChart,
+        marketChart,
     TResult Function()? searchTrends,
-    TResult Function(String text, String vsCurrency)? getCoinSearchClient,
+    TResult Function(String text, String vsCurrency)? coinSearch,
     required TResult orElse(),
   }) {
-    if (getCoinSearchClient != null) {
-      return getCoinSearchClient(text, vsCurrency);
+    if (coinSearch != null) {
+      return coinSearch(text, vsCurrency);
     }
     return orElse();
   }
@@ -1036,39 +1031,38 @@ class _$GetCoinSearchClient extends GetCoinSearchClient {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoinsMarket value) coinsMarket,
-    required TResult Function(CoinsID value) coinsID,
-    required TResult Function(MarketChart value) martketChart,
+    required TResult Function(Details value) details,
+    required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
-    required TResult Function(GetCoinSearchClient value) getCoinSearchClient,
+    required TResult Function(CoinSearch value) coinSearch,
   }) {
-    return getCoinSearchClient(this);
+    return coinSearch(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoinsMarket value)? coinsMarket,
-    TResult Function(CoinsID value)? coinsID,
-    TResult Function(MarketChart value)? martketChart,
+    TResult Function(Details value)? details,
+    TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
-    TResult Function(GetCoinSearchClient value)? getCoinSearchClient,
+    TResult Function(CoinSearch value)? coinSearch,
     required TResult orElse(),
   }) {
-    if (getCoinSearchClient != null) {
-      return getCoinSearchClient(this);
+    if (coinSearch != null) {
+      return coinSearch(this);
     }
     return orElse();
   }
 }
 
-abstract class GetCoinSearchClient extends NetworkClients {
-  factory GetCoinSearchClient(String text, String vsCurrency) =
-      _$GetCoinSearchClient;
-  GetCoinSearchClient._() : super._();
+abstract class CoinSearch extends CoinGeckoClient {
+  factory CoinSearch(String text, String vsCurrency) = _$CoinSearch;
+  CoinSearch._() : super._();
 
   String get text => throw _privateConstructorUsedError;
   String get vsCurrency => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GetCoinSearchClientCopyWith<GetCoinSearchClient> get copyWith =>
+  $CoinSearchCopyWith<CoinSearch> get copyWith =>
       throw _privateConstructorUsedError;
 }

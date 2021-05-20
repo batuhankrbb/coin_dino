@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_category_entity.dart';
+import '../../../../core/network/network_fetching/base_network_model.dart';
+import '../../domain/entities/market_coin_category_entity.dart';
 
 class MarketCoinCategoryModel extends BaseNetworkModel{
   MarketCoinCategoryModel({

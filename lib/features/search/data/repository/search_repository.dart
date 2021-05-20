@@ -1,10 +1,10 @@
-import 'package:coin_dino/core/result_types/result.dart';
-import 'package:coin_dino/features/search/data/data_sources/contracts/i_search_remote_data_source.dart';
-import 'package:coin_dino/features/search/data/exception_handling/exception_handler.dart';
-import 'package:coin_dino/features/search/data/exception_handling/exceptions/search_exception.dart';
-import 'package:coin_dino/features/search/domain/entity/search_coin_entity.dart';
-import 'package:coin_dino/features/search/domain/entity/search_trend_entity.dart';
-import 'package:coin_dino/features/search/domain/repository_contract/i_repository_contract.dart';
+import '../../../../core/result_types/result.dart';
+import '../../domain/entity/search_coin_entity.dart';
+import '../../domain/entity/search_trend_entity.dart';
+import '../../domain/repository_contract/i_search_repository.dart';
+import '../data_sources/contracts/i_search_remote_data_source.dart';
+import '../exception_handling/exception_handler.dart';
+import '../exception_handling/exceptions/search_exception.dart';
 
 class SearchRepository extends ISearchRepository {
   final ISearchRemoteDataSource remoteDataSource;

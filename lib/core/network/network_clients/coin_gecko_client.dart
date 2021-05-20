@@ -1,34 +1,35 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../network_fetching/network_option_generator.dart';
 
-part 'network_clients.freezed.dart';
+part 'coin_gecko_client.freezed.dart';
 
 @freezed
-abstract class NetworkClients extends NetworkOptionsGenerator
-    with _$NetworkClients {
-  const NetworkClients._() : super();
-  const factory NetworkClients.coinsMarket(
+abstract class CoinGeckoClient extends NetworkOptionsGenerator
+    with _$CoinGeckoClient {
+  const CoinGeckoClient._() : super();
+  const factory CoinGeckoClient.coinsMarket(
           String date, String sort, String? category, String vsCurrency) =
       CoinsMarket;
-  factory NetworkClients.coinsID(String id,
+  const factory CoinGeckoClient.details(String id,
       {String? localization,
       String? tickers,
       String? marketdata,
       String? communitydata,
       String? developerdata,
-      String? sparkline}) = CoinsID;
-  factory NetworkClients.martketChart(
+      String? sparkline}) = Details;
+  const factory CoinGeckoClient.marketChart(
       String id, String vsCurrency, String days, String interval) = MarketChart;
-  const factory NetworkClients.searchTrends() = SearchTrends;
-  factory NetworkClients.getCoinSearchClient(String text, String vsCurrency) =
-      GetCoinSearchClient;
+  const factory CoinGeckoClient.searchTrends() = SearchTrends;
+  factory CoinGeckoClient.coinSearch(String text, String vsCurrency) =
+      CoinSearch;
 
   @override
   String get baseURL => "https://api.coingecko.com/api/v3";
 
   @override
   String get networkPath => this.when(
-      coinsID: (String id,
+      details: (String id,
               String? localization,
               String? tickers,
               String? marketdata,
@@ -39,16 +40,15 @@ abstract class NetworkClients extends NetworkOptionsGenerator
       coinsMarket:
           (String date, String sort, String? category, String vsCurrency) =>
               "/coins/markets",
-      martketChart:
+      marketChart:
           (String id, String vsCurrency, String days, String interval) =>
               "/coins/$id/market_chart",
       searchTrends: () => "/search/trending",
-      getCoinSearchClient: (String text, String vsCurrency) =>
-          "/coins/markets");
+      coinSearch: (String text, String vsCurrency) => "/coins/markets");
 
   @override
   String get networkMethod => this.when(
-      coinsID: (String id,
+      details: (String id,
               String? localization,
               String? tickers,
               String? marketdata,
@@ -59,14 +59,14 @@ abstract class NetworkClients extends NetworkOptionsGenerator
       coinsMarket:
           (String date, String sort, String? category, String vsCurrency) =>
               "GET",
-      martketChart: (_, String vsCurrency, String days, String interval) =>
+      marketChart: (_, String vsCurrency, String days, String interval) =>
           "GET",
       searchTrends: () => "GET",
-      getCoinSearchClient: (_, x) => "GET");
+      coinSearch: (_, x) => "GET");
 
   @override
   Map<String, dynamic>? get queryParameters => this.when(
-      coinsID: (
+      details: (
         String id,
         String? localization,
         String? tickers,
@@ -92,10 +92,10 @@ abstract class NetworkClients extends NetworkOptionsGenerator
                 "order": sort,
                 "price_change_percentage": date,
               },
-      martketChart: (_, String vsCurrency, String days, String interval) =>
+      marketChart: (_, String vsCurrency, String days, String interval) =>
           {"vs_currency": vsCurrency, "days": days, "interval": interval},
       searchTrends: () => null,
-      getCoinSearchClient: (String text, String vsCurrency) =>
+      coinSearch: (String text, String vsCurrency) =>
           {"vs_currency": vsCurrency, "order": "market_cap_desc"});
 
   @override

@@ -1,21 +1,21 @@
-import 'package:coin_dino/features/market/data/data_source/contracts/i_local_market_data_source.dart';
-import 'package:coin_dino/features/market/data/data_source/contracts/i_remote_market_data_source.dart';
-import 'package:coin_dino/features/market/data/exception_handling/exceptions/market_exceptions.dart';
-import 'package:coin_dino/features/market/data/exception_handling/market_exception_handler.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_category_entity.dart';
-import 'package:coin_dino/core/result_types/result.dart';
-import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
-import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
+import '../../../../core/result_types/result.dart';
+import '../../domain/entities/market_coin_category_entity.dart';
+import '../../domain/entities/market_coin_entity.dart';
+import '../../domain/repository_contracts/i_market_coin_repository.dart';
+import '../../presentation/utils/listing_enums.dart';
+import '../data_source/contracts/i_market_local_data_source.dart';
+import '../data_source/contracts/i_market_remote_data_source.dart';
+import '../exception_handling/exceptions/market_exceptions.dart';
+import '../exception_handling/market_exception_handler.dart';
 
 class MarketCoinRepository extends IMarketCoinRepository {
   MarketCoinRepository(
-      {required this.remoteMarketDataSource,
+      {required this.MarketRemoteDataSource,
       required this.localeMarketDataSource,
       required this.exceptionHandler});
 
-  final IRemoteMarketDataSource remoteMarketDataSource;
-  final ILocalMarketDataSource localeMarketDataSource;
+  final IMarketRemoteDataSource MarketRemoteDataSource;
+  final IMarketLocalDataSource localeMarketDataSource;
   final MarketExceptionHandler exceptionHandler;
 
   @override
@@ -38,7 +38,7 @@ class MarketCoinRepository extends IMarketCoinRepository {
       required MarketSort sort,
       MarketCoinCategoryEntity? category}) async {
     try {
-      var currencies = await remoteMarketDataSource.getCryptoCurrencies(
+      var currencies = await MarketRemoteDataSource.getCryptoCurrencies(
           date.rawValue, sort.rawValue, category?.categoryID, "usd");
       var entities = currencies.map((e) => e.toEntity()).toList();
       return Result.success(entities.toList());

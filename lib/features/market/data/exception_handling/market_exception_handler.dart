@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/error_handling/custom_failure.dart';
-import 'package:coin_dino/features/market/data/exception_handling/exceptions/market_exceptions.dart';
+import '../../../../core/error_handling/custom_failure.dart';
+import 'exceptions/market_exceptions.dart';
 
 class MarketExceptionHandler {
   CustomFailure handleException(MarketException exception) {

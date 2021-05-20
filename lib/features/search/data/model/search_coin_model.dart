@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
-import 'package:coin_dino/features/search/domain/entity/search_coin_entity.dart';
+import '../../../../core/network/network_fetching/base_network_model.dart';
+import '../../domain/entity/search_coin_entity.dart';
 
 class SearchCoinModel extends BaseNetworkModel {
   SearchCoinModel({
