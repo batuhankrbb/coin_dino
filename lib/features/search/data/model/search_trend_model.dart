@@ -18,7 +18,7 @@ class SearchTrendModel extends BaseNetworkModel {
   @override
   SearchTrendModel fromJson(Map<String, dynamic> json) {
     return SearchTrendModel(
-      coins: List<Coin>.from(json["coins"].map((x) => Coin)),
+      coins: List<Coin>.from(json["coins"].map((x) => Coin.fromJson(x))),
       exchanges: List<dynamic>.from(json["exchanges"].map((x) => x)),
     );
   }

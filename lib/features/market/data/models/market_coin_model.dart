@@ -1,7 +1,7 @@
 import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
 import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
 
-class MarketCoinModel extends BaseNetworkModel{
+class MarketCoinModel extends BaseNetworkModel {
   MarketCoinModel({
     required this.id,
     required this.symbol,
@@ -40,78 +40,72 @@ class MarketCoinModel extends BaseNetworkModel{
   final String name;
   final String image;
   final double currentPrice;
-  final int marketCap;
-  final int marketCapRank;
-  final int? fullyDilutedValuation;
-  final int totalVolume;
-  final double high24H;
-  final double low24H;
-  final double priceChange24H;
-  final double priceChangePercentage24H;
-  final double marketCapChange24H;
-  final double marketCapChangePercentage24H;
-  final double circulatingSupply;
-  final double? totalSupply;
-  final double? maxSupply;
-  final double ath;
-  final double athChangePercentage;
+  final num marketCap;
+  final num? marketCapRank;
+  final num? fullyDilutedValuation;
+  final num totalVolume;
+  final num? high24H;
+  final num? low24H;
+  final num? priceChange24H;
+  final num? priceChangePercentage24H;
+  final num? marketCapChange24H;
+  final num? marketCapChangePercentage24H;
+  final num circulatingSupply;
+  final num? totalSupply;
+  final num? maxSupply;
+  final num ath;
+  final num athChangePercentage;
   final DateTime athDate;
-  final double atl;
-  final double atlChangePercentage;
+  final num atl;
+  final num atlChangePercentage;
   final DateTime atlDate;
   final Roi? roi;
   final DateTime lastUpdated;
-  final double priceChangePercentage1HInCurrency;
-  final double priceChangePercentage24HInCurrency;
-  final double priceChangePercentage30DInCurrency;
-  final double priceChangePercentage7DInCurrency;
+  final num? priceChangePercentage1HInCurrency;
+  final num? priceChangePercentage24HInCurrency;
+  final num? priceChangePercentage30DInCurrency;
+  final num? priceChangePercentage7DInCurrency;
 
-  
- @override
+  @override
   fromJson(Map<String, dynamic> json) {
-    return  MarketCoinModel(
-        id: json["id"],
-        symbol: json["symbol"],
-        name: json["name"],
-        image: json["image"],
-        currentPrice: json["current_price"].toDouble(),
-        marketCap: json["market_cap"],
-        marketCapRank: json["market_cap_rank"],
-        fullyDilutedValuation: json["fully_diluted_valuation"] == null
-            ? null
-            : json["fully_diluted_valuation"],
-        totalVolume: json["total_volume"],
-        high24H: json["high_24h"].toDouble(),
-        low24H: json["low_24h"].toDouble(),
-        priceChange24H: json["price_change_24h"].toDouble(),
-        priceChangePercentage24H:
-            json["price_change_percentage_24h"].toDouble(),
-        marketCapChange24H: json["market_cap_change_24h"].toDouble(),
-        marketCapChangePercentage24H:
-            json["market_cap_change_percentage_24h"].toDouble(),
-        circulatingSupply: json["circulating_supply"].toDouble(),
-        totalSupply: json["total_supply"] == null
-            ? null
-            : json["total_supply"].toDouble(),
-        maxSupply:
-            json["max_supply"] == null ? null : json["max_supply"].toDouble(),
-        ath: json["ath"].toDouble(),
-        athChangePercentage: json["ath_change_percentage"].toDouble(),
-        athDate: DateTime.parse(json["ath_date"]),
-        atl: json["atl"].toDouble(),
-        atlChangePercentage: json["atl_change_percentage"].toDouble(),
-        atlDate: DateTime.parse(json["atl_date"]),
-        roi: json["roi"] == null ? null : Roi.fromJson(json["roi"]),
-        lastUpdated: DateTime.parse(json["last_updated"]),
-        priceChangePercentage1HInCurrency:
-            json["price_change_percentage_1h_in_currency"].toDouble(),
-        priceChangePercentage24HInCurrency:
-            json["price_change_percentage_24h_in_currency"].toDouble(),
-        priceChangePercentage30DInCurrency:
-            json["price_change_percentage_30d_in_currency"].toDouble(),
-        priceChangePercentage7DInCurrency:
-            json["price_change_percentage_7d_in_currency"].toDouble(),
-      );
+    return MarketCoinModel(
+      id: json["id"],
+      symbol: json["symbol"],
+      name: json["name"],
+      image: json["image"],
+      currentPrice: json["current_price"],
+      marketCap: json["market_cap"],
+      marketCapRank: json["market_cap_rank"],
+      fullyDilutedValuation: json["fully_diluted_valuation"] == null
+          ? null
+          : json["fully_diluted_valuation"],
+      totalVolume: json["total_volume"],
+      high24H: json["high_24h"],
+      low24H: json["low_24h"],
+      priceChange24H: json["price_change_24h"],
+      priceChangePercentage24H: json["price_change_percentage_24h"],
+      marketCapChange24H: json["market_cap_change_24h"],
+      marketCapChangePercentage24H: json["market_cap_change_percentage_24h"],
+      circulatingSupply: json["circulating_supply"],
+      totalSupply: json["total_supply"] == null ? null : json["total_supply"],
+      maxSupply: json["max_supply"] == null ? null : json["max_supply"],
+      ath: json["ath"],
+      athChangePercentage: json["ath_change_percentage"],
+      athDate: DateTime.parse(json["ath_date"]),
+      atl: json["atl"],
+      atlChangePercentage: json["atl_change_percentage"],
+      atlDate: DateTime.parse(json["atl_date"]),
+      roi: json["roi"] == null ? null : Roi.fromJson(json["roi"]),
+      lastUpdated: DateTime.parse(json["last_updated"]),
+      priceChangePercentage1HInCurrency:
+          json["price_change_percentage_1h_in_currency"],
+      priceChangePercentage24HInCurrency:
+          json["price_change_percentage_24h_in_currency"],
+      priceChangePercentage30DInCurrency:
+          json["price_change_percentage_30d_in_currency"],
+      priceChangePercentage7DInCurrency:
+          json["price_change_percentage_7d_in_currency"],
+    );
   }
 
   Map<String, dynamic> toJson() => {
@@ -152,8 +146,6 @@ class MarketCoinModel extends BaseNetworkModel{
             priceChangePercentage7DInCurrency,
       };
 
-
-
   MarketCoinEntity toEntity() {
     return MarketCoinEntity(
         marketCapRank: marketCapRank,
@@ -168,7 +160,6 @@ class MarketCoinModel extends BaseNetworkModel{
         priceChangePercentage7d: priceChangePercentage7DInCurrency,
         priceChangePercentage30d: priceChangePercentage30DInCurrency);
   }
- 
 }
 
 class Roi {
@@ -183,9 +174,9 @@ class Roi {
   final double percentage;
 
   factory Roi.fromJson(Map<String, dynamic> json) => Roi(
-        times: json["times"].toDouble(),
+        times: json["times"],
         currency: json["currency"],
-        percentage: json["percentage"].toDouble(),
+        percentage: json["percentage"],
       );
 
   Map<String, dynamic> toJson() => {

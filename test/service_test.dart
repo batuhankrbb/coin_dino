@@ -12,9 +12,11 @@ import 'package:coin_dino/features/search/data/data_sources/implementations/sear
 import 'package:coin_dino/features/search/data/exception_handling/exception_handler.dart';
 import 'package:coin_dino/features/search/data/repository/search_repository.dart';
 import 'package:coin_dino/features/search/domain/repository_contract/i_repository_contract.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 main() {
+ WidgetsFlutterBinding.ensureInitialized();
   group("market feature test", () {
     IMarketCoinRepository marketCoinRepository = MarketCoinRepository(
         remoteMarketDataSource: RemoteMarketDataSource(),

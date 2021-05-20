@@ -1,9 +1,12 @@
 import 'package:coin_dino/features/details/data/models/coin_chart_model.dart';
 import 'package:coin_dino/features/details/data/models/coin_detail_model.dart';
 import 'package:coin_dino/features/market/data/models/market_coin_model.dart';
+import 'package:coin_dino/features/search/data/model/search_trend_model.dart';
 
 class DefaultResponseTypes {
   static DefaultResponseTypes shared = DefaultResponseTypes();
+
+  var searchTrend = SearchTrendModel(coins: [], exchanges: []);
 
   var coinChart =
       CoinChartModel(prices: [[]], marketCaps: [[]], totalVolumes: [[]]);

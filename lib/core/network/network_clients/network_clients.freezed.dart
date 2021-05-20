@@ -53,6 +53,10 @@ class _$NetworkClientsTearOff {
       interval,
     );
   }
+
+  SearchTrends searchTrends() {
+    return const SearchTrends();
+  }
 }
 
 /// @nodoc
@@ -77,6 +81,7 @@ mixin _$NetworkClients {
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
         martketChart,
+    required TResult Function() searchTrends,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,6 +101,7 @@ mixin _$NetworkClients {
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
         martketChart,
+    TResult Function()? searchTrends,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,6 +110,7 @@ mixin _$NetworkClients {
     required TResult Function(CoinsMarket value) coinsMarket,
     required TResult Function(CoinsID value) coinsID,
     required TResult Function(MarketChart value) martketChart,
+    required TResult Function(SearchTrends value) searchTrends,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +118,7 @@ mixin _$NetworkClients {
     TResult Function(CoinsMarket value)? coinsMarket,
     TResult Function(CoinsID value)? coinsID,
     TResult Function(MarketChart value)? martketChart,
+    TResult Function(SearchTrends value)? searchTrends,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -246,6 +254,7 @@ class _$CoinsMarket extends CoinsMarket {
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
         martketChart,
+    required TResult Function() searchTrends,
   }) {
     return coinsMarket(date, sort, category, vsCurrency);
   }
@@ -268,6 +277,7 @@ class _$CoinsMarket extends CoinsMarket {
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
         martketChart,
+    TResult Function()? searchTrends,
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
@@ -282,6 +292,7 @@ class _$CoinsMarket extends CoinsMarket {
     required TResult Function(CoinsMarket value) coinsMarket,
     required TResult Function(CoinsID value) coinsID,
     required TResult Function(MarketChart value) martketChart,
+    required TResult Function(SearchTrends value) searchTrends,
   }) {
     return coinsMarket(this);
   }
@@ -292,6 +303,7 @@ class _$CoinsMarket extends CoinsMarket {
     TResult Function(CoinsMarket value)? coinsMarket,
     TResult Function(CoinsID value)? coinsID,
     TResult Function(MarketChart value)? martketChart,
+    TResult Function(SearchTrends value)? searchTrends,
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
@@ -474,6 +486,7 @@ class _$CoinsID extends CoinsID {
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
         martketChart,
+    required TResult Function() searchTrends,
   }) {
     return coinsID(id, localization, tickers, marketdata, communitydata,
         developerdata, sparkline);
@@ -497,6 +510,7 @@ class _$CoinsID extends CoinsID {
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
         martketChart,
+    TResult Function()? searchTrends,
     required TResult orElse(),
   }) {
     if (coinsID != null) {
@@ -512,6 +526,7 @@ class _$CoinsID extends CoinsID {
     required TResult Function(CoinsMarket value) coinsMarket,
     required TResult Function(CoinsID value) coinsID,
     required TResult Function(MarketChart value) martketChart,
+    required TResult Function(SearchTrends value) searchTrends,
   }) {
     return coinsID(this);
   }
@@ -522,6 +537,7 @@ class _$CoinsID extends CoinsID {
     TResult Function(CoinsMarket value)? coinsMarket,
     TResult Function(CoinsID value)? coinsID,
     TResult Function(MarketChart value)? martketChart,
+    TResult Function(SearchTrends value)? searchTrends,
     required TResult orElse(),
   }) {
     if (coinsID != null) {
@@ -664,6 +680,7 @@ class _$MarketChart extends MarketChart {
     required TResult Function(
             String id, String vsCurrency, String days, String interval)
         martketChart,
+    required TResult Function() searchTrends,
   }) {
     return martketChart(id, vsCurrency, days, interval);
   }
@@ -686,6 +703,7 @@ class _$MarketChart extends MarketChart {
     TResult Function(
             String id, String vsCurrency, String days, String interval)?
         martketChart,
+    TResult Function()? searchTrends,
     required TResult orElse(),
   }) {
     if (martketChart != null) {
@@ -700,6 +718,7 @@ class _$MarketChart extends MarketChart {
     required TResult Function(CoinsMarket value) coinsMarket,
     required TResult Function(CoinsID value) coinsID,
     required TResult Function(MarketChart value) martketChart,
+    required TResult Function(SearchTrends value) searchTrends,
   }) {
     return martketChart(this);
   }
@@ -710,6 +729,7 @@ class _$MarketChart extends MarketChart {
     TResult Function(CoinsMarket value)? coinsMarket,
     TResult Function(CoinsID value)? coinsID,
     TResult Function(MarketChart value)? martketChart,
+    TResult Function(SearchTrends value)? searchTrends,
     required TResult orElse(),
   }) {
     if (martketChart != null) {
@@ -732,4 +752,123 @@ abstract class MarketChart extends NetworkClients {
   @JsonKey(ignore: true)
   $MarketChartCopyWith<MarketChart> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SearchTrendsCopyWith<$Res> {
+  factory $SearchTrendsCopyWith(
+          SearchTrends value, $Res Function(SearchTrends) then) =
+      _$SearchTrendsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SearchTrendsCopyWithImpl<$Res>
+    extends _$NetworkClientsCopyWithImpl<$Res>
+    implements $SearchTrendsCopyWith<$Res> {
+  _$SearchTrendsCopyWithImpl(
+      SearchTrends _value, $Res Function(SearchTrends) _then)
+      : super(_value, (v) => _then(v as SearchTrends));
+
+  @override
+  SearchTrends get _value => super._value as SearchTrends;
+}
+
+/// @nodoc
+
+class _$SearchTrends extends SearchTrends {
+  const _$SearchTrends() : super._();
+
+  @override
+  String toString() {
+    return 'NetworkClients.searchTrends()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SearchTrends);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String date, String sort, String? category, String vsCurrency)
+        coinsMarket,
+    required TResult Function(
+            String id,
+            String? localization,
+            String? tickers,
+            String? marketdata,
+            String? communitydata,
+            String? developerdata,
+            String? sparkline)
+        coinsID,
+    required TResult Function(
+            String id, String vsCurrency, String days, String interval)
+        martketChart,
+    required TResult Function() searchTrends,
+  }) {
+    return searchTrends();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String date, String sort, String? category, String vsCurrency)?
+        coinsMarket,
+    TResult Function(
+            String id,
+            String? localization,
+            String? tickers,
+            String? marketdata,
+            String? communitydata,
+            String? developerdata,
+            String? sparkline)?
+        coinsID,
+    TResult Function(
+            String id, String vsCurrency, String days, String interval)?
+        martketChart,
+    TResult Function()? searchTrends,
+    required TResult orElse(),
+  }) {
+    if (searchTrends != null) {
+      return searchTrends();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CoinsMarket value) coinsMarket,
+    required TResult Function(CoinsID value) coinsID,
+    required TResult Function(MarketChart value) martketChart,
+    required TResult Function(SearchTrends value) searchTrends,
+  }) {
+    return searchTrends(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CoinsMarket value)? coinsMarket,
+    TResult Function(CoinsID value)? coinsID,
+    TResult Function(MarketChart value)? martketChart,
+    TResult Function(SearchTrends value)? searchTrends,
+    required TResult orElse(),
+  }) {
+    if (searchTrends != null) {
+      return searchTrends(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchTrends extends NetworkClients {
+  const factory SearchTrends() = _$SearchTrends;
+  const SearchTrends._() : super._();
 }

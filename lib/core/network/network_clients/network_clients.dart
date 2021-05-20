@@ -19,6 +19,7 @@ abstract class NetworkClients extends NetworkOptionsGenerator
       String? sparkline}) = CoinsID;
   factory NetworkClients.martketChart(
       String id, String vsCurrency, String days, String interval) = MarketChart;
+  const factory NetworkClients.searchTrends() = SearchTrends;
 
   @override
   String get baseURL => "https://api.coingecko.com/api/v3";
@@ -38,7 +39,8 @@ abstract class NetworkClients extends NetworkOptionsGenerator
               "/coins/markets",
       martketChart:
           (String id, String vsCurrency, String days, String interval) =>
-              "/coins/$id/market_chart");
+              "/coins/$id/market_chart",
+      searchTrends: () => "/search/trending");
 
   @override
   String get networkMethod => this.when(
@@ -54,7 +56,8 @@ abstract class NetworkClients extends NetworkOptionsGenerator
           (String date, String sort, String? category, String vsCurrency) =>
               "GET",
       martketChart: (_, String vsCurrency, String days, String interval) =>
-          "GET");
+          "GET",
+      searchTrends: () => "GET");
 
   @override
   Map<String, dynamic>? get queryParameters => this.when(
@@ -85,7 +88,8 @@ abstract class NetworkClients extends NetworkOptionsGenerator
                 "price_change_percentage": date,
               },
       martketChart: (_, String vsCurrency, String days, String interval) =>
-          {"vs_currency": vsCurrency, "days": days, "interval": interval});
+          {"vs_currency": vsCurrency, "days": days, "interval": interval},
+      searchTrends: () => null);
 
   @override
   Map<String, dynamic>? get header => null;
