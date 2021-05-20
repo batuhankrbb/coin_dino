@@ -27,14 +27,20 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
   }
 
   @override
-  Future<List<SearchCoinModel>> getCoinsBySearch(String text, String vsCurrency) async {
+  Future<List<SearchCoinModel>> getCoinsBySearch(
+      String text, String vsCurrency) async {
     try {
       var getCoinBySearchs =
           await networkExecuter.execute<SearchCoinModel, List<SearchCoinModel>>(
               responseType: DefaultResponseTypes.shared.searchCoing,
-              options: NetworkClients.getCoinSearchClient(text,vsCurrency));
+              options: NetworkClients.getCoinSearchClient(text, vsCurrency));
       if (getCoinBySearchs != null) {
-        return getCoinBySearchs;
+        var filteredCoins = getCoinBySearchs.where((element) {
+          print(
+              "NAME = ${element.name.toLowerCase()} | TEXT = ${text.toLowerCase()} | UYUŞMA = ${element.name.startsWith(text.toLowerCase())}");
+          return element.name.toLowerCase().startsWith(text.toLowerCase());
+        }).toList();
+        return filteredCoins;
       } else {
         throw DioError(requestOptions: RequestOptions(path: "path"));
       }

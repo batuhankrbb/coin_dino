@@ -81,11 +81,15 @@ main() {
         });
       });
 
-      test("get coins by search", () async { 
-        var coins = await searchRepository.getCoinsBySearch("bit");
-
+      test("get coins by search", () async {
+        var coins = await searchRepository.getCoinsBySearch("tElCo");
+        var deneme = "selam".startsWith("sea");
+        print(deneme);
         coins.when(success: (data) {
           print("SUCCESS | get coins by search = ${data.length}");
+          for (var coin in data) {
+            print(coin.name);
+          }
         }, failure: (failure) {
           print("FAILURE | get coins by search = ${failure.message}");
         });
