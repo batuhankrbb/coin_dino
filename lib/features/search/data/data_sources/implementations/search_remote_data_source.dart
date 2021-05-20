@@ -3,6 +3,7 @@ import 'package:coin_dino/core/network/network_clients/network_clients.dart';
 import 'package:coin_dino/core/network/network_fetching/network_executer.dart';
 import 'package:coin_dino/features/search/data/data_sources/contracts/i_search_remote_data_source.dart';
 import 'package:coin_dino/features/search/data/exception_handling/exceptions/search_exception.dart';
+import 'package:coin_dino/features/search/data/model/search_coin_model.dart';
 import 'package:coin_dino/features/search/data/model/search_trend_model.dart';
 import 'package:dio/dio.dart';
 
@@ -24,4 +25,11 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
       throw SearchException.trendsFetchingException();
     }
   }
+
+  @override
+  Future<List<SearchCoinModel>> getCoinsBySearch(String text) { //TODO SERCAN FIRLATILACAK EXCEPTION: SearchException.coinFetchingException();
+    // TODO: implement getCoinsBySearch
+    throw UnimplementedError();
+  }
+
 }

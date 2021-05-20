@@ -6,4 +6,6 @@ part 'search_exception.freezed.dart';
 class SearchException with _$SearchException {
   @Implements(Exception)
   const factory SearchException.trendsFetchingException() = TrendsFetchingException;
+  @Implements(Exception)
+  const factory SearchException.getCoinsBySearch() = GetCoinsBySearch;
 }

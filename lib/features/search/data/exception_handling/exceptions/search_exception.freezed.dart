@@ -19,6 +19,10 @@ class _$SearchExceptionTearOff {
   TrendsFetchingException trendsFetchingException() {
     return const TrendsFetchingException();
   }
+
+  GetCoinsBySearch getCoinsBySearch() {
+    return const GetCoinsBySearch();
+  }
 }
 
 /// @nodoc
@@ -29,11 +33,13 @@ mixin _$SearchException {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() trendsFetchingException,
+    required TResult Function() getCoinsBySearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? trendsFetchingException,
+    TResult Function()? getCoinsBySearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,11 +47,13 @@ mixin _$SearchException {
   TResult map<TResult extends Object?>({
     required TResult Function(TrendsFetchingException value)
         trendsFetchingException,
+    required TResult Function(GetCoinsBySearch value) getCoinsBySearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TrendsFetchingException value)? trendsFetchingException,
+    TResult Function(GetCoinsBySearch value)? getCoinsBySearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -110,6 +118,7 @@ class _$TrendsFetchingException implements TrendsFetchingException {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() trendsFetchingException,
+    required TResult Function() getCoinsBySearch,
   }) {
     return trendsFetchingException();
   }
@@ -118,6 +127,7 @@ class _$TrendsFetchingException implements TrendsFetchingException {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? trendsFetchingException,
+    TResult Function()? getCoinsBySearch,
     required TResult orElse(),
   }) {
     if (trendsFetchingException != null) {
@@ -131,6 +141,7 @@ class _$TrendsFetchingException implements TrendsFetchingException {
   TResult map<TResult extends Object?>({
     required TResult Function(TrendsFetchingException value)
         trendsFetchingException,
+    required TResult Function(GetCoinsBySearch value) getCoinsBySearch,
   }) {
     return trendsFetchingException(this);
   }
@@ -139,6 +150,7 @@ class _$TrendsFetchingException implements TrendsFetchingException {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TrendsFetchingException value)? trendsFetchingException,
+    TResult Function(GetCoinsBySearch value)? getCoinsBySearch,
     required TResult orElse(),
   }) {
     if (trendsFetchingException != null) {
@@ -150,4 +162,92 @@ class _$TrendsFetchingException implements TrendsFetchingException {
 
 abstract class TrendsFetchingException implements SearchException, Exception {
   const factory TrendsFetchingException() = _$TrendsFetchingException;
+}
+
+/// @nodoc
+abstract class $GetCoinsBySearchCopyWith<$Res> {
+  factory $GetCoinsBySearchCopyWith(
+          GetCoinsBySearch value, $Res Function(GetCoinsBySearch) then) =
+      _$GetCoinsBySearchCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetCoinsBySearchCopyWithImpl<$Res>
+    extends _$SearchExceptionCopyWithImpl<$Res>
+    implements $GetCoinsBySearchCopyWith<$Res> {
+  _$GetCoinsBySearchCopyWithImpl(
+      GetCoinsBySearch _value, $Res Function(GetCoinsBySearch) _then)
+      : super(_value, (v) => _then(v as GetCoinsBySearch));
+
+  @override
+  GetCoinsBySearch get _value => super._value as GetCoinsBySearch;
+}
+
+/// @nodoc
+
+@Implements(Exception)
+class _$GetCoinsBySearch implements GetCoinsBySearch {
+  const _$GetCoinsBySearch();
+
+  @override
+  String toString() {
+    return 'SearchException.getCoinsBySearch()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is GetCoinsBySearch);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() trendsFetchingException,
+    required TResult Function() getCoinsBySearch,
+  }) {
+    return getCoinsBySearch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? trendsFetchingException,
+    TResult Function()? getCoinsBySearch,
+    required TResult orElse(),
+  }) {
+    if (getCoinsBySearch != null) {
+      return getCoinsBySearch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TrendsFetchingException value)
+        trendsFetchingException,
+    required TResult Function(GetCoinsBySearch value) getCoinsBySearch,
+  }) {
+    return getCoinsBySearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TrendsFetchingException value)? trendsFetchingException,
+    TResult Function(GetCoinsBySearch value)? getCoinsBySearch,
+    required TResult orElse(),
+  }) {
+    if (getCoinsBySearch != null) {
+      return getCoinsBySearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetCoinsBySearch implements SearchException, Exception {
+  const factory GetCoinsBySearch() = _$GetCoinsBySearch;
 }

@@ -16,7 +16,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 main() {
- WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   group("market feature test", () {
     IMarketCoinRepository marketCoinRepository = MarketCoinRepository(
         remoteMarketDataSource: RemoteMarketDataSource(),
@@ -78,6 +78,16 @@ main() {
           print("SUCCESS | get trends = ${data.coinEntityList.length}");
         }, failure: (failure) {
           print("FAILURE | get trends = ${failure.message}");
+        });
+      });
+
+      test("get coins by search", () async { //TODO SERCAN
+        var coins = await searchRepository.getCoinsBySearch("bit");
+
+        coins.when(success: (data) {
+          print("SUCCESS | get coins by search = ${data.length}");
+        }, failure: (failure) {
+          print("FAILURE | get coins by search = ${failure.message}");
         });
       });
     });

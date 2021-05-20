@@ -5,6 +5,8 @@ class SearchExceptionHandler {
   CustomFailure handleException(SearchException exception) {
     return exception.when(trendsFetchingException: () {
       return CustomFailure(message: "There is an error in Trends Fetching");
+    }, getCoinsBySearch: () {
+      return CustomFailure(message: "There is an error in Coins Fetching");
     });
   }
 }
