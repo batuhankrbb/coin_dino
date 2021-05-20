@@ -81,7 +81,7 @@ main() {
         });
       });
 
-      test("get coins by search", () async { //TODO SERCAN
+      test("get coins by search", () async { 
         var coins = await searchRepository.getCoinsBySearch("bit");
 
         coins.when(success: (data) {
