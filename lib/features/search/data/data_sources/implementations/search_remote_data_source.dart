@@ -27,9 +27,19 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
   }
 
   @override
-  Future<List<SearchCoinModel>> getCoinsBySearch(String text) { //TODO SERCAN FIRLATILACAK EXCEPTION: SearchException.coinFetchingException();
-    // TODO: implement getCoinsBySearch
-    throw UnimplementedError();
+  Future<List<SearchCoinModel>> getCoinsBySearch(String text, String vsCurrency) async {
+    try {
+      var getCoinBySearchs =
+          await networkExecuter.execute<SearchCoinModel, List<SearchCoinModel>>(
+              responseType: DefaultResponseTypes.shared.searchCoing,
+              options: NetworkClients.getCoinSearchClient(text,vsCurrency));
+      if (getCoinBySearchs != null) {
+        return getCoinBySearchs;
+      } else {
+        throw DioError(requestOptions: RequestOptions(path: "path"));
+      }
+    } on DioError catch (e) {
+      throw SearchException.getCoinsBySearchException();
+    }
   }
-
 }

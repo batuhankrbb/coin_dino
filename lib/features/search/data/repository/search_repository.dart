@@ -27,7 +27,7 @@ class SearchRepository extends ISearchRepository {
   @override
   Future<Result<List<SearchCoinEntity>>> getCoinsBySearch(String text) async {
     try {
-      var coin = await remoteDataSource.getCoinsBySearch(text);
+      var coin = await remoteDataSource.getCoinsBySearch(text, "usd");
       var coinList = coin.map((e) => e.toEntity()).toList();
       return Result.success(coinList);
     } on SearchException catch (e) {

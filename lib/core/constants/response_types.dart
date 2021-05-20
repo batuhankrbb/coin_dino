@@ -1,13 +1,44 @@
 import 'package:coin_dino/features/details/data/models/coin_chart_model.dart';
 import 'package:coin_dino/features/details/data/models/coin_detail_model.dart';
 import 'package:coin_dino/features/market/data/models/market_coin_model.dart';
+import 'package:coin_dino/features/search/data/model/search_coin_model.dart';
 import 'package:coin_dino/features/search/data/model/search_trend_model.dart';
 
 class DefaultResponseTypes {
   static DefaultResponseTypes shared = DefaultResponseTypes();
 
   var searchTrend = SearchTrendModel(coins: [], exchanges: []);
-
+  var searchCoing = SearchCoinModel(
+      ath: 1,
+      athChangePercentage: 1,
+      athDate: DateTime(1),
+      atl: 1,
+      atlChangePercentage: 1,
+      atlDate: DateTime(1),
+      circulatingSupply: 1,
+      currentPrice: 1,
+      fullyDilutedValuation: 1,
+      high24H: 1,
+      id: "",
+      image: "",
+      lastUpdated: DateTime(1),
+      low24H: 1,
+      marketCap: 1,
+      marketCapChange24H: 1,
+      marketCapChangePercentage24H: 1,
+      marketCapRank: 1,
+      maxSupply: 1,
+      name: "",
+      priceChange24H: 1,
+      priceChangePercentage1HInCurrency: 1,
+      priceChangePercentage24H: 1,
+      priceChangePercentage24HInCurrency: 1,
+      priceChangePercentage30DInCurrency: 1,
+      priceChangePercentage7DInCurrency: 1,
+      symbol: "",
+      totalSupply: 1,
+      totalVolume: 1,
+      roi: RoiSearch(times: 1, currency: "", percentage: 1));
   var coinChart =
       CoinChartModel(prices: [[]], marketCaps: [[]], totalVolumes: [[]]);
 
