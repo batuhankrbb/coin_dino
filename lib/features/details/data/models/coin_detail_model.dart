@@ -51,15 +51,15 @@ class CoinDetailModel extends BaseNetworkModel {
   final Image image;
   final String countryOrigin;
   final DateTime genesisDate;
-  final int sentimentVotesUpPercentage;
-  final int sentimentVotesDownPercentage;
-  final int marketCapRank;
-  final int coingeckoRank;
-  final double coingeckoScore;
-  final double developerScore;
-  final double communityScore;
-  final double liquidityScore;
-  final int publicInterestScore;
+  final num sentimentVotesUpPercentage;
+  final num sentimentVotesDownPercentage;
+  final num marketCapRank;
+  final num coingeckoRank;
+  final num coingeckoScore;
+  final num developerScore;
+  final num communityScore;
+  final num liquidityScore;
+  final num publicInterestScore;
   final MarketData marketData;
   final CommunityData communityData;
   final DeveloperData developerData;
@@ -127,10 +127,10 @@ class CoinDetailModel extends BaseNetworkModel {
       sentimentVotesDownPercentage: json["sentiment_votes_down_percentage"],
       marketCapRank: json["market_cap_rank"],
       coingeckoRank: json["coingecko_rank"],
-      coingeckoScore: json["coingecko_score"].toDouble(),
-      developerScore: json["developer_score"].toDouble(),
-      communityScore: json["community_score"].toDouble(),
-      liquidityScore: json["liquidity_score"].toDouble(),
+      coingeckoScore: json["coingecko_score"],
+      developerScore: json["developer_score"],
+      communityScore: json["community_score"],
+      liquidityScore: json["liquidity_score"],
       publicInterestScore: json["public_interest_score"],
       marketData: MarketData.fromJson(json["market_data"]),
       communityData: CommunityData.fromJson(json["community_data"]),
@@ -172,19 +172,18 @@ class CommunityData {
   });
 
   final dynamic facebookLikes;
-  final int twitterFollowers;
-  final int redditAveragePosts48H;
-  final double redditAverageComments48H;
-  final int redditSubscribers;
-  final int redditAccountsActive48H;
+  final num twitterFollowers;
+  final num redditAveragePosts48H;
+  final num redditAverageComments48H;
+  final num redditSubscribers;
+  final num redditAccountsActive48H;
   final dynamic telegramChannelUserCount;
 
   factory CommunityData.fromJson(Map<String, dynamic> json) => CommunityData(
         facebookLikes: json["facebook_likes"],
         twitterFollowers: json["twitter_followers"],
         redditAveragePosts48H: json["reddit_average_posts_48h"],
-        redditAverageComments48H:
-            json["reddit_average_comments_48h"].toDouble(),
+        redditAverageComments48H: json["reddit_average_comments_48h"],
         redditSubscribers: json["reddit_subscribers"],
         redditAccountsActive48H: json["reddit_accounts_active_48h"],
         telegramChannelUserCount: json["telegram_channel_user_count"],
@@ -231,16 +230,16 @@ class DeveloperData {
     required this.last4WeeksCommitActivitySeries,
   });
 
-  final int forks;
-  final int stars;
-  final int subscribers;
-  final int totalIssues;
-  final int closedIssues;
-  final int pullRequestsMerged;
-  final int pullRequestContributors;
+  final num forks;
+  final num stars;
+  final num subscribers;
+  final num totalIssues;
+  final num closedIssues;
+  final num pullRequestsMerged;
+  final num pullRequestContributors;
   final CodeAdditionsDeletions4Weeks codeAdditionsDeletions4Weeks;
-  final int commitCount4Weeks;
-  final List<int> last4WeeksCommitActivitySeries;
+  final num commitCount4Weeks;
+  final List<num> last4WeeksCommitActivitySeries;
 
   factory DeveloperData.fromJson(Map<String, dynamic> json) => DeveloperData(
         forks: json["forks"],
@@ -253,7 +252,7 @@ class DeveloperData {
         codeAdditionsDeletions4Weeks: CodeAdditionsDeletions4Weeks.fromJson(
             json["code_additions_deletions_4_weeks"]),
         commitCount4Weeks: json["commit_count_4_weeks"],
-        last4WeeksCommitActivitySeries: List<int>.from(
+        last4WeeksCommitActivitySeries: List<num>.from(
             json["last_4_weeks_commit_activity_series"].map((x) => x)),
       );
 
@@ -279,8 +278,8 @@ class CodeAdditionsDeletions4Weeks {
     required this.deletions,
   });
 
-  final int additions;
-  final int deletions;
+  final num additions;
+  final num deletions;
 
   factory CodeAdditionsDeletions4Weeks.fromJson(Map<String, dynamic> json) =>
       CodeAdditionsDeletions4Weeks(
@@ -456,21 +455,21 @@ class MarketData {
   final Ath atlChangePercentage;
   final Date atlDate;
   final Ath marketCap;
-  final int marketCapRank;
+  final num marketCapRank;
   final Ath fullyDilutedValuation;
   final Ath totalVolume;
   final Ath high24H;
   final Ath low24H;
-  final double priceChange24H;
-  final double priceChangePercentage24H;
-  final double priceChangePercentage7D;
-  final double priceChangePercentage14D;
-  final double priceChangePercentage30D;
-  final double priceChangePercentage60D;
-  final double priceChangePercentage200D;
-  final double priceChangePercentage1Y;
-  final double marketCapChange24H;
-  final double marketCapChangePercentage24H;
+  final num priceChange24H;
+  final num priceChangePercentage24H;
+  final num priceChangePercentage7D;
+  final num priceChangePercentage14D;
+  final num priceChangePercentage30D;
+  final num priceChangePercentage60D;
+  final num priceChangePercentage200D;
+  final num priceChangePercentage1Y;
+  final num marketCapChange24H;
+  final num marketCapChangePercentage24H;
   final Ath priceChange24HInCurrency;
   final Ath priceChangePercentage1HInCurrency;
   final Ath priceChangePercentage24HInCurrency;
@@ -482,9 +481,9 @@ class MarketData {
   final Ath priceChangePercentage1YInCurrency;
   final Ath marketCapChange24HInCurrency;
   final Ath marketCapChangePercentage24HInCurrency;
-  final int totalSupply;
-  final int maxSupply;
-  final int circulatingSupply;
+  final num totalSupply;
+  final num maxSupply;
+  final num circulatingSupply;
   final DateTime lastUpdated;
 
   factory MarketData.fromJson(Map<String, dynamic> json) => MarketData(
@@ -505,22 +504,16 @@ class MarketData {
         totalVolume: Ath.fromJson(json["total_volume"]),
         high24H: Ath.fromJson(json["high_24h"]),
         low24H: Ath.fromJson(json["low_24h"]),
-        priceChange24H: json["price_change_24h"].toDouble(),
-        priceChangePercentage24H:
-            json["price_change_percentage_24h"].toDouble(),
-        priceChangePercentage7D: json["price_change_percentage_7d"].toDouble(),
-        priceChangePercentage14D:
-            json["price_change_percentage_14d"].toDouble(),
-        priceChangePercentage30D:
-            json["price_change_percentage_30d"].toDouble(),
-        priceChangePercentage60D:
-            json["price_change_percentage_60d"].toDouble(),
-        priceChangePercentage200D:
-            json["price_change_percentage_200d"].toDouble(),
-        priceChangePercentage1Y: json["price_change_percentage_1y"].toDouble(),
-        marketCapChange24H: json["market_cap_change_24h"].toDouble(),
-        marketCapChangePercentage24H:
-            json["market_cap_change_percentage_24h"].toDouble(),
+        priceChange24H: json["price_change_24h"],
+        priceChangePercentage24H: json["price_change_percentage_24h"],
+        priceChangePercentage7D: json["price_change_percentage_7d"],
+        priceChangePercentage14D: json["price_change_percentage_14d"],
+        priceChangePercentage30D: json["price_change_percentage_30d"],
+        priceChangePercentage60D: json["price_change_percentage_60d"],
+        priceChangePercentage200D: json["price_change_percentage_200d"],
+        priceChangePercentage1Y: json["price_change_percentage_1y"],
+        marketCapChange24H: json["market_cap_change_24h"],
+        marketCapChangePercentage24H: json["market_cap_change_percentage_24h"],
         priceChange24HInCurrency:
             Ath.fromJson(json["price_change_24h_in_currency"]),
         priceChangePercentage1HInCurrency:
@@ -670,130 +663,130 @@ class Ath {
     required this.sats,
   });
 
-  final double aed;
-  final double ars;
-  final double aud;
-  final double bch;
-  final double bdt;
-  final double bhd;
-  final double bmd;
-  final double bnb;
-  final double brl;
-  final double btc;
-  final double cad;
-  final double chf;
-  final double clp;
-  final double cny;
-  final double czk;
-  final double dkk;
-  final double dot;
-  final double eos;
-  final double eth;
-  final double eur;
-  final double gbp;
-  final double hkd;
-  final double huf;
-  final double idr;
-  final double ils;
-  final double inr;
-  final double jpy;
-  final double krw;
-  final double kwd;
-  final double lkr;
-  final double ltc;
-  final double mmk;
-  final double mxn;
-  final double myr;
-  final double ngn;
-  final double nok;
-  final double nzd;
-  final double php;
-  final double pkr;
-  final double pln;
-  final double rub;
-  final double sar;
-  final double sek;
-  final double sgd;
-  final double thb;
-  final double athTry;
-  final double twd;
-  final double uah;
-  final double usd;
-  final double vef;
-  final double vnd;
-  final double xag;
-  final double xau;
-  final double xdr;
-  final double xlm;
-  final double xrp;
-  final double yfi;
-  final double zar;
-  final double bits;
-  final double link;
-  final double sats;
+  final num? aed;
+  final num? ars;
+  final num? aud;
+  final num? bch;
+  final num? bdt;
+  final num? bhd;
+  final num? bmd;
+  final num? bnb;
+  final num? brl;
+  final num? btc;
+  final num? cad;
+  final num? chf;
+  final num? clp;
+  final num? cny;
+  final num? czk;
+  final num? dkk;
+  final num? dot;
+  final num? eos;
+  final num? eth;
+  final num? eur;
+  final num? gbp;
+  final num? hkd;
+  final num? huf;
+  final num? idr;
+  final num? ils;
+  final num? inr;
+  final num? jpy;
+  final num? krw;
+  final num? kwd;
+  final num? lkr;
+  final num? ltc;
+  final num? mmk;
+  final num? mxn;
+  final num? myr;
+  final num? ngn;
+  final num? nok;
+  final num? nzd;
+  final num? php;
+  final num? pkr;
+  final num? pln;
+  final num? rub;
+  final num? sar;
+  final num? sek;
+  final num? sgd;
+  final num? thb;
+  final num? athTry;
+  final num? twd;
+  final num? uah;
+  final num? usd;
+  final num? vef;
+  final num? vnd;
+  final num? xag;
+  final num? xau;
+  final num? xdr;
+  final num? xlm;
+  final num? xrp;
+  final num? yfi;
+  final num? zar;
+  final num? bits;
+  final num? link;
+  final num? sats;
 
   factory Ath.fromJson(Map<String, dynamic> json) => Ath(
-        aed: json["aed"].toDouble(),
-        ars: json["ars"].toDouble(),
-        aud: json["aud"].toDouble(),
-        bch: json["bch"].toDouble(),
-        bdt: json["bdt"].toDouble(),
-        bhd: json["bhd"].toDouble(),
-        bmd: json["bmd"].toDouble(),
-        bnb: json["bnb"].toDouble(),
-        brl: json["brl"].toDouble(),
-        btc: json["btc"].toDouble(),
-        cad: json["cad"].toDouble(),
-        chf: json["chf"].toDouble(),
-        clp: json["clp"].toDouble(),
-        cny: json["cny"].toDouble(),
-        czk: json["czk"].toDouble(),
-        dkk: json["dkk"].toDouble(),
-        dot: json["dot"] == null ? null : json["dot"].toDouble(),
-        eos: json["eos"].toDouble(),
-        eth: json["eth"].toDouble(),
-        eur: json["eur"].toDouble(),
-        gbp: json["gbp"].toDouble(),
-        hkd: json["hkd"].toDouble(),
-        huf: json["huf"].toDouble(),
-        idr: json["idr"].toDouble(),
-        ils: json["ils"].toDouble(),
-        inr: json["inr"].toDouble(),
-        jpy: json["jpy"].toDouble(),
-        krw: json["krw"].toDouble(),
-        kwd: json["kwd"].toDouble(),
-        lkr: json["lkr"].toDouble(),
-        ltc: json["ltc"].toDouble(),
-        mmk: json["mmk"].toDouble(),
-        mxn: json["mxn"].toDouble(),
-        myr: json["myr"].toDouble(),
-        ngn: json["ngn"].toDouble(),
-        nok: json["nok"].toDouble(),
-        nzd: json["nzd"].toDouble(),
-        php: json["php"].toDouble(),
-        pkr: json["pkr"].toDouble(),
-        pln: json["pln"].toDouble(),
-        rub: json["rub"].toDouble(),
-        sar: json["sar"].toDouble(),
-        sek: json["sek"].toDouble(),
-        sgd: json["sgd"].toDouble(),
-        thb: json["thb"].toDouble(),
-        athTry: json["try"].toDouble(),
-        twd: json["twd"].toDouble(),
-        uah: json["uah"].toDouble(),
-        usd: json["usd"].toDouble(),
-        vef: json["vef"].toDouble(),
-        vnd: json["vnd"].toDouble(),
-        xag: json["xag"].toDouble(),
-        xau: json["xau"].toDouble(),
-        xdr: json["xdr"].toDouble(),
-        xlm: json["xlm"].toDouble(),
-        xrp: json["xrp"].toDouble(),
-        yfi: json["yfi"] == null ? null : json["yfi"].toDouble(),
-        zar: json["zar"].toDouble(),
-        bits: json["bits"].toDouble(),
-        link: json["link"].toDouble(),
-        sats: json["sats"].toDouble(),
+        aed: json["aed"],
+        ars: json["ars"],
+        aud: json["aud"],
+        bch: json["bch"],
+        bdt: json["bdt"],
+        bhd: json["bhd"],
+        bmd: json["bmd"],
+        bnb: json["bnb"],
+        brl: json["brl"],
+        btc: json["btc"],
+        cad: json["cad"],
+        chf: json["chf"],
+        clp: json["clp"],
+        cny: json["cny"],
+        czk: json["czk"],
+        dkk: json["dkk"],
+        dot: json["dot"],
+        eos: json["eos"],
+        eth: json["eth"],
+        eur: json["eur"],
+        gbp: json["gbp"],
+        hkd: json["hkd"],
+        huf: json["huf"],
+        idr: json["idr"],
+        ils: json["ils"],
+        inr: json["inr"],
+        jpy: json["jpy"],
+        krw: json["krw"],
+        kwd: json["kwd"],
+        lkr: json["lkr"],
+        ltc: json["ltc"],
+        mmk: json["mmk"],
+        mxn: json["mxn"],
+        myr: json["myr"],
+        ngn: json["ngn"],
+        nok: json["nok"],
+        nzd: json["nzd"],
+        php: json["php"],
+        pkr: json["pkr"],
+        pln: json["pln"],
+        rub: json["rub"],
+        sar: json["sar"],
+        sek: json["sek"],
+        sgd: json["sgd"],
+        thb: json["thb"],
+        athTry: json["try"],
+        twd: json["twd"],
+        uah: json["uah"],
+        usd: json["usd"],
+        vef: json["vef"],
+        vnd: json["vnd"],
+        xag: json["xag"],
+        xau: json["xau"],
+        xdr: json["xdr"],
+        xlm: json["xlm"],
+        xrp: json["xrp"],
+        yfi: json["yfi"],
+        zar: json["zar"],
+        bits: json["bits"],
+        link: json["link"],
+        sats: json["sats"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -1139,7 +1132,7 @@ class PublicInterestStats {
     required this.bingMatches,
   });
 
-  final int alexaRank;
+  final num alexaRank;
   final dynamic bingMatches;
 
   factory PublicInterestStats.fromJson(Map<String, dynamic> json) =>
@@ -1179,32 +1172,32 @@ class Ticker {
   final String base;
   final String target;
   final Market market;
-  final double last;
-  final double volume;
+  final num last;
+  final num volume;
   final Converted convertedLast;
   final Converted convertedVolume;
   final String trustScore;
-  final double bidAskSpreadPercentage;
+  final num bidAskSpreadPercentage;
   final DateTime timestamp;
   final DateTime lastTradedAt;
   final DateTime lastFetchAt;
   final bool isAnomaly;
   final bool isStale;
-  final String tradeUrl;
+  final String? tradeUrl;
   final dynamic tokenInfoUrl;
   final String coinId;
-  final String targetCoinId;
+  final String? targetCoinId;
 
   factory Ticker.fromJson(Map<String, dynamic> json) => Ticker(
         base: json["base"],
         target: json["target"],
         market: Market.fromJson(json["market"]),
-        last: json["last"].toDouble(),
-        volume: json["volume"].toDouble(),
+        last: json["last"],
+        volume: json["volume"],
         convertedLast: Converted.fromJson(json["converted_last"]),
         convertedVolume: Converted.fromJson(json["converted_volume"]),
         trustScore: json["trust_score"],
-        bidAskSpreadPercentage: json["bid_ask_spread_percentage"].toDouble(),
+        bidAskSpreadPercentage: json["bid_ask_spread_percentage"],
         timestamp: DateTime.parse(json["timestamp"]),
         lastTradedAt: DateTime.parse(json["last_traded_at"]),
         lastFetchAt: DateTime.parse(json["last_fetch_at"]),
@@ -1246,14 +1239,14 @@ class Converted {
     required this.usd,
   });
 
-  final double btc;
-  final double eth;
-  final double usd;
+  final num btc;
+  final num eth;
+  final num usd;
 
   factory Converted.fromJson(Map<String, dynamic> json) => Converted(
-        btc: json["btc"].toDouble(),
-        eth: json["eth"].toDouble(),
-        usd: json["usd"].toDouble(),
+        btc: json["btc"],
+        eth: json["eth"],
+        usd: json["usd"],
       );
 
   Map<String, dynamic> toJson() => {
