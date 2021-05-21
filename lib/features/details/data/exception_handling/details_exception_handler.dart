@@ -1,5 +1,4 @@
 import '../../../../core/error_handling/custom_failure.dart';
-import '../../../../core/result_types/result.dart';
 import 'exceptions/details_exceptions.dart';
 
 class DetailsExceptionHandler {

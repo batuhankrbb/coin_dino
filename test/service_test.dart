@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:path_provider/path_provider.dart';
 import 'package:coin_dino/core/hive/hive_constants.dart';
 import 'package:coin_dino/features/details/data/data_source/implementations/details_remote_data_source.dart';
 import 'package:coin_dino/features/details/data/exception_handling/details_exception_handler.dart';
@@ -21,7 +20,7 @@ import 'package:coin_dino/features/search/domain/repository_contract/i_search_re
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
