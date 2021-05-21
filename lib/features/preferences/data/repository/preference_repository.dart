@@ -1,3 +1,4 @@
+import 'package:coin_dino/core/constants/coin_gecko_constants.dart';
 import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
 import 'package:coin_dino/features/preferences/data/exception_handling/exception_handler.dart';
 import 'package:coin_dino/features/preferences/data/exception_handling/exceptions/preferences_exceptions.dart';
@@ -15,6 +16,7 @@ class PreferenceRepository implements IPreferenceRepository {
       {required this.preferencesLocalDataSource,
       required this.exceptionHandler});
 
+//TODO NULL KONTROLÜNÜ VIEWMODEL İÇERİSİNDE YAPICAZ
   @override
   Future<Result<String>> getBaseCurrencyPreference() async {
     try {
@@ -84,5 +86,15 @@ class PreferenceRepository implements IPreferenceRepository {
       return Result.failure(exceptionHandler.handleException(e));
     }
   }
-  
+
+  @override
+  Future<Result<List<String>>> getAllSupportedBaseCurrencies() async {
+    try {
+      var supportedCurrencies = await
+          preferencesLocalDataSource.getAllSupportedBaseCurrencies();
+      return Result.success(supportedCurrencies);
+    } on PreferencesException catch (e) {
+      return Result.failure(exceptionHandler.handleException(e));
+    }
+  }
 }

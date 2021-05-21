@@ -1,3 +1,4 @@
+import 'package:coin_dino/core/hive/hive_constants.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -6,6 +7,7 @@ class HiveHelper {
 
   Future<void> setUpHive() async {
     await Hive.initFlutter();
+    Hive.openBox<String>(HiveConstants.shared.preferencesBox);
   }
 
   Future<T> getData<T>(String boxName, dynamic key) async {

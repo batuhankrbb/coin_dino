@@ -3,8 +3,21 @@ import 'package:coin_dino/features/preferences/data/exception_handling/exception
 
 class PreferencesExceptionHandler {
   CustomFailure handleException(PreferencesException exception) {
-    return exception.when(test: () {
-      return CustomFailure(message: "test");
+    return exception.when(baseCurrencyFetchingException: () {
+      return CustomFailure(
+          message: "There is an error in BaseCurrencyFetching");
+    }, languageFetchingException: () {
+      return CustomFailure(message: "There is an error in LanguageFetching");
+    }, themeFetchingException: () {
+      return CustomFailure(message: "There is an error in LanguageFetching");
+    }, baseCurrencySetException: () {
+      return CustomFailure(message: "There is an error in BaseCurrencySet");
+    }, languageSetException: () {
+      return CustomFailure(message: "There is an error in LanguageSet");
+    }, themeSetException: () {
+      return CustomFailure(message: "There is an error in ThemeSet");
+    },supportedCurrenciesFetchingException: (){
+       return CustomFailure(message: "There is an error in SupportedCurrenciesFetching");
     });
   }
 }

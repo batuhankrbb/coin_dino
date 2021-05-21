@@ -1,11 +1,13 @@
+import 'package:coin_dino/core/hive/hive_helper.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  await HiveHelper.shared.setUpHive();
   runApp(EasyLocalization(
     path: "assets/language/",
     supportedLocales: [Locale("tr", "TR")],
-    startLocale: Locale("tr","TR"),
+    startLocale: Locale("tr", "TR"),
     child: MyApp(),
   ));
 }

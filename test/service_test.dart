@@ -1,4 +1,6 @@
-
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:coin_dino/core/hive/hive_constants.dart';
 import 'package:coin_dino/features/details/data/data_source/implementations/details_remote_data_source.dart';
 import 'package:coin_dino/features/details/data/exception_handling/details_exception_handler.dart';
 import 'package:coin_dino/features/details/data/repository/coin_detail_repository.dart';
@@ -9,15 +11,21 @@ import 'package:coin_dino/features/market/data/exception_handling/market_excepti
 import 'package:coin_dino/features/market/data/repository/market_coin_repository.dart';
 import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
 import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
+import 'package:coin_dino/features/preferences/data/exception_handling/exception_handler.dart';
+import 'package:coin_dino/features/preferences/data/implementations/preferences_local_data_source.dart';
+import 'package:coin_dino/features/preferences/data/repository/preference_repository.dart';
 import 'package:coin_dino/features/search/data/data_sources/implementations/search_remote_data_source.dart';
 import 'package:coin_dino/features/search/data/exception_handling/exception_handler.dart';
 import 'package:coin_dino/features/search/data/repository/search_repository.dart';
 import 'package:coin_dino/features/search/domain/repository_contract/i_search_repository.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-main() {
+main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   group("market feature test", () {
     IMarketCoinRepository marketCoinRepository = MarketCoinRepository(
         MarketRemoteDataSource: MarketRemoteDataSource(),
@@ -93,6 +101,36 @@ main() {
           }
         }, failure: (failure) {
           print("FAILURE | get coins by search = ${failure.message}");
+        });
+      });
+    });
+
+    group("preferences test", () {
+      var preferenceRepository = PreferenceRepository(
+          preferencesLocalDataSource: PreferencesLocalDataSource(),
+          exceptionHandler: PreferencesExceptionHandler());
+      test("base currency get test", () async {
+        Hive.init(Directory.current.path + "/test/service_test.dart");
+        await Hive.openBox(HiveConstants.shared.preferencesBox);
+
+        var baseCurrencyResult =
+            await preferenceRepository.getBaseCurrencyPreference();
+        baseCurrencyResult.when(success: (data) {
+          print("SUCCESS | base currency get test = ${data}");
+        }, failure: (failure) {
+          print(
+              "FAILURE | base currency get test = ${failure.message + "not yet. so, usd."}");
+        });
+      });
+
+      test("base currency set test", () async {
+        var baseCurrencyResult =
+            await preferenceRepository.setBaseCurrencyPreference("bitcoin");
+        baseCurrencyResult.when(success: (_) {
+          print("SUCCESS | base currency set test");
+        }, failure: (failure) {
+          print(
+              "FAILURE | base currency set test = ${failure.message + "you couldn't set knk"}");
         });
       });
     });
