@@ -1,8 +1,19 @@
 import 'package:coin_dino/core/hive/hive_helper.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  var initilizationSettingsAndroid =
+      AndroidInitializationSettings("codex_logo");
+
+  var initializationSettingsIos = IOSInitializationSettings(
+      requestAlertPermission: true,
+      requestBadgePermission: true,
+      requestSoundPermission: true);
+      
   await HiveHelper.shared.setUpHive();
   runApp(EasyLocalization(
     path: "assets/language/",
