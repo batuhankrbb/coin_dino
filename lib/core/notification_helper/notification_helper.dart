@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationHelper {
@@ -6,7 +7,7 @@ class NotificationHelper {
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  Future<void> showNotification({String? andoridIcon}) async {
+  Future<void> initializeNotification({String? andoridIcon}) async {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('app_icon');
     final IOSInitializationSettings initializationSettingsIOS =
@@ -29,17 +30,28 @@ class NotificationHelper {
     print(payload);
   }
 
-  void showNotif() async {
+  void showNotification(
+      {int? channelID,
+      required String title,
+      required String description,
+      required String payLoad}) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
-        AndroidNotificationDetails(
-            '1', 'coin', 'coin alert',
+        AndroidNotificationDetails("1", 'coin', 'coin alert',
             importance: Importance.max,
-            priority: Priority.high,  
+            showProgress: true,
+            priority: Priority.high,
+            subText: "dssdaasda",
             showWhen: false);
-    const NotificationDetails platformChannelSpecifics =
-        NotificationDetails(android: androidPlatformChannelSpecifics);
+    const IOSNotificationDetails iosNotificationDetails =
+        IOSNotificationDetails(
+            badgeNumber: 2,
+            presentSound: true,
+            presentAlert: true,
+            presentBadge: true);
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+        android: androidPlatformChannelSpecifics, iOS: iosNotificationDetails);
     await flutterLocalNotificationsPlugin.show(
-        0, 'plain title', 'plain body', platformChannelSpecifics,
-        payload: 'item x');
+        channelID ?? 1, title, description, platformChannelSpecifics,
+        payload: payLoad);
   }
 }
