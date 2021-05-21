@@ -13,5 +13,23 @@ class AlertLocalDataSource implements IAlertLocalDataSource{
     // TODO: implement saveAlertAlerts
     throw UnimplementedError();
   }
+
+  @override
+  Future<void> deleteAlert(String alertID) {
+      // TODO: implement deleteAlert
+      throw UnimplementedError();
+    }
+  
+    @override
+    Future<void> saveAlert(AlertModel alertModel) {
+      // TODO: implement saveAlert
+      throw UnimplementedError();
+    }
+  
+    @override
+    Future<void> updateAlert(AlertModel alertModel) {
+    // TODO: implement updateAlert
+    throw UnimplementedError();
+  }
   
 }

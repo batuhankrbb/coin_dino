@@ -20,4 +20,9 @@ class AlertModel {
     return AlertEntity(
         coindID: coindID, name: name, image: image, targetPrice: targetPrice);
   }
+
+  factory AlertModel.fromEntity(AlertEntity entity) {
+    return AlertModel(
+        entity.coindID, entity.name, entity.image, entity.targetPrice);
+  }
 }

@@ -16,8 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AlertExceptionTearOff {
   const _$AlertExceptionTearOff();
 
-  Test test() {
-    return const Test();
+  AllAlertsFetchingException allAlertsFetchingException() {
+    return const AllAlertsFetchingException();
+  }
+
+  AlertSavingException alertSavingException() {
+    return const AlertSavingException();
+  }
+
+  AlertUpdatingException alertUpdatingException() {
+    return const AlertUpdatingException();
+  }
+
+  AlertDeletingException alertDeletingException() {
+    return const AlertDeletingException();
   }
 }
 
@@ -28,23 +40,39 @@ const $AlertException = _$AlertExceptionTearOff();
 mixin _$AlertException {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() test,
+    required TResult Function() allAlertsFetchingException,
+    required TResult Function() alertSavingException,
+    required TResult Function() alertUpdatingException,
+    required TResult Function() alertDeletingException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? test,
+    TResult Function()? allAlertsFetchingException,
+    TResult Function()? alertSavingException,
+    TResult Function()? alertUpdatingException,
+    TResult Function()? alertDeletingException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Test value) test,
+    required TResult Function(AllAlertsFetchingException value)
+        allAlertsFetchingException,
+    required TResult Function(AlertSavingException value) alertSavingException,
+    required TResult Function(AlertUpdatingException value)
+        alertUpdatingException,
+    required TResult Function(AlertDeletingException value)
+        alertDeletingException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Test value)? test,
+    TResult Function(AllAlertsFetchingException value)?
+        allAlertsFetchingException,
+    TResult Function(AlertSavingException value)? alertSavingException,
+    TResult Function(AlertUpdatingException value)? alertUpdatingException,
+    TResult Function(AlertDeletingException value)? alertDeletingException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,35 +96,39 @@ class _$AlertExceptionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $TestCopyWith<$Res> {
-  factory $TestCopyWith(Test value, $Res Function(Test) then) =
-      _$TestCopyWithImpl<$Res>;
+abstract class $AllAlertsFetchingExceptionCopyWith<$Res> {
+  factory $AllAlertsFetchingExceptionCopyWith(AllAlertsFetchingException value,
+          $Res Function(AllAlertsFetchingException) then) =
+      _$AllAlertsFetchingExceptionCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$TestCopyWithImpl<$Res> extends _$AlertExceptionCopyWithImpl<$Res>
-    implements $TestCopyWith<$Res> {
-  _$TestCopyWithImpl(Test _value, $Res Function(Test) _then)
-      : super(_value, (v) => _then(v as Test));
+class _$AllAlertsFetchingExceptionCopyWithImpl<$Res>
+    extends _$AlertExceptionCopyWithImpl<$Res>
+    implements $AllAlertsFetchingExceptionCopyWith<$Res> {
+  _$AllAlertsFetchingExceptionCopyWithImpl(AllAlertsFetchingException _value,
+      $Res Function(AllAlertsFetchingException) _then)
+      : super(_value, (v) => _then(v as AllAlertsFetchingException));
 
   @override
-  Test get _value => super._value as Test;
+  AllAlertsFetchingException get _value =>
+      super._value as AllAlertsFetchingException;
 }
 
 /// @nodoc
 
 @Implements(Exception)
-class _$Test implements Test {
-  const _$Test();
+class _$AllAlertsFetchingException implements AllAlertsFetchingException {
+  const _$AllAlertsFetchingException();
 
   @override
   String toString() {
-    return 'AlertException.test()';
+    return 'AlertException.allAlertsFetchingException()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Test);
+    return identical(this, other) || (other is AllAlertsFetchingException);
   }
 
   @override
@@ -105,19 +137,25 @@ class _$Test implements Test {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() test,
+    required TResult Function() allAlertsFetchingException,
+    required TResult Function() alertSavingException,
+    required TResult Function() alertUpdatingException,
+    required TResult Function() alertDeletingException,
   }) {
-    return test();
+    return allAlertsFetchingException();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? test,
+    TResult Function()? allAlertsFetchingException,
+    TResult Function()? alertSavingException,
+    TResult Function()? alertUpdatingException,
+    TResult Function()? alertDeletingException,
     required TResult orElse(),
   }) {
-    if (test != null) {
-      return test();
+    if (allAlertsFetchingException != null) {
+      return allAlertsFetchingException();
     }
     return orElse();
   }
@@ -125,24 +163,331 @@ class _$Test implements Test {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Test value) test,
+    required TResult Function(AllAlertsFetchingException value)
+        allAlertsFetchingException,
+    required TResult Function(AlertSavingException value) alertSavingException,
+    required TResult Function(AlertUpdatingException value)
+        alertUpdatingException,
+    required TResult Function(AlertDeletingException value)
+        alertDeletingException,
   }) {
-    return test(this);
+    return allAlertsFetchingException(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Test value)? test,
+    TResult Function(AllAlertsFetchingException value)?
+        allAlertsFetchingException,
+    TResult Function(AlertSavingException value)? alertSavingException,
+    TResult Function(AlertUpdatingException value)? alertUpdatingException,
+    TResult Function(AlertDeletingException value)? alertDeletingException,
     required TResult orElse(),
   }) {
-    if (test != null) {
-      return test(this);
+    if (allAlertsFetchingException != null) {
+      return allAlertsFetchingException(this);
     }
     return orElse();
   }
 }
 
-abstract class Test implements AlertException, Exception {
-  const factory Test() = _$Test;
+abstract class AllAlertsFetchingException implements AlertException, Exception {
+  const factory AllAlertsFetchingException() = _$AllAlertsFetchingException;
+}
+
+/// @nodoc
+abstract class $AlertSavingExceptionCopyWith<$Res> {
+  factory $AlertSavingExceptionCopyWith(AlertSavingException value,
+          $Res Function(AlertSavingException) then) =
+      _$AlertSavingExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AlertSavingExceptionCopyWithImpl<$Res>
+    extends _$AlertExceptionCopyWithImpl<$Res>
+    implements $AlertSavingExceptionCopyWith<$Res> {
+  _$AlertSavingExceptionCopyWithImpl(
+      AlertSavingException _value, $Res Function(AlertSavingException) _then)
+      : super(_value, (v) => _then(v as AlertSavingException));
+
+  @override
+  AlertSavingException get _value => super._value as AlertSavingException;
+}
+
+/// @nodoc
+
+@Implements(Exception)
+class _$AlertSavingException implements AlertSavingException {
+  const _$AlertSavingException();
+
+  @override
+  String toString() {
+    return 'AlertException.alertSavingException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is AlertSavingException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() allAlertsFetchingException,
+    required TResult Function() alertSavingException,
+    required TResult Function() alertUpdatingException,
+    required TResult Function() alertDeletingException,
+  }) {
+    return alertSavingException();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? allAlertsFetchingException,
+    TResult Function()? alertSavingException,
+    TResult Function()? alertUpdatingException,
+    TResult Function()? alertDeletingException,
+    required TResult orElse(),
+  }) {
+    if (alertSavingException != null) {
+      return alertSavingException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AllAlertsFetchingException value)
+        allAlertsFetchingException,
+    required TResult Function(AlertSavingException value) alertSavingException,
+    required TResult Function(AlertUpdatingException value)
+        alertUpdatingException,
+    required TResult Function(AlertDeletingException value)
+        alertDeletingException,
+  }) {
+    return alertSavingException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AllAlertsFetchingException value)?
+        allAlertsFetchingException,
+    TResult Function(AlertSavingException value)? alertSavingException,
+    TResult Function(AlertUpdatingException value)? alertUpdatingException,
+    TResult Function(AlertDeletingException value)? alertDeletingException,
+    required TResult orElse(),
+  }) {
+    if (alertSavingException != null) {
+      return alertSavingException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AlertSavingException implements AlertException, Exception {
+  const factory AlertSavingException() = _$AlertSavingException;
+}
+
+/// @nodoc
+abstract class $AlertUpdatingExceptionCopyWith<$Res> {
+  factory $AlertUpdatingExceptionCopyWith(AlertUpdatingException value,
+          $Res Function(AlertUpdatingException) then) =
+      _$AlertUpdatingExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AlertUpdatingExceptionCopyWithImpl<$Res>
+    extends _$AlertExceptionCopyWithImpl<$Res>
+    implements $AlertUpdatingExceptionCopyWith<$Res> {
+  _$AlertUpdatingExceptionCopyWithImpl(AlertUpdatingException _value,
+      $Res Function(AlertUpdatingException) _then)
+      : super(_value, (v) => _then(v as AlertUpdatingException));
+
+  @override
+  AlertUpdatingException get _value => super._value as AlertUpdatingException;
+}
+
+/// @nodoc
+
+@Implements(Exception)
+class _$AlertUpdatingException implements AlertUpdatingException {
+  const _$AlertUpdatingException();
+
+  @override
+  String toString() {
+    return 'AlertException.alertUpdatingException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is AlertUpdatingException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() allAlertsFetchingException,
+    required TResult Function() alertSavingException,
+    required TResult Function() alertUpdatingException,
+    required TResult Function() alertDeletingException,
+  }) {
+    return alertUpdatingException();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? allAlertsFetchingException,
+    TResult Function()? alertSavingException,
+    TResult Function()? alertUpdatingException,
+    TResult Function()? alertDeletingException,
+    required TResult orElse(),
+  }) {
+    if (alertUpdatingException != null) {
+      return alertUpdatingException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AllAlertsFetchingException value)
+        allAlertsFetchingException,
+    required TResult Function(AlertSavingException value) alertSavingException,
+    required TResult Function(AlertUpdatingException value)
+        alertUpdatingException,
+    required TResult Function(AlertDeletingException value)
+        alertDeletingException,
+  }) {
+    return alertUpdatingException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AllAlertsFetchingException value)?
+        allAlertsFetchingException,
+    TResult Function(AlertSavingException value)? alertSavingException,
+    TResult Function(AlertUpdatingException value)? alertUpdatingException,
+    TResult Function(AlertDeletingException value)? alertDeletingException,
+    required TResult orElse(),
+  }) {
+    if (alertUpdatingException != null) {
+      return alertUpdatingException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AlertUpdatingException implements AlertException, Exception {
+  const factory AlertUpdatingException() = _$AlertUpdatingException;
+}
+
+/// @nodoc
+abstract class $AlertDeletingExceptionCopyWith<$Res> {
+  factory $AlertDeletingExceptionCopyWith(AlertDeletingException value,
+          $Res Function(AlertDeletingException) then) =
+      _$AlertDeletingExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AlertDeletingExceptionCopyWithImpl<$Res>
+    extends _$AlertExceptionCopyWithImpl<$Res>
+    implements $AlertDeletingExceptionCopyWith<$Res> {
+  _$AlertDeletingExceptionCopyWithImpl(AlertDeletingException _value,
+      $Res Function(AlertDeletingException) _then)
+      : super(_value, (v) => _then(v as AlertDeletingException));
+
+  @override
+  AlertDeletingException get _value => super._value as AlertDeletingException;
+}
+
+/// @nodoc
+
+@Implements(Exception)
+class _$AlertDeletingException implements AlertDeletingException {
+  const _$AlertDeletingException();
+
+  @override
+  String toString() {
+    return 'AlertException.alertDeletingException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is AlertDeletingException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() allAlertsFetchingException,
+    required TResult Function() alertSavingException,
+    required TResult Function() alertUpdatingException,
+    required TResult Function() alertDeletingException,
+  }) {
+    return alertDeletingException();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? allAlertsFetchingException,
+    TResult Function()? alertSavingException,
+    TResult Function()? alertUpdatingException,
+    TResult Function()? alertDeletingException,
+    required TResult orElse(),
+  }) {
+    if (alertDeletingException != null) {
+      return alertDeletingException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AllAlertsFetchingException value)
+        allAlertsFetchingException,
+    required TResult Function(AlertSavingException value) alertSavingException,
+    required TResult Function(AlertUpdatingException value)
+        alertUpdatingException,
+    required TResult Function(AlertDeletingException value)
+        alertDeletingException,
+  }) {
+    return alertDeletingException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AllAlertsFetchingException value)?
+        allAlertsFetchingException,
+    TResult Function(AlertSavingException value)? alertSavingException,
+    TResult Function(AlertUpdatingException value)? alertUpdatingException,
+    TResult Function(AlertDeletingException value)? alertDeletingException,
+    required TResult orElse(),
+  }) {
+    if (alertDeletingException != null) {
+      return alertDeletingException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AlertDeletingException implements AlertException, Exception {
+  const factory AlertDeletingException() = _$AlertDeletingException;
 }
