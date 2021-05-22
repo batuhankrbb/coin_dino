@@ -1,4 +1,5 @@
 import 'package:coin_dino/core/hive/hive_constants.dart';
+import 'package:coin_dino/features/alert/data/model/alert_model.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -7,7 +8,8 @@ class HiveHelper {
 
   Future<void> setUpHive() async {
     await Hive.initFlutter();
-    Hive.openBox<String>(HiveConstants.shared.preferencesBox);
+    Hive.registerAdapter(AlertModelAdapter());
+    Hive.openBox<String>(HiveConstants.BOX_PREFERENCES);
   }
 
   Future<T> getData<T>(String boxName, dynamic key) async {
@@ -28,5 +30,10 @@ class HiveHelper {
   Future<List<T>> getAll<T>(String boxName) async {
     var box = Hive.box<T>(boxName);
     return box.values.toList();
+  }
+
+  Future<int> addData<T>(String boxName, T dataToAdd) async {
+    var box = Hive.box<T>(boxName);
+    return box.add(dataToAdd);
   }
 }

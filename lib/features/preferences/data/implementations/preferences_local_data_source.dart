@@ -6,14 +6,13 @@ import 'package:coin_dino/features/preferences/data/exception_handling/exception
 
 class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   var _hiveHelper = HiveHelper.shared;
-  var _hiveConstants = HiveConstants.shared;
 
   @override
   Future<String> getBaseCurrencyPreference() async {
     try {
       var currencyPreference = await _hiveHelper.getData<String>(
-          _hiveConstants.preferencesBox,
-          _hiveConstants.baseCurrencyPreferenceKey);
+          HiveConstants.BOX_PREFERENCES,
+          HiveConstants.KEY_BASE_CURRENCY_PREFERENCE);
       return currencyPreference;
     } catch (e) {
       throw PreferencesException.baseCurrencyFetchingException();
@@ -24,7 +23,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   Future<String> getLanguagePreference() async {
     try {
       var languagePreference = await _hiveHelper.getData<String>(
-          _hiveConstants.preferencesBox, _hiveConstants.languagePreferenceKey);
+          HiveConstants.BOX_PREFERENCES,
+          HiveConstants.KEY_LANGUAGE_PREFERENCE);
       return languagePreference;
     } catch (e) {
       throw PreferencesException.languageFetchingException();
@@ -35,7 +35,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   Future<String> getThemePreference() async {
     try {
       var themePreference = await _hiveHelper.getData<String>(
-          _hiveConstants.preferencesBox, _hiveConstants.themePreferenceKey);
+          HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_THEME_PREFERENCE);
       return themePreference;
     } catch (e) {
       throw PreferencesException.themeFetchingException();
@@ -45,8 +45,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   @override
   Future<void> setBaseCurrencyPreference(String currencyPreference) async {
     try {
-      await _hiveHelper.putData(_hiveConstants.preferencesBox,
-          _hiveConstants.baseCurrencyPreferenceKey, currencyPreference);
+      await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
+          HiveConstants.KEY_BASE_CURRENCY_PREFERENCE, currencyPreference);
     } catch (e) {
       throw PreferencesException.baseCurrencySetException();
     }
@@ -55,8 +55,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   @override
   Future<void> setLangaugePreference(String languagePreference) async {
     try {
-      await _hiveHelper.putData(_hiveConstants.preferencesBox,
-          _hiveConstants.languagePreferenceKey, languagePreference);
+      await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
+          HiveConstants.KEY_LANGUAGE_PREFERENCE, languagePreference);
     } catch (e) {
       throw PreferencesException.languageSetException();
     }
@@ -65,8 +65,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   @override
   Future<void> setThemePreference(String themePreference) async {
     try {
-      await _hiveHelper.putData(_hiveConstants.preferencesBox,
-          _hiveConstants.themePreferenceKey, themePreference);
+      await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
+          HiveConstants.KEY_THEME_PREFERENCE, themePreference);
     } catch (e) {
       throw PreferencesException.themeSetException();
     }

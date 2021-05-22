@@ -21,7 +21,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 
-
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -110,7 +109,7 @@ main() async {
           exceptionHandler: PreferencesExceptionHandler());
       test("base currency get test", () async {
         Hive.init(Directory.current.path + "/test/service_test.dart");
-        await Hive.openBox(HiveConstants.shared.preferencesBox);
+        await Hive.openBox(HiveConstants.BOX_PREFERENCES);
 
         var baseCurrencyResult =
             await preferenceRepository.getBaseCurrencyPreference();
