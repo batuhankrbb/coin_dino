@@ -8,7 +8,6 @@ import 'core/notification_helper/notification_helper.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-
   await HiveHelper.shared.setUpHive();
   runApp(EasyLocalization(
     path: "assets/language/",
@@ -63,14 +62,23 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   @override
-  void initState() {
-    //NotificationHelper.shared.showNotification();
+  void initState(){
+    NotificationHelper.shared.initializeNotification();
+     NotificationHelper.shared.showPeriodicNotification(
+        periodicNotifChannelID: 1,
+        periodicTitle: "periodicTitle",
+        periodicDescription: "periodicDescription",
+        periodicPayloads: "periodicPayloads",repeatInterval: RepeatInterval.everyMinute);
     super.initState();
   }
 
   void _incrementCounter() async {
     setState(() {
-      NotificationHelper.shared.showNotification(title: "title", description: "description", payLoad: "payLoad");
+      NotificationHelper.shared.showNotification(
+          title: "title",
+          description: "description",
+          payLoad: "payLoad",
+          channelID: 2);
     });
   }
 
