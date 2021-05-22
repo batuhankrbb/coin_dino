@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  background_fetch: ^1.0.0-nullsafety.2
   build_runner: ^2.0.1
   connectivity: ^3.0.3
   cupertino_icons: ^1.0.2
