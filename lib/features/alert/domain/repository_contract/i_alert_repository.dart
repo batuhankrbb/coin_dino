@@ -6,4 +6,5 @@ abstract class IAlertRepository{
   Future<Result<void>> addAlert(AlertEntity alertEntity);
   Future<Result<void>> deleteAlert(String alertID);
   Future<Result<void>> updateAlert(AlertEntity alertEntity);
+  Future<Result<void>> checkAlerts();
 }

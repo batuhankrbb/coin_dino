@@ -17,17 +17,18 @@ class AlertModelAdapter extends TypeAdapter<AlertModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return AlertModel(
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as String,
-      fields[4] as double,
+      coindID: fields[1] as String,
+      name: fields[2] as String,
+      image: fields[3] as String,
+      targetPrice: fields[4] as double,
+      price: fields[5] as double,
     );
   }
 
   @override
   void write(BinaryWriter writer, AlertModel obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(1)
       ..write(obj.coindID)
       ..writeByte(2)
@@ -35,7 +36,9 @@ class AlertModelAdapter extends TypeAdapter<AlertModel> {
       ..writeByte(3)
       ..write(obj.image)
       ..writeByte(4)
-      ..write(obj.targetPrice);
+      ..write(obj.targetPrice)
+      ..writeByte(5)
+      ..write(obj.price);
   }
 
   @override

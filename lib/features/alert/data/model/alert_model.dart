@@ -15,16 +15,31 @@ class AlertModel {
   final String image;
   @HiveField(4)
   final double targetPrice;
+  @HiveField(5)
+  final double price;
 
-  AlertModel(this.coindID, this.name, this.image, this.targetPrice);
+  AlertModel(
+      {required this.coindID,
+      required this.name,
+      required this.image,
+      required this.targetPrice,
+      required this.price});
 
   AlertEntity toEntity() {
     return AlertEntity(
-        coindID: coindID, name: name, image: image, targetPrice: targetPrice);
+        coindID: coindID,
+        name: name,
+        image: image,
+        targetPrice: targetPrice,
+        price: price);
   }
 
   factory AlertModel.fromEntity(AlertEntity entity) {
     return AlertModel(
-        entity.coindID, entity.name, entity.image, entity.targetPrice);
+        coindID: entity.coindID,
+        name: entity.name,
+        image: entity.image,
+        targetPrice: entity.targetPrice,
+        price: entity.price);
   }
 }

@@ -57,4 +57,10 @@ class AlertRepository implements IAlertRepository {
       return Result.failure(exceptionHandler.handleException(e));
     }
   }
+
+  @override
+  Future<Result<void>> checkAlerts() {
+    // TODO: implement checkAlerts
+    throw UnimplementedError();
+  }
 }

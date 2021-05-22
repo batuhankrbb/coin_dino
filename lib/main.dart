@@ -17,7 +17,7 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
     return;
   }
   print('[BackgroundFetch] Headless event received.');
-  // Do your work here...
+ 
   BackgroundFetch.finish(taskId);
 }
 
@@ -28,7 +28,7 @@ void main() {
 
   // Register to receive BackgroundFetch events after app is terminated.
   // Requires {stopOnTerminate: false, enableHeadless: true}
-  BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
+
 }
 
 class MyApp extends StatefulWidget {
@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
             requiresDeviceIdle: false,
             requiredNetworkType: NetworkType.NONE), (String taskId) async {
       // <-- Event handler
-      //! BURAYA FETCH KODU OLACAK VE FINISH KODU EKLEMEK ŞART
+      
 
       BackgroundFetch.finish(taskId);
     }, (String taskId) async {
