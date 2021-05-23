@@ -1,7 +1,10 @@
 import 'package:background_fetch/background_fetch.dart';
 
 class BackgroundHelper {
-  Future<void> initializeBackground() async {
+  static final shared = BackgroundHelper();
+
+  Future<void> initializeBackground(Function fetchFunction,
+      Function timeoutFunction, Function headlessTask) async {
     await BackgroundFetch.configure(
         BackgroundFetchConfig(
             minimumFetchInterval: 15,
@@ -11,25 +14,22 @@ class BackgroundHelper {
             requiresCharging: false,
             requiresStorageNotLow: false,
             requiresDeviceIdle: false,
-            requiredNetworkType: NetworkType.NONE), (String taskId) async {
-      //!
+            requiredNetworkType: NetworkType.ANY), (String taskId) async {
+      await fetchFunction();
       BackgroundFetch.finish(taskId);
     }, (String taskId) async {
-      //!
+      await timeoutFunction();
       BackgroundFetch.finish(taskId);
     });
 
-    //*  BackgroundFetch.start()  background fetch başlatma kodu
-    //* BackgroundFetch.stop()    background fetch bitirme kodu
-    //* BackgroundFetch.status background fetch durumunu öğrenme kodu [DENIDED, RESTRICTED, AVAILABLE]
+    await BackgroundFetch.registerHeadlessTask(headlessTask);
   }
 
-  Future<void> startBackgroundFetch() async{
+  Future<void> startBackgroundFetch() async {
     await BackgroundFetch.start();
   }
 
-  Future<void> stopBackgroundFetch() async{
+  Future<void> stopBackgroundFetch() async {
     await BackgroundFetch.stop();
   }
-
 }

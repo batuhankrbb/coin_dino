@@ -1,35 +1,32 @@
 import 'dart:async';
 import 'package:coin_dino/core/background/background_helper.dart';
+import 'package:coin_dino/core/notification_helper/notification_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:background_fetch/background_fetch.dart';
 
-// [Android-only] This "Headless Task" is run when the Android app
-// is terminated with enableHeadless: true
-void backgroundFetchHeadlessTask(HeadlessTask task) async {
-  String taskId = task.taskId;
-  bool isTimeout = task.timeout;
-  if (isTimeout) {
-    // This task has exceeded its allowed running-time.
-    // You must stop what you're doing and immediately .finish(taskId)
-    print("Timeout İN Headless $taskId || TEST");
-    BackgroundFetch.finish(taskId);
-    return;
-  }
-  print("Headless Received $taskId || TEST");
-  BackgroundFetch.finish(taskId);
-}
 
-void main() async{
-  // Enable integration testing with the Flutter Driver extension.
-  // See https://flutter.io/testing/ for more info.
+void main() async {
   runApp(new MyApp());
 
-  // Register to receive BackgroundFetch events after app is terminated.
-  // Requires {stopOnTerminate: false, enableHeadless: true}
-  await BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
-  await BackgroundHelper().startBackgroundFetch();
+  BackgroundHelper.shared.initializeBackground(() {
+    NotificationHelper.shared.showNotification(
+        title: "fetch fonksiyonu",
+        description: "fetch açıklama",
+        payLoad: "fetch_payload");
+  }, () {
+      NotificationHelper.shared.showNotification(
+        title: "timeout fonksiyonu",
+        description: "timeout açıklama",
+        payLoad: "timeout_payload");
+  }, () {
+      NotificationHelper.shared.showNotification(
+        title: "headless fonksiyonu",
+        description: "headless açıklama",
+        payLoad: "headless_payload");
+  });
+  await BackgroundHelper.shared.startBackgroundFetch();
 }
 
 class MyApp extends StatefulWidget {
@@ -38,41 +35,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _enabled = true;
-  int _status = 0;
-  List<DateTime> _events = [];
-
   @override
   void initState() {
     super.initState();
-    initPlatformState();
   }
-
-  //! BACKGROUND FETCHI INIT ETTİĞİMİZ VE AYARLARINI YAPTIĞIMIZ METOD
-  Future<void> initPlatformState() async {
-    // Configure BackgroundFetch.
-    int status = await BackgroundFetch.configure(
-        BackgroundFetchConfig(
-            minimumFetchInterval: 15,
-            stopOnTerminate: false,
-            enableHeadless: true,
-            requiresBatteryNotLow: false,
-            requiresCharging: false,
-            requiresStorageNotLow: false,
-            requiresDeviceIdle: false,
-            requiredNetworkType: NetworkType.NONE), (String taskId) async {
-      print("EVENT HANDLER $taskId || TEST ---BURASI ÇALIŞIYOR HER 15 DK DA BİR");
-      BackgroundFetch.finish(taskId);
-    }, (String taskId) async {
-      print("Timeout $taskId || TEST");
-      //! BURAYA EĞER YAPTIĞIMIZ İŞLEM TİMEOUT YERSE YAPILACAK ŞEY. BURADA DA FINISH KODU KESİN EKLİYORUZ
-      BackgroundFetch.finish(taskId);
-    });
-  }
-
-  void _onClickEnable(enabled) {}
-
-  void _onClickStatus() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -91,16 +57,13 @@ class _MyAppState extends State<MyApp> {
             style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.amberAccent,
         brightness: Brightness.light,
-        actions: <Widget>[
-          Switch(value: _enabled, onChanged: _onClickEnable),
-        ]);
+        actions: <Widget>[]);
   }
 
   BottomAppBar buildBottomAppBar() {
     return BottomAppBar(
         child: Row(children: <Widget>[
-      RaisedButton(onPressed: _onClickStatus, child: Text('Status')),
-      Container(child: Text("$_status"), margin: EdgeInsets.only(left: 20.0))
+      Container(child: Text(""), margin: EdgeInsets.only(left: 20.0))
     ]));
   }
 
@@ -108,9 +71,9 @@ class _MyAppState extends State<MyApp> {
     return Container(
       color: Colors.black,
       child: new ListView.builder(
-          itemCount: _events.length,
+          itemCount: 0,
           itemBuilder: (BuildContext context, int index) {
-            DateTime timestamp = _events[index];
+
             return InputDecorator(
                 decoration: InputDecoration(
                     contentPadding:
@@ -118,7 +81,7 @@ class _MyAppState extends State<MyApp> {
                     labelStyle:
                         TextStyle(color: Colors.amberAccent, fontSize: 20.0),
                     labelText: "[background fetch event]"),
-                child: new Text(timestamp.toString(),
+                child: new Text("",
                     style: TextStyle(color: Colors.white, fontSize: 16.0)));
           }),
     );
