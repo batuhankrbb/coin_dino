@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'package:coin_dino/core/background/background_helper.dart';
-import 'package:coin_dino/core/notification_helper/notification_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:background_fetch/background_fetch.dart';
-import 'core/notification_helper/notification_helper.dart';
+import 'core/background/background_helper.dart';
+import 'core/notification/notification_helper.dart';
 
 
 void main() async {

@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/result_types/result.dart';
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import '../../../../core/result_types/result.dart';
+import '../entity/alert_entity.dart';
 
 abstract class IAlertRepository{
   Future<Result<List<AlertEntity>>> getAllAlerts();

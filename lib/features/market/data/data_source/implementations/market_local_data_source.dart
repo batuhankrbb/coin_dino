@@ -1,7 +1,9 @@
 import 'dart:convert';
-import '../contracts/i_market_local_data_source.dart';
-import '../../models/market_coin_category.model.dart';
+
 import 'package:flutter/services.dart' show rootBundle;
+
+import '../../models/market_coin_category.model.dart';
+import '../contracts/i_market_local_data_source.dart';
 
 class MarketLocalDataSource implements IMarketLocalDataSource {
   @override

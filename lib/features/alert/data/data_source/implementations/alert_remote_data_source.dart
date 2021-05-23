@@ -1,10 +1,11 @@
-import 'package:coin_dino/core/constants/response_types.dart';
-import 'package:coin_dino/core/network/network_clients/coin_gecko_client.dart';
-import 'package:coin_dino/core/network/network_fetching/network_executer.dart';
-import 'package:coin_dino/features/alert/data/data_source/contracts/i_alert_remote_data_source.dart';
-import 'package:coin_dino/features/alert/data/exception_handling/exceptions/alert_exceptions.dart';
-import 'package:coin_dino/features/alert/data/model/alert_coin_model.dart';
 import 'package:dio/dio.dart';
+
+import '../../../../../core/constants/response_types.dart';
+import '../../../../../core/network/network_clients/coin_gecko_client.dart';
+import '../../../../../core/network/network_fetching/network_executer.dart';
+import '../../exception_handling/exceptions/alert_exceptions.dart';
+import '../../model/alert_coin_model.dart';
+import '../contracts/i_alert_remote_data_source.dart';
 
 class AlertRemoteDataSource implements IAlertRemoteDataSource {
   var _executer = NetworkExecuter();

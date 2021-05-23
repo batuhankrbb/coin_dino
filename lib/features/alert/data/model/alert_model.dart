@@ -1,7 +1,6 @@
-import 'package:coin_dino/core/network/network_fetching/base_network_model.dart';
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
+
+import '../../domain/entity/alert_entity.dart';
 
 part 'alert_model.g.dart';
 

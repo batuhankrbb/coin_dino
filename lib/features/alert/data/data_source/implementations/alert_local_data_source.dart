@@ -1,8 +1,8 @@
-import 'package:coin_dino/core/hive/hive_constants.dart';
-import 'package:coin_dino/core/hive/hive_helper.dart';
-import 'package:coin_dino/features/alert/data/data_source/contracts/i_alert_local_data_source.dart';
-import 'package:coin_dino/features/alert/data/exception_handling/exceptions/alert_exceptions.dart';
-import 'package:coin_dino/features/alert/data/model/alert_model.dart';
+import '../../../../../core/hive/hive_constants.dart';
+import '../../../../../core/hive/hive_helper.dart';
+import '../../exception_handling/exceptions/alert_exceptions.dart';
+import '../../model/alert_model.dart';
+import '../contracts/i_alert_local_data_source.dart';
 
 class AlertLocalDataSource implements IAlertLocalDataSource {
   var _hiveHelper = HiveHelper();

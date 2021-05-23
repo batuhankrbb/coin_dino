@@ -1,8 +1,8 @@
-import 'package:coin_dino/core/constants/coin_gecko_constants.dart';
-import 'package:coin_dino/core/hive/hive_constants.dart';
-import 'package:coin_dino/core/hive/hive_helper.dart';
-import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
-import 'package:coin_dino/features/preferences/data/exception_handling/exceptions/preferences_exceptions.dart';
+import '../../../../core/constants/coin_gecko_constants.dart';
+import '../../../../core/hive/hive_constants.dart';
+import '../../../../core/hive/hive_helper.dart';
+import '../contracts/i_preferences_local_data_source.dart';
+import '../exception_handling/exceptions/preferences_exceptions.dart';
 
 class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   var _hiveHelper = HiveHelper.shared;

@@ -1,7 +1,8 @@
-import 'package:coin_dino/core/hive/hive_constants.dart';
-import 'package:coin_dino/features/alert/data/model/alert_model.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import '../../features/alert/data/model/alert_model.dart';
+import 'hive_constants.dart';
 
 class HiveHelper {
   static HiveHelper shared = HiveHelper();
