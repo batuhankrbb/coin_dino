@@ -1,8 +1,8 @@
-import 'package:coin_dino/core/constants/coin_gecko_constants.dart';
 import 'package:coin_dino/core/hive/hive_constants.dart';
 import 'package:coin_dino/core/hive/hive_helper.dart';
 import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
 import 'package:coin_dino/features/preferences/data/exception_handling/exceptions/preferences_exceptions.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   var _hiveHelper = HiveHelper.shared;
@@ -23,8 +23,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   Future<String> getLanguagePreference() async {
     try {
       var languagePreference = await _hiveHelper.getData<String>(
-          HiveConstants.BOX_PREFERENCES,
-          HiveConstants.KEY_LANGUAGE_PREFERENCE);
+          HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_LANGUAGE_PREFERENCE);
       return languagePreference;
     } catch (e) {
       throw PreferencesException.languageFetchingException();
@@ -76,8 +75,9 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   Future<List<String>> getAllSupportedBaseCurrencies() async {
     //TODO BURADA DİREKT BURADAN VERİLERİ ALMAK YERİNE JSONDAN OKUMAK DAHA DOĞRU OLUR --SERCAN
     try {
-      var supportedCurrencies = CoinGeckoConstants.shared.supportedCurrencies;
-      return supportedCurrencies;
+      final String localJsonPath = 'assets/json/vs_currency.json';
+      var localData = await rootBundle.loadString(localJsonPath);
+      return [localData];
     } catch (e) {
       throw PreferencesException.supportedCurrenciesFetchingException();
     }
