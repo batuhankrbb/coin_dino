@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:coin_dino/core/background/background_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:background_fetch/background_fetch.dart';
+import 'core/notification_helper/notification_helper.dart';
 
 // [Android-only] This "Headless Task" is run when the Android app
 // is terminated with enableHeadless: true
@@ -21,7 +21,7 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
   BackgroundFetch.finish(taskId);
 }
 
-void main() async{
+void main() async {
   // Enable integration testing with the Flutter Driver extension.
   // See https://flutter.io/testing/ for more info.
   runApp(new MyApp());
@@ -61,7 +61,10 @@ class _MyAppState extends State<MyApp> {
             requiresStorageNotLow: false,
             requiresDeviceIdle: false,
             requiredNetworkType: NetworkType.NONE), (String taskId) async {
-      print("EVENT HANDLER $taskId || TEST ---BURASI ÇALIŞIYOR HER 15 DK DA BİR");
+      print(
+          "EVENT HANDLER $taskId || TEST ---BURASI ÇALIŞIYOR HER 15 DK DA BİR");
+      NotificationHelper.shared.showNotification(
+          title: "title", description: "description", payLoad: "payLoad");
       BackgroundFetch.finish(taskId);
     }, (String taskId) async {
       print("Timeout $taskId || TEST");
