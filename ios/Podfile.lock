@@ -1,4 +1,6 @@
 PODS:
+  - background_fetch (1.0.0-nullsafety.2):
+    - Flutter
   - connectivity (0.0.1):
     - Flutter
     - Reachability
@@ -12,6 +14,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - background_fetch (from `.symlinks/plugins/background_fetch/ios`)
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - Flutter (from `Flutter`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
@@ -23,6 +26,8 @@ SPEC REPOS:
     - Reachability
 
 EXTERNAL SOURCES:
+  background_fetch:
+    :path: ".symlinks/plugins/background_fetch/ios"
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
   Flutter:
@@ -35,6 +40,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences/ios"
 
 SPEC CHECKSUMS:
+  background_fetch: 67b227578932e795dbe3ea6d3f7c006e45f3ce66
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
