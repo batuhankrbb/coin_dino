@@ -22,6 +22,11 @@ class HiveHelper {
     await box.delete(key);
   }
 
+  Future<void> deleteDataAt<T>(String boxName, int index) async {
+    var box = Hive.box<T>(boxName);
+    await box.deleteAt(index);
+  }
+
   Future<void> putData<T>(String boxName, dynamic key, T data) async {
     var box = Hive.box<T>(boxName);
     await box.put(key, data);

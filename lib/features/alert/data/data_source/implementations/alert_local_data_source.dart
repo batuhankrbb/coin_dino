@@ -19,9 +19,9 @@ class AlertLocalDataSource implements IAlertLocalDataSource {
   }
 
   @override
-  Future<void> deleteAlert(String alertID) async{
+  Future<void> deleteAlert(AlertModel alertModel) async {
     try {
-      //TODO İMPLEMENT EDİLECEK
+      _hiveHelper.deleteData(HiveConstants.BOX_ALERTS, alertModel.coindID);
     } catch (e) {
       throw AlertException.alertDeletingException();
     }
@@ -30,7 +30,8 @@ class AlertLocalDataSource implements IAlertLocalDataSource {
   @override
   Future<void> saveAlert(AlertModel alertModel) async {
     try {
-      //TODO İMPLEMENT EDİLECEK
+      _hiveHelper.putData(
+          HiveConstants.BOX_ALERTS, alertModel.coindID, alertModel);
     } catch (e) {
       throw AlertException.alertSavingException();
     }
@@ -39,7 +40,8 @@ class AlertLocalDataSource implements IAlertLocalDataSource {
   @override
   Future<void> updateAlert(AlertModel alertModel) async {
     try {
-      //TODO İMPLEMENT EDİLECEK
+      _hiveHelper.putData(
+          HiveConstants.BOX_ALERTS, alertModel.coindID, alertModel);
     } catch (e) {
       throw AlertException.alertUpdatingException();
     }

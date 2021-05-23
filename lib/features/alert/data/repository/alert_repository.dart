@@ -44,9 +44,9 @@ class AlertRepository implements IAlertRepository {
   }
 
   @override
-  Future<Result<void>> deleteAlert(String alertID) async {
+  Future<Result<void>> deleteAlert(AlertEntity alertEntity) async {
     try {
-      var result = await localDataSource.deleteAlert(alertID);
+      var result = await localDataSource.deleteAlert(AlertModel.fromEntity(alertEntity));
       return Result.success(result);
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
