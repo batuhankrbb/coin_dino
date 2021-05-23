@@ -1,6 +1,6 @@
-import 'package:coin_dino/core/result_types/result.dart';
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
+import '../../../../core/result_types/result.dart';
+import '../entity/language_preference_entity.dart';
+import '../entity/theme_preference_entity.dart';
 
 abstract class IPreferenceRepository {
   Future<Result<ThemePreferenceEntity>> getThemePreference();

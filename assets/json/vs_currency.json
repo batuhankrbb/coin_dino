@@ -1,8 +1,5 @@
-class CoinGeckoConstants {
-  static final shared = CoinGeckoConstants();
-  
-  final supportedCurrencies = [
-    "btc",
+{
+   "vs_currency" : ["btc",
     "eth",
     "ltc",
     "bch",
@@ -62,6 +59,5 @@ class CoinGeckoConstants {
     "xag",
     "xau",
     "bits",
-    "sats"
-  ];
+    "sats"]
 }

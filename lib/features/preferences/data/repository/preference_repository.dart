@@ -1,12 +1,10 @@
-
-import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
-import 'package:coin_dino/features/preferences/data/exception_handling/exception_handler.dart';
-import 'package:coin_dino/features/preferences/data/exception_handling/exceptions/preferences_exceptions.dart';
-import 'package:coin_dino/features/preferences/data/implementations/preferences_local_data_source.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/core/result_types/result.dart';
-import 'package:coin_dino/features/preferences/domain/repository_contract/i_preference_repository.dart';
+import '../../../../core/result_types/result.dart';
+import '../../domain/entity/language_preference_entity.dart';
+import '../../domain/entity/theme_preference_entity.dart';
+import '../../domain/repository_contract/i_preference_repository.dart';
+import '../contracts/i_preferences_local_data_source.dart';
+import '../exception_handling/exception_handler.dart';
+import '../exception_handling/exceptions/preferences_exceptions.dart';
 
 class PreferenceRepository implements IPreferenceRepository {
   final IPreferencesLocalDataSource preferencesLocalDataSource;

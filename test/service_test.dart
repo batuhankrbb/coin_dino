@@ -1,5 +1,10 @@
 import 'dart:io';
 import 'package:coin_dino/core/hive/hive_constants.dart';
+import 'package:coin_dino/features/alert/data/data_source/implementations/alert_local_data_source.dart';
+import 'package:coin_dino/features/alert/data/data_source/implementations/alert_remote_data_source.dart';
+import 'package:coin_dino/features/alert/data/exception_handling/exception_handler.dart';
+import 'package:coin_dino/features/alert/data/repository/alert_repository.dart';
+import 'package:coin_dino/features/alert/domain/repository_contract/i_alert_repository.dart';
 import 'package:coin_dino/features/details/data/data_source/implementations/details_remote_data_source.dart';
 import 'package:coin_dino/features/details/data/exception_handling/details_exception_handler.dart';
 import 'package:coin_dino/features/details/data/repository/coin_detail_repository.dart';
@@ -130,6 +135,16 @@ main() async {
           print(
               "FAILURE | base currency set test = ${failure.message + "you couldn't set knk"}");
         });
+      });
+    });
+
+    group("alert test", () {
+      IAlertRepository alertRepository = AlertRepository(
+          localDataSource: AlertLocalDataSource(),
+          exceptionHandler: AlertExceptionHandler(),
+          remoteDataSource: AlertRemoteDataSource());
+      test("description", () async {
+        alertRepository.checkAlerts();
       });
     });
   });

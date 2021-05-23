@@ -1,4 +1,3 @@
-import 'package:coin_dino/core/error_handling/custom_failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'preferences_exceptions.freezed.dart';

@@ -1,7 +1,8 @@
-import 'package:coin_dino/core/hive/hive_constants.dart';
-import 'package:coin_dino/core/hive/hive_helper.dart';
-import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
-import 'package:coin_dino/features/preferences/data/exception_handling/exceptions/preferences_exceptions.dart';
+
+import '../../../../core/hive/hive_constants.dart';
+import '../../../../core/hive/hive_helper.dart';
+import '../contracts/i_preferences_local_data_source.dart';
+import '../exception_handling/exceptions/preferences_exceptions.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
@@ -73,7 +74,6 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
 
   @override
   Future<List<String>> getAllSupportedBaseCurrencies() async {
-    //TODO BURADA DİREKT BURADAN VERİLERİ ALMAK YERİNE JSONDAN OKUMAK DAHA DOĞRU OLUR --SERCAN
     try {
       final String localJsonPath = 'assets/json/vs_currency.json';
       var localData = await rootBundle.loadString(localJsonPath);
