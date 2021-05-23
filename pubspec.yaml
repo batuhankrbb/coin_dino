@@ -27,6 +27,7 @@ dependencies:
   build_runner: ^2.0.1
   connectivity: ^3.0.3
   cupertino_icons: ^1.0.2
+  device_preview: ^0.7.1
   dio: ^4.0.0
   easy_localization: ^3.0.0
   flutter_local_notifications: ^5.0.0+4

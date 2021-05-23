@@ -1,11 +1,14 @@
-import 'dart:async';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'core/background/background_helper.dart';
 import 'core/notification/notification_helper.dart';
 
 void main() async {
-  runApp(new MyApp());
+  runApp(
+    DevicePreview(
+      builder: (context) => MyApp(),
+    ),
+  );
 
   BackgroundHelper.shared.initializeBackground(() {
     //TODO İleride viewmodel içinde kullanılacak şey: AlertRepository.checkAlerts();
@@ -27,60 +30,40 @@ void main() async {
   await BackgroundHelper.shared.startBackgroundFetch();
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => new _MyAppState();
-}
 
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
-        appBar: buildAppBar(),
-        body: buildBody(),
-        bottomNavigationBar: buildBottomAppBar(),
-      ),
+    return  MaterialApp(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      home: HomePage(),
     );
   }
+}
 
-  AppBar buildAppBar() {
-    return new AppBar(
-        title: const Text('BackgroundFetch Example',
-            style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.amberAccent,
-        brightness: Brightness.light,
-        actions: <Widget>[]);
-  }
 
-  BottomAppBar buildBottomAppBar() {
-    return BottomAppBar(
-        child: Row(children: <Widget>[
-      Container(child: Text(""), margin: EdgeInsets.only(left: 20.0))
-    ]));
-  }
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
 
-  Container buildBody() {
-    return Container(
-      color: Colors.black,
-      child: new ListView.builder(
-          itemCount: 0,
-          itemBuilder: (BuildContext context, int index) {
-            return InputDecorator(
-                decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.only(left: 10.0, top: 10.0, bottom: 0.0),
-                    labelStyle:
-                        TextStyle(color: Colors.amberAccent, fontSize: 20.0),
-                    labelText: "[background fetch event]"),
-                child: new Text("",
-                    style: TextStyle(color: Colors.white, fontSize: 16.0)));
-          }),
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hello"),
+      ),
+      body: Column(
+        children: [
+          Text("hello"),
+        ],
+      ),
     );
   }
 }
