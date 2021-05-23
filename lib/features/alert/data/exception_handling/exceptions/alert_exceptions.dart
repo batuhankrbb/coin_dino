@@ -12,4 +12,6 @@ class AlertException with _$AlertException {
   const factory AlertException.alertUpdatingException() = AlertUpdatingException;
   @Implements(Exception)
   const factory AlertException.alertDeletingException() = AlertDeletingException;
+  @Implements(Exception)
+  const factory AlertException.alertFetchingRemoteException() = AlertFetchingRemoteException;
 }

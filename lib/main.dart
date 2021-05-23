@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:coin_dino/core/background/background_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -12,23 +13,23 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
   if (isTimeout) {
     // This task has exceeded its allowed running-time.
     // You must stop what you're doing and immediately .finish(taskId)
-    print("[BackgroundFetch] Headless task timed-out: $taskId");
+    print("Timeout İN Headless $taskId || TEST");
     BackgroundFetch.finish(taskId);
     return;
   }
-  print('[BackgroundFetch] Headless event received.');
- 
+  print("Headless Received $taskId || TEST");
   BackgroundFetch.finish(taskId);
 }
 
-void main() {
+void main() async{
   // Enable integration testing with the Flutter Driver extension.
   // See https://flutter.io/testing/ for more info.
   runApp(new MyApp());
 
   // Register to receive BackgroundFetch events after app is terminated.
   // Requires {stopOnTerminate: false, enableHeadless: true}
-
+  await BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
+  await BackgroundHelper().startBackgroundFetch();
 }
 
 class MyApp extends StatefulWidget {
@@ -60,27 +61,18 @@ class _MyAppState extends State<MyApp> {
             requiresStorageNotLow: false,
             requiresDeviceIdle: false,
             requiredNetworkType: NetworkType.NONE), (String taskId) async {
-      // <-- Event handler
-      
-
+      print("EVENT HANDLER $taskId || TEST ---BURASI ÇALIŞIYOR HER 15 DK DA BİR");
       BackgroundFetch.finish(taskId);
     }, (String taskId) async {
-      // <-- Task timeout handler.
+      print("Timeout $taskId || TEST");
       //! BURAYA EĞER YAPTIĞIMIZ İŞLEM TİMEOUT YERSE YAPILACAK ŞEY. BURADA DA FINISH KODU KESİN EKLİYORUZ
       BackgroundFetch.finish(taskId);
     });
-
-     //*  BackgroundFetch.start()  background fetch başlatma kodu
-     //* BackgroundFetch.stop()    background fetch bitirme kodu
-     //* BackgroundFetch.status background fetch durumunu öğrenme kodu [DENIDED, RESTRICTED, AVAILABLE]
-
   }
 
-  void _onClickEnable(enabled) {
-  }
+  void _onClickEnable(enabled) {}
 
-  void _onClickStatus() async {
-  }
+  void _onClickStatus() async {}
 
   @override
   Widget build(BuildContext context) {

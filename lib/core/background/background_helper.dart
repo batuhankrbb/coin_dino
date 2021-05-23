@@ -32,5 +32,4 @@ class BackgroundHelper {
     await BackgroundFetch.stop();
   }
 
-  
 }

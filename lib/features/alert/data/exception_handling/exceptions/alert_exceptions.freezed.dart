@@ -31,6 +31,10 @@ class _$AlertExceptionTearOff {
   AlertDeletingException alertDeletingException() {
     return const AlertDeletingException();
   }
+
+  AlertFetchingRemoteException alertFetchingRemoteException() {
+    return const AlertFetchingRemoteException();
+  }
 }
 
 /// @nodoc
@@ -44,6 +48,7 @@ mixin _$AlertException {
     required TResult Function() alertSavingException,
     required TResult Function() alertUpdatingException,
     required TResult Function() alertDeletingException,
+    required TResult Function() alertFetchingRemoteException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +57,7 @@ mixin _$AlertException {
     TResult Function()? alertSavingException,
     TResult Function()? alertUpdatingException,
     TResult Function()? alertDeletingException,
+    TResult Function()? alertFetchingRemoteException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +70,8 @@ mixin _$AlertException {
         alertUpdatingException,
     required TResult Function(AlertDeletingException value)
         alertDeletingException,
+    required TResult Function(AlertFetchingRemoteException value)
+        alertFetchingRemoteException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +81,8 @@ mixin _$AlertException {
     TResult Function(AlertSavingException value)? alertSavingException,
     TResult Function(AlertUpdatingException value)? alertUpdatingException,
     TResult Function(AlertDeletingException value)? alertDeletingException,
+    TResult Function(AlertFetchingRemoteException value)?
+        alertFetchingRemoteException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +151,7 @@ class _$AllAlertsFetchingException implements AllAlertsFetchingException {
     required TResult Function() alertSavingException,
     required TResult Function() alertUpdatingException,
     required TResult Function() alertDeletingException,
+    required TResult Function() alertFetchingRemoteException,
   }) {
     return allAlertsFetchingException();
   }
@@ -152,6 +163,7 @@ class _$AllAlertsFetchingException implements AllAlertsFetchingException {
     TResult Function()? alertSavingException,
     TResult Function()? alertUpdatingException,
     TResult Function()? alertDeletingException,
+    TResult Function()? alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (allAlertsFetchingException != null) {
@@ -170,6 +182,8 @@ class _$AllAlertsFetchingException implements AllAlertsFetchingException {
         alertUpdatingException,
     required TResult Function(AlertDeletingException value)
         alertDeletingException,
+    required TResult Function(AlertFetchingRemoteException value)
+        alertFetchingRemoteException,
   }) {
     return allAlertsFetchingException(this);
   }
@@ -182,6 +196,8 @@ class _$AllAlertsFetchingException implements AllAlertsFetchingException {
     TResult Function(AlertSavingException value)? alertSavingException,
     TResult Function(AlertUpdatingException value)? alertUpdatingException,
     TResult Function(AlertDeletingException value)? alertDeletingException,
+    TResult Function(AlertFetchingRemoteException value)?
+        alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (allAlertsFetchingException != null) {
@@ -240,6 +256,7 @@ class _$AlertSavingException implements AlertSavingException {
     required TResult Function() alertSavingException,
     required TResult Function() alertUpdatingException,
     required TResult Function() alertDeletingException,
+    required TResult Function() alertFetchingRemoteException,
   }) {
     return alertSavingException();
   }
@@ -251,6 +268,7 @@ class _$AlertSavingException implements AlertSavingException {
     TResult Function()? alertSavingException,
     TResult Function()? alertUpdatingException,
     TResult Function()? alertDeletingException,
+    TResult Function()? alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (alertSavingException != null) {
@@ -269,6 +287,8 @@ class _$AlertSavingException implements AlertSavingException {
         alertUpdatingException,
     required TResult Function(AlertDeletingException value)
         alertDeletingException,
+    required TResult Function(AlertFetchingRemoteException value)
+        alertFetchingRemoteException,
   }) {
     return alertSavingException(this);
   }
@@ -281,6 +301,8 @@ class _$AlertSavingException implements AlertSavingException {
     TResult Function(AlertSavingException value)? alertSavingException,
     TResult Function(AlertUpdatingException value)? alertUpdatingException,
     TResult Function(AlertDeletingException value)? alertDeletingException,
+    TResult Function(AlertFetchingRemoteException value)?
+        alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (alertSavingException != null) {
@@ -339,6 +361,7 @@ class _$AlertUpdatingException implements AlertUpdatingException {
     required TResult Function() alertSavingException,
     required TResult Function() alertUpdatingException,
     required TResult Function() alertDeletingException,
+    required TResult Function() alertFetchingRemoteException,
   }) {
     return alertUpdatingException();
   }
@@ -350,6 +373,7 @@ class _$AlertUpdatingException implements AlertUpdatingException {
     TResult Function()? alertSavingException,
     TResult Function()? alertUpdatingException,
     TResult Function()? alertDeletingException,
+    TResult Function()? alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (alertUpdatingException != null) {
@@ -368,6 +392,8 @@ class _$AlertUpdatingException implements AlertUpdatingException {
         alertUpdatingException,
     required TResult Function(AlertDeletingException value)
         alertDeletingException,
+    required TResult Function(AlertFetchingRemoteException value)
+        alertFetchingRemoteException,
   }) {
     return alertUpdatingException(this);
   }
@@ -380,6 +406,8 @@ class _$AlertUpdatingException implements AlertUpdatingException {
     TResult Function(AlertSavingException value)? alertSavingException,
     TResult Function(AlertUpdatingException value)? alertUpdatingException,
     TResult Function(AlertDeletingException value)? alertDeletingException,
+    TResult Function(AlertFetchingRemoteException value)?
+        alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (alertUpdatingException != null) {
@@ -438,6 +466,7 @@ class _$AlertDeletingException implements AlertDeletingException {
     required TResult Function() alertSavingException,
     required TResult Function() alertUpdatingException,
     required TResult Function() alertDeletingException,
+    required TResult Function() alertFetchingRemoteException,
   }) {
     return alertDeletingException();
   }
@@ -449,6 +478,7 @@ class _$AlertDeletingException implements AlertDeletingException {
     TResult Function()? alertSavingException,
     TResult Function()? alertUpdatingException,
     TResult Function()? alertDeletingException,
+    TResult Function()? alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (alertDeletingException != null) {
@@ -467,6 +497,8 @@ class _$AlertDeletingException implements AlertDeletingException {
         alertUpdatingException,
     required TResult Function(AlertDeletingException value)
         alertDeletingException,
+    required TResult Function(AlertFetchingRemoteException value)
+        alertFetchingRemoteException,
   }) {
     return alertDeletingException(this);
   }
@@ -479,6 +511,8 @@ class _$AlertDeletingException implements AlertDeletingException {
     TResult Function(AlertSavingException value)? alertSavingException,
     TResult Function(AlertUpdatingException value)? alertUpdatingException,
     TResult Function(AlertDeletingException value)? alertDeletingException,
+    TResult Function(AlertFetchingRemoteException value)?
+        alertFetchingRemoteException,
     required TResult orElse(),
   }) {
     if (alertDeletingException != null) {
@@ -490,4 +524,113 @@ class _$AlertDeletingException implements AlertDeletingException {
 
 abstract class AlertDeletingException implements AlertException, Exception {
   const factory AlertDeletingException() = _$AlertDeletingException;
+}
+
+/// @nodoc
+abstract class $AlertFetchingRemoteExceptionCopyWith<$Res> {
+  factory $AlertFetchingRemoteExceptionCopyWith(
+          AlertFetchingRemoteException value,
+          $Res Function(AlertFetchingRemoteException) then) =
+      _$AlertFetchingRemoteExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AlertFetchingRemoteExceptionCopyWithImpl<$Res>
+    extends _$AlertExceptionCopyWithImpl<$Res>
+    implements $AlertFetchingRemoteExceptionCopyWith<$Res> {
+  _$AlertFetchingRemoteExceptionCopyWithImpl(
+      AlertFetchingRemoteException _value,
+      $Res Function(AlertFetchingRemoteException) _then)
+      : super(_value, (v) => _then(v as AlertFetchingRemoteException));
+
+  @override
+  AlertFetchingRemoteException get _value =>
+      super._value as AlertFetchingRemoteException;
+}
+
+/// @nodoc
+
+@Implements(Exception)
+class _$AlertFetchingRemoteException implements AlertFetchingRemoteException {
+  const _$AlertFetchingRemoteException();
+
+  @override
+  String toString() {
+    return 'AlertException.alertFetchingRemoteException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is AlertFetchingRemoteException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() allAlertsFetchingException,
+    required TResult Function() alertSavingException,
+    required TResult Function() alertUpdatingException,
+    required TResult Function() alertDeletingException,
+    required TResult Function() alertFetchingRemoteException,
+  }) {
+    return alertFetchingRemoteException();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? allAlertsFetchingException,
+    TResult Function()? alertSavingException,
+    TResult Function()? alertUpdatingException,
+    TResult Function()? alertDeletingException,
+    TResult Function()? alertFetchingRemoteException,
+    required TResult orElse(),
+  }) {
+    if (alertFetchingRemoteException != null) {
+      return alertFetchingRemoteException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AllAlertsFetchingException value)
+        allAlertsFetchingException,
+    required TResult Function(AlertSavingException value) alertSavingException,
+    required TResult Function(AlertUpdatingException value)
+        alertUpdatingException,
+    required TResult Function(AlertDeletingException value)
+        alertDeletingException,
+    required TResult Function(AlertFetchingRemoteException value)
+        alertFetchingRemoteException,
+  }) {
+    return alertFetchingRemoteException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AllAlertsFetchingException value)?
+        allAlertsFetchingException,
+    TResult Function(AlertSavingException value)? alertSavingException,
+    TResult Function(AlertUpdatingException value)? alertUpdatingException,
+    TResult Function(AlertDeletingException value)? alertDeletingException,
+    TResult Function(AlertFetchingRemoteException value)?
+        alertFetchingRemoteException,
+    required TResult orElse(),
+  }) {
+    if (alertFetchingRemoteException != null) {
+      return alertFetchingRemoteException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AlertFetchingRemoteException
+    implements AlertException, Exception {
+  const factory AlertFetchingRemoteException() = _$AlertFetchingRemoteException;
 }

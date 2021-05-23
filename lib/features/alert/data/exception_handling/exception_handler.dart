@@ -19,6 +19,9 @@ class AlertExceptionHandler {
         alertDeletingException: () {
           return CustomFailure(
               message: "There is an error in AlertDeleting");
+        },alertFetchingRemoteException: () {
+          return CustomFailure(
+              message: "There is an error in AlertFetchingRemoteException");
         });
   }
 }
