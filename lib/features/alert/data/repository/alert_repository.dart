@@ -1,10 +1,12 @@
 import 'dart:ffi';
 
+import 'package:coin_dino/core/notification_helper/notification_helper.dart';
 import 'package:coin_dino/features/alert/data/data_source/contracts/i_alert_local_data_source.dart';
 import 'package:coin_dino/features/alert/data/data_source/contracts/i_alert_remote_data_source.dart';
 import 'package:coin_dino/features/alert/data/data_source/implementations/alert_remote_data_source.dart';
 import 'package:coin_dino/features/alert/data/exception_handling/exception_handler.dart';
 import 'package:coin_dino/features/alert/data/exception_handling/exceptions/alert_exceptions.dart';
+import 'package:coin_dino/features/alert/data/model/alert_coin_model.dart';
 import 'package:coin_dino/features/alert/data/model/alert_model.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/core/result_types/result.dart';
@@ -46,7 +48,8 @@ class AlertRepository implements IAlertRepository {
   @override
   Future<Result<void>> deleteAlert(AlertEntity alertEntity) async {
     try {
-      var result = await localDataSource.deleteAlert(AlertModel.fromEntity(alertEntity));
+      var result =
+          await localDataSource.deleteAlert(AlertModel.fromEntity(alertEntity));
       return Result.success(result);
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
@@ -66,29 +69,37 @@ class AlertRepository implements IAlertRepository {
 
   @override
   Future<Result<void>> checkAlerts() async {
-    try{
-var allAlerts = await localDataSource.getAllAlerts();
-    var alertsIds = allAlerts.map((e) => e.coindID).toList();
-    var remoteAlerts = await remoteDataSource.getGivenCoins(coinIds: alertsIds,vsCurrency: "usd"); //TODO VSCURRENCY PREFERENCESDAN ALINACAK
+    try {
+      var allAlerts = await localDataSource.getAllAlerts();
+      var alertsIds = allAlerts.map((e) => e.coindID).toList();
+      var remoteAlerts = await remoteDataSource.getGivenCoins(
+          coinIds: alertsIds,
+          vsCurrency: "usd"); //TODO VSCURRENCY PREFERENCESDAN ALINACAK
 
-    List<AlertModel> alertsToNotify = [];
+      List<AlertCoinModel> alertsToNotify = [];
 
-    for (int i = 0; i < allAlerts.length; i++) {
-      var localAlert = allAlerts[i];
-      var remoteAlert = remoteAlerts[i];
-      var isTargetHigh = localAlert.targetPrice > localAlert.price;
+      for (int i = 0; i < allAlerts.length; i++) {
+        var localAlert = allAlerts[i];
+        var remoteAlert = remoteAlerts[i];
+        var isTargetHigh = localAlert.targetPrice > localAlert.price;
 
-      if (isTargetHigh && remoteAlert.currentPrice > localAlert.targetPrice) {
-        alertsToNotify.add(localAlert);
-      } else if (!isTargetHigh &&
-          remoteAlert.currentPrice < localAlert.targetPrice) {
-        alertsToNotify.add(localAlert);
+        if (isTargetHigh && remoteAlert.currentPrice > localAlert.targetPrice) {
+          alertsToNotify.add(remoteAlert);
+        } else if (!isTargetHigh &&
+            remoteAlert.currentPrice < localAlert.targetPrice) {
+          alertsToNotify.add(remoteAlert);
+        }
       }
-    }
 
-    //TODO AlertsToNotify içindeki coinleri notification olarak gönder
-    return Result.success(Void);
-    }on AlertException catch(e){
+      alertsToNotify.forEach((element) {  //TODO AlertsToNotify içindeki coinleri notification olarak gönder --SERCAN
+        NotificationHelper.shared.showNotification( 
+            title: element.name,
+            description: "price: ${element.currentPrice} and id: ${element.id}",
+            payLoad: "deneme");
+      });
+     
+      return Result.success(Void);
+    } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
     }
   }

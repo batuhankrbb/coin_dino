@@ -74,7 +74,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
 
   @override
   Future<List<String>> getAllSupportedBaseCurrencies() async {
-    //TODO BURADA DİREKT BURADAN VERİLERİ ALMAK YERİNE JSONDAN OKUMAK DAHA DOĞRU OLUR
+    //TODO BURADA DİREKT BURADAN VERİLERİ ALMAK YERİNE JSONDAN OKUMAK DAHA DOĞRU OLUR --SERCAN
     try {
       var supportedCurrencies = CoinGeckoConstants.shared.supportedCurrencies;
       return supportedCurrencies;

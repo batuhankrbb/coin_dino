@@ -64,6 +64,13 @@ class _$CoinGeckoClientTearOff {
       vsCurrency,
     );
   }
+
+  GetAlertCoins getAlertCoins(List<String> coinIds, String vsCurrency) {
+    return GetAlertCoins(
+      coinIds,
+      vsCurrency,
+    );
+  }
 }
 
 /// @nodoc
@@ -90,6 +97,8 @@ mixin _$CoinGeckoClient {
         marketChart,
     required TResult Function() searchTrends,
     required TResult Function(String text, String vsCurrency) coinSearch,
+    required TResult Function(List<String> coinIds, String vsCurrency)
+        getAlertCoins,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +120,7 @@ mixin _$CoinGeckoClient {
         marketChart,
     TResult Function()? searchTrends,
     TResult Function(String text, String vsCurrency)? coinSearch,
+    TResult Function(List<String> coinIds, String vsCurrency)? getAlertCoins,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +131,7 @@ mixin _$CoinGeckoClient {
     required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
     required TResult Function(CoinSearch value) coinSearch,
+    required TResult Function(GetAlertCoins value) getAlertCoins,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -130,6 +141,7 @@ mixin _$CoinGeckoClient {
     TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
     TResult Function(CoinSearch value)? coinSearch,
+    TResult Function(GetAlertCoins value)? getAlertCoins,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -268,6 +280,8 @@ class _$CoinsMarket extends CoinsMarket {
         marketChart,
     required TResult Function() searchTrends,
     required TResult Function(String text, String vsCurrency) coinSearch,
+    required TResult Function(List<String> coinIds, String vsCurrency)
+        getAlertCoins,
   }) {
     return coinsMarket(date, sort, category, vsCurrency);
   }
@@ -292,6 +306,7 @@ class _$CoinsMarket extends CoinsMarket {
         marketChart,
     TResult Function()? searchTrends,
     TResult Function(String text, String vsCurrency)? coinSearch,
+    TResult Function(List<String> coinIds, String vsCurrency)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
@@ -308,6 +323,7 @@ class _$CoinsMarket extends CoinsMarket {
     required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
     required TResult Function(CoinSearch value) coinSearch,
+    required TResult Function(GetAlertCoins value) getAlertCoins,
   }) {
     return coinsMarket(this);
   }
@@ -320,6 +336,7 @@ class _$CoinsMarket extends CoinsMarket {
     TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
     TResult Function(CoinSearch value)? coinSearch,
+    TResult Function(GetAlertCoins value)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
@@ -504,6 +521,8 @@ class _$Details extends Details {
         marketChart,
     required TResult Function() searchTrends,
     required TResult Function(String text, String vsCurrency) coinSearch,
+    required TResult Function(List<String> coinIds, String vsCurrency)
+        getAlertCoins,
   }) {
     return details(id, localization, tickers, marketdata, communitydata,
         developerdata, sparkline);
@@ -529,6 +548,7 @@ class _$Details extends Details {
         marketChart,
     TResult Function()? searchTrends,
     TResult Function(String text, String vsCurrency)? coinSearch,
+    TResult Function(List<String> coinIds, String vsCurrency)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (details != null) {
@@ -546,6 +566,7 @@ class _$Details extends Details {
     required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
     required TResult Function(CoinSearch value) coinSearch,
+    required TResult Function(GetAlertCoins value) getAlertCoins,
   }) {
     return details(this);
   }
@@ -558,6 +579,7 @@ class _$Details extends Details {
     TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
     TResult Function(CoinSearch value)? coinSearch,
+    TResult Function(GetAlertCoins value)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (details != null) {
@@ -704,6 +726,8 @@ class _$MarketChart extends MarketChart {
         marketChart,
     required TResult Function() searchTrends,
     required TResult Function(String text, String vsCurrency) coinSearch,
+    required TResult Function(List<String> coinIds, String vsCurrency)
+        getAlertCoins,
   }) {
     return marketChart(id, vsCurrency, days, interval);
   }
@@ -728,6 +752,7 @@ class _$MarketChart extends MarketChart {
         marketChart,
     TResult Function()? searchTrends,
     TResult Function(String text, String vsCurrency)? coinSearch,
+    TResult Function(List<String> coinIds, String vsCurrency)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (marketChart != null) {
@@ -744,6 +769,7 @@ class _$MarketChart extends MarketChart {
     required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
     required TResult Function(CoinSearch value) coinSearch,
+    required TResult Function(GetAlertCoins value) getAlertCoins,
   }) {
     return marketChart(this);
   }
@@ -756,6 +782,7 @@ class _$MarketChart extends MarketChart {
     TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
     TResult Function(CoinSearch value)? coinSearch,
+    TResult Function(GetAlertCoins value)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (marketChart != null) {
@@ -837,6 +864,8 @@ class _$SearchTrends extends SearchTrends {
         marketChart,
     required TResult Function() searchTrends,
     required TResult Function(String text, String vsCurrency) coinSearch,
+    required TResult Function(List<String> coinIds, String vsCurrency)
+        getAlertCoins,
   }) {
     return searchTrends();
   }
@@ -861,6 +890,7 @@ class _$SearchTrends extends SearchTrends {
         marketChart,
     TResult Function()? searchTrends,
     TResult Function(String text, String vsCurrency)? coinSearch,
+    TResult Function(List<String> coinIds, String vsCurrency)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (searchTrends != null) {
@@ -877,6 +907,7 @@ class _$SearchTrends extends SearchTrends {
     required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
     required TResult Function(CoinSearch value) coinSearch,
+    required TResult Function(GetAlertCoins value) getAlertCoins,
   }) {
     return searchTrends(this);
   }
@@ -889,6 +920,7 @@ class _$SearchTrends extends SearchTrends {
     TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
     TResult Function(CoinSearch value)? coinSearch,
+    TResult Function(GetAlertCoins value)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (searchTrends != null) {
@@ -995,6 +1027,8 @@ class _$CoinSearch extends CoinSearch {
         marketChart,
     required TResult Function() searchTrends,
     required TResult Function(String text, String vsCurrency) coinSearch,
+    required TResult Function(List<String> coinIds, String vsCurrency)
+        getAlertCoins,
   }) {
     return coinSearch(text, vsCurrency);
   }
@@ -1019,6 +1053,7 @@ class _$CoinSearch extends CoinSearch {
         marketChart,
     TResult Function()? searchTrends,
     TResult Function(String text, String vsCurrency)? coinSearch,
+    TResult Function(List<String> coinIds, String vsCurrency)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (coinSearch != null) {
@@ -1035,6 +1070,7 @@ class _$CoinSearch extends CoinSearch {
     required TResult Function(MarketChart value) marketChart,
     required TResult Function(SearchTrends value) searchTrends,
     required TResult Function(CoinSearch value) coinSearch,
+    required TResult Function(GetAlertCoins value) getAlertCoins,
   }) {
     return coinSearch(this);
   }
@@ -1047,6 +1083,7 @@ class _$CoinSearch extends CoinSearch {
     TResult Function(MarketChart value)? marketChart,
     TResult Function(SearchTrends value)? searchTrends,
     TResult Function(CoinSearch value)? coinSearch,
+    TResult Function(GetAlertCoins value)? getAlertCoins,
     required TResult orElse(),
   }) {
     if (coinSearch != null) {
@@ -1064,5 +1101,178 @@ abstract class CoinSearch extends CoinGeckoClient {
   String get vsCurrency => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CoinSearchCopyWith<CoinSearch> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetAlertCoinsCopyWith<$Res> {
+  factory $GetAlertCoinsCopyWith(
+          GetAlertCoins value, $Res Function(GetAlertCoins) then) =
+      _$GetAlertCoinsCopyWithImpl<$Res>;
+  $Res call({List<String> coinIds, String vsCurrency});
+}
+
+/// @nodoc
+class _$GetAlertCoinsCopyWithImpl<$Res>
+    extends _$CoinGeckoClientCopyWithImpl<$Res>
+    implements $GetAlertCoinsCopyWith<$Res> {
+  _$GetAlertCoinsCopyWithImpl(
+      GetAlertCoins _value, $Res Function(GetAlertCoins) _then)
+      : super(_value, (v) => _then(v as GetAlertCoins));
+
+  @override
+  GetAlertCoins get _value => super._value as GetAlertCoins;
+
+  @override
+  $Res call({
+    Object? coinIds = freezed,
+    Object? vsCurrency = freezed,
+  }) {
+    return _then(GetAlertCoins(
+      coinIds == freezed
+          ? _value.coinIds
+          : coinIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      vsCurrency == freezed
+          ? _value.vsCurrency
+          : vsCurrency // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetAlertCoins extends GetAlertCoins {
+  _$GetAlertCoins(this.coinIds, this.vsCurrency) : super._();
+
+  @override
+  final List<String> coinIds;
+  @override
+  final String vsCurrency;
+
+  @override
+  String toString() {
+    return 'CoinGeckoClient.getAlertCoins(coinIds: $coinIds, vsCurrency: $vsCurrency)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetAlertCoins &&
+            (identical(other.coinIds, coinIds) ||
+                const DeepCollectionEquality()
+                    .equals(other.coinIds, coinIds)) &&
+            (identical(other.vsCurrency, vsCurrency) ||
+                const DeepCollectionEquality()
+                    .equals(other.vsCurrency, vsCurrency)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(coinIds) ^
+      const DeepCollectionEquality().hash(vsCurrency);
+
+  @JsonKey(ignore: true)
+  @override
+  $GetAlertCoinsCopyWith<GetAlertCoins> get copyWith =>
+      _$GetAlertCoinsCopyWithImpl<GetAlertCoins>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String date, String sort, String? category, String vsCurrency)
+        coinsMarket,
+    required TResult Function(
+            String id,
+            String? localization,
+            String? tickers,
+            String? marketdata,
+            String? communitydata,
+            String? developerdata,
+            String? sparkline)
+        details,
+    required TResult Function(
+            String id, String vsCurrency, String days, String interval)
+        marketChart,
+    required TResult Function() searchTrends,
+    required TResult Function(String text, String vsCurrency) coinSearch,
+    required TResult Function(List<String> coinIds, String vsCurrency)
+        getAlertCoins,
+  }) {
+    return getAlertCoins(coinIds, vsCurrency);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String date, String sort, String? category, String vsCurrency)?
+        coinsMarket,
+    TResult Function(
+            String id,
+            String? localization,
+            String? tickers,
+            String? marketdata,
+            String? communitydata,
+            String? developerdata,
+            String? sparkline)?
+        details,
+    TResult Function(
+            String id, String vsCurrency, String days, String interval)?
+        marketChart,
+    TResult Function()? searchTrends,
+    TResult Function(String text, String vsCurrency)? coinSearch,
+    TResult Function(List<String> coinIds, String vsCurrency)? getAlertCoins,
+    required TResult orElse(),
+  }) {
+    if (getAlertCoins != null) {
+      return getAlertCoins(coinIds, vsCurrency);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CoinsMarket value) coinsMarket,
+    required TResult Function(Details value) details,
+    required TResult Function(MarketChart value) marketChart,
+    required TResult Function(SearchTrends value) searchTrends,
+    required TResult Function(CoinSearch value) coinSearch,
+    required TResult Function(GetAlertCoins value) getAlertCoins,
+  }) {
+    return getAlertCoins(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CoinsMarket value)? coinsMarket,
+    TResult Function(Details value)? details,
+    TResult Function(MarketChart value)? marketChart,
+    TResult Function(SearchTrends value)? searchTrends,
+    TResult Function(CoinSearch value)? coinSearch,
+    TResult Function(GetAlertCoins value)? getAlertCoins,
+    required TResult orElse(),
+  }) {
+    if (getAlertCoins != null) {
+      return getAlertCoins(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetAlertCoins extends CoinGeckoClient {
+  factory GetAlertCoins(List<String> coinIds, String vsCurrency) =
+      _$GetAlertCoins;
+  GetAlertCoins._() : super._();
+
+  List<String> get coinIds => throw _privateConstructorUsedError;
+  String get vsCurrency => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetAlertCoinsCopyWith<GetAlertCoins> get copyWith =>
       throw _privateConstructorUsedError;
 }
