@@ -1,3 +1,4 @@
+import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
 
 import '../../../../core/result_types/result.dart';
 import '../../domain/entity/coin_chart_entity.dart';
@@ -10,19 +11,22 @@ import '../exception_handling/exceptions/details_exceptions.dart';
 class CoinDetailRepository extends ICoinDetailRepository {
   final IDetailsRemoteDataSource remoteDataSource;
   final DetailsExceptionHandler exceptionHandler;
+  final IPreferencesLocalDataSource preferencesLocalDataSource;
 
   CoinDetailRepository(
-      {required this.remoteDataSource, required this.exceptionHandler});
+      {required this.remoteDataSource,
+      required this.exceptionHandler,
+      required this.preferencesLocalDataSource});
 
-//TODO vsCurrency preferencesdan alınacak ilerde
   @override
   Future<Result<CoinChartEntity>> getCoinChart(
       {required String id,
       required String days,
       required String interval}) async {
     try {
+      var baseCurrency = await getBaseCurrency();
       var chart = await remoteDataSource.getChart(
-          id: id, days: days, vsCurrency: "usd", interval: interval);
+          id: id, days: days, vsCurrency: baseCurrency, interval: interval);
       return Result.success(chart.toEntity());
     } on DetailsException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
@@ -36,6 +40,16 @@ class CoinDetailRepository extends ICoinDetailRepository {
       return Result.success(details.toEntity());
     } on DetailsException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
+    }
+  }
+
+  Future<String> getBaseCurrency() async {
+    try {
+      var baseCurrency =
+          await preferencesLocalDataSource.getBaseCurrencyPreference();
+      return baseCurrency;
+    } catch (e) {
+      return "usd";
     }
   }
 }

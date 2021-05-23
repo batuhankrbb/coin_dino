@@ -1,5 +1,7 @@
 import 'dart:ffi';
 
+import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
+
 import '../../../../core/notification/notification_helper.dart';
 import '../../../../core/result_types/result.dart';
 import '../../domain/entity/alert_entity.dart';
@@ -15,11 +17,13 @@ class AlertRepository implements IAlertRepository {
   final IAlertLocalDataSource localDataSource;
   final IAlertRemoteDataSource remoteDataSource;
   final AlertExceptionHandler exceptionHandler;
+  final IPreferencesLocalDataSource preferencesLocalDataSource;
 
   AlertRepository(
       {required this.localDataSource,
       required this.exceptionHandler,
-      required this.remoteDataSource});
+      required this.remoteDataSource,
+      required this.preferencesLocalDataSource});
 
   @override
   Future<Result<List<AlertEntity>>> getAllAlerts() async {
@@ -68,11 +72,12 @@ class AlertRepository implements IAlertRepository {
   @override
   Future<Result<void>> checkAlerts() async {
     try {
+      var baseCurrency = await getBaseCurrency();
       var allAlerts = await localDataSource.getAllAlerts();
       var alertsIds = allAlerts.map((e) => e.coindID).toList();
       var remoteAlerts = await remoteDataSource.getGivenCoins(
           coinIds: alertsIds,
-          vsCurrency: "usd"); //TODO VSCURRENCY PREFERENCESDAN ALINACAK
+          vsCurrency: baseCurrency);
 
       List<AlertCoinModel> alertsToNotify = [];
 
@@ -89,16 +94,26 @@ class AlertRepository implements IAlertRepository {
         }
       }
 
-      alertsToNotify.forEach((element) {  //TODO AlertsToNotify içindeki coinleri notification olarak gönder --SERCAN
-        NotificationHelper.shared.showNotification( 
+      alertsToNotify.forEach((element) {
+        NotificationHelper.shared.showNotification(
             title: element.name,
             description: "price: ${element.currentPrice} and id: ${element.id}",
             payLoad: "deneme");
       });
-     
+
       return Result.success(Void);
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
+    }
+  }
+
+  Future<String> getBaseCurrency() async {
+    try {
+      var baseCurrency =
+          await preferencesLocalDataSource.getBaseCurrencyPreference();
+      return baseCurrency;
+    } catch (e) {
+      return "usd";
     }
   }
 }

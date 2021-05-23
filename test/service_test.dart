@@ -31,9 +31,10 @@ main() async {
 
   group("market feature test", () {
     IMarketCoinRepository marketCoinRepository = MarketCoinRepository(
-        MarketRemoteDataSource: MarketRemoteDataSource(),
-        localeMarketDataSource: MarketLocalDataSource(),
-        exceptionHandler: MarketExceptionHandler());
+        exceptionHandler: MarketExceptionHandler(),
+        marketLocalDataSource: MarketLocalDataSource(),
+        marketRemoteDataSource: MarketRemoteDataSource(),
+        preferencesLocalDataSource: PreferencesLocalDataSource());
     test("get crypto currencies", () async {
       var currencies = await marketCoinRepository.getCryptoCurrencies(
           date: MarketDate.day7, sort: MarketSort.market_cap_asc);
@@ -56,7 +57,8 @@ main() async {
     group("details feature test", () {
       ICoinDetailRepository detailCoinRepository = CoinDetailRepository(
           remoteDataSource: DetailsRemoteDataSource(),
-          exceptionHandler: DetailsExceptionHandler());
+          exceptionHandler: DetailsExceptionHandler(),
+          preferencesLocalDataSource: PreferencesLocalDataSource());
 
       test("get chart", () async {
         var chart = await detailCoinRepository.getCoinChart(
@@ -142,7 +144,8 @@ main() async {
       IAlertRepository alertRepository = AlertRepository(
           localDataSource: AlertLocalDataSource(),
           exceptionHandler: AlertExceptionHandler(),
-          remoteDataSource: AlertRemoteDataSource());
+          remoteDataSource: AlertRemoteDataSource(),
+          preferencesLocalDataSource: PreferencesLocalDataSource());
       test("description", () async {
         alertRepository.checkAlerts();
       });

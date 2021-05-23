@@ -4,22 +4,22 @@ import 'package:flutter/services.dart';
 import 'core/background/background_helper.dart';
 import 'core/notification/notification_helper.dart';
 
-
 void main() async {
   runApp(new MyApp());
 
   BackgroundHelper.shared.initializeBackground(() {
+    //TODO İleride viewmodel içinde kullanılacak şey: AlertRepository.checkAlerts();
     NotificationHelper.shared.showNotification(
         title: "fetch fonksiyonu",
         description: "fetch açıklama",
         payLoad: "fetch_payload");
   }, () {
-      NotificationHelper.shared.showNotification(
+    NotificationHelper.shared.showNotification(
         title: "timeout fonksiyonu",
         description: "timeout açıklama",
         payLoad: "timeout_payload");
   }, () {
-      NotificationHelper.shared.showNotification(
+    NotificationHelper.shared.showNotification(
         title: "headless fonksiyonu",
         description: "headless açıklama",
         payLoad: "headless_payload");
@@ -71,7 +71,6 @@ class _MyAppState extends State<MyApp> {
       child: new ListView.builder(
           itemCount: 0,
           itemBuilder: (BuildContext context, int index) {
-
             return InputDecorator(
                 decoration: InputDecoration(
                     contentPadding:
