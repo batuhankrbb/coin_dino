@@ -21,10 +21,14 @@ class MarketCoinCategoryModel extends BaseNetworkModel{
   }
 
   @override
-  fromJson(Map<String, dynamic> json) {
+  factory MarketCoinCategoryModel.fromJson(Map<String, dynamic> json) {
     return  MarketCoinCategoryModel(
         categoryId: json["category_id"],
         name: json["name"],
       );
+  }
+
+  @override
+  fromJson(Map<String, dynamic> json) {
   }
 }

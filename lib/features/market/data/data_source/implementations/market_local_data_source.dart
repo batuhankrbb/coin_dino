@@ -10,7 +10,9 @@ class MarketLocalDataSource implements IMarketLocalDataSource {
   Future<List<MarketCoinCategoryModel>> getAllCategories() async {
     final String localJsonPath = 'assets/json/crypto_categories.json';
     var localData = await rootBundle.loadString(localJsonPath);
-    List<MarketCoinCategoryModel> categoryList = json.decode(localData);
+    List<dynamic> decodedJson = json.decode(localData);
+    var categoryList =
+        decodedJson.map((e) => MarketCoinCategoryModel.fromJson(e)).toList();
     return categoryList;
   }
 }
