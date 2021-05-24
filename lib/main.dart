@@ -1,31 +1,12 @@
 import 'dart:convert';
 
 import 'package:coin_dino/core/hive/hive_helper.dart';
-import 'package:coin_dino/features/details/data/data_source/implementations/details_remote_data_source.dart';
-import 'package:coin_dino/features/details/data/exception_handling/details_exception_handler.dart';
-import 'package:coin_dino/features/details/data/repository/coin_detail_repository.dart';
-import 'package:coin_dino/features/details/domain/repository_contract/i_coin_detail_repository.dart';
-import 'package:coin_dino/features/market/data/data_source/implementations/market_local_data_source.dart';
-import 'package:coin_dino/features/market/data/data_source/implementations/market_remote_data_source.dart';
-import 'package:coin_dino/features/market/data/exception_handling/market_exception_handler.dart';
-import 'package:coin_dino/features/market/data/repository/market_coin_repository.dart';
-import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
-import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
 import 'package:coin_dino/features/preferences/data/exception_handling/exception_handler.dart';
-import 'package:coin_dino/features/preferences/data/exception_handling/exceptions/preferences_exceptions.dart';
 import 'package:coin_dino/features/preferences/data/implementations/preferences_local_data_source.dart';
 import 'package:coin_dino/features/preferences/data/repository/preference_repository.dart';
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
 import 'package:coin_dino/features/preferences/domain/repository_contract/i_preference_repository.dart';
-import 'package:coin_dino/features/search/data/data_sources/implementations/search_remote_data_source.dart';
-import 'package:coin_dino/features/search/data/exception_handling/exception_handler.dart';
-import 'package:coin_dino/features/search/data/repository/search_repository.dart';
-import 'package:coin_dino/features/search/domain/repository_contract/i_search_repository.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'core/background/background_helper.dart';
-import 'core/notification/notification_helper.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 void main() async {
@@ -84,7 +65,7 @@ class _HomePageState extends State<HomePage> {
             
     */
 
-                final String localJsonPath = 'assets/json/vs_currency.json';
+                final String localJsonPath = "assets/json/vs_currency.json";
                 var localData = await rootBundle.loadString(localJsonPath);
                 List<String> decodedData = jsonDecode(localData);
                 print(decodedData);
