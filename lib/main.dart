@@ -59,9 +59,16 @@ class _HomePageState extends State<HomePage> {
         children: [
           ElevatedButton(
               onPressed: () async {
-                alertRepo.deleteAlert(AlertEntity(coindID: "greet", name: "name", image: "image", targetPrice: 412, price: 412));
                 var alerts = await alertRepo.getAllAlerts();
                 alerts.when(success: (data) {
+                  print("success ${data.length}");
+                  alertRepo.deleteAlert(data[0]);
+                }, failure: (failure) {
+                  print("failure ${failure.message}");
+                });
+
+                  var alerts2 = await alertRepo.getAllAlerts();
+                alerts2.when(success: (data) {
                   print("success ${data.length}");
                 }, failure: (failure) {
                   print("failure ${failure.message}");
