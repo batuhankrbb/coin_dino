@@ -27,6 +27,7 @@ import 'package:coin_dino/features/search/data/data_sources/implementations/sear
 import 'package:coin_dino/features/search/data/exception_handling/exception_handler.dart';
 import 'package:coin_dino/features/search/data/repository/search_repository.dart';
 import 'package:coin_dino/features/search/domain/repository_contract/i_search_repository.dart';
+import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
 import 'package:get_it/get_it.dart';
 
 GetIt getit = GetIt.instance;
@@ -37,6 +38,7 @@ void setupGetIt() {
   _setUpDetailsFeature();
   _setUpPreferencesFeature();
   _setUpSearchFeature();
+  _setupAppSettings();
 }
 
 void _setUpAlertFeature() {
@@ -114,4 +116,8 @@ void _setUpSearchFeature() {
 
   getit.registerLazySingleton<SearchExceptionHandler>(
       () => SearchExceptionHandler());
+}
+
+void _setupAppSettings() {
+  getit.registerLazySingleton<AppSettingsViewModel>(() => AppSettingsViewModel());
 }
