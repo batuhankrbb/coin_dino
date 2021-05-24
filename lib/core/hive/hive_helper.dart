@@ -10,7 +10,8 @@ class HiveHelper {
   Future<void> setUpHive() async {
     await Hive.initFlutter();
     Hive.registerAdapter(AlertModelAdapter());
-    Hive.openBox<String>(HiveConstants.BOX_PREFERENCES);
+    await Hive.openBox<String>(HiveConstants.BOX_PREFERENCES);
+    await Hive.openBox<String>(HiveConstants.BOX_ALERTS);
   }
 
   Future<T> getData<T>(String boxName, dynamic key) async {

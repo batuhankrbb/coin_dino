@@ -1,3 +1,4 @@
+import 'dart:convert';
 
 import '../../../../core/hive/hive_constants.dart';
 import '../../../../core/hive/hive_helper.dart';
@@ -77,7 +78,9 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
     try {
       final String localJsonPath = 'assets/json/vs_currency.json';
       var localData = await rootBundle.loadString(localJsonPath);
-      return [localData];
+      List<dynamic> decodedData = jsonDecode(localData);
+      var currencyList = decodedData.map((e) => e.toString()).toList();
+      return currencyList;
     } catch (e) {
       throw PreferencesException.supportedCurrenciesFetchingException();
     }
