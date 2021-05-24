@@ -7,8 +7,7 @@ class AppSettingsViewModel = _AppSettingsViewModelBase
     with _$AppSettingsViewModel;
 
 abstract class _AppSettingsViewModelBase with Store {
-  final preferenceRepository = getit.get<PreferenceRepository>();
+  //final preferenceRepository = getit.get<PreferenceRepository>();
   // LanguagePreferenceEntity languagePreferenceEntity = LanguagePreferenceEntity.turkish;
-
 
 }
