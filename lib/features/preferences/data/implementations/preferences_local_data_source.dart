@@ -78,9 +78,9 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
     try {
       final String localJsonPath = 'assets/json/vs_currency.json';
       var localData = await rootBundle.loadString(localJsonPath);
-      List<dynamic> decodedData = jsonDecode(localData);
-      var currencyList = decodedData.map((e) => e.toString()).toList();
-      return currencyList;
+      List<dynamic> decodedData = jsonDecode(localData)["vs_currency"];
+      var currencies = decodedData.map((e) => e.toString()).toList();
+      return currencies;
     } catch (e) {
       throw PreferencesException.supportedCurrenciesFetchingException();
     }
