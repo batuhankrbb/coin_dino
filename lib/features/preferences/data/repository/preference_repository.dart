@@ -14,7 +14,6 @@ class PreferenceRepository implements IPreferenceRepository {
       {required this.preferencesLocalDataSource,
       required this.exceptionHandler});
 
-//TODO NULL KONTROLÜNÜ VIEWMODEL İÇERİSİNDE YAPICAZ
   @override
   Future<Result<String>> getBaseCurrencyPreference() async {
     try {
@@ -88,8 +87,8 @@ class PreferenceRepository implements IPreferenceRepository {
   @override
   Future<Result<List<String>>> getAllSupportedBaseCurrencies() async {
     try {
-      var supportedCurrencies = await
-          preferencesLocalDataSource.getAllSupportedBaseCurrencies();
+      var supportedCurrencies =
+          await preferencesLocalDataSource.getAllSupportedBaseCurrencies();
       return Result.success(supportedCurrencies);
     } on PreferencesException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
