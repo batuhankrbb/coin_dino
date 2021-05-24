@@ -1,11 +1,10 @@
-
-
 import 'package:coin_dino/core/hive/hive_helper.dart';
 import 'package:coin_dino/features/alert/data/data_source/implementations/alert_local_data_source.dart';
 import 'package:coin_dino/features/alert/data/data_source/implementations/alert_remote_data_source.dart';
 import 'package:coin_dino/features/alert/data/exception_handling/exception_handler.dart';
 import 'package:coin_dino/features/alert/data/exception_handling/exceptions/alert_exceptions.dart';
 import 'package:coin_dino/features/alert/data/repository/alert_repository.dart';
+import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/features/alert/domain/repository_contract/i_alert_repository.dart';
 
 import 'package:coin_dino/features/preferences/data/implementations/preferences_local_data_source.dart';
@@ -13,7 +12,6 @@ import 'package:coin_dino/features/preferences/data/repository/preference_reposi
 import 'package:coin_dino/features/preferences/domain/repository_contract/i_preference_repository.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-
 
 void main() async {
   await HiveHelper.shared.setUpHive();
@@ -61,9 +59,10 @@ class _HomePageState extends State<HomePage> {
         children: [
           ElevatedButton(
               onPressed: () async {
-               var alerts = await alertRepo.getAllAlerts();
-              alerts.when(success: (data) {
-                  print("success ${data.length}}");
+                alertRepo.deleteAlert(AlertEntity(coindID: "greet", name: "name", image: "image", targetPrice: 412, price: 412));
+                var alerts = await alertRepo.getAllAlerts();
+                alerts.when(success: (data) {
+                  print("success ${data.length}");
                 }, failure: (failure) {
                   print("failure ${failure.message}");
                 });
