@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
+      theme: ThemeData(scaffoldBackgroundColor: Colors.red),
       home: HomePage(),
     );
   }

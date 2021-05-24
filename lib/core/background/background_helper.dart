@@ -22,7 +22,7 @@ class BackgroundHelper {
       BackgroundFetch.finish(taskId);
     });
 
-    await BackgroundFetch.registerHeadlessTask(headlessTask);
+    //  await BackgroundFetch.registerHeadlessTask(headlessTask);
   }
 
   Future<void> startBackgroundFetch() async {
