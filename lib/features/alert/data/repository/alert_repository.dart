@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
-
 import '../../../../core/notification/notification_helper.dart';
 import '../../../../core/result_types/result.dart';
 import '../../domain/entity/alert_entity.dart';
@@ -76,8 +73,7 @@ class AlertRepository implements IAlertRepository {
       var allAlerts = await localDataSource.getAllAlerts();
       var alertsIds = allAlerts.map((e) => e.coindID).toList();
       var remoteAlerts = await remoteDataSource.getGivenCoins(
-          coinIds: alertsIds,
-          vsCurrency: baseCurrency);
+          coinIds: alertsIds, vsCurrency: baseCurrency);
 
       List<AlertCoinModel> alertsToNotify = [];
 
@@ -101,7 +97,7 @@ class AlertRepository implements IAlertRepository {
             payLoad: "deneme");
       });
 
-      return Result.success(null);
+      return Result.success("sadaqsd");
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
     }
