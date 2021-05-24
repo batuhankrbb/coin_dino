@@ -101,7 +101,7 @@ class AlertRepository implements IAlertRepository {
             payLoad: "deneme");
       });
 
-      return Result.success(Void);
+      return Result.success(null);
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
     }
