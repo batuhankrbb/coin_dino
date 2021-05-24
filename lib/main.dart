@@ -11,6 +11,7 @@ import 'package:coin_dino/features/alert/domain/repository_contract/i_alert_repo
 import 'package:coin_dino/features/preferences/data/implementations/preferences_local_data_source.dart';
 import 'package:coin_dino/features/preferences/data/repository/preference_repository.dart';
 import 'package:coin_dino/features/preferences/domain/repository_contract/i_preference_repository.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ import 'features/preferences/data/exception_handling/exception_handler.dart';
 
 void main() async {
   await HiveHelper.shared.setUpHive();
+  setupGetIt();
   runApp(
     DevicePreview(
       builder: (context) => MyApp(),
