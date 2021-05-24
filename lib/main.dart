@@ -16,6 +16,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'features/preferences/data/exception_handling/exception_handler.dart';
+import 'global/extensions/material_extensions.dart';
 
 void main() async {
   await HiveHelper.shared.setUpHive();
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.red),
+      theme: MaterialExtensions.lightModeTheme,
+      darkTheme: MaterialExtensions.darkModeTheme,
       home: HomePage(),
     );
   }

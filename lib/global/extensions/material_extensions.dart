@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 /// Material app ile alakalı tüm uzantılar buradan yönetiliyor.
 extension MaterialExtensions on ThemeData {
-  ThemeData get darkModeTheme => ThemeData(
+  static ThemeData get darkModeTheme => ThemeData(
     scaffoldBackgroundColor: Colors.red
   );
-  ThemeData get lightModeTheme => ThemeData();
+   static ThemeData get lightModeTheme => ThemeData(
+    scaffoldBackgroundColor: Colors.black
+  );
 }
+

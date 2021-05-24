@@ -25,7 +25,6 @@ import 'package:coin_dino/features/preferences/domain/repository_contract/i_pref
 import 'package:coin_dino/features/search/data/data_sources/contracts/i_search_remote_data_source.dart';
 import 'package:coin_dino/features/search/data/data_sources/implementations/search_remote_data_source.dart';
 import 'package:coin_dino/features/search/data/exception_handling/exception_handler.dart';
-import 'package:coin_dino/features/search/data/exception_handling/exceptions/search_exception.dart';
 import 'package:coin_dino/features/search/data/repository/search_repository.dart';
 import 'package:coin_dino/features/search/domain/repository_contract/i_search_repository.dart';
 import 'package:get_it/get_it.dart';
