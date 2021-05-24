@@ -1,4 +1,5 @@
 import 'package:coin_dino/features/global/extensions/helper_extensions.dart';
+
 import 'package:flutter/material.dart';
 
 class LoadingScreen extends StatelessWidget {
