@@ -6,6 +6,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'global/components/loading_screen_components.dart';
 import 'global/extensions/material_extensions.dart';
 
 void main() async {
@@ -14,7 +15,7 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp(),
+      builder: (context) => MyApp2(),
     ),
   );
 }
@@ -54,7 +55,9 @@ class MyApp2 extends StatelessWidget {
       theme: MaterialExtensions.lightModeTheme,
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
-        body: Container(),
+        body: Center(
+          child: LoadingScreen(),
+        ),
       ),
     );
   }
