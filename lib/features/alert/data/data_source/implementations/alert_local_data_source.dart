@@ -21,7 +21,7 @@ class AlertLocalDataSource implements IAlertLocalDataSource {
   @override
   Future<void> deleteAlert(AlertModel alertModel) async {
     try {
-      _hiveHelper.deleteData(HiveConstants.BOX_ALERTS, alertModel.coindID);
+      _hiveHelper.deleteData<AlertModel>(HiveConstants.BOX_ALERTS, alertModel.coindID);
     } catch (e) {
       throw AlertException.alertDeletingException();
     }
