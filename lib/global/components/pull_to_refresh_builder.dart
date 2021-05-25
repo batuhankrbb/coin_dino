@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+//TODO GELİNCE DEVAM EDİCEM
 class PullToRefreshBuilder extends StatefulWidget {
-  PullToRefreshBuilder({Key? key}) : super(key: key);
+  PullToRefreshBuilder(
+      {Key? key, required this.onLoading, required this.onRefresh, required this.listView})
+      : super(key: key);
+
+  VoidFutureCallBack onLoading;
+  VoidFutureCallBack onRefresh;
+  ListView listView;
 
   @override
   _PullToRefreshBuilderState createState() => _PullToRefreshBuilderState();
@@ -23,14 +30,16 @@ class _PullToRefreshBuilderState extends State<PullToRefreshBuilder> {
       controller: refreshController,
       physics: BouncingScrollPhysics(),
       scrollDirection: Axis.vertical,
-      onLoading: () {
-        print("ONLOADING TRIGGERED");
+      onLoading: () async {
+        widget.onLoading();
+        refreshController.loadComplete();
       },
-      onRefresh: (){
-        print("ONREFRESH TRIGGERED");
+      onRefresh: () {
+        widget.onRefresh();
+        refreshController.refreshCompleted();
       },
-     child: Container(color: Colors.red,),
-     header: Container(color: Colors.green,),
+      child: widget.listView,
+      header: WaterDropHeader(),
     );
   }
 }
