@@ -1,6 +1,7 @@
 import 'package:coin_dino/core/image/image_helper.dart';
 import 'package:coin_dino/global/extensions/text_style_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class OnboardScreenImageAndTitleWidget extends StatelessWidget {
   final String image;
@@ -24,21 +25,17 @@ class OnboardScreenImageAndTitleWidget extends StatelessWidget {
                 child: ImageHelper.shared.getAssetImage(imageName: image))),
         Spacer(flex: 10),
         Expanded(
-            flex: 8,
-            child: Container(
-                child:
-                    Text(title, style: TextStyle().styleeeeeeee, maxLines: 1))),
+          flex: 6,
+          child: Container(
+            child: AutoSizeText(title, style: context.rockoFLFStyle()),
+          ),
+        ),
         Spacer(flex: 3),
         Expanded(
           flex: 10,
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              description,
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black54),
-              maxLines: 2,
-            ),
+            child: AutoSizeText(description, style: context.descriptionStyle()),
           ),
         ),
       ],
