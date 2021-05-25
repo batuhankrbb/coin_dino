@@ -1,4 +1,4 @@
-import 'package:coin_dino/global/extensions/helper_extensions.dart';
+import 'package:coin_dino/core/image/image_helper.dart';
 import 'package:flutter/material.dart';
 
 class EmptyDataComponents extends StatelessWidget {
@@ -8,7 +8,10 @@ class EmptyDataComponents extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        body: Center(child: NoDataCardWidget()),
+        appBar: AppBar(),
+        body: Center(
+          child: NoDataCardWidget(),
+        ),
       ),
     );
   }
@@ -40,7 +43,6 @@ class NoDataCardWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
         ),
-
       ],
     );
   }

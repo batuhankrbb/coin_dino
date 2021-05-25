@@ -11,6 +11,7 @@ import 'global/components/empty_data_compnents.dart';
 import 'global/components/loading_screen_components.dart';
 import 'global/extensions/material_extensions.dart';
 import 'global/starting_files/injection_container.dart';
+import 'onboard_screen/onboard_screen.dart';
 
 void main() async {
   await HiveHelper.shared.setUpHive();
@@ -88,7 +89,7 @@ class MyApp2 extends StatelessWidget {
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
         body: Center(
-          child: EmptyDataComponents(),
+          child: OnboardScreen(),
         ),
       ),
     );
