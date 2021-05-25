@@ -1,6 +1,7 @@
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
+import '../utils/custom_colors.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({Key? key}) : super(key: key);
