@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -57,15 +57,18 @@ class HomePage extends StatelessWidget {
             height: 500,
             width: 300,
             child: PullToRefreshBuilder(
-              onLoading: () async {
-                print("onloading");
-              },
               onRefresh: () async {
+                await Future.delayed(Duration(seconds: 3));
                 print("onrefresh");
+              
               },
               listView: ListView.builder(
                 itemBuilder: (context, index) {
-                  return ListTile(title: Text("hello"),leading: Icon(Icons.face),subtitle: Text("Sercan"),);
+                  return ListTile(
+                    title: Text("hello"),
+                    leading: Icon(Icons.face),
+                    subtitle: Text("Sercan"),
+                  );
                 },
                 itemCount: 15,
               ),
