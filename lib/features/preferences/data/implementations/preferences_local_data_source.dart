@@ -1,10 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart' show rootBundle;
+
 import '../../../../core/hive/hive_constants.dart';
 import '../../../../core/hive/hive_helper.dart';
 import '../contracts/i_preferences_local_data_source.dart';
 import '../exception_handling/exceptions/preferences_exceptions.dart';
-import 'package:flutter/services.dart' show rootBundle;
 
 class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
   var _hiveHelper = HiveHelper.shared;

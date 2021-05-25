@@ -1,6 +1,5 @@
-import 'package:coin_dino/features/preferences/data/contracts/i_preferences_local_data_source.dart';
-
 import '../../../../core/result_types/result.dart';
+import '../../../preferences/data/contracts/i_preferences_local_data_source.dart';
 import '../../domain/entity/coin_chart_entity.dart';
 import '../../domain/entity/coin_detail_entity.dart';
 import '../../domain/repository_contract/i_coin_detail_repository.dart';

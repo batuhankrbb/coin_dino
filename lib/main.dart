@@ -1,14 +1,14 @@
-import 'package:coin_dino/core/hive/hive_helper.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
-import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import 'core/hive/hive_helper.dart';
+import 'features/preferences/domain/entity/theme_preference_entity.dart';
+import 'global/app_settings/app_settings_viewmodel.dart';
 import 'global/components/loading_screen_components.dart';
 import 'global/extensions/material_extensions.dart';
+import 'global/starting_files/injection_container.dart';
 
 void main() async {
   await HiveHelper.shared.setUpHive();
@@ -29,26 +29,45 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
+    return Observer(builder: (context) {
       return MaterialApp(
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
-        darkTheme: appSettingsViewModel.themeData,
-        home: Scaffold(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          body: Center(
-            child: ElevatedButton(
-              child: Text("sa"),
-              onPressed: () {
-                appSettingsViewModel
-                    .changeThemeData(ThemePreferenceEntity.dark);
-              },
-            ),
-          ),
-        ),
+        home: HomePage(),
       );
     });
+  }
+}
+
+class HomePage extends StatelessWidget {
+  final AppSettingsViewModel appSettingsViewModel =
+      getit.get<AppSettingsViewModel>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+                "${appSettingsViewModel.themeData.accentColor}"),
+            ElevatedButton(
+              onPressed: () {
+                appSettingsViewModel.setTheme(ThemePreferenceEntity.dark);
+              },
+              child: Text("tema dark"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                appSettingsViewModel.setTheme(ThemePreferenceEntity.light);
+              },
+              child: Text("tema light"),
+            ),
+          ],
+        ),
+      );
   }
 }
 

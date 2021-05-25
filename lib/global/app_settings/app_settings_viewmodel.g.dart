@@ -36,11 +36,11 @@ mixin _$AppSettingsViewModel on _AppSettingsViewModelBase, Store {
       ActionController(name: '_AppSettingsViewModelBase');
 
   @override
-  void changeThemeData(ThemePreferenceEntity theme) {
+  void setTheme(ThemePreferenceEntity themePreference) {
     final _$actionInfo = _$_AppSettingsViewModelBaseActionController
-        .startAction(name: '_AppSettingsViewModelBase.changeThemeData');
+        .startAction(name: '_AppSettingsViewModelBase.setTheme');
     try {
-      return super.changeThemeData(theme);
+      return super.setTheme(themePreference);
     } finally {
       _$_AppSettingsViewModelBaseActionController.endAction(_$actionInfo);
     }
