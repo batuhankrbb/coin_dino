@@ -1,4 +1,5 @@
 import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
+import 'package:coin_dino/global/components/selection_page.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
-        home: HomePage(),
+        home: SelectionPage(title: "Approach",dataList: ["Hello","Test","asd","Sercan","Batuhan","Multi multi multi long choice line asd rnaomd asd ads hello I'm here","Deneme"],isListingActive: false,),
       );
     });
   }
