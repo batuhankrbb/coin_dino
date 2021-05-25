@@ -3,12 +3,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
 import 'core/hive/hive_helper.dart';
-import 'features/preferences/domain/entity/theme_preference_entity.dart';
 import 'global/app_settings/app_settings_viewmodel.dart';
-import 'global/components/empty_data_compnents.dart';
-import 'global/components/loading_screen_components.dart';
 import 'global/extensions/material_extensions.dart';
 import 'global/starting_files/injection_container.dart';
 import 'onboard_screen/onboard_screen.dart';
@@ -59,8 +55,8 @@ class HomePage extends StatelessWidget {
             child: PullToRefreshBuilder(
               onRefresh: () async {
                 await Future.delayed(Duration(seconds: 3));
+
                 print("onrefresh");
-              
               },
               listView: ListView.builder(
                 itemBuilder: (context, index) {

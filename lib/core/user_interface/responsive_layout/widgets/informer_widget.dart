@@ -8,7 +8,7 @@ class InformerWidget extends StatelessWidget {
 
   final Widget Function(
       BuildContext context, ScreenInformation screenInformation) onPageBuild;
-  late ResponsiveLayoutHelper _helper;
+  late final ResponsiveLayoutHelper _helper;
 
   @override
   Widget build(BuildContext context) {

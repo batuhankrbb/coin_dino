@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-//TODO GELİNCE DEVAM EDİCEM
 class PullToRefreshBuilder extends StatefulWidget {
   PullToRefreshBuilder(
       {Key? key,
@@ -12,9 +11,9 @@ class PullToRefreshBuilder extends StatefulWidget {
       required this.listView})
       : super(key: key);
 
-  VoidFutureCallBack? onLoading;
-  VoidFutureCallBack onRefresh;
-  ListView listView;
+  final VoidFutureCallBack? onLoading;
+  final VoidFutureCallBack onRefresh;
+  final ListView listView;
 
   @override
   _PullToRefreshBuilderState createState() => _PullToRefreshBuilderState();

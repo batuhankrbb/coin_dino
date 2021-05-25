@@ -4,14 +4,14 @@ import '../utils/device_enums.dart';
 import '../utils/responsive_layout_helper.dart';
 
 class DeterminerWidget extends StatelessWidget {
-  Widget portraitMobile;
-  Widget? landscapeMobile;
-  Widget? portraitTablet;
-  Widget? landscapeTablet;
-  Widget? desktop;
-  late ResponsiveLayoutHelper _helper;
-  late CustomDeviceType _CustomDeviceType;
-  late Orientation _orientation;
+  final Widget portraitMobile;
+  final Widget? landscapeMobile;
+  final Widget? portraitTablet;
+  final Widget? landscapeTablet;
+  final Widget? desktop;
+  late final ResponsiveLayoutHelper _helper;
+  late final CustomDeviceType _customDeviceType;
+  late final Orientation _orientation;
 
   DeterminerWidget({
     Key? key,
@@ -25,7 +25,7 @@ class DeterminerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _helper = ResponsiveLayoutHelper(context: context);
-    _CustomDeviceType = _helper.getCustomDeviceType();
+    _customDeviceType = _helper.getCustomDeviceType();
     _orientation = _helper.getOrientation();
 
     var desktop = _desktopControl();
@@ -51,7 +51,7 @@ class DeterminerWidget extends StatelessWidget {
   }
 
   Widget? _tabletControl() {
-    if (_CustomDeviceType == CustomDeviceType.tablet) {
+    if (_customDeviceType == CustomDeviceType.tablet) {
       //You can use ?? to shorten the code but I didn't because I may need to add extra controls like platform control in the future.
       if (_orientation == Orientation.landscape && landscapeTablet != null) {
         return landscapeTablet;
@@ -61,7 +61,7 @@ class DeterminerWidget extends StatelessWidget {
   }
 
   Widget? _desktopControl() {
-    if (_CustomDeviceType == CustomDeviceType.desktop) {
+    if (_customDeviceType == CustomDeviceType.desktop) {
       return desktop;
     }
   }

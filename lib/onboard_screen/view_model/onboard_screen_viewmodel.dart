@@ -1,4 +1,3 @@
-
 import 'package:coin_dino/onboard_screen/widgets/onboard_image_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
@@ -10,7 +9,7 @@ class OnboardScreenViewModel = _OnboardScreenViewModelBase
 abstract class _OnboardScreenViewModelBase with Store {
   @observable
   int selectedIndex = 0;
-  
+
   final List<Widget> onbardScreenArray = [
     OnboardScreenImageAndTitleWidget(
       description: "dsadsadasdasd",
@@ -33,4 +32,6 @@ abstract class _OnboardScreenViewModelBase with Store {
       title: "Renkli Tema",
     ),
   ];
+
+
 }

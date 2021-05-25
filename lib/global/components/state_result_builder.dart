@@ -12,11 +12,11 @@ class StateResultBuilder<T> extends StatelessWidget {
       required this.failureWidget})
       : super(key: key);
 
-  StateResult<T> stateResult;
-  Widget initialWidget;
-  Widget loadingWidget;
-  Widget Function(T data) completedWidget;
-  Widget Function(CustomFailure failure) failureWidget;
+  final StateResult<T> stateResult;
+  final Widget initialWidget;
+  final Widget loadingWidget;
+  final Widget Function(T data) completedWidget;
+  final Widget Function(CustomFailure failure) failureWidget;
 
   @override
   Widget build(BuildContext context) {
