@@ -19,7 +19,7 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp2(),
+      builder: (context) => MyApp(),
     ),
   );
 }
@@ -57,10 +57,10 @@ class HomePage extends StatelessWidget {
             height: 500,
             width: 300,
             child: PullToRefreshBuilder(
+              snackMessage: "selam bu mesaj",
               onRefresh: () async {
-                await Future.delayed(Duration(seconds: 3));
+                await Future.delayed(Duration(seconds: 1));
                 print("onrefresh");
-              
               },
               listView: ListView.builder(
                 itemBuilder: (context, index) {
