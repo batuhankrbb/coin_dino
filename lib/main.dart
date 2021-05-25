@@ -1,4 +1,5 @@
 import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
+import 'package:coin_dino/global/components/selection_page.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp2(),
+      builder: (context) => MyApp(),
     ),
   );
 }
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
-        home: HomePage(),
+        home: SelectionPage(title: "Approach",dataList: ["Hello","Test","asd","Sercan","Batuhan","Multi multi multi long choice line asd rnaomd asd ads hello I'm here","Deneme"],isListingActive: false,),
       );
     });
   }
@@ -53,9 +54,9 @@ class HomePage extends StatelessWidget {
             height: 500,
             width: 300,
             child: PullToRefreshBuilder(
+              snackMessage: "selam bu mesaj",
               onRefresh: () async {
-                await Future.delayed(Duration(seconds: 3));
-
+                await Future.delayed(Duration(seconds: 1));
                 print("onrefresh");
               },
               listView: ListView.builder(

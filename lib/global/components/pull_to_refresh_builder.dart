@@ -1,3 +1,4 @@
+import 'package:coin_dino/core/user_interface/helpers/alert_helper.dart';
 import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +9,14 @@ class PullToRefreshBuilder extends StatefulWidget {
       {Key? key,
       this.onLoading,
       required this.onRefresh,
-      required this.listView})
+      required this.listView,
+      required this.snackMessage})
       : super(key: key);
 
-  final VoidFutureCallBack? onLoading;
-  final VoidFutureCallBack onRefresh;
-  final ListView listView;
+  VoidFutureCallBack? onLoading;
+  VoidFutureCallBack onRefresh;
+  ListView listView;
+  String snackMessage;
 
   @override
   _PullToRefreshBuilderState createState() => _PullToRefreshBuilderState();
@@ -29,6 +32,14 @@ class _PullToRefreshBuilderState extends State<PullToRefreshBuilder> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    refreshController.dispose();
+  }
+
+//TODO Snackbar göster
+
+  @override
   Widget build(BuildContext context) {
     return SmartRefresher(
       controller: refreshController,
@@ -40,6 +51,7 @@ class _PullToRefreshBuilderState extends State<PullToRefreshBuilder> {
       onLoading: widget.onLoading,
       onRefresh: () async {
         await widget.onRefresh();
+        AlertHelper.shared.showSnackBar(widget.snackMessage, context);
         refreshController.refreshCompleted();
       },
       child: widget.listView,
