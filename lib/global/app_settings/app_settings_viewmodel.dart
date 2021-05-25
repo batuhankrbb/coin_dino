@@ -24,12 +24,14 @@ abstract class _AppSettingsViewModelBase with Store {
     theme.when(success: (data) {
       changeThemeData(data);
     }, failure: (failure) {
+      print(failure.message);
       themeData = MaterialExtensions.lightModeTheme;
     });
   }
 
   @action
-  void changeThemeData(ThemePreferenceEntity theme) { //* Bunu viewmodeller içinde kullanıcaz yani repoya verdiğimiz şeyi bunada vericez burası bende
+  void changeThemeData(ThemePreferenceEntity theme) {
+    //* Bunu viewmodeller içinde kullanıcaz yani repoya verdiğimiz şeyi bunada vericez burası bende
     switch (theme) {
       case ThemePreferenceEntity.dark:
         themeData = MaterialExtensions.darkModeTheme;

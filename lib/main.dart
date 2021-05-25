@@ -5,6 +5,7 @@ import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'global/components/loading_screen_components.dart';
 import 'global/extensions/material_extensions.dart';
@@ -15,32 +16,39 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp2(),
+      builder: (context) => MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
-  final AppSettingsViewModel appSettingsViewModel = getit.get<AppSettingsViewModel>();
+  final AppSettingsViewModel appSettingsViewModel =
+      getit.get<AppSettingsViewModel>();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      theme: appSettingsViewModel.themeData,
-      home: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: ElevatedButton(
-          child: Text("sa"),
-          onPressed: () {
-            appSettingsViewModel.changeThemeData(ThemePreferenceEntity.dark);
-          },
+    return Observer(builder: (_) {
+      return MaterialApp(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        theme: appSettingsViewModel.themeData,
+        darkTheme: appSettingsViewModel.themeData,
+        home: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          body: Center(
+            child: ElevatedButton(
+              child: Text("sa"),
+              onPressed: () {
+                appSettingsViewModel
+                    .changeThemeData(ThemePreferenceEntity.dark);
+              },
+            ),
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
 
