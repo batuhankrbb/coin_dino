@@ -57,15 +57,15 @@ class HomePage extends StatelessWidget {
             height: 500,
             width: 300,
             child: PullToRefreshBuilder(
-              onLoading: () async {},
-              onRefresh: () async {},
+              onLoading: () async {
+                print("onloading");
+              },
+              onRefresh: () async {
+                print("onrefresh");
+              },
               listView: ListView.builder(
                 itemBuilder: (context, index) {
-                  return Container(
-                    height: 50,
-                    width: 200,
-                    color: index % 2 == 0 ? Colors.red : Colors.green,
-                  );
+                  return ListTile(title: Text("hello"),leading: Icon(Icons.face),subtitle: Text("Sercan"),);
                 },
                 itemCount: 15,
               ),

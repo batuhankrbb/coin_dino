@@ -33,7 +33,7 @@ class _PullToRefreshBuilderState extends State<PullToRefreshBuilder> {
       enablePullUp: false,
       enablePullDown: true,
       enableTwoLevel: false,
-      footer: Text("hello"),
+      footer: Text("hello",style: TextStyle(color: Colors.red),),
       onLoading: () async {
         widget.onLoading();
         refreshController.loadComplete();
