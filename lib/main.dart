@@ -52,8 +52,6 @@ class HomePage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-                "${appSettingsViewModel.themeData.accentColor}"),
             ElevatedButton(
               onPressed: () {
                 appSettingsViewModel.setTheme(ThemePreferenceEntity.dark);
