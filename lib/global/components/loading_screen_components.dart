@@ -14,8 +14,8 @@ class LoadingScreen extends StatelessWidget {
         InformerWidget(
           onPageBuild: (context, screenInformation) {
             return Container(
-              width: screenInformation.screenSize.width * 0.20,
-              height: screenInformation.screenSize.width * 0.20,
+              width: screenInformation.screenSize.width * 0.18,
+              height: screenInformation.screenSize.width * 0.18,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: CustomColor.shared.backgroundBlueColor,

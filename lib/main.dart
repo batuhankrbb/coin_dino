@@ -6,6 +6,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'core/hive/hive_helper.dart';
 import 'features/preferences/domain/entity/theme_preference_entity.dart';
 import 'global/app_settings/app_settings_viewmodel.dart';
+import 'global/components/empty_data_compnents.dart';
 import 'global/components/loading_screen_components.dart';
 import 'global/extensions/material_extensions.dart';
 import 'global/starting_files/injection_container.dart';
@@ -16,7 +17,7 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp(),
+      builder: (context) => MyApp2(),
     ),
   );
 }
@@ -81,7 +82,7 @@ class MyApp2 extends StatelessWidget {
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
         body: Center(
-          child: LoadingScreen(),
+          child: EmptyDataComponents(),
         ),
       ),
     );
