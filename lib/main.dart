@@ -18,7 +18,7 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp2(),
+      builder: (context) => MyApp(),
     ),
   );
 }
