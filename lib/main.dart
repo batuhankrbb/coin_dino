@@ -1,3 +1,4 @@
+import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp2(),
+      builder: (context) => MyApp(),
     ),
   );
 }
@@ -32,7 +33,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return MaterialApp(
-        locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
         home: HomePage(),
@@ -48,25 +48,31 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                appSettingsViewModel.setTheme(ThemePreferenceEntity.dark);
-              },
-              child: Text("tema dark"),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 500,
+            width: 300,
+            child: PullToRefreshBuilder(
+              onLoading: () async {},
+              onRefresh: () async {},
+              listView: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Container(
+                    height: 50,
+                    width: 200,
+                    color: index % 2 == 0 ? Colors.red : Colors.green,
+                  );
+                },
+                itemCount: 15,
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                appSettingsViewModel.setTheme(ThemePreferenceEntity.light);
-              },
-              child: Text("tema light"),
-            ),
-          ],
-        ),
-      );
+          )
+        ],
+      ),
+    );
   }
 }
 

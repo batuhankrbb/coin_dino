@@ -30,6 +30,10 @@ class _PullToRefreshBuilderState extends State<PullToRefreshBuilder> {
       controller: refreshController,
       physics: BouncingScrollPhysics(),
       scrollDirection: Axis.vertical,
+      enablePullUp: false,
+      enablePullDown: true,
+      enableTwoLevel: false,
+      footer: Text("hello"),
       onLoading: () async {
         widget.onLoading();
         refreshController.loadComplete();

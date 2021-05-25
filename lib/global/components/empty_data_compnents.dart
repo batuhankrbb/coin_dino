@@ -40,7 +40,6 @@ class NoDataCardWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
         ),
-        Image().getAssetImage(imageName: "imageName")
 
       ],
     );
