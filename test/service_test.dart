@@ -40,6 +40,7 @@ main() async {
           date: MarketDate.day7, sort: MarketSort.market_cap_asc);
       currencies.when(success: (data) {
         print("SUCCESS | get crypto currencies = ${data.length}");
+        print(data.map((e) => e.marketCapRank));
       }, failure: (failure) {
         print("FAILURE | get crypto currencies = ${failure.message}");
       });

@@ -41,7 +41,7 @@ class MarketCoinModel extends BaseNetworkModel {
   final String image;
   final num currentPrice;
   final num marketCap;
-  final num? marketCapRank;
+  final int? marketCapRank;
   final num? fullyDilutedValuation;
   final num totalVolume;
   final num? high24H;

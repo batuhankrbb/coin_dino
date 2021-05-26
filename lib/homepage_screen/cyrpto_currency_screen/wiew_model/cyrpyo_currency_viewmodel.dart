@@ -20,7 +20,16 @@ abstract class _CyrptoCurrencyViewModelBase with Store {
   MarketDate marketDate = MarketDate.day1;
 
   @observable
-  MarketSort marketSort = MarketSort.market_cap_asc;
+  MarketSort marketSort = MarketSort.market_cap_desc;
+
+  List<String> dataColumnArray = [
+    "#",
+    "Symbol",
+    "Coin",
+    "Price",
+    "24\nHours",
+    "Market\nCap"
+  ];
 
   @action
   Future<void> getCyrptoCurrency() async {

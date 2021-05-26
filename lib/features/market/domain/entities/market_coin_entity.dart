@@ -1,5 +1,5 @@
 class MarketCoinEntity {
-  final num? marketCapRank;
+  final int? marketCapRank;
   final String imageUrl;
   final String symbol;
   final String name;

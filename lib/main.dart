@@ -14,11 +14,7 @@ void main() async {
   await HiveHelper.shared.setUpHive();
   setupGetIt();
   await getit.get<AppSettingsViewModel>().setUpSettings();
-  runApp(
-    DevicePreview(
-      builder: (context) => MyApp2(),
-    ),
-  );
+  runApp(MyApp2());
 }
 
 class MyApp extends StatelessWidget {
@@ -99,13 +95,11 @@ class MyApp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
       theme: MaterialExtensions.lightModeTheme,
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
         body: Center(
-          child: OnboardScreen(),
+          child: OnboardScreen()
         ),
       ),
     );
