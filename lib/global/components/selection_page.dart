@@ -1,9 +1,9 @@
 import 'package:coin_dino/core/user_interface/responsive_layout/utils/screen_information_model.dart';
 import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
+import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
 import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
-
 
 class SelectionPage extends StatefulWidget {
   SelectionPage({
@@ -26,34 +26,135 @@ class SelectionPage extends StatefulWidget {
 }
 
 class _SelectionPageState extends State<SelectionPage> {
+  TextEditingController textController = TextEditingController();
+  String filterText = "";
+  late FocusNode focusNode;
+
+  @override
+  void initState() {
+    focusNode = FocusNode();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: appbarComponent(title: widget.title),
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(8),
-          child: ListView.separated(
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return buildSelectionPageCell(index);
-              },
-              separatorBuilder: (context, index) {
-                return buildSeperator();
-              },
-              itemCount: widget.dataList.length),
+        bottom: false,
+        child: Column(
+          children: [
+            Visibility(
+                child: Expanded(
+                  flex: 13,
+                  child: buildCustomTextField(),
+                ),
+                visible: widget.isListingActive),
+            Expanded(
+              flex: 87,
+              child: buildListViewSeperated(),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget buildSeperator() {
-    return Divider();
+  Container buildCustomTextField() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      color: Colors.grey,
+      child: Container(
+        color: CustomColor.shared.backgroundWhiteColor,
+        child: buildTextFieldRow(),
+      ),
+    );
+  }
+
+  Row buildTextFieldRow() {
+    return Row(
+      children: [
+        Expanded(
+          flex: 10,
+          child: Icon(Icons.search),
+        ),
+        Expanded(
+          flex: 70,
+          child: buildTextField(),
+        ),
+        Expanded(
+          flex: 20,
+          child: buildCancelButtonForTextfield(),
+        )
+      ],
+    );
+  }
+
+  Visibility buildCancelButtonForTextfield() {
+    return Visibility(
+        child: TextButton(
+          onPressed: () {
+            focusNode.unfocus();
+            textController.clear();
+          },
+          child: Text(
+            "Cancel",
+            style: TextStyle(color: Colors.black),
+          ),
+          style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(Colors.transparent)),
+        ),
+        visible: focusNode.hasFocus);
+  }
+
+  TextField buildTextField() {
+    return TextField(
+      focusNode: focusNode,
+      controller: textController,
+      onChanged: (data) {
+        setState(() {
+          filterText = data;
+        });
+      },
+      decoration: InputDecoration(
+        border: InputBorder.none,
+      ),
+      cursorColor: Colors.black,
+    );
+  }
+
+  Widget buildListViewSeperated() {
+    return Container(
+      padding: EdgeInsets.all(8),
+      child: ListView.separated(
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            return buildSelectionPageCell(index);
+          },
+          separatorBuilder: (context, index) {
+            return buildSeperator(index);
+          },
+          itemCount: widget.dataList.length),
+    );
+  }
+
+  Widget buildSeperator(int index) {
+    return Visibility(
+      child: Divider(),
+      visible: widget.dataList[index]
+          .toLowerCase()
+          .startsWith(filterText.toLowerCase()),
+    );
   }
 
   SelectionPageCell buildSelectionPageCell(int index) {
     return SelectionPageCell(
       text: widget.dataList[index],
       isSelected: index == widget.selectedIndex,
+      isVisible: widget.dataList[index]
+          .toLowerCase()
+          .startsWith(filterText.toLowerCase()),
       onTap: () {
         setState(() {
           widget.selectedIndex = index;
@@ -69,19 +170,24 @@ class SelectionPageCell extends StatelessWidget {
       {Key? key,
       required this.text,
       required this.isSelected,
-      required this.onTap})
+      required this.onTap,
+      required this.isVisible})
       : super(key: key);
 
   final String text;
   final bool isSelected;
   final VoidCallback onTap;
+  bool isVisible;
 
   @override
   Widget build(BuildContext context) {
     return InformerWidget(onPageBuild: (context, screenInfo) {
-      return GestureDetector(
-        onTap: onTap,
-        child: buildContainer(screenInfo),
+      return Visibility(
+        visible: isVisible,
+        child: GestureDetector(
+          onTap: onTap,
+          child: buildContainer(screenInfo),
+        ),
       );
     });
   }
