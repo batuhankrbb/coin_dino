@@ -84,13 +84,11 @@ class MyApp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
       theme: MaterialExtensions.lightModeTheme,
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
         body: Center(
-          child: OnboardScreen(),
+          child: OnboardScreen()
         ),
       ),
     );
