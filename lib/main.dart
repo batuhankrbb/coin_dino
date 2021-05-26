@@ -1,5 +1,6 @@
 import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
 import 'package:coin_dino/global/components/selection_page.dart';
+import 'package:coin_dino/settings_screen/settings_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ void main() async {
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp2(),
+      builder: (context) => MyApp(),
     ),
   );
 }
@@ -33,23 +34,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
-        home: SelectionPage(
-          title: "Approach",
-          dataList: [
-            "Hello",
-            "Test",
-            "asd",
-            "Sercan",
-            "Batuhan",
-            "Multi multi multi long choice line asd rnaomd asd ads hello I'm here",
-            "Deneme"
-          ],
-          isListingActive: false,
-          selectedIndex: 2,
-          onSelect: (int index) {
-            print("select hello $index aaaa");
-          },
-        ),
+        home: SettingsScreen(),
       );
     });
   }
