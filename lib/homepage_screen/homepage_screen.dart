@@ -2,6 +2,8 @@ import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 
+import 'cyrpto_currency_screen/cyrpyo_currency_screen.dart';
+
 class HomePageScreen extends StatefulWidget {
   HomePageScreen({Key? key}) : super(key: key);
   @override
@@ -21,19 +23,36 @@ class _HomePageScreenState extends State<HomePageScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appbarComponent(
-        title: "Coin Track",
-        bottom: TabBar(
-          tabs: [
-            Tab(text: "dasda"),
-            Tab(text: "dasda"),
-            Tab(text: "dasda"),
-          ],
-          controller: _tabController,
-          indicatorColor: CustomColor.shared.backgroundBlueColor,
-          labelColor: Colors.black,
-        ),
-      ),
-      body: Container(
+          title: "Coin Track", bottom: homePageTabBarItemMethod()),
+      body: homepageTabBarViewMethod(),
+    );
+  }
+
+// * Anasayfa Tab Bar item Methodu
+  TabBarView homepageTabBarViewMethod() {
+    return TabBarView(controller: _tabController, children: [
+      CyrptoCurrencyScreen(),
+      Container(color: Colors.green),
+      Container(color: Colors.amber),
+    ]);
+  }
+
+// * Anasayfa Kategori Methodu
+  TabBar homePageTabBarItemMethod() {
+    return TabBar(
+      tabs: [
+        Tab(text: "CyrptoCurrency"),
+        Tab(text: "NFT"),
+        Tab(text: "Falan Filan"),
+      ],
+      controller: _tabController,
+      indicatorColor: CustomColor.shared.backgroundBlueColor,
+      labelColor: Colors.black,
+    );
+  }
+}
+/*
+Container(
         margin: EdgeInsets.all(10),
         child: Column(
           children: [
@@ -45,6 +64,4 @@ class _HomePageScreenState extends State<HomePageScreen>
           ],
         ),
       ),
-    );
-  }
-}
+      */
