@@ -25,7 +25,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               subtitle: "deneme dendemednede anasdınasdas",
               trailing: Icon(Icons.calculate),
             ),
-            SettingsHeader(title: "deneme")
+            SettingsHeader(text: "Tools")
           ],
         ),
       ),
@@ -34,18 +34,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
 }
 
 class SettingsHeader extends StatelessWidget {
-  SettingsHeader({Key? key, required this.title}) : super(key: key);
+  SettingsHeader({Key? key, required this.text}) : super(key: key);
 
-  final String title;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 10, top: 6, bottom: 6),
+      padding: EdgeInsets.all(8),
       alignment: Alignment.centerLeft,
-      child: CustomAutoSizeText(
-        text: title,
-        textStyle: TextStyle(fontSize: 18, color: Colors.black),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Divider(),
+          CustomAutoSizeText(
+            text: text,
+            textStyle: TextStyle(
+                color: Colors.grey[700],
+                fontSize: 16,
+                fontWeight: FontWeight.w400),
+          ),
+          Divider()
+        ],
       ),
     );
   }
