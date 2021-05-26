@@ -1,6 +1,8 @@
 import 'dart:ui';
+import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/extensions/style_extensions.dart';
 import 'package:coin_dino/global/utils/custom_colors.dart';
+import 'package:coin_dino/homepage_screen/homepage_screen.dart';
 import 'package:coin_dino/onboard_screen/view_model/onboard_screen_viewmodel.dart';
 import 'package:coin_dino/onboard_screen/widgets/page_view_indicator.dart';
 import 'package:flutter/material.dart';
@@ -17,14 +19,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Coin Track",
-          style: TextStyle(
-              color: CustomColor.shared.backgroundBlueColor,
-              fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: appbarComponent(title: "Coin Track"),
       body: Column(
         children: [
           Spacer(flex: 5),
@@ -58,7 +53,11 @@ class _OnboardScreenState extends State<OnboardScreen> {
   ElevatedButton onBoardScreenStartButton(BuildContext context) {
     return ElevatedButton(
       child: Icon(Icons.arrow_right_alt),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => HomePageScreen(),
+        ));
+      },
       style: context.buttonStyle(
         backgroundColor: CustomColor.shared.backgroundBlueColor,
         shadowColor: CustomColor.shared.backgroundBlueColor,
