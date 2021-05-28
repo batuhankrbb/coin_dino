@@ -88,7 +88,7 @@ class MyApp2 extends StatelessWidget {
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
         body: Center(
-          child: OnboardScreen()
+          child: SettingsScreen()
         ),
       ),
     );
