@@ -12,7 +12,6 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
       onPageBuild: (context, screenInformation) {
         return Container(
           width: screenInformation.screenSize.width * 0.98,
-          height: 100,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),

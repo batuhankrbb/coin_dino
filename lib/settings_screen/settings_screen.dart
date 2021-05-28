@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
 import 'package:coin_dino/global/components/state_result_builder.dart';
@@ -8,8 +7,10 @@ import 'package:coin_dino/settings_screen/components/settings_icon.dart';
 import 'package:coin_dino/settings_screen/view_model/settings_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:share/share.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'components/settings_iap_card.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);

@@ -71,16 +71,15 @@ abstract class _SettingsViewModelBase with Store {
 
   Future<void> setThemePreference(
       ThemePreferenceEntity preferenceEntity) async {
-   await preferenceRepository.setThemePreference(preferenceEntity);
+    await preferenceRepository.setThemePreference(preferenceEntity);
   }
 
-   Future<void> setLanguagePreference(
+  Future<void> setLanguagePreference(
       LanguagePreferenceEntity preferenceEntity) async {
-   await preferenceRepository.setLangaugePreference(preferenceEntity);
+    await preferenceRepository.setLangaugePreference(preferenceEntity);
   }
 
-   Future<void> setBaseCurrencyPreference(
-      String baseCurrency) async {
-   await preferenceRepository.setBaseCurrencyPreference(baseCurrency);
+  Future<void> setBaseCurrencyPreference(String baseCurrency) async {
+    await preferenceRepository.setBaseCurrencyPreference(baseCurrency);
   }
 }
