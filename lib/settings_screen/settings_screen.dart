@@ -4,6 +4,7 @@ import 'package:coin_dino/settings_screen/components/settings_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'components/settings_iap_card.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 
@@ -15,15 +16,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  final Email email = Email(
-    body: 'Email body',
-    subject: 'Email subject',
-    recipients: ['example@example.com'],
-    cc: ['cc@example.com'],
-    bcc: ['bcc@example.com'],
-    attachmentPaths: ['/path/to/attachment.zip'],
-    isHTML: false,
-  );
+  final InAppReview inAppReview = InAppReview.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +58,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           trailing: IconButton(
             icon: Icon(Icons.ac_unit),
             onPressed: () async {
-              await FlutterEmailSender.send(email);
+              if (await inAppReview.isAvailable()) {
+                inAppReview.requestReview();
+              }
             },
           ),
         ),

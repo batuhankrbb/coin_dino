@@ -47,6 +47,7 @@ dependencies:
   cached_network_image: ^3.0.0
   share: ^2.0.4
   flutter_email_sender: ^5.0.0
+  in_app_review: ^2.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
