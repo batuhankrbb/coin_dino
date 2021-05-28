@@ -18,7 +18,6 @@ void main() async {
   await HiveHelper.shared.setUpHive();
   setupGetIt();
   await launchApp();
-  
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     MyApp(),
