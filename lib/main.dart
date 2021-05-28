@@ -1,5 +1,7 @@
 import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
 import 'package:coin_dino/global/components/selection_page.dart';
+import 'package:coin_dino/settings_screen/components/settings_icon.dart';
+import 'package:coin_dino/settings_screen/components/settings_switch.dart';
 import 'package:coin_dino/settings_screen/settings_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
-        home: SettingsScreen(),
+        home: HomePage(),
       );
     });
   }
@@ -48,31 +50,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: 500,
-            width: 300,
-            child: PullToRefreshBuilder(
-              snackMessage: "selam bu mesaj",
-              onRefresh: () async {
-                await Future.delayed(Duration(seconds: 1));
-                print("onrefresh");
-              },
-              listView: ListView.builder(
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text("hello"),
-                    leading: Icon(Icons.face),
-                    subtitle: Text("Sercan"),
-                  );
-                },
-                itemCount: 15,
-              ),
-            ),
-          )
-        ],
+      body: Center(
+        child: SettingsSwitch(
+            onSwitch: (val) {
+              print("val $val");
+            },
+            value: true),
       ),
     );
   }
@@ -87,9 +70,7 @@ class MyApp2 extends StatelessWidget {
       theme: MaterialExtensions.lightModeTheme,
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
-        body: Center(
-          child: OnboardScreen()
-        ),
+        body: Center(child: OnboardScreen()),
       ),
     );
   }
