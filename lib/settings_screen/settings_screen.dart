@@ -26,89 +26,67 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             children: [
               SizedBox(height: 10),
-              CupertinoFormSection(
-                header: SettingsFormHeader(
-                  headerTitle: "Kişisel Ayarlar",
-                  headerIcon: Icon(Icons.ac_unit),
-                ),
-                children: [
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                ],
-              ),
+              settingsSection(),
               SizedBox(height: 10),
               SettingInAppPurchaseCardWidget(),
               SizedBox(height: 10),
-              CupertinoFormSection(
-                header: SettingsFormHeader(
-                  headerTitle: "Kişisel Ayarlar",
-                  headerIcon: Icon(Icons.ac_unit),
-                ),
-                children: [
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                  SettingFormRowWidget(
-                    leading: SettingsIcon(iconData: Icons.ac_unit),
-                    subTitle: "Uygulama renklerini değiştirebilirsiniz.",
-                    title: "Kişiselleştirme",
-                    trailing: Icon(Icons.ac_unit),
-                  ),
-                ],
-              ),
+              othersSection(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget settingsSection() {
+    return CupertinoFormSection(
+      header: SettingsFormHeader(
+        headerTitle: "Settings",
+        headerIcon: Icon(Icons.settings),
+      ),
+      children: [
+        SettingFormRowWidget(
+          leading: SettingsIcon(iconData: Icons.palette),
+          title: "Theme",
+          trailing: Icon(Icons.chevron_right),
+        ),
+        SettingFormRowWidget(
+          leading: SettingsIcon(iconData: Icons.language),
+          title: "Language",
+          trailing: Icon(Icons.chevron_right),
+        ),
+        SettingFormRowWidget(
+          leading: SettingsIcon(iconData: Icons.money),
+          title: "Currency",
+          subTitle: "Base currency for the application",
+          trailing: Icon(Icons.chevron_right),
+        )
+      ],
+    );
+  }
+
+  Widget othersSection() {
+    return CupertinoFormSection(
+      header: SettingsFormHeader(
+        headerTitle: "Others",
+        headerIcon: Icon(Icons.apps),
+      ),
+      children: [
+        SettingFormRowWidget(
+          leading: SettingsIcon(iconData: Icons.share),
+          title: "Share",
+        ),
+        SettingFormRowWidget(
+          leading: SettingsIcon(iconData: Icons.mail),
+          title: "Contact",
+          subTitle: "Contract with us to tell your problems & suggestions",
+        ),
+        SettingFormRowWidget(
+          leading: SettingsIcon(iconData: Icons.star),
+          title: "Rate App",
+          subTitle: "Support us",
+        )
+      ],
     );
   }
 }
@@ -137,14 +115,14 @@ class SettingsFormHeader extends StatelessWidget {
 class SettingFormRowWidget extends StatelessWidget {
   final Widget leading;
   final String title;
-  final String subTitle;
-  final Widget trailing;
+  final String? subTitle;
+  final Widget? trailing;
   const SettingFormRowWidget(
       {Key? key,
       required this.leading,
-      required this.subTitle,
+      this.subTitle,
       required this.title,
-      required this.trailing})
+      this.trailing})
       : super(key: key);
 
   @override
@@ -161,16 +139,27 @@ class SettingFormRowWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AutoSizeText(title,
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  AutoSizeText(subTitle,
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal, color: Colors.grey))
+                      style: TextStyle(fontWeight: FontWeight.w500)),
+                  getSubtitle(),
                 ],
               ),
             ),
             Spacer(flex: 6),
-            Expanded(flex: 13, child: trailing),
+            getTrailing(),
           ],
         ));
+  }
+
+  Widget getSubtitle() {
+    if (subTitle == null) return SizedBox();
+    return AutoSizeText(
+      subTitle!,
+      style: TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
+    );
+  }
+
+  Widget getTrailing() {
+    if (trailing == null) return SizedBox();
+    return Expanded(flex: 13, child: trailing!);
   }
 }
