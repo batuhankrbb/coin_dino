@@ -1,6 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
+import 'package:coin_dino/global/components/custom_autosize_text.dart';
+import 'package:coin_dino/global/components/state_result_builder.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:coin_dino/settings_screen/components/settings_icon.dart';
+import 'package:coin_dino/settings_screen/view_model/settings_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
@@ -16,7 +20,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  final InAppReview inAppReview = InAppReview.instance;
+  late SettingsViewModel settingsViewModel = getit.get<SettingsViewModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -47,29 +51,43 @@ class _SettingsScreenState extends State<SettingsScreen> {
         headerIcon: Icon(Icons.settings),
       ),
       children: [
-        SettingFormRowWidget(
-          leading: SettingsIcon(iconData: Icons.palette),
-          title: "Theme",
-          trailing: Icon(Icons.chevron_right),
-        ),
-        SettingFormRowWidget(
-          leading: SettingsIcon(iconData: Icons.language),
-          title: "Language",
-          trailing: IconButton(
-            icon: Icon(Icons.ac_unit),
-            onPressed: () async {
-              if (await inAppReview.isAvailable()) {
-                inAppReview.requestReview();
-              }
+        StateResultBuilder(
+            stateResult: settingsViewModel.themePreference,
+            completedWidget: (data) {
+              return SettingFormRowWidget(
+                leading: SettingsIcon(iconData: Icons.palette),
+                title: "Theme",
+                trailing: Icon(Icons.chevron_right),
+              );
             },
-          ),
-        ),
-        SettingFormRowWidget(
-          leading: SettingsIcon(iconData: Icons.money),
-          title: "Currency",
-          subTitle: "Base currency for the application",
-          trailing: Icon(Icons.chevron_right),
-        )
+            failureWidget: (failure) {
+              return SizedBox();
+            }),
+        StateResultBuilder(
+            stateResult: settingsViewModel.themePreference,
+            completedWidget: (data) {
+              return SettingFormRowWidget(
+                leading: SettingsIcon(iconData: Icons.language),
+                title: "Language",
+                trailing: Icon(Icons.chevron_right),
+              );
+            },
+            failureWidget: (failure) {
+              return SizedBox();
+            }),
+        StateResultBuilder(
+            stateResult: settingsViewModel.themePreference,
+            completedWidget: (data) {
+              return SettingFormRowWidget(
+                leading: SettingsIcon(iconData: Icons.money),
+                title: "Currency",
+                subTitle: "Base currency for the application",
+                trailing: Icon(Icons.chevron_right),
+              );
+            },
+            failureWidget: (failure) {
+              return SizedBox();
+            }),
       ],
     );
   }
