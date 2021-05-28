@@ -94,4 +94,9 @@ class PreferenceRepository implements IPreferenceRepository {
       return Result.failure(exceptionHandler.handleException(e));
     }
   }
+
+  @override
+  Future<List<ThemePreferenceEntity>> getAllThemes() async {
+    return [ThemePreferenceEntity.dark, ThemePreferenceEntity.light];
+  }
 }

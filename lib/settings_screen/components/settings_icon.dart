@@ -17,9 +17,7 @@ class SettingsIcon extends StatelessWidget {
             color: Colors.pink[300],
             boxShadow: [
               BoxShadow(
-                  color: Colors.pink[300]!,
-                  blurRadius: 10,
-                  offset: Offset(0, 6))
+                  color: Colors.pink[300]!, blurRadius: 8, offset: Offset(0, 5))
             ]),
         child: Icon(
           iconData,
