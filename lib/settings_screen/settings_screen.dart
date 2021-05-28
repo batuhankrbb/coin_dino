@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
@@ -17,15 +18,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: appbarComponent(title: "Settings"),
       body: Container(
+        padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            SettingsCell(
-              onTap: () {},
-              title: "Calculator",
-              subtitle: "deneme dendemednede anasdınasdas",
-              trailing: Icon(Icons.calculate),
+            CupertinoFormSection(
+              header: SettingsFormHeader(
+                headerTitle: "Kişisel Ayarlar",
+                headerIcon: Icon(Icons.ac_unit),
+              ),
+              children: [
+                SettingFormRowWidget(
+                  leading: Icon(Icons.sanitizer),
+                  subTitle: "1",
+                  title: "2",
+                  trailing: Icon(Icons.ac_unit),
+                ),
+                SettingFormRowWidget(
+                  leading: Icon(Icons.sanitizer),
+                  subTitle: "DASDASD",
+                  title: "DASDAS",
+                  trailing: Icon(Icons.ac_unit),
+                ),
+                SettingFormRowWidget(
+                  leading: Icon(Icons.sanitizer),
+                  subTitle: "DASDASD",
+                  title: "DASDAS",
+                  trailing: Icon(Icons.ac_unit),
+                ),
+                SettingFormRowWidget(
+                  leading: Icon(Icons.sanitizer),
+                  subTitle: "DASDASD",
+                  title: "DASDAS",
+                  trailing: Icon(Icons.ac_unit),
+                ),
+              ],
             ),
-            SettingsHeader(text: "Tools")
+            CupertinoFormSection(
+              header: Text("Uygulama Ayarları"),
+              children: [
+                CupertinoFormRow(child: Text("dsad")),
+              ],
+            )
           ],
         ),
       ),
@@ -33,110 +66,62 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 }
 
-class SettingsHeader extends StatelessWidget {
-  SettingsHeader({Key? key, required this.text}) : super(key: key);
-
-  final String text;
+class SettingsFormHeader extends StatelessWidget {
+  final String headerTitle;
+  final Widget headerIcon;
+  const SettingsFormHeader(
+      {Key? key, required this.headerTitle, required this.headerIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      alignment: Alignment.centerLeft,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
         children: [
-          Divider(),
-          CustomAutoSizeText(
-            text: text,
-            textStyle: TextStyle(
-                color: Colors.grey[700],
-                fontSize: 16,
-                fontWeight: FontWeight.w400),
-          ),
-          Divider()
+          Text(headerTitle),
+          Spacer(),
+          headerIcon,
         ],
       ),
     );
   }
 }
 
-class SettingsCell extends StatelessWidget {
+class SettingFormRowWidget extends StatelessWidget {
+  final Widget leading;
   final String title;
-  final String? subtitle;
-  final Color titleColor;
+  final String subTitle;
   final Widget trailing;
-  final VoidCallback onTap;
-
-  const SettingsCell({
-    Key? key,
-    required this.title,
-    required this.trailing,
-    required this.onTap,
-    this.subtitle,
-    this.titleColor = Colors.black,
-  }) : super(key: key);
+  const SettingFormRowWidget(
+      {Key? key,
+      required this.leading,
+      required this.subTitle,
+      required this.title,
+      required this.trailing})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InformerWidget(onPageBuild: (context, screenInfo) {
-      return Container(
-        color: Colors.white60,
-        height: screenInfo.screenSize.height * 0.08,
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+    return Container(
+        padding: EdgeInsets.all(10),
         child: Row(
           children: [
+            Expanded(flex: 15, child: leading),
             Expanded(
-              flex: 85,
-              child: buildTextColumns(),
+              flex: 50,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AutoSizeText(title,
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  AutoSizeText(subTitle,
+                      style: TextStyle(fontWeight: FontWeight.normal,color: Colors.grey))
+                ],
+              ),
             ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 15,
-              child: trailing,
-            )
+            Spacer(flex: 50),
+            Expanded(flex: 13, child: trailing),
           ],
-        ),
-      );
-    });
-  }
-
-  Widget buildTextColumns() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          flex: 50,
-          child: getTitle(),
-        ),
-        if (getSubTitle() != null)
-          Expanded(
-            flex: 50,
-            child: getSubTitle()!,
-          ),
-      ],
-    );
-  }
-
-  Widget getTitle() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      child: CustomAutoSizeText(
-        text: title,
-        textStyle: TextStyle(
-            color: titleColor, fontSize: 20, fontWeight: FontWeight.w400),
-      ),
-    );
-  }
-
-  Widget? getSubTitle() {
-    if (subtitle == null) return null;
-    return CustomAutoSizeText(
-      text: subtitle!,
-      textStyle: TextStyle(
-          color: Colors.black, fontSize: 12, fontWeight: FontWeight.w300),
-    );
+        ));
   }
 }
