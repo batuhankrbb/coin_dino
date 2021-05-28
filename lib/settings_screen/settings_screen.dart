@@ -6,6 +6,8 @@ import 'package:coin_dino/settings_screen/components/settings_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'components/settings_iap_card.dart';
+
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);
 
@@ -23,6 +25,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(height: 10),
               CupertinoFormSection(
                 header: SettingsFormHeader(
                   headerTitle: "Kişisel Ayarlar",
@@ -61,7 +64,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
+              SettingInAppPurchaseCardWidget(),
+              SizedBox(height: 10),
               CupertinoFormSection(
                 header: SettingsFormHeader(
                   headerTitle: "Kişisel Ayarlar",
