@@ -29,7 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               CupertinoFormSection(
                 header: SettingsFormHeader(
                   headerTitle: "Kişisel Ayarlar",
-                  headerIcon: Icon(Icons.ac_unit),
+                  headerIcon: Icon(Icons.apps_outlined),
                 ),
                 children: [
                   SettingFormRowWidget(

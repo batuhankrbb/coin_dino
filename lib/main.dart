@@ -51,11 +51,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: SettingsSwitch(
-            onSwitch: (val) {
-              print("val $val");
-            },
-            value: true),
+        child: SettingsScreen(),
       ),
     );
   }
