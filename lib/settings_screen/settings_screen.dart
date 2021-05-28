@@ -20,7 +20,15 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  late SettingsViewModel settingsViewModel = getit.get<SettingsViewModel>();
+  SettingsViewModel settingsViewModel = getit.get<SettingsViewModel>();
+
+  @override
+  void initState() {
+    super.initState();
+    settingsViewModel.getBaseCurrencyPreference();
+    settingsViewModel.getLanguagePreference();
+    settingsViewModel.getThemePreference();
+  }
 
   @override
   Widget build(BuildContext context) {

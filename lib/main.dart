@@ -16,8 +16,8 @@ import 'onboard_screen/onboard_screen.dart';
 
 void main() async {
   await HiveHelper.shared.setUpHive();
-  await launchApp();
   setupGetIt();
+  await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
     DevicePreview(
