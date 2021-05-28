@@ -3,8 +3,9 @@ import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/settings_screen/components/settings_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:share/share.dart';
 import 'components/settings_iap_card.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -14,6 +15,15 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  final Email email = Email(
+    body: 'Email body',
+    subject: 'Email subject',
+    recipients: ['example@example.com'],
+    cc: ['cc@example.com'],
+    bcc: ['bcc@example.com'],
+    attachmentPaths: ['/path/to/attachment.zip'],
+    isHTML: false,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +61,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.language),
           title: "Language",
-          trailing: Icon(Icons.chevron_right),
+          trailing: IconButton(
+            icon: Icon(Icons.ac_unit),
+            onPressed: () async {
+              await FlutterEmailSender.send(email);
+            },
+          ),
         ),
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.money),
