@@ -10,4 +10,5 @@ abstract class IPreferenceRepository {
   Future<Result<void>> setLangaugePreference(LanguagePreferenceEntity languagePreference);
   Future<Result<void>> setBaseCurrencyPreference(String baseCurrency);
   Future<Result<List<String>>> getAllSupportedBaseCurrencies();
+  Future<List<ThemePreferenceEntity>> getAllThemes();
 }
