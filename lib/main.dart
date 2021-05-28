@@ -20,9 +20,7 @@ void main() async {
   await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
-    DevicePreview(
-      builder: (context) => MyApp(),
-    ),
+    MyApp(),
   );
 }
 
@@ -36,7 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return MaterialApp(
-        builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
         home: SettingsScreen(),
       );
