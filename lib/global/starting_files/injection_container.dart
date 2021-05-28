@@ -1,4 +1,5 @@
 import 'package:coin_dino/homepage_screen/cyrpto_currency_screen/wiew_model/cyrpyo_currency_viewmodel.dart';
+import 'package:coin_dino/settings_screen/view_model/settings_view_model.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/alert/data/data_source/contracts/i_alert_local_data_source.dart';
@@ -105,6 +106,9 @@ void _setUpPreferencesFeature() {
 
   getit.registerLazySingleton<PreferencesExceptionHandler>(
       () => PreferencesExceptionHandler());
+
+  getit.registerLazySingleton<SettingsViewModel>(
+      () => SettingsViewModel(preferenceRepository: getit()));
 }
 
 void _setUpSearchFeature() {

@@ -11,10 +11,12 @@ import 'core/hive/hive_helper.dart';
 import 'global/app_settings/app_settings_viewmodel.dart';
 import 'global/extensions/material_extensions.dart';
 import 'global/starting_files/injection_container.dart';
+import 'global/starting_files/launch_app.dart';
 import 'onboard_screen/onboard_screen.dart';
 
 void main() async {
   await HiveHelper.shared.setUpHive();
+  await launchApp();
   setupGetIt();
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         builder: DevicePreview.appBuilder,
         theme: appSettingsViewModel.themeData,
-        home: HomePage(),
+        home: SettingsScreen(),
       );
     });
   }
