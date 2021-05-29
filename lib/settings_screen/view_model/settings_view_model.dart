@@ -15,13 +15,17 @@ abstract class _SettingsViewModelBase with Store {
 
   _SettingsViewModelBase({required this.preferenceRepository});
 
+  @observable
   StateResult<ThemePreferenceEntity> themePreference = StateResult.initial();
 
+  @observable
   StateResult<LanguagePreferenceEntity> languagePreference =
       StateResult.initial();
 
+  @observable
   StateResult<String> baseCurrencyPreference = StateResult.initial();
 
+  @action
   Future<void> getThemePreference() async {
     var themePreferenceResult = await preferenceRepository.getThemePreference();
 
@@ -32,6 +36,7 @@ abstract class _SettingsViewModelBase with Store {
     });
   }
 
+  @action
   Future<void> getLanguagePreference() async {
     var languagePreferenceResult =
         await preferenceRepository.getLanguagePreference();
@@ -43,6 +48,7 @@ abstract class _SettingsViewModelBase with Store {
     });
   }
 
+  @action
   Future<void> getBaseCurrencyPreference() async {
     var baseCurrenciesResult =
         await preferenceRepository.getBaseCurrencyPreference();

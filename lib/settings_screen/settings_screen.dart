@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
 import 'package:coin_dino/global/components/state_result_builder.dart';
@@ -7,6 +8,7 @@ import 'package:coin_dino/settings_screen/components/settings_icon.dart';
 import 'package:coin_dino/settings_screen/view_model/settings_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:share/share.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'components/settings_iap_card.dart';
@@ -25,9 +27,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     super.initState();
-    settingsViewModel.getBaseCurrencyPreference();
-    settingsViewModel.getLanguagePreference();
-    settingsViewModel.getThemePreference();
+    setUpSettings();
+  }
+
+  Future<void> setUpSettings() async {
+    await settingsViewModel.getBaseCurrencyPreference();
+    await settingsViewModel.getLanguagePreference();
+    await settingsViewModel.getThemePreference();
   }
 
   @override
@@ -59,45 +65,71 @@ class _SettingsScreenState extends State<SettingsScreen> {
         headerIcon: Icon(Icons.settings),
       ),
       children: [
-        StateResultBuilder(
-            stateResult: settingsViewModel.themePreference,
-            completedWidget: (data) {
-              return SettingFormRowWidget(
-                leading: SettingsIcon(iconData: Icons.palette),
-                title: "Theme",
-                trailing: Icon(Icons.chevron_right),
-              );
-            },
-            failureWidget: (failure) {
-              return SizedBox();
-            }),
-        StateResultBuilder(
+        buildStateResultForTheme(),
+        buildStateResultForLanguage(),
+        buildStateResultForBaseCurrency(),
+      ],
+    );
+  }
+
+  Widget buildStateResultForBaseCurrency() {
+    return Observer(builder: (_) {
+      return StateResultBuilder(
+          stateResult: settingsViewModel.themePreference,
+          completedWidget: (data) {
+            return SettingFormRowWidget(
+              leading: SettingsIcon(iconData: Icons.money),
+              title: "Currency",
+              subTitle: "Base currency for the application",
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {},
+            );
+          },
+          loadingWidget: CupertinoActivityIndicator(),
+          failureWidget: (failure) {
+            return SizedBox();
+          });
+    });
+  }
+
+  Widget buildStateResultForLanguage() {
+    return Observer(
+      builder: (_) {
+        return StateResultBuilder(
             stateResult: settingsViewModel.themePreference,
             completedWidget: (data) {
               return SettingFormRowWidget(
                 leading: SettingsIcon(iconData: Icons.language),
                 title: "Language",
                 trailing: Icon(Icons.chevron_right),
+                onTap: () {},
               );
             },
+            loadingWidget: CupertinoActivityIndicator(),
             failureWidget: (failure) {
               return SizedBox();
-            }),
-        StateResultBuilder(
-            stateResult: settingsViewModel.themePreference,
-            completedWidget: (data) {
-              return SettingFormRowWidget(
-                leading: SettingsIcon(iconData: Icons.money),
-                title: "Currency",
-                subTitle: "Base currency for the application",
-                trailing: Icon(Icons.chevron_right),
-              );
-            },
-            failureWidget: (failure) {
-              return SizedBox();
-            }),
-      ],
+            });
+      },
     );
+  }
+
+  Widget buildStateResultForTheme() {
+    return Observer(builder: (_) {
+      return StateResultBuilder(
+          stateResult: settingsViewModel.themePreference,
+          completedWidget: (data) {
+            return SettingFormRowWidget(
+              leading: SettingsIcon(iconData: Icons.palette),
+              title: "Theme",
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {},
+            );
+          },
+          loadingWidget: CupertinoActivityIndicator(),
+          failureWidget: (failure) {
+            return SizedBox();
+          });
+    });
   }
 
   Widget othersSection() {
@@ -110,16 +142,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.share),
           title: "Share",
+          onTap: () {},
         ),
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.mail),
           title: "Contact",
           subTitle: "Contract with us to tell your problems & suggestions",
+          onTap: () {},
         ),
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.star),
           title: "Rate App",
           subTitle: "Support us",
+          onTap: () {},
         )
       ],
     );
@@ -152,37 +187,43 @@ class SettingFormRowWidget extends StatelessWidget {
   final String title;
   final String? subTitle;
   final Widget? trailing;
+  final VoidCallback onTap;
+
   const SettingFormRowWidget(
       {Key? key,
       required this.leading,
       this.subTitle,
       required this.title,
-      this.trailing})
+      this.trailing,
+      required this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.all(10),
-        child: Row(
-          children: [
-            leading,
-            Spacer(flex: 5),
-            Expanded(
-              flex: 80,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AutoSizeText(title,
-                      style: TextStyle(fontWeight: FontWeight.w500)),
-                  getSubtitle(),
-                ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            children: [
+              leading,
+              Spacer(flex: 5),
+              Expanded(
+                flex: 80,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AutoSizeText(title,
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    getSubtitle(),
+                  ],
+                ),
               ),
-            ),
-            Spacer(flex: 6),
-            getTrailing(),
-          ],
-        ));
+              Spacer(flex: 6),
+              getTrailing(),
+            ],
+          )),
+    );
   }
 
   Widget getSubtitle() {
