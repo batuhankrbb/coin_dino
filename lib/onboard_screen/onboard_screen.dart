@@ -1,11 +1,12 @@
-import 'dart:ui';
-import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/extensions/style_extensions.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
-import 'package:coin_dino/homepage_screen/homepage_screen.dart';
-import 'package:coin_dino/onboard_screen/view_model/onboard_screen_viewmodel.dart';
-import 'package:coin_dino/onboard_screen/widgets/page_view_indicator.dart';
+
 import 'package:flutter/material.dart';
+
+import '../global/components/app_bar_components.dart';
+import '../global/extensions/style_extensions.dart';
+import '../global/utils/custom_colors.dart';
+import '../homepage_screen/homepage_screen.dart';
+import 'view_model/onboard_screen_viewmodel.dart';
+import 'widgets/page_view_indicator.dart';
 
 class OnboardScreen extends StatefulWidget {
   OnboardScreen({Key? key}) : super(key: key);

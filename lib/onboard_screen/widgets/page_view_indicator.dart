@@ -1,7 +1,8 @@
-import 'package:coin_dino/global/utils/custom_colors.dart';
-import 'package:coin_dino/onboard_screen/view_model/onboard_screen_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import '../../global/utils/custom_colors.dart';
+import '../view_model/onboard_screen_viewmodel.dart';
 
 class PageViewIndicatorWidget extends StatelessWidget {
   final int index;

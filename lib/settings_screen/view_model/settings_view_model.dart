@@ -1,10 +1,9 @@
-import 'package:coin_dino/core/result_types/state_result.dart';
-import 'package:coin_dino/core/user_interface/helpers/alert_helper.dart';
-import 'package:coin_dino/features/preferences/data/repository/preference_repository.dart';
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/repository_contract/i_preference_repository.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../core/result_types/state_result.dart';
+import '../../features/preferences/domain/entity/language_preference_entity.dart';
+import '../../features/preferences/domain/entity/theme_preference_entity.dart';
+import '../../features/preferences/domain/repository_contract/i_preference_repository.dart';
 
 part 'settings_view_model.g.dart';
 

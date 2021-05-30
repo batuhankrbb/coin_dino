@@ -1,5 +1,3 @@
-import 'package:coin_dino/homepage_screen/cyrpto_currency_screen/wiew_model/cyrpyo_currency_viewmodel.dart';
-import 'package:coin_dino/settings_screen/view_model/settings_view_model.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/alert/data/data_source/contracts/i_alert_local_data_source.dart';
@@ -31,6 +29,8 @@ import '../../features/search/data/data_sources/implementations/search_remote_da
 import '../../features/search/data/exception_handling/exception_handler.dart';
 import '../../features/search/data/repository/search_repository.dart';
 import '../../features/search/domain/repository_contract/i_search_repository.dart';
+import '../../homepage_screen/cyrpto_currency_screen/wiew_model/cyrpyo_currency_viewmodel.dart';
+import '../../settings_screen/view_model/settings_view_model.dart';
 import '../app_settings/app_settings_viewmodel.dart';
 
 GetIt getit = GetIt.instance;

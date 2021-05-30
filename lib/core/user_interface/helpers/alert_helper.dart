@@ -1,7 +1,7 @@
-import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../global/utils/custom_colors.dart';
 import '../../navigation/services/navigation_service.dart';
 
 class AlertHelper {

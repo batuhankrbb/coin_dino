@@ -1,5 +1,6 @@
-import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/custom_colors.dart';
 
 AppBar appbarComponent(
         {String? title,

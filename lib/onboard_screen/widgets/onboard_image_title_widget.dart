@@ -1,8 +1,9 @@
 
-import 'package:coin_dino/core/mini_services/image/image_helper.dart';
-import 'package:coin_dino/global/extensions/style_extensions.dart';
-import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+
+import '../../core/mini_services/image/image_helper.dart';
+import '../../global/extensions/style_extensions.dart';
 
 class OnboardScreenImageAndTitleWidget extends StatelessWidget {
   final String image;

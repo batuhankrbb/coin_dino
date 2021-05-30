@@ -1,6 +1,7 @@
-import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../global/components/app_bar_components.dart';
 
 class SearchScreen extends StatefulWidget {
   SearchScreen({Key? key}) : super(key: key);

@@ -1,7 +1,6 @@
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/repository_contract/i_preference_repository.dart';
-
+import '../../features/preferences/domain/entity/language_preference_entity.dart';
+import '../../features/preferences/domain/entity/theme_preference_entity.dart';
+import '../../features/preferences/domain/repository_contract/i_preference_repository.dart';
 import 'injection_container.dart';
 
 Future<void> launchApp() async {

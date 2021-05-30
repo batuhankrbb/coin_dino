@@ -1,8 +1,8 @@
-import 'package:coin_dino/core/error_handling/custom_failure.dart';
-import 'package:coin_dino/core/result_types/state_result.dart';
-import 'package:coin_dino/global/components/loading_screen_components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+
+import '../../core/error_handling/custom_failure.dart';
+import '../../core/result_types/state_result.dart';
+import 'loading_screen_components.dart';
 
 class StateResultBuilder<T> extends StatelessWidget {
   StateResultBuilder(

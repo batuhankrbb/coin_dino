@@ -1,6 +1,8 @@
-import 'package:coin_dino/onboard_screen/widgets/onboard_image_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+
+import '../widgets/onboard_image_title_widget.dart';
+
 part 'onboard_screen_viewmodel.g.dart';
 
 class OnboardScreenViewModel = _OnboardScreenViewModelBase

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'navigation_routes.freezed.dart';
+part 'navigation_route.freezed.dart';
 
 @freezed
 class NavigationRoute with _$NavigationRoute {
