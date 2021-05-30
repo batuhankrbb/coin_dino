@@ -1,9 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
+import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
 import 'package:coin_dino/global/components/selection_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
 import '../core/mini_services/rating/rating_service.dart';
 import '../core/mini_services/share/share_service.dart';
 import '../core/mini_services/url_launcher_service/url_launcher_service.dart';
@@ -13,6 +14,8 @@ import '../global/starting_files/injection_container.dart';
 import 'components/settings_iap_card.dart';
 import 'components/settings_icon.dart';
 import 'view_model/settings_view_model.dart';
+
+
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -74,8 +77,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget buildStateResultForBaseCurrency() {
     return Observer(builder: (_) {
-      return StateResultBuilder(
-          stateResult: settingsViewModel.themePreference,
+      return StateResultBuilder<String>(
+          stateResult: settingsViewModel.baseCurrencyPreference,
           completedWidget: (data) {
             return SettingFormRowWidget(
               leading: SettingsIcon(iconData: Icons.money),
@@ -95,25 +98,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget buildStateResultForLanguage() {
     return Observer(
       builder: (_) {
-        return StateResultBuilder(
-            stateResult: settingsViewModel.themePreference,
+        return StateResultBuilder<LanguagePreferenceEntity>(
+            stateResult: settingsViewModel.languagePreference,
             completedWidget: (data) {
               return SettingFormRowWidget(
                 leading: SettingsIcon(iconData: Icons.language),
                 title: "Language",
                 trailing: Icon(Icons.chevron_right),
                 onTap: () async {
-                 /*
-                 var allLanguages = await settingsViewModel.getAllLanguages();
+                 
+                 var allLanguages = await settingsViewModel.getAllLanguages(); //* BURASI TEST İÇİN. DÜZELECEK
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
                     return SelectionPage(
                         title: "Language",
                         dataList: allLanguages,
                         isListingActive: false,
-                        onSelect: (value) {},
-                        selectedIndex: 0);
+                        onSelect: (value) {
+                          //TODO vm üzerinden set etme
+                        },
+                        selectedIndex: 0); //TODO verilen elemanın indexini döndüren list extensionu yazacağım -- 
                   }));
-                 */
                 },
               );
             },
@@ -127,7 +131,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget buildStateResultForTheme() {
     return Observer(builder: (_) {
-      return StateResultBuilder(
+      return StateResultBuilder<ThemePreferenceEntity>(
           stateResult: settingsViewModel.themePreference,
           completedWidget: (data) {
             return SettingFormRowWidget(
