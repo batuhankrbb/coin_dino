@@ -1,4 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/mini_services/rating/rating_service.dart';
+import 'package:coin_dino/core/mini_services/share/share_service.dart';
+import 'package:coin_dino/core/mini_services/url_launcher_service/url_launcher_service.dart';
 import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
@@ -9,7 +12,6 @@ import 'package:coin_dino/settings_screen/view_model/settings_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:share/share.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'components/settings_iap_card.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
@@ -142,19 +144,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.share),
           title: "Share",
-          onTap: () {},
+          onTap: () async {
+            await ShareService.shared.shareApp();
+          },
         ),
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.mail),
           title: "Contact",
           subTitle: "Contract with us to tell your problems & suggestions",
-          onTap: () {},
+          onTap: () async{
+           await UrlLauncherService.shared.sendContactEmail();
+          },
         ),
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.star),
           title: "Rate App",
           subTitle: "Support us",
-          onTap: () {},
+          onTap: () async {
+            await RatingService.shared.requestReview();
+          },
         )
       ],
     );

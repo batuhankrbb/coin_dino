@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/image/image_helper.dart';
+import 'package:coin_dino/core/mini_services/image/image_helper.dart';
 import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import 'package:flutter/material.dart';
 

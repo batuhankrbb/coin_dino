@@ -1,8 +1,10 @@
 import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
 import 'package:coin_dino/global/components/selection_page.dart';
+import 'package:coin_dino/search_screen/search_screen.dart';
 import 'package:coin_dino/settings_screen/components/settings_icon.dart';
 import 'package:coin_dino/settings_screen/components/settings_switch.dart';
 import 'package:coin_dino/settings_screen/settings_screen.dart';
+import 'package:coin_dino/settings_screen/view_model/settings_view_model.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
