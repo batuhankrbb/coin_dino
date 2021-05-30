@@ -1,9 +1,10 @@
-import 'package:coin_dino/core/user_interface/responsive_layout/utils/screen_information_model.dart';
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/components/custom_autosize_text.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/user_interface/responsive_layout/utils/screen_information_model.dart';
+import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
+import '../utils/custom_colors.dart';
+import 'app_bar_components.dart';
+import 'custom_autosize_text.dart';
 
 class SelectionPage extends StatefulWidget {
   SelectionPage({

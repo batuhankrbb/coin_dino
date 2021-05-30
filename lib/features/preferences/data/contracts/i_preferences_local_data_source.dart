@@ -6,4 +6,6 @@ abstract class IPreferencesLocalDataSource {
   Future<void> setLangaugePreference(String languagePreference);
   Future<void> setBaseCurrencyPreference(String currencyPreference);
   Future<List<String>> getAllSupportedBaseCurrencies();
+  Future<List<String>> getAllThemes();
+  Future<List<String>> getAllLanguages();
 }

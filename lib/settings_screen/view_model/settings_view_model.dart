@@ -1,10 +1,9 @@
-import 'package:coin_dino/core/result_types/state_result.dart';
-import 'package:coin_dino/core/user_interface/helpers/alert_helper.dart';
-import 'package:coin_dino/features/preferences/data/repository/preference_repository.dart';
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/repository_contract/i_preference_repository.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../core/result_types/state_result.dart';
+import '../../features/preferences/domain/entity/language_preference_entity.dart';
+import '../../features/preferences/domain/entity/theme_preference_entity.dart';
+import '../../features/preferences/domain/repository_contract/i_preference_repository.dart';
 
 part 'settings_view_model.g.dart';
 
@@ -15,13 +14,17 @@ abstract class _SettingsViewModelBase with Store {
 
   _SettingsViewModelBase({required this.preferenceRepository});
 
+  @observable
   StateResult<ThemePreferenceEntity> themePreference = StateResult.initial();
 
+  @observable
   StateResult<LanguagePreferenceEntity> languagePreference =
       StateResult.initial();
 
+  @observable
   StateResult<String> baseCurrencyPreference = StateResult.initial();
 
+  @action
   Future<void> getThemePreference() async {
     var themePreferenceResult = await preferenceRepository.getThemePreference();
 
@@ -32,6 +35,7 @@ abstract class _SettingsViewModelBase with Store {
     });
   }
 
+  @action
   Future<void> getLanguagePreference() async {
     var languagePreferenceResult =
         await preferenceRepository.getLanguagePreference();
@@ -43,6 +47,7 @@ abstract class _SettingsViewModelBase with Store {
     });
   }
 
+  @action
   Future<void> getBaseCurrencyPreference() async {
     var baseCurrenciesResult =
         await preferenceRepository.getBaseCurrencyPreference();
@@ -67,6 +72,12 @@ abstract class _SettingsViewModelBase with Store {
   Future<List<String>> getAllThemes() async {
     var themesResult = await preferenceRepository.getAllThemes();
     return themesResult.map((e) => e.rawValue).toList();
+  }
+
+  Future<List<String>> getAllLanguages() async {
+    var languages = await preferenceRepository.getAllLanguages();
+    var languagelist = languages.map((e) => e.rawValue).toList();
+    return languagelist;
   }
 
   Future<void> setThemePreference(

@@ -1,8 +1,10 @@
-import 'package:coin_dino/core/result_types/state_result.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
-import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
-import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../../core/result_types/state_result.dart';
+import '../../../features/market/domain/entities/market_coin_entity.dart';
+import '../../../features/market/domain/repository_contracts/i_market_coin_repository.dart';
+import '../../../features/market/presentation/utils/listing_enums.dart';
+
 part 'cyrpyo_currency_viewmodel.g.dart';
 
 class CyrptoCurrencyViewModel = _CyrptoCurrencyViewModelBase

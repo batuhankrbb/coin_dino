@@ -1,8 +1,9 @@
-import 'package:coin_dino/core/user_interface/helpers/alert_helper.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+import '../../core/user_interface/helpers/alert_helper.dart';
+import '../utils/custom_colors.dart';
 
 class PullToRefreshBuilder extends StatefulWidget {
   PullToRefreshBuilder(

@@ -1,7 +1,7 @@
-import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../global/components/app_bar_components.dart';
+import '../global/utils/custom_colors.dart';
 import 'cyrpto_currency_screen/cyrpyo_currency_screen.dart';
 
 class HomePageScreen extends StatefulWidget {

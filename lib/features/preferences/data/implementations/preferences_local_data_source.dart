@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
+import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../../../../core/hive/hive_constants.dart';
@@ -85,5 +87,23 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
     } catch (e) {
       throw PreferencesException.supportedCurrenciesFetchingException();
     }
+  }
+
+  @override
+  Future<List<String>> getAllLanguages() async {
+    //TODO JSONDAN ALINMASI LAZIM
+    return [
+      LanguagePreferenceEntity.english.rawValue,
+      LanguagePreferenceEntity.turkish.rawValue
+    ];
+  }
+
+  @override
+  Future<List<String>> getAllThemes() async {
+    //TODO JSONDAN ALINMASI LAZIM
+    return [
+      ThemePreferenceEntity.light.rawValue,
+      ThemePreferenceEntity.dark.rawValue
+    ];
   }
 }

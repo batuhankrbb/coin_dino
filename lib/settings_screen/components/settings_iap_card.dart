@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/image/image_helper.dart';
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/mini_services/image/image_helper.dart';
+import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 
 class SettingInAppPurchaseCardWidget extends StatelessWidget {
   const SettingInAppPurchaseCardWidget({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coin_dino/global/components/loading_screen_components.dart';
 import 'package:flutter/material.dart';
+
+import 'loading_screen_components.dart';
 
 class CashedNetworkImageWidget extends StatelessWidget {
   final String imageURL;

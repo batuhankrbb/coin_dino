@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../routes/navigation_routes.dart';
+import '../routes/navigation_route.dart';
 
 class NavigationService {
   static NavigationService shared = NavigationService();

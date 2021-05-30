@@ -1,5 +1,6 @@
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 
 class SettingsIcon extends StatelessWidget {
   SettingsIcon({Key? key, required this.iconData}) : super(key: key);
