@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/inapp_purchase_screen/inapp_purchase_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/mini_services/image/image_helper.dart';
@@ -12,16 +13,20 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
     return InformerWidget(
       onPageBuild: (context, screenInformation) {
         return GestureDetector(
-          onTap: (){
-            
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => InAppPurchase(),
+                ));
           },
           child: Container(
             width: screenInformation.screenSize.width * 0.98,
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                gradient:
-                    LinearGradient(colors: [Colors.orange, Colors.orangeAccent])),
+                gradient: LinearGradient(
+                    colors: [Colors.orange, Colors.orangeAccent])),
             child: Row(
               children: [
                 Expanded(
