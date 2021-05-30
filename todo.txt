@@ -1,0 +1,16 @@
+//YAPILACAKLAR
+
+- Settings içini doldurmak ve gerekli servisleri yazmak
+- Projedeki kötü yazılmış kodları düzeltmek (Özellikle UI Kodları)
+- Search sayfası yapmak ve tamamen bitirmek
+- Detay sayfası yapmak ve tamamen bitirmek
+- Alert ekleyebileceğimiz bir alert detay sayfası yapmak
+- Alertleri sıralayabileceğimiz, sileceğimiz, düzenleme için alert detay sayfasına atacağımız bir alert liste sayfası yapmak
+- Mainden başlayarak bütün appi birleştirmek navigation ile
+- Detailde grafik yapmak
+- Projede kötü yazılmış kodları düzeltmek
+- Main sayfasını kodla birleştirmek ve düzeltmek
+- App arayüzünü tamamen responsive yapmak
+- Localization eklemek
+- Temaları eklemek
+- Son testleri yapmak
