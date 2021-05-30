@@ -74,6 +74,12 @@ abstract class _SettingsViewModelBase with Store {
     return themesResult.map((e) => e.rawValue).toList();
   }
 
+  Future<List<String>> getAllLanguages() async {
+    var languages = await preferenceRepository.getAllLanguages();
+    var languagelist = languages.map((e) => e.rawValue).toList();
+    return languagelist;
+  }
+
   Future<void> setThemePreference(
       ThemePreferenceEntity preferenceEntity) async {
     await preferenceRepository.setThemePreference(preferenceEntity);

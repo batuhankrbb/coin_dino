@@ -30,7 +30,7 @@ class PreferenceRepository implements IPreferenceRepository {
     try {
       var languagePreference =
           await preferencesLocalDataSource.getLanguagePreference();
-      var entity = languagePreference.toLanguagePrerence();
+      var entity = languagePreference.toLanguagePreference();
       return Result.success(entity);
     } on PreferencesException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
@@ -97,6 +97,13 @@ class PreferenceRepository implements IPreferenceRepository {
 
   @override
   Future<List<ThemePreferenceEntity>> getAllThemes() async {
-    return [ThemePreferenceEntity.dark, ThemePreferenceEntity.light];
+    var themes = await preferencesLocalDataSource.getAllThemes();
+    return themes.map((e) => e.toThemePrerence()).toList();
+  }
+
+  @override
+  Future<List<LanguagePreferenceEntity>> getAllLanguages() async{
+    var languages = await preferencesLocalDataSource.getAllLanguages();
+    return languages.map((e) => e.toLanguagePreference()).toList();
   }
 }

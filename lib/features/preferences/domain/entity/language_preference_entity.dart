@@ -12,7 +12,7 @@ extension UltraLanguagePreferenceEntity on LanguagePreferenceEntity {
 }
 
 extension LanguagePreferenceForString on String {
-  LanguagePreferenceEntity toLanguagePrerence() {
+  LanguagePreferenceEntity toLanguagePreference() {
     switch (this) {
       case "english":
         return LanguagePreferenceEntity.english;

@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/global/components/selection_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -101,7 +102,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 leading: SettingsIcon(iconData: Icons.language),
                 title: "Language",
                 trailing: Icon(Icons.chevron_right),
-                onTap: () {},
+                onTap: () async {
+                 /*
+                 var allLanguages = await settingsViewModel.getAllLanguages();
+                  Navigator.push(context, MaterialPageRoute(builder: (_) {
+                    return SelectionPage(
+                        title: "Language",
+                        dataList: allLanguages,
+                        isListingActive: false,
+                        onSelect: (value) {},
+                        selectedIndex: 0);
+                  }));
+                 */
+                },
               );
             },
             loadingWidget: CupertinoActivityIndicator(),
@@ -149,8 +162,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           leading: SettingsIcon(iconData: Icons.mail),
           title: "Contact",
           subTitle: "Contract with us to tell your problems & suggestions",
-          onTap: () async{
-           await UrlLauncherService.shared.sendContactEmail();
+          onTap: () async {
+            await UrlLauncherService.shared.sendContactEmail();
           },
         ),
         SettingFormRowWidget(
