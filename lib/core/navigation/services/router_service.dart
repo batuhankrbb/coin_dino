@@ -8,7 +8,9 @@ class RouterService {
     NavigationRoute route = settings.arguments as NavigationRoute;
 
     return route.when(
-      unknown: () => _convertToRoute(Text("unknown"))
+      toSelectionPage: (page) {
+        return _convertToRoute(page);
+      },
     );
   }
 

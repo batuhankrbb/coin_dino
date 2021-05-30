@@ -108,7 +108,7 @@ void _setUpPreferencesFeature() {
       () => PreferencesExceptionHandler());
 
   getit.registerLazySingleton<SettingsViewModel>(
-      () => SettingsViewModel(preferenceRepository: getit()));
+      () => SettingsViewModel(preferenceRepository: getit(),appSettingsViewModel: getit()));
 }
 
 void _setUpSearchFeature() {

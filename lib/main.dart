@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/core/navigation/services/router_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return MaterialApp(
+        navigatorKey: NavigationService.shared.navigatorKey,
+        onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
         home: SettingsScreen(),
       );

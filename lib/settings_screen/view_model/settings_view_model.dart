@@ -1,3 +1,4 @@
+import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/result_types/state_result.dart';
@@ -11,8 +12,10 @@ class SettingsViewModel = _SettingsViewModelBase with _$SettingsViewModel;
 
 abstract class _SettingsViewModelBase with Store {
   final IPreferenceRepository preferenceRepository;
+  final AppSettingsViewModel appSettingsViewModel;
 
-  _SettingsViewModelBase({required this.preferenceRepository});
+  _SettingsViewModelBase(
+      {required this.preferenceRepository, required this.appSettingsViewModel});
 
   @observable
   StateResult<ThemePreferenceEntity> themePreference = StateResult.initial();
@@ -80,17 +83,21 @@ abstract class _SettingsViewModelBase with Store {
     return languagelist;
   }
 
-  Future<void> setThemePreference(
-      ThemePreferenceEntity preferenceEntity) async {
-    await preferenceRepository.setThemePreference(preferenceEntity);
+  Future<void> setThemePreference(String preferenceEntity) async {
+    await preferenceRepository
+        .setThemePreference(preferenceEntity.toThemePrerence());
+    appSettingsViewModel.setTheme(preferenceEntity.toThemePrerence());
+    await getThemePreference();
   }
 
-  Future<void> setLanguagePreference(
-      LanguagePreferenceEntity preferenceEntity) async {
-    await preferenceRepository.setLangaugePreference(preferenceEntity);
+  Future<void> setLanguagePreference(String preferenceEntity) async {
+    await preferenceRepository
+        .setLangaugePreference(preferenceEntity.toLanguagePreference());
+    await getLanguagePreference();
   }
 
   Future<void> setBaseCurrencyPreference(String baseCurrency) async {
     await preferenceRepository.setBaseCurrencyPreference(baseCurrency);
+    await getBaseCurrencyPreference();
   }
 }

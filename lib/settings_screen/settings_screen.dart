@@ -1,4 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
 import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
 import 'package:coin_dino/global/components/selection_page.dart';
@@ -14,8 +16,6 @@ import '../global/starting_files/injection_container.dart';
 import 'components/settings_iap_card.dart';
 import 'components/settings_icon.dart';
 import 'view_model/settings_view_model.dart';
-
-
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -81,12 +81,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           stateResult: settingsViewModel.baseCurrencyPreference,
           completedWidget: (data) {
             return SettingFormRowWidget(
-              leading: SettingsIcon(iconData: Icons.money),
-              title: "Currency",
-              subTitle: "Base currency for the application",
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {},
-            );
+                leading: SettingsIcon(iconData: Icons.money),
+                title: "Currency",
+                subTitle: "Base currency for the application",
+                trailing: Icon(Icons.chevron_right),
+                onTap: () async {
+                  await baseCurrencyOnTap(data);
+                });
           },
           loadingWidget: CupertinoActivityIndicator(),
           failureWidget: (failure) {
@@ -106,18 +107,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: "Language",
                 trailing: Icon(Icons.chevron_right),
                 onTap: () async {
-                 
-                 var allLanguages = await settingsViewModel.getAllLanguages(); //* BURASI TEST İÇİN. DÜZELECEK
-                  Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return SelectionPage(
-                        title: "Language",
-                        dataList: allLanguages,
-                        isListingActive: false,
-                        onSelect: (value) {
-                          //TODO vm üzerinden set etme
-                        },
-                        selectedIndex: 0); //TODO verilen elemanın indexini döndüren list extensionu yazacağım -- 
-                  }));
+                  await languageOnTap(data);
                 },
               );
             },
@@ -135,11 +125,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
           stateResult: settingsViewModel.themePreference,
           completedWidget: (data) {
             return SettingFormRowWidget(
-              leading: SettingsIcon(iconData: Icons.palette),
-              title: "Theme",
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {},
-            );
+                leading: SettingsIcon(iconData: Icons.palette),
+                title: "Theme",
+                trailing: Icon(Icons.chevron_right),
+                onTap: () async {
+                  await themeOnTap(data);
+                });
           },
           loadingWidget: CupertinoActivityIndicator(),
           failureWidget: (failure) {
@@ -180,6 +171,48 @@ class _SettingsScreenState extends State<SettingsScreen> {
         )
       ],
     );
+  }
+
+  Future<void> languageOnTap(LanguagePreferenceEntity data) async {
+    var allLanguages = await settingsViewModel.getAllLanguages();
+    NavigationService.shared
+        .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
+      dataList: allLanguages,
+      title: "Languages",
+      isListingActive: false,
+      selectedIndex: allLanguages.indexOf(data.rawValue),
+      onSelect: (value) {
+        settingsViewModel.setLanguagePreference(allLanguages[value]);
+      },
+    )));
+  }
+
+  Future<void> themeOnTap(ThemePreferenceEntity data) async {
+    var allThemes = await settingsViewModel.getAllThemes();
+    NavigationService.shared
+        .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
+      dataList: allThemes,
+      title: "Themes",
+      isListingActive: false,
+      selectedIndex: allThemes.indexOf(data.rawValue),
+      onSelect: (value) {
+        settingsViewModel.setThemePreference(allThemes[value]);
+      },
+    )));
+  }
+
+  Future<void> baseCurrencyOnTap(String data) async {
+    var allCurrencies = await settingsViewModel.getAllBaseCurrencies();
+    NavigationService.shared
+        .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
+      dataList: allCurrencies,
+      title: "Currencies",
+      isListingActive: false,
+      selectedIndex: allCurrencies.indexOf(data),
+      onSelect: (value) {
+        settingsViewModel.setBaseCurrencyPreference(allCurrencies[value]);
+      },
+    )));
   }
 }
 

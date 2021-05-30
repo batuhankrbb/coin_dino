@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NavigationRouteTearOff {
   const _$NavigationRouteTearOff();
 
-  Unknown unknown() {
-    return const Unknown();
+  RouteSelectionPage toSelectionPage(SelectionPage selectionPage) {
+    return RouteSelectionPage(
+      selectionPage,
+    );
   }
 }
 
@@ -26,27 +28,33 @@ const $NavigationRoute = _$NavigationRouteTearOff();
 
 /// @nodoc
 mixin _$NavigationRoute {
+  SelectionPage get selectionPage => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
+    required TResult Function(SelectionPage selectionPage) toSelectionPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
+    TResult Function(SelectionPage selectionPage)? toSelectionPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Unknown value) unknown,
+    required TResult Function(RouteSelectionPage value) toSelectionPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Unknown value)? unknown,
+    TResult Function(RouteSelectionPage value)? toSelectionPage,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $NavigationRouteCopyWith<NavigationRoute> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +63,7 @@ abstract class $NavigationRouteCopyWith<$Res> {
   factory $NavigationRouteCopyWith(
           NavigationRoute value, $Res Function(NavigationRoute) then) =
       _$NavigationRouteCopyWithImpl<$Res>;
+  $Res call({SelectionPage selectionPage});
 }
 
 /// @nodoc
@@ -65,58 +74,101 @@ class _$NavigationRouteCopyWithImpl<$Res>
   final NavigationRoute _value;
   // ignore: unused_field
   final $Res Function(NavigationRoute) _then;
-}
-
-/// @nodoc
-abstract class $UnknownCopyWith<$Res> {
-  factory $UnknownCopyWith(Unknown value, $Res Function(Unknown) then) =
-      _$UnknownCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$UnknownCopyWithImpl<$Res> extends _$NavigationRouteCopyWithImpl<$Res>
-    implements $UnknownCopyWith<$Res> {
-  _$UnknownCopyWithImpl(Unknown _value, $Res Function(Unknown) _then)
-      : super(_value, (v) => _then(v as Unknown));
 
   @override
-  Unknown get _value => super._value as Unknown;
+  $Res call({
+    Object? selectionPage = freezed,
+  }) {
+    return _then(_value.copyWith(
+      selectionPage: selectionPage == freezed
+          ? _value.selectionPage
+          : selectionPage // ignore: cast_nullable_to_non_nullable
+              as SelectionPage,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $RouteSelectionPageCopyWith<$Res>
+    implements $NavigationRouteCopyWith<$Res> {
+  factory $RouteSelectionPageCopyWith(
+          RouteSelectionPage value, $Res Function(RouteSelectionPage) then) =
+      _$RouteSelectionPageCopyWithImpl<$Res>;
+  @override
+  $Res call({SelectionPage selectionPage});
+}
+
+/// @nodoc
+class _$RouteSelectionPageCopyWithImpl<$Res>
+    extends _$NavigationRouteCopyWithImpl<$Res>
+    implements $RouteSelectionPageCopyWith<$Res> {
+  _$RouteSelectionPageCopyWithImpl(
+      RouteSelectionPage _value, $Res Function(RouteSelectionPage) _then)
+      : super(_value, (v) => _then(v as RouteSelectionPage));
+
+  @override
+  RouteSelectionPage get _value => super._value as RouteSelectionPage;
+
+  @override
+  $Res call({
+    Object? selectionPage = freezed,
+  }) {
+    return _then(RouteSelectionPage(
+      selectionPage == freezed
+          ? _value.selectionPage
+          : selectionPage // ignore: cast_nullable_to_non_nullable
+              as SelectionPage,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$Unknown implements Unknown {
-  const _$Unknown();
+class _$RouteSelectionPage implements RouteSelectionPage {
+  const _$RouteSelectionPage(this.selectionPage);
+
+  @override
+  final SelectionPage selectionPage;
 
   @override
   String toString() {
-    return 'NavigationRoute.unknown()';
+    return 'NavigationRoute.toSelectionPage(selectionPage: $selectionPage)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Unknown);
+    return identical(this, other) ||
+        (other is RouteSelectionPage &&
+            (identical(other.selectionPage, selectionPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.selectionPage, selectionPage)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(selectionPage);
+
+  @JsonKey(ignore: true)
+  @override
+  $RouteSelectionPageCopyWith<RouteSelectionPage> get copyWith =>
+      _$RouteSelectionPageCopyWithImpl<RouteSelectionPage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
+    required TResult Function(SelectionPage selectionPage) toSelectionPage,
   }) {
-    return unknown();
+    return toSelectionPage(selectionPage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
+    TResult Function(SelectionPage selectionPage)? toSelectionPage,
     required TResult orElse(),
   }) {
-    if (unknown != null) {
-      return unknown();
+    if (toSelectionPage != null) {
+      return toSelectionPage(selectionPage);
     }
     return orElse();
   }
@@ -124,24 +176,32 @@ class _$Unknown implements Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Unknown value) unknown,
+    required TResult Function(RouteSelectionPage value) toSelectionPage,
   }) {
-    return unknown(this);
+    return toSelectionPage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Unknown value)? unknown,
+    TResult Function(RouteSelectionPage value)? toSelectionPage,
     required TResult orElse(),
   }) {
-    if (unknown != null) {
-      return unknown(this);
+    if (toSelectionPage != null) {
+      return toSelectionPage(this);
     }
     return orElse();
   }
 }
 
-abstract class Unknown implements NavigationRoute {
-  const factory Unknown() = _$Unknown;
+abstract class RouteSelectionPage implements NavigationRoute {
+  const factory RouteSelectionPage(SelectionPage selectionPage) =
+      _$RouteSelectionPage;
+
+  @override
+  SelectionPage get selectionPage => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $RouteSelectionPageCopyWith<RouteSelectionPage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
