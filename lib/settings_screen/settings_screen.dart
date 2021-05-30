@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
+import 'package:coin_dino/global/components/loading_screen_components.dart';
 import 'package:coin_dino/global/components/state_result_builder.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:coin_dino/settings_screen/components/settings_icon.dart';
@@ -84,18 +85,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
               return SizedBox();
             }),
         StateResultBuilder(
-            stateResult: settingsViewModel.themePreference,
-            completedWidget: (data) {
-              return SettingFormRowWidget(
-                leading: SettingsIcon(iconData: Icons.money),
-                title: "Currency",
-                subTitle: "Base currency for the application",
-                trailing: Icon(Icons.chevron_right),
-              );
-            },
-            failureWidget: (failure) {
-              return SizedBox();
-            }),
+          stateResult: settingsViewModel.themePreference,
+          completedWidget: (data) {
+            return SettingFormRowWidget(
+              leading: SettingsIcon(iconData: Icons.money),
+              title: "Currency",
+              subTitle: "Base currency for the application",
+              trailing: Icon(Icons.chevron_right),
+            );
+          },
+          failureWidget: (failure) {
+            return SizedBox();
+          },
+        ),
       ],
     );
   }
