@@ -1,5 +1,9 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/core/navigation/services/router_service.dart';
+import 'package:coin_dino/core/utils/number_helper.dart';
+import 'package:coin_dino/search_screen/search_screen.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -15,10 +19,12 @@ import 'settings_screen/settings_screen.dart';
 void main() async {
   await HiveHelper.shared.setUpHive();
   setupGetIt();
-  await launchApp();
+  //await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(
-    MyApp(),
+    DevicePreview(builder: (ct) {
+      return MyApp();
+    }),
   );
 }
 
@@ -32,15 +38,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return MaterialApp(
+        builder: DevicePreview.appBuilder,
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
-        home: SettingsScreen(),
+        home: SearchScreen(),
       );
     });
   }
 }
 
+//*
 class HomePage extends StatelessWidget {
   final AppSettingsViewModel appSettingsViewModel =
       getit.get<AppSettingsViewModel>();
@@ -50,7 +58,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: SettingsScreen(),
+        child: PercentageChip(
+          percentage: 0.153214,
+        ),
       ),
     );
   }
