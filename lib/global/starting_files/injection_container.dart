@@ -1,3 +1,4 @@
+import 'package:coin_dino/search_screen/viewmodels/search_screen_view_model.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/alert/data/data_source/contracts/i_alert_local_data_source.dart';
@@ -107,8 +108,8 @@ void _setUpPreferencesFeature() {
   getit.registerLazySingleton<PreferencesExceptionHandler>(
       () => PreferencesExceptionHandler());
 
-  getit.registerLazySingleton<SettingsViewModel>(
-      () => SettingsViewModel(preferenceRepository: getit(),appSettingsViewModel: getit()));
+  getit.registerLazySingleton<SettingsViewModel>(() => SettingsViewModel(
+      preferenceRepository: getit(), appSettingsViewModel: getit()));
 }
 
 void _setUpSearchFeature() {
@@ -124,6 +125,9 @@ void _setUpSearchFeature() {
 
   getit.registerLazySingleton<SearchExceptionHandler>(
       () => SearchExceptionHandler());
+
+  getit.registerLazySingleton<SearchScreenViewModel>(
+      () => SearchScreenViewModel(searchRepository: getit()));
 }
 
 void _setupAppSettings() {
