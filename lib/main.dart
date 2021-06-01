@@ -4,12 +4,12 @@ import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/core/navigation/services/router_service.dart';
 import 'package:coin_dino/core/utils/number_helper.dart';
 import 'package:coin_dino/inapp_purchase_screen/inapp_purchase_screen.dart';
+import 'package:coin_dino/search_screen/components/percentage_chip.dart';
 import 'package:coin_dino/search_screen/search_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
 import 'core/hive/hive_helper.dart';
 import 'global/app_settings/app_settings_viewmodel.dart';
 import 'global/extensions/material_extensions.dart';
@@ -23,7 +23,7 @@ void main() async {
   setupGetIt();
   //await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
-  runApp(MyApp2());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -51,7 +51,6 @@ dependencies:
   rxdart: ^0.27.1
   share_plus: ^2.1.2
   url_launcher: ^6.0.4
-  in_app_purchase: ^1.0.1
   fl_chart: ^0.36.1
 dev_dependencies:
   flutter_test:
