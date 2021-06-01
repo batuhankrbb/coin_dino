@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/coin_detail_screen/coin_detail_screen.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/core/navigation/services/router_service.dart';
 import 'package:coin_dino/core/utils/number_helper.dart';
+import 'package:coin_dino/inapp_purchase_screen/inapp_purchase_screen.dart';
 import 'package:coin_dino/search_screen/search_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,11 +23,7 @@ void main() async {
   setupGetIt();
   //await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
-  runApp(
-    DevicePreview(builder: (ct) {
-      return MyApp();
-    }),
-  );
+  runApp(MyApp2());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +36,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return MaterialApp(
-        builder: DevicePreview.appBuilder,
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
@@ -75,7 +72,7 @@ class MyApp2 extends StatelessWidget {
       theme: MaterialExtensions.lightModeTheme,
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
-        body: Center(child: OnboardScreen()),
+        body: Center(child: CoinDetailScreenWidget()),
       ),
     );
   }
