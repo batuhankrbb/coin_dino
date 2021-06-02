@@ -3,14 +3,17 @@ import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer
 import 'package:coin_dino/core/utils/number_helper.dart';
 import 'package:coin_dino/features/search/domain/entity/search_coin_entity.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
+import 'package:coin_dino/global/components/state_result_builder.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
+import 'package:coin_dino/search_screen/components/debouncing_text_field.dart';
+import 'package:coin_dino/search_screen/components/search_cell.dart';
 import 'package:coin_dino/search_screen/viewmodels/search_screen_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../global/components/app_bar_components.dart';
 
-//TODO BURADAKİ KODLARI DÜZENLEYECEĞİM.
 class SearchScreen extends StatefulWidget {
   SearchScreen({Key? key}) : super(key: key);
 
@@ -39,18 +42,36 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             Expanded(
               flex: 6,
-              child: buildTextField(),
+              child: DebouncingTextField(
+                onChange: (value) {
+                  return searchViewModel.getSearchCoins(value);
+                },
+                textEditingController: textController,
+              ),
             ),
             Spacer(
               flex: 5,
             ),
             Expanded(
               flex: 50,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return Text("test");
+              child: Observer(
+                builder: (context) {
+                  return StateResultBuilder<List<SearchCoinEntity>>(
+                    stateResult: searchViewModel.searchCoinsResult,
+                    failureWidget: (failure) {
+                      return Text("fail");
+                    },
+                    initialWidget: Text("Burada daha bir şey olmamış"),
+                    completedWidget: (data) {
+                      return ListView.builder(
+                        itemBuilder: (context, index) {
+                          return SearchCell(searchCoinEntity: data[index]);
+                        },
+                        itemCount: data.length,
+                      );
+                    },
+                  );
                 },
-                itemCount: 10,
               ),
             ),
             Spacer(
@@ -60,138 +81,5 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
     );
-  }
-
-  Container buildTextField() {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 4),
-      child: CupertinoTextField(
-        controller: textController,
-        prefix: Container(
-          padding: EdgeInsets.all(8),
-          child: Icon(Icons.search),
-        ),
-        onChanged: (value) {
-          searchViewModel.getSearchCoins(value);
-        },
-      ),
-    );
-  }
-}
-
-class SearchCell extends StatelessWidget {
-  SearchCell({Key? key, required this.searchCoinEntity}) : super(key: key);
-
-  final SearchCoinEntity searchCoinEntity;
-
-  @override
-  Widget build(BuildContext context) {
-    return InformerWidget(onPageBuild: (context, screenInfo) {
-      return Container(
-        width: screenInfo.screenSize.width * 0.8,
-        height: screenInfo.screenSize.height * 0.08,
-        padding: EdgeInsets.symmetric(vertical: 6),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 15,
-              child: buildCoinImage(),
-            ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 44,
-              child: buildCoinText(),
-            ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 31,
-              child: buildCoinPrice(),
-            ),
-          ],
-        ),
-      );
-    });
-  }
-
-  Container buildCoinImage() {
-    return Container(
-      color: Colors.red[200],
-    );
-  }
-
-  Container buildCoinPrice() {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Expanded(
-            child: CustomAutoSizeText(
-              text:
-                  NumberHelper.shared.fixNum(searchCoinEntity.currentPrice, 5),
-              textStyle: TextStyle(color: Colors.black, fontSize: 20),
-            ),
-          ),
-          Expanded(
-            child: PercentageChip(
-              percentage: searchCoinEntity.priceChangePercentage24h ?? 0,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Column buildCoinText() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-          child: CustomAutoSizeText(
-            text: "Bitcoin",
-            textStyle: TextStyle(fontSize: 23, fontWeight: FontWeight.w500),
-          ),
-        ),
-        Expanded(
-          child: CustomAutoSizeText(
-            text: "BTC",
-            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class PercentageChip extends StatelessWidget {
-  PercentageChip({Key? key, required this.percentage}) : super(key: key);
-
-  final num percentage;
-
-  @override
-  Widget build(BuildContext context) {
-    return InformerWidget(onPageBuild: (context, screenInfo) {
-      return Container(
-        width: screenInfo.screenSize.width * 0.13,
-        height: screenInfo.screenSize.height * 0.08,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            color: percentage < 0 ? Colors.red : Colors.green,
-            borderRadius: BorderRadius.circular(12)),
-        child: AutoSizeText(
-          giveFormattedText(),
-          style: TextStyle(color: Colors.white, fontSize: 15),
-        ),
-      );
-    });
-  }
-
-  String giveFormattedText() {
-    return (percentage < 0 ? "" : "+") +
-        NumberHelper.shared.fixNum(percentage, 2);
   }
 }

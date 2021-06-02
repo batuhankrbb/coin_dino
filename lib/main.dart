@@ -4,6 +4,7 @@ import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/core/navigation/services/router_service.dart';
 import 'package:coin_dino/core/utils/number_helper.dart';
 import 'package:coin_dino/inapp_purchase_screen/inapp_purchase_screen.dart';
+import 'package:coin_dino/search_screen/components/percentage_chip.dart';
 import 'package:coin_dino/search_screen/search_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,9 +21,9 @@ import 'settings_screen/settings_screen.dart';
 void main() async {
   await HiveHelper.shared.setUpHive();
   setupGetIt();
-  //await launchApp();
+  await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
-  runApp(MyApp2());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
+        locale: DevicePreview.locale(context),
         home: SearchScreen(),
       );
     });
