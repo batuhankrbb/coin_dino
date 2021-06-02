@@ -1,6 +1,7 @@
 import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import 'package:coin_dino/core/utils/number_helper.dart';
 import 'package:coin_dino/features/search/domain/entity/search_coin_entity.dart';
+import 'package:coin_dino/global/components/cashed_network_image_component.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
 import 'package:coin_dino/search_screen/components/percentage_chip.dart';
 import 'package:flutter/material.dart';
@@ -45,9 +46,13 @@ class SearchCell extends StatelessWidget {
     });
   }
 
-  Container buildCoinImage() {
-    return Container(
-      color: Colors.red[200],
+  Widget buildCoinImage() {
+    return Padding(
+      padding: EdgeInsets.all(4),
+      child: CashedNetworkImageWidget(
+        imageURL: searchCoinEntity.imageUrl,
+        imageHeigth: 200,
+      ),
     );
   }
 

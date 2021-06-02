@@ -101,7 +101,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
             {"vs_currency": vsCurrency, "days": days, "interval": interval},
         searchTrends: () => null,
         coinSearch: (String text, String vsCurrency) =>
-            {"vs_currency": vsCurrency, "order": "market_cap_desc"},
+            {"vs_currency": vsCurrency, "order": "market_cap_desc","price_change_percentage": "24h",},
         getAlertCoins: (List<String> coinIds, String vsCurrency) =>
             {"vs_currency": vsCurrency, "ids": coinIds},
       );

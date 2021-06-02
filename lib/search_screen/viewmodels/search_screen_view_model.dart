@@ -22,6 +22,7 @@ abstract class _SearchScreenViewModelBase with Store {
 
   @action
   Future<void> getAllTrends() async {
+    searchCoinsResult = StateResult.loading();
     var trends = await searchRepository.getAllTrends();
     trends.when(success: (data) {
       searchTrendResult = StateResult.completed(data);
@@ -31,9 +32,10 @@ abstract class _SearchScreenViewModelBase with Store {
   }
 
   @action
-  Future<void> getSearchCoins(String text) async { 
+  Future<void> getSearchCoins(String text) async {
     //TODO THROTTLING - DEBOUNCING YAPILACAK
- var coins = await searchRepository.getCoinsBySearch(text);
+    searchCoinsResult = StateResult.loading();
+    var coins = await searchRepository.getCoinsBySearch(text);
     coins.when(success: (data) {
       searchCoinsResult = StateResult.completed(data);
     }, failure: (failure) {

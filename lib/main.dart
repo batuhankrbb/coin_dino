@@ -21,7 +21,7 @@ import 'settings_screen/settings_screen.dart';
 void main() async {
   await HiveHelper.shared.setUpHive();
   setupGetIt();
-  //await launchApp();
+  await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
   runApp(MyApp());
 }
@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
+        locale: DevicePreview.locale(context),
         home: SearchScreen(),
       );
     });

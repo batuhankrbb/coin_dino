@@ -6,7 +6,7 @@ class NumberHelper {
   }
 
   String giveFormattedTextByPercentage(num percentage) {
-    var percentagePrefix = percentage < 0 ? "-" :"+";
+    var percentagePrefix = percentage < 0 ? "" :"+";
      return percentagePrefix + NumberHelper.shared.fixNum(percentage, 2);    
   }
 }
