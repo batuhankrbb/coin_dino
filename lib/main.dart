@@ -9,7 +9,6 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
 import 'core/hive/hive_helper.dart';
 import 'global/app_settings/app_settings_viewmodel.dart';
 import 'global/extensions/material_extensions.dart';
