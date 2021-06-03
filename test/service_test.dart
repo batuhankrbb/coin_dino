@@ -102,9 +102,6 @@ main() async {
         print(deneme);
         coins.when(success: (data) {
           print("SUCCESS | get coins by search = ${data.length}");
-          for (var coin in data) {
-            print(coin.name);
-          }
         }, failure: (failure) {
           print("FAILURE | get coins by search = ${failure.message}");
         });

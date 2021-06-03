@@ -20,9 +20,12 @@ abstract class _SearchScreenViewModelBase with Store {
   @observable
   StateResult<SearchTrendEntity> searchTrendResult = StateResult.initial();
 
+  @observable
+  String appBarText = "Search";
+
   @action
   Future<void> getAllTrends() async {
-    searchCoinsResult = StateResult.loading();
+    searchTrendResult = StateResult.loading();
     var trends = await searchRepository.getAllTrends();
     trends.when(success: (data) {
       searchTrendResult = StateResult.completed(data);
@@ -33,7 +36,6 @@ abstract class _SearchScreenViewModelBase with Store {
 
   @action
   Future<void> getSearchCoins(String text) async {
-    //TODO THROTTLING - DEBOUNCING YAPILACAK
     searchCoinsResult = StateResult.loading();
     var coins = await searchRepository.getCoinsBySearch(text);
     coins.when(success: (data) {
@@ -41,5 +43,10 @@ abstract class _SearchScreenViewModelBase with Store {
     }, failure: (failure) {
       searchCoinsResult = StateResult.failed(failure);
     });
+  }
+
+  @action
+  void changeAppBarText(int index) {
+    appBarText = index == 0 ? "Search" : "Trends";
   }
 }

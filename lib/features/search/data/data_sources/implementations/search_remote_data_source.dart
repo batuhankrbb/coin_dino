@@ -37,8 +37,6 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
               options: CoinGeckoClient.coinSearch(text, vsCurrency));
       if (getCoinBySearchs != null) {
         var filteredCoins = getCoinBySearchs.where((element) {
-          print(
-              "NAME = ${element.name.toLowerCase()} | TEXT = ${text.toLowerCase()} | UYUŞMA = ${element.name.startsWith(text.toLowerCase())}");
           return element.name.toLowerCase().startsWith(text.toLowerCase());
         }).toList();
         return filteredCoins;
