@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
         locale: DevicePreview.locale(context),
-        home: SearchScreen(),
+        home: SearchScreen (),
       );
     });
   }
@@ -73,7 +73,7 @@ class MyApp2 extends StatelessWidget {
       theme: MaterialExtensions.lightModeTheme,
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
-        body: Center(child: CoinDetailScreenWidget()),
+        body: Center(child: OnboardScreen()),
       ),
     );
   }
