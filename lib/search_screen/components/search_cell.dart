@@ -65,7 +65,7 @@ class SearchCell extends StatelessWidget {
             child: CustomAutoSizeText(
               text:
                   NumberHelper.shared.fixNum(searchCoinEntity.currentPrice, 5),
-              textStyle: TextStyle(color: Colors.black, fontSize: 20),
+              textStyle: TextStyle(color: Colors.black, fontSize: 15),
             ),
           ),
           Expanded(
@@ -84,15 +84,17 @@ class SearchCell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
+          flex: 1,
           child: CustomAutoSizeText(
             text: searchCoinEntity.name,
-            textStyle: TextStyle(fontSize: 23, fontWeight: FontWeight.w500),
+            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
         Expanded(
+          flex: 2,
           child: CustomAutoSizeText(
             text: searchCoinEntity.symbol.toUpperCase(),
-            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+            textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
           ),
         )
       ],

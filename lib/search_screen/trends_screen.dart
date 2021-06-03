@@ -27,9 +27,6 @@ class _TrendsScreenState extends State<TrendsScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Spacer(
-          flex: 4,
-        ),
         Expanded(
           flex: 80,
           child: buildList(),

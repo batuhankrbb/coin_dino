@@ -16,37 +16,36 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-
   var searchViewModel = getit.get<SearchScreenViewModel>();
 
   late TextEditingController textController;
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     textController = TextEditingController();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
-              children: [
-                Spacer(
-                  flex: 2,
-                ),
-                Expanded(
-                  flex: 4,
-                  child: buildTextField(),
-                ),
-                Spacer(
-                  flex: 5,
-                ),
-                Expanded(
-                  flex: 50,
-                  child: buildList(),
-                ),
-              ],
-            );
+      children: [
+        Spacer(
+          flex: 2,
+        ),
+        Expanded(
+          flex: 4,
+          child: buildTextField(),
+        ),
+        Spacer(
+          flex: 1,
+        ),
+        Expanded(
+          flex: 50,
+          child: buildList(),
+        ),
+      ],
+    );
   }
 
   Widget buildTextField() {

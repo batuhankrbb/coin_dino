@@ -21,7 +21,7 @@ class TrendCell extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              flex: 15,
+              flex: 12,
               child: buildCoinImage(),
             ),
             Spacer(
@@ -45,11 +45,10 @@ class TrendCell extends StatelessWidget {
   }
 
   Widget buildCoinImage() {
-    return Padding(
-      padding: EdgeInsets.all(4),
+    return Container(
       child: CashedNetworkImageWidget(
         imageURL: searchTrendCoinEntity.largeImage,
-        imageHeigth: 200,
+        imageHeigth: 100,
       ),
     );
   }
@@ -63,7 +62,7 @@ class TrendCell extends StatelessWidget {
             child: CustomAutoSizeText(
               text:
                   NumberHelper.shared.fixNum(searchTrendCoinEntity.btcPrice, 5),
-              textStyle: TextStyle(color: Colors.black, fontSize: 20),
+              textStyle: TextStyle(color: Colors.black, fontSize: 15),
             ),
           ),
         ],
@@ -77,12 +76,14 @@ class TrendCell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
+          flex: 2,
           child: CustomAutoSizeText(
             text: searchTrendCoinEntity.name,
-            textStyle: TextStyle(fontSize: 23, fontWeight: FontWeight.w500),
+            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
         Expanded(
+          flex: 4,
           child: CustomAutoSizeText(
             text: searchTrendCoinEntity.symbol.toUpperCase(),
             textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
