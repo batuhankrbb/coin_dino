@@ -5,7 +5,7 @@ import 'package:coin_dino/core/navigation/services/router_service.dart';
 import 'package:coin_dino/core/utils/number_helper.dart';
 import 'package:coin_dino/inapp_purchase_screen/inapp_purchase_screen.dart';
 import 'package:coin_dino/search_screen/components/percentage_chip.dart';
-import 'package:coin_dino/search_screen/search_screen.dart';
+import 'package:coin_dino/search_screen/search_screen_main.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
         locale: DevicePreview.locale(context),
-        home: SearchScreen(),
+        home: SearchScreenMain(),
       );
     });
   }
