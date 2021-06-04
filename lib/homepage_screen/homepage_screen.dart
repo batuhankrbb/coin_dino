@@ -48,6 +48,7 @@ class _HomePageScreenState extends State<HomePageScreen>
       controller: _tabController,
       indicatorColor: CustomColor.shared.backgroundBlueColor,
       labelColor: Colors.black,
+      labelPadding: EdgeInsets.symmetric(horizontal: 10),
     );
   }
 }
