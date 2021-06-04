@@ -1,3 +1,4 @@
+import 'package:coin_dino/screen_coin_detail/viewmodels/detail_screen_view_model.dart';
 import 'package:coin_dino/search_screen/viewmodels/search_screen_view_model.dart';
 import 'package:get_it/get_it.dart';
 
@@ -92,6 +93,12 @@ void _setUpDetailsFeature() {
 
   getit.registerLazySingleton<DetailsExceptionHandler>(
       () => DetailsExceptionHandler());
+
+  getit.registerLazySingleton<DetailScreenViewModel>(
+    () => DetailScreenViewModel(
+      detailRepository: getit(),
+    ),
+  );
 }
 
 void _setUpPreferencesFeature() {
