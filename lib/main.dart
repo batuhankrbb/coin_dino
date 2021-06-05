@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/coin_detail_screen/coin_detail_screen.dart';
+import 'package:coin_dino/screen_coin_detail/coin_detail_screen.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/core/navigation/services/router_service.dart';
 import 'package:coin_dino/core/utils/number_helper.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
         //locale: DevicePreview.locale(context),
-        home: SearchScreenMain(),
+        home: CoinDetailScreen(),
       );
     });
   }

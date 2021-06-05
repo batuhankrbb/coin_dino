@@ -36,9 +36,9 @@ class CoinDetailModel extends BaseNetworkModel {
     required this.tickers,
   });
 
-  final String id;
-  final String symbol;
-  final String name;
+  final String id; //Todo
+  final String symbol; //Todo
+  final String name; //Todo
   final dynamic assetPlatformId;
   final Platforms platforms;
   final int blockTimeInMinutes;
@@ -46,14 +46,14 @@ class CoinDetailModel extends BaseNetworkModel {
   final List<String> categories;
   final dynamic publicNotice;
   final List<dynamic> additionalNotices;
-  final Description description;
-  final Links links;
-  final Image image;
+  final Description description; //Todo
+  final Links links; //Todo
+  final Image image; //Todo
   final String countryOrigin;
   final DateTime genesisDate;
   final num sentimentVotesUpPercentage;
   final num sentimentVotesDownPercentage;
-  final num marketCapRank;
+  final num marketCapRank; //Todo
   final num coingeckoRank;
   final num coingeckoScore;
   final num developerScore;
