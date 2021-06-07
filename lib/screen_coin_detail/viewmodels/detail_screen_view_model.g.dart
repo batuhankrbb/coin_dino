@@ -53,8 +53,9 @@ mixin _$DetailScreenViewModel on _DetailScreenViewModelBase, Store {
       AsyncAction('_DetailScreenViewModelBase.getCharts');
 
   @override
-  Future<void> getCharts(String coinID) {
-    return _$getChartsAsyncAction.run(() => super.getCharts(coinID));
+  Future<void> getCharts(String coinID, String days, String interval) {
+    return _$getChartsAsyncAction
+        .run(() => super.getCharts(coinID, days, interval));
   }
 
   @override

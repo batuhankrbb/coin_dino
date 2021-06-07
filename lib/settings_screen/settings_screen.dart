@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/core/mini_services/rating/rating_service.dart';
 import 'package:coin_dino/core/mini_services/share/share_service.dart';
-import 'package:coin_dino/core/mini_services/url_launcher_service/url_launcher_service.dart';
+import 'package:coin_dino/core/mini_services/url_launcher/url_launcher_service.dart';
 import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';

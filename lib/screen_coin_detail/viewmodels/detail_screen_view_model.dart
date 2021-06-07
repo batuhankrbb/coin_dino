@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/mini_services/share/share_service.dart';
+import 'package:coin_dino/core/mini_services/url_launcher/url_launcher_service.dart';
 import 'package:coin_dino/core/result_types/state_result.dart';
 import 'package:coin_dino/features/details/domain/entity/coin_chart_entity.dart';
 import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
@@ -24,18 +26,29 @@ abstract class _DetailScreenViewModelBase with Store {
     var detailsResult = await detailRepository.getCoinDetail(id: coinID);
     detailsResult.when(success: (data) {
       coinDetailResult = StateResult.completed(data);
+      print("completed $data");
     }, failure: (failure) {
       coinDetailResult = StateResult.failed(failure);
     });
   }
 
   @action
-  Future<void> getCharts(String coinID) async {
-    var detailsResult = await detailRepository.getCoinDetail(id: coinID);
+  Future<void> getCharts(String coinID, String days, String interval) async {
+    var detailsResult = await detailRepository.getCoinChart(
+        id: coinID, days: days, interval: interval);
     detailsResult.when(success: (data) {
-      coinDetailResult = StateResult.completed(data);
+      coinChartResult = StateResult.completed(data);
     }, failure: (failure) {
-      coinDetailResult = StateResult.failed(failure);
+      coinChartResult = StateResult.failed(failure);
     });
+  }
+
+  Future<void> shareCoin(String coinName) async {
+    //TODO DÜZELTİLECEK
+    await ShareService.shared.share(text: "HEY! Check out $coinName");
+  }
+
+  Future<void> openWebPage(String url) async {
+    await UrlLauncherService.shared.openUrl(url);
   }
 }

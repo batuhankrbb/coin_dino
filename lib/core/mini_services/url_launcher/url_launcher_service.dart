@@ -12,7 +12,7 @@ class UrlLauncherService {
         path: mail,
         queryParameters: {"subject": subject, "body": body});
 
-      await launch(uri.toString());
+    await launch(uri.toString());
   }
 
   Future<void> sendContactEmail() async {
@@ -24,6 +24,10 @@ class UrlLauncherService {
           "body": "Hello, I have a feedback for Coin Dino."
         });
 
-      await launch(uri.toString());
+    await launch(uri.toString());
+  }
+
+  Future<void> openUrl(String url) async {
+    await launch(url, forceSafariVC: false, forceWebView: true);
   }
 }

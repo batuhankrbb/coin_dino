@@ -2,6 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/core/mini_services/share/share_service.dart';
 import 'package:coin_dino/global/components/cashed_network_image_component.dart';
 import 'package:coin_dino/global/components/custom_autosize_text.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
+import 'package:coin_dino/screen_coin_detail/viewmodels/detail_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -15,9 +17,13 @@ class CoinnDetailScreenHeaderWidget extends StatelessWidget {
       required this.coinName,
       required this.coinPrice})
       : super(key: key);
+
+  var detailViewModel = getit.get<DetailScreenViewModel>();
+
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
             flex: 30,
@@ -26,6 +32,9 @@ class CoinnDetailScreenHeaderWidget extends StatelessWidget {
               imageHeigth: 100,
               imageURL: coinImage,
             )),
+        Spacer(
+          flex: 6,
+        ),
         Expanded(
           flex: 60,
           child: Column(
@@ -37,7 +46,7 @@ class CoinnDetailScreenHeaderWidget extends StatelessWidget {
               ),
               Expanded(
                 child: CustomAutoSizeText(
-                  text: coinPrice,
+                  text: "\$$coinPrice",
                   textStyle: TextStyle(fontSize: 25),
                 ),
               ),
@@ -45,12 +54,19 @@ class CoinnDetailScreenHeaderWidget extends StatelessWidget {
           ),
         ),
         Expanded(
-            flex: 30,
-            child: IconButton(
-                icon: Icon(Icons.ios_share),
-                onPressed: () {
-                  ShareService.shared.share(text: "bitcoin is good");
-                })),
+          flex: 33,
+          child: IconButton(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            icon: Icon(
+              Icons.ios_share,
+              size: 25,
+            ),
+            onPressed: () async {
+              await detailViewModel.shareCoin(coinName);
+            },
+          ),
+        ),
       ],
     );
   }
@@ -62,7 +78,7 @@ class CoinnDetailScreenHeaderWidget extends StatelessWidget {
         Flexible(
           flex: 8,
           child: AutoSizeText(
-            "Bitcoin",
+            coinName,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             maxFontSize: 30,
             minFontSize: 12,

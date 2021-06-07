@@ -10,17 +10,18 @@ class CoinDetailEntity {
   final num priceChange30dTable;
   final num priceChange60dTable;
   final num priceChange1yTable;
-  final num marketCapRank;
-  final num? tradingVolume;
-  final num? highest24h;
-  final num? lowest24h;
-  final num availableSuppy;
-  final num totalSupply;
-  final num? allTimeHigh;
-  final num? sinceAllTimeHigh;
+  final String marketCapRank;
+  final String marketCap;
+  final String tradingVolume;
+  final String highest24h;
+  final String lowest24h;
+  final String availableSuppy;
+  final String totalSupply;
+  final String allTimeHigh;
+  final String sinceAllTimeHigh;
   final String allTimeHighDate;
-  final num? allTimeLow;
-  final num? sinceTimeLow;
+  final String allTimeLow;
+  final String sinceAllTimeLow;
   final String allTimeLowDate;
   final String homePageUrl;
   final String imageUrl;
@@ -39,6 +40,7 @@ class CoinDetailEntity {
       required this.priceChange60dTable,
       required this.priceChange1yTable,
       required this.marketCapRank,
+      required this.marketCap,
       required this.tradingVolume,
       required this.highest24h,
       required this.lowest24h,
@@ -48,7 +50,7 @@ class CoinDetailEntity {
       required this.sinceAllTimeHigh,
       required this.allTimeHighDate,
       required this.allTimeLow,
-      required this.sinceTimeLow,
+      required this.sinceAllTimeLow,
       required this.allTimeLowDate,
       required this.homePageUrl,
       required this.imageUrl,

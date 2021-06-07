@@ -1,9 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/utils/number_helper.dart';
 import 'package:coin_dino/global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class CoinDetailHoursTableWidget extends StatelessWidget {
   final String tableTitle;
-  final String tablePrice;
+  final num tablePrice;
   CoinDetailHoursTableWidget({
     Key? key,
     required this.tablePrice,
@@ -21,7 +23,7 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
           Expanded(
               flex: 1,
               child: Container(
-                child: Text(
+                child: AutoSizeText(
                   tableTitle,
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
@@ -32,7 +34,14 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
           Expanded(
               flex: 1,
               child: Container(
-                  alignment: Alignment.center, child: Text(tablePrice))),
+                  alignment: Alignment.center,
+                  child: AutoSizeText(
+                    NumberHelper.shared.fixNum(tablePrice, 1) + "%",
+                    style: TextStyle(
+                        color: tablePrice < 0 ? Colors.red : Colors.green,
+                        fontWeight: FontWeight.w500),
+                    maxLines: 1,
+                  ))),
         ],
       ),
     );

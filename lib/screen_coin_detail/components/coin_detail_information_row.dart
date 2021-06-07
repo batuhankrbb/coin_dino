@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-
 class CoinDetailInformationRowWidget extends StatelessWidget {
   final String title;
   final String price;
@@ -12,16 +11,26 @@ class CoinDetailInformationRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          AutoSizeText(title.toUpperCase(),
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.grey)),
-          AutoSizeText(price.toUpperCase(),
-              style: TextStyle(fontWeight: FontWeight.bold)),
+          Expanded(
+              child: AutoSizeText(title.toUpperCase(),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                      fontSize: 16))),
+          Expanded(
+              child: AutoSizeText(
+            price.toUpperCase(),
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+            ),
+            textAlign: TextAlign.end,
+          )),
         ],
       ),
     );
