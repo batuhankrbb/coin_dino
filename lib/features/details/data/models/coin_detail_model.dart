@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/mini_services/parsing/html_parser.dart';
+
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entity/coin_detail_entity.dart';
 
@@ -36,9 +38,9 @@ class CoinDetailModel extends BaseNetworkModel {
     required this.tickers,
   });
 
-  final String id; //Todo
-  final String symbol; //Todo
-  final String name; //Todo
+  final String id;
+  final String symbol;
+  final String name;
   final dynamic assetPlatformId;
   final Platforms platforms;
   final int blockTimeInMinutes;
@@ -46,14 +48,14 @@ class CoinDetailModel extends BaseNetworkModel {
   final List<String> categories;
   final dynamic publicNotice;
   final List<dynamic> additionalNotices;
-  final Description description; //Todo
-  final Links links; //Todo
-  final Image image; //Todo
+  final Description description;
+  final Links links;
+  final Image image;
   final String countryOrigin;
   final DateTime genesisDate;
   final num sentimentVotesUpPercentage;
   final num sentimentVotesDownPercentage;
-  final num marketCapRank; //Todo
+  final num marketCapRank;
   final num coingeckoRank;
   final num coingeckoScore;
   final num developerScore;
@@ -146,17 +148,34 @@ class CoinDetailModel extends BaseNetworkModel {
 
   @override
   CoinDetailEntity toEntity() {
+    var parsedDescription = HtmlParser.shared.parseHtmlToString(description.en);
     return CoinDetailEntity(
         id: id,
         symbol: symbol,
         name: name,
-        assetPlatformId: assetPlatformId,
-        blockTimeInMinutes: blockTimeInMinutes,
-        hashingAlgorithm: hashingAlgorithm,
-        categories: categories,
-        publicNotice: publicNotice,
-        additionalNotices: additionalNotices,
-        description: description.en);
+        price: marketData.currentPrice.usd ?? 0,
+        priceChange14dTable: marketData.priceChangePercentage14D,
+        priceChange1yTable: marketData.priceChangePercentage1Y,
+        priceChange24hTable: marketData.priceChangePercentage24H,
+        priceChange30dTable: marketData.priceChangePercentage30D,
+        priceChange60dTable: marketData.priceChangePercentage60D,
+        priceChange7dTable: marketData.priceChangePercentage7D,
+        availableSuppy: marketData.circulatingSupply,
+        totalSupply: marketData.totalSupply,
+        priceChange24h: marketData.priceChange24H,
+        marketCapRank: marketCapRank,
+        tradingVolume: marketData.totalVolume.usd,
+        highest24h: marketData.high24H.usd,
+        lowest24h: marketData.low24H.usd,
+        allTimeHigh: marketData.ath.usd,
+        sinceAllTimeHigh: marketData.athChangePercentage.usd,
+        allTimeHighDate: marketData.athDate.usd.toString(),
+        allTimeLowDate: marketData.atlDate.usd.toString(),
+        allTimeLow: marketData.atl.usd,
+        sinceTimeLow: marketData.atlChangePercentage.usd,
+        homePageUrl: links.homepage.first,
+        imageUrl: image.large,
+        description: parsedDescription);
   }
 }
 
