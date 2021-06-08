@@ -1,5 +1,6 @@
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entity/coin_chart_entity.dart';
+import '../../../../core/extensions/num_extension.dart';
 
 class CoinChartModel extends BaseNetworkModel {
   CoinChartModel({
@@ -26,7 +27,10 @@ class CoinChartModel extends BaseNetworkModel {
 
   @override
   CoinChartEntity toEntity() {
-    return CoinChartEntity(prices: prices);
+    return CoinChartEntity(
+      prices: prices.map((e) => e[1]).toList(),
+      dates: prices.map((e) => e[0].toDateTime()).toList(),
+    );
   }
 
   @override

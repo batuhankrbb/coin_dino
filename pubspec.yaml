@@ -54,6 +54,7 @@ dependencies:
   rxdart: ^0.27.1
   share_plus: ^2.1.2
   url_launcher: ^6.0.4
+  syncfusion_flutter_charts: ^19.1.67
 
 dev_dependencies:
   flutter_test:
