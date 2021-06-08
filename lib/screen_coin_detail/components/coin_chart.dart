@@ -5,6 +5,8 @@ import 'package:coin_dino/screen_coin_detail/components/chart_options.dart';
 import 'package:coin_dino/screen_coin_detail/viewmodels/detail_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class CoinChart extends StatefulWidget {
   CoinChart({Key? key, required this.coinID}) : super(key: key);
@@ -51,9 +53,39 @@ class _CoinChartState extends State<CoinChart> {
           return Text(failure.message);
         },
         completedWidget: (data) {
-          return Text("successfullll ${data.prices.length}");
+          return FinanceChart(data: data);
         },
       );
     });
+  }
+}
+
+class FinanceChart extends StatelessWidget {
+  const FinanceChart({Key? key, required this.data}) : super(key: key);
+
+  final CoinChartEntity data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          child: SfCartesianChart(
+            primaryXAxis: DateTimeAxis(),
+            series: <ChartSeries>[
+              LineSeries<double, DateTime>(
+                  dataSource: data.prices,
+                  xValueMapper: (value, index) {
+                    return data.dates[index];
+                  },
+                  yValueMapper: (value, index) {
+                    return value;
+                  },
+                 )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
