@@ -4,6 +4,7 @@ import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/state_result_builder.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:coin_dino/screen_coin_detail/coin_info_screen.dart';
+import 'package:coin_dino/screen_coin_detail/components/coin_chart.dart';
 import 'package:coin_dino/screen_coin_detail/viewmodels/detail_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -31,6 +32,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     _detailViewModel.getCoinDetails(widget.coinID);
+    _detailViewModel.getCharts(coinID: widget.coinID, days: "7");
   }
 
   @override
@@ -78,7 +80,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
               Spacer(flex: 1),
               Expanded(
                 flex: 23,
-                child: buildGraph(),
+                child: buildGraph(data.id),
               ),
               Spacer(flex: 1),
               Expanded(
@@ -130,9 +132,9 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     );
   }
 
-  Container buildGraph() {
-    return Container(
-      color: Colors.grey,
+  Widget buildGraph(String coinID) {
+    return CoinChart(
+      coinID: coinID,
     );
   }
 

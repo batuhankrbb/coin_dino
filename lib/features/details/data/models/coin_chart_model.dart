@@ -4,22 +4,13 @@ import '../../domain/entity/coin_chart_entity.dart';
 class CoinChartModel extends BaseNetworkModel {
   CoinChartModel({
     required this.prices,
-    required this.marketCaps,
-    required this.totalVolumes,
+    this.marketCaps,
+    this.totalVolumes,
   });
 
   final List<List<double>> prices;
-  final List<List<double>> marketCaps;
-  final List<List<double>> totalVolumes;
-
-  Map<String, dynamic> toJson() => {
-        "prices": List<dynamic>.from(
-            prices.map((x) => List<dynamic>.from(x.map((x) => x)))),
-        "market_caps": List<dynamic>.from(
-            marketCaps.map((x) => List<dynamic>.from(x.map((x) => x)))),
-        "total_volumes": List<dynamic>.from(
-            totalVolumes.map((x) => List<dynamic>.from(x.map((x) => x)))),
-      };
+  final List<List<double>>? marketCaps;
+  final List<List<double>>? totalVolumes;
 
   @override
   fromJson(Map<String, dynamic> json) {
@@ -35,7 +26,11 @@ class CoinChartModel extends BaseNetworkModel {
 
   @override
   CoinChartEntity toEntity() {
-    return CoinChartEntity(
-        prices: prices, marketCaps: marketCaps, totalVolumes: totalVolumes);
+    return CoinChartEntity(prices: prices);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {};
   }
 }

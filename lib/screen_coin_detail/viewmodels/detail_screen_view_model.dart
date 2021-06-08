@@ -33,7 +33,7 @@ abstract class _DetailScreenViewModelBase with Store {
   }
 
   @action
-  Future<void> getCharts(String coinID, String days, String interval) async {
+  Future<void> getCharts({required String coinID, required String days, String interval = "daily"}) async {
     var detailsResult = await detailRepository.getCoinChart(
         id: coinID, days: days, interval: interval);
     detailsResult.when(success: (data) {
