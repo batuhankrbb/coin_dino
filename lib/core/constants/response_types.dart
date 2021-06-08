@@ -40,8 +40,7 @@ class DefaultResponseTypes {
       totalSupply: 1,
       totalVolume: 1,
       roi: RoiSearch(times: 1, currency: "", percentage: 1));
-  var coinChart =
-      CoinChartModel(prices: [[]], marketCaps: [[]], totalVolumes: [[]]);
+  var coinChart = CoinChartModel(prices: [[]]);
 
   var alertCoinModel = AlertCoinModel(
     ath: 0,
