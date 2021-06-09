@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
 
 import 'core/navigation/services/navigation_service.dart';
 import 'core/navigation/services/router_service.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
-        home: HomePageScreen(),
+        home: AlertListScreen(),
       );
     });
   }
