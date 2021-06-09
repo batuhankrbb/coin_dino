@@ -17,11 +17,8 @@ class CoinDetailInformationRowWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(
-              child: AutoSizeText(title.toUpperCase(),
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                      fontSize: 16))),
+              child: AutoSizeText(title,
+                  style: TextStyle(color: Colors.grey, fontSize: 14))),
           Expanded(
               child: AutoSizeText(
             price.toUpperCase(),

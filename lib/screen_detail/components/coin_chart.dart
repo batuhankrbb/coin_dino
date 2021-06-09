@@ -1,3 +1,5 @@
+import 'package:syncfusion_flutter_charts/charts.dart';
+
 import '../../features/details/domain/entity/coin_chart_entity.dart';
 import '../../global/components/state_result_builder.dart';
 import '../../global/starting_files/injection_container.dart';
@@ -5,8 +7,6 @@ import '../viewmodels/detail_screen_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 import 'chart_options.dart';
 

@@ -1,16 +1,16 @@
+import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
 import '../features/details/domain/entity/coin_detail_entity.dart';
 import '../global/components/app_bar_components.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';
-import 'viewmodels/detail_screen_view_model.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'coin_info_screen.dart';
 import 'components/coin_chart.dart';
 import 'components/coin_detail_information_row.dart';
-import 'components/coin_detail_screen_header.dart';
 import 'components/coin_details_hour_table_widget.dart';
+import 'viewmodels/detail_screen_view_model.dart';
 
 class CoinDetailScreen extends StatefulWidget {
   CoinDetailScreen({Key? key, required this.coinID}) : super(key: key);
@@ -22,7 +22,7 @@ class CoinDetailScreen extends StatefulWidget {
 }
 
 class _CoinDetailScreenState extends State<CoinDetailScreen>
-    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+    with SingleTickerProviderStateMixin {
   var _detailViewModel = getit.get<DetailScreenViewModel>();
   late TabController _tabController;
 
@@ -36,29 +36,31 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: Center(
-        child: Observer(
-          builder: (context) {
-            return StateResultBuilder<CoinDetailEntity>(
-                stateResult: _detailViewModel.coinDetailResult,
-                completedWidget: (data) {
-                  return TabBarView(
-                    controller: _tabController,
-                    children: [
-                      completedWidget(data),
-                      CoinDetailsInfo(data: data),
-                    ],
-                  );
-                },
-                failureWidget: (failure) {
-                  return Text("failure");
-                });
-          },
+    return Observer(builder: (_) {
+      return Scaffold(
+        appBar: buildAppBar(
+            coinPrice: "${_detailViewModel.appBarCoinPrice}",
+            coinTitle: "${_detailViewModel.appBarTitle.toUpperCase()}",
+            coinImageURL: "${_detailViewModel.appbarCoinImage}"),
+        body: Center(
+          child: StateResultBuilder<CoinDetailEntity>(
+            stateResult: _detailViewModel.coinDetailResult,
+            completedWidget: (data) {
+              return TabBarView(
+                controller: _tabController,
+                children: [
+                  completedWidget(data),
+                  CoinDetailsInfo(data: data),
+                ],
+              );
+            },
+            failureWidget: (failure) {
+              return Text("failure");
+            },
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   Widget completedWidget(CoinDetailEntity data) {
@@ -72,10 +74,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                flex: 5,
-                child: buildHeader(data),
-              ),
               Spacer(flex: 1),
               Expanded(
                 flex: 23,
@@ -83,7 +81,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
               ),
               Spacer(flex: 1),
               Expanded(
-                flex: 5,
+                flex: 4,
                 child: coinDetailHoursInformationRowMethod(data),
               ),
               Spacer(flex: 1),
@@ -137,13 +135,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     );
   }
 
-  CoinnDetailScreenHeaderWidget buildHeader(CoinDetailEntity data) {
-    return CoinnDetailScreenHeaderWidget(
-        coinName: data.name,
-        coinPrice: "${data.price}",
-        coinImage: data.imageUrl);
-  }
-
   Row coinDetailHoursInformationRowMethod(CoinDetailEntity data) {
     return Row(
       children: [
@@ -181,10 +172,43 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     );
   }
 
-  AppBar buildAppBar() {
-    return appbarComponent(
-      title: "Details",
-      bottom: TabBar(
+  AppBar buildAppBar(
+      {required String? coinTitle,
+      required String? coinImageURL,
+      required String? coinPrice}) {
+    return AppBar(
+      title: Row(
+        children: [
+          Flexible(
+              flex: 15,
+              child: CashedNetworkImageWidget(
+                  imageURL: coinImageURL ??
+                      "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579")),
+          Spacer(flex: 1),
+          Flexible(
+            flex: 25,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(coinTitle ?? "Detail",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold)),
+                Text(coinPrice ?? "0",
+                    style: TextStyle(fontSize: 15, color: Colors.black))
+              ],
+            ),
+          ),
+        ],
+      ),
+      centerTitle: false,
+    );
+  }
+}
+
+/*
+ TabBar(
         controller: _tabController,
         tabs: [
           Tab(
@@ -201,10 +225,4 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
           )
         ],
       ),
-    );
-  }
-
-  @override
-  bool get wantKeepAlive => true;
-}
-
+*/

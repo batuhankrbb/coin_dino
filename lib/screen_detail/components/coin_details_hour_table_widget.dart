@@ -25,8 +25,7 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
               child: Container(
                 child: AutoSizeText(
                   tableTitle,
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
                 alignment: Alignment.center,
                 color: CustomColor.shared.backgroundBlueColor,

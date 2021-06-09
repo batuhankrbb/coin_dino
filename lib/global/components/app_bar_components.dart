@@ -6,11 +6,14 @@ AppBar appbarComponent(
         {String? title,
         List<Widget>? action,
         PreferredSizeWidget? bottom,
-        Widget? leading}) =>
+        Widget? leading,
+        Color? titleColor}) =>
     AppBar(
       title: Text(
         title ?? "",
-        style: TextStyle(color: CustomColor.shared.backgroundBlueColor),
+        style: TextStyle(
+            color: titleColor ?? CustomColor.shared.backgroundBlueColor,
+            fontSize: 15),
       ),
       actions: action,
       bottom: bottom,
