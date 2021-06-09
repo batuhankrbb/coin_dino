@@ -24,7 +24,7 @@ abstract class _DetailScreenViewModelBase with Store {
   @observable
   String appBarTitle = "Details";
   @observable
-  String? appbarCoinImage;
+  String? appbarCoinImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579";
   @observable
   String appBarCoinPrice = "0";
 

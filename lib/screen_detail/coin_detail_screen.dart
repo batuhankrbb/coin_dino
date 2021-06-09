@@ -39,7 +39,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     return Observer(builder: (_) {
       return Scaffold(
         appBar: buildAppBar(
-            coinPrice: "${_detailViewModel.appBarCoinPrice}",
+            coinPrice: "\$${_detailViewModel.appBarCoinPrice}",
             coinTitle: "${_detailViewModel.appBarTitle.toUpperCase()}",
             coinImageURL: "${_detailViewModel.appbarCoinImage}"),
         body: Center(
