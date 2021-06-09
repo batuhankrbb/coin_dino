@@ -26,4 +26,4 @@ class AlertRemoteDataSource implements IAlertRemoteDataSource {
       throw AlertException.alertFetchingRemoteException();
     }
   }
-}
+}// RESULT

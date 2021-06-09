@@ -52,7 +52,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
 
   @override
   String get networkMethod => this.when(
-      details: (String id,
+      details: (_,
               String? localization,
               String? tickers,
               String? marketdata,
