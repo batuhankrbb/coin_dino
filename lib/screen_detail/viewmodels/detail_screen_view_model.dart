@@ -21,12 +21,23 @@ abstract class _DetailScreenViewModelBase with Store {
   @observable
   StateResult<CoinChartEntity> coinChartResult = StateResult.initial();
 
+  @observable
+  String appBarTitle = "Details";
+  @observable
+  String? appbarCoinImage;
+  @observable
+  String appBarCoinPrice = "0";
+
   @action
   Future<void> getCoinDetails(String coinID) async {
     coinDetailResult = StateResult.loading();
     var detailsResult = await detailRepository.getCoinDetail(id: coinID);
     detailsResult.when(success: (data) {
       coinDetailResult = StateResult.completed(data);
+      appBarTitle = data.name;
+      appBarCoinPrice = data.price.toString();
+      appbarCoinImage = data.imageUrl;
+      print(appbarCoinImage);
       print("completed $data");
     }, failure: (failure) {
       coinDetailResult = StateResult.failed(failure);

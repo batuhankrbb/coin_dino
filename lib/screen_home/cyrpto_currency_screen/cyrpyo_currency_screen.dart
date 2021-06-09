@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -40,10 +42,11 @@ class _CyrptoCurrencyScreenState extends State<CyrptoCurrencyScreen> {
   Widget cyrptoCurrencyDataTableMethod(List<MarketCoinEntity> marketCoinList) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
+      physics: NeverScrollableScrollPhysics(),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: DataTable(
-          columnSpacing: 8,
+          columnSpacing: 1,
           columns:
               dataTableColumnMethod(cyrptoCurrencyViewModel.dataColumnArray),
           rows: dataTableRowMethod(marketCoinList),
@@ -53,16 +56,24 @@ class _CyrptoCurrencyScreenState extends State<CyrptoCurrencyScreen> {
   }
 
   List<DataRow> dataTableRowMethod(List<MarketCoinEntity> dataRow) {
-    return dataRow.map((e) {
-      return DataRow(cells: [
-        DataCell(Text(e.marketCapRank.toString())),
-        DataCell(CashedNetworkImageWidget(imageURL: e.imageUrl)),
-        DataCell(SizedBox(width: 100, child: Text(e.name.toString()))),
-        DataCell(Text(e.currentPrice.toString())),
-        DataCell(Text(e.priceChangePercentage24h.toString())),
-        DataCell(Text(e.marketCap.toString())),
-      ]);
-    }).toList();
+    return dataRow.map(
+      (e) {
+        return DataRow(
+          cells: [
+            DataCell(Text(e.marketCapRank.toString())),
+            DataCell(CashedNetworkImageWidget(imageURL: e.imageUrl)),
+            DataCell(Text(e.symbol.toString())),
+            DataCell(Text(e.currentPrice.toString())),
+            DataCell(Text(e.priceChangePercentage24h.toString())),
+            DataCell(Text(e.marketCap.toString()), onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => CoinDetailScreen(coinID: e.id),
+              ));
+            }),
+          ],
+        );
+      },
+    ).toList();
   }
 
   List<DataColumn> dataTableColumnMethod(List<String> column) {
@@ -73,6 +84,7 @@ class _CyrptoCurrencyScreenState extends State<CyrptoCurrencyScreen> {
             label: Text(
               e,
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
             ),
           ),
         )

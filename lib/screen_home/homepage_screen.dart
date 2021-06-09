@@ -46,6 +46,7 @@ class _HomePageScreenState extends State<HomePageScreen>
         Tab(text: "Falan Filan"),
       ],
       controller: _tabController,
+      labelStyle: TextStyle(fontSize: 12),
       indicatorColor: CustomColor.shared.backgroundBlueColor,
       labelColor: Colors.black,
       labelPadding: EdgeInsets.symmetric(horizontal: 10),
