@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/core/utils/number_helper.dart';
+import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
+import '../../core/utils/number_helper.dart';
 import 'package:flutter/material.dart';
 
 class PercentageChip extends StatelessWidget {

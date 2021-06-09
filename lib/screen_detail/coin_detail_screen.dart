@@ -1,14 +1,13 @@
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
-import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/components/state_result_builder.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_coin_detail/coin_info_screen.dart';
-import 'package:coin_dino/screen_coin_detail/components/coin_chart.dart';
-import 'package:coin_dino/screen_coin_detail/viewmodels/detail_screen_view_model.dart';
+import '../features/details/domain/entity/coin_detail_entity.dart';
+import '../global/components/app_bar_components.dart';
+import '../global/components/state_result_builder.dart';
+import '../global/starting_files/injection_container.dart';
+import 'viewmodels/detail_screen_view_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
+import 'coin_info_screen.dart';
+import 'components/coin_chart.dart';
 import 'components/coin_detail_information_row.dart';
 import 'components/coin_detail_screen_header.dart';
 import 'components/coin_details_hour_table_widget.dart';
@@ -208,3 +207,4 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
   @override
   bool get wantKeepAlive => true;
 }
+

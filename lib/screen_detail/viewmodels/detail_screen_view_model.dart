@@ -1,9 +1,9 @@
-import 'package:coin_dino/core/mini_services/share/share_service.dart';
-import 'package:coin_dino/core/mini_services/url_launcher/url_launcher_service.dart';
-import 'package:coin_dino/core/result_types/state_result.dart';
-import 'package:coin_dino/features/details/domain/entity/coin_chart_entity.dart';
-import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
-import 'package:coin_dino/features/details/domain/repository_contract/i_coin_detail_repository.dart';
+import '../../core/mini_services/share/share_service.dart';
+import '../../core/mini_services/url_launcher/url_launcher_service.dart';
+import '../../core/result_types/state_result.dart';
+import '../../features/details/domain/entity/coin_chart_entity.dart';
+import '../../features/details/domain/entity/coin_detail_entity.dart';
+import '../../features/details/domain/repository_contract/i_coin_detail_repository.dart';
 import 'package:mobx/mobx.dart';
 part 'detail_screen_view_model.g.dart';
 

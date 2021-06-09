@@ -1,15 +1,18 @@
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/core/utils/number_helper.dart';
-import 'package:coin_dino/features/search/domain/entity/search_trend_entity.dart';
-import 'package:coin_dino/global/components/cashed_network_image_component.dart';
-import 'package:coin_dino/global/components/custom_autosize_text.dart';
-import 'package:coin_dino/search_screen/components/percentage_chip.dart';
+import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
+import '../../core/utils/number_helper.dart';
+import '../../features/search/domain/entity/search_coin_entity.dart';
+import '../../global/components/cashed_network_image_component.dart';
+import '../../global/components/custom_autosize_text.dart';
+import 'percentage_chip.dart';
+
 import 'package:flutter/material.dart';
 
-class TrendCell extends StatelessWidget {
-  TrendCell({Key? key, required this.searchTrendCoinEntity}) : super(key: key);
+import '../search_screen_main.dart';
 
-  final SearchTrendCoinEntity searchTrendCoinEntity;
+class SearchCell extends StatelessWidget {
+  SearchCell({Key? key, required this.searchCoinEntity}) : super(key: key);
+
+  final SearchCoinEntity searchCoinEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class TrendCell extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              flex: 12,
+              flex: 15,
               child: buildCoinImage(),
             ),
             Spacer(
@@ -45,10 +48,11 @@ class TrendCell extends StatelessWidget {
   }
 
   Widget buildCoinImage() {
-    return Container(
+    return Padding(
+      padding: EdgeInsets.all(4),
       child: CashedNetworkImageWidget(
-        imageURL: searchTrendCoinEntity.largeImage,
-        imageHeigth: 100,
+        imageURL: searchCoinEntity.imageUrl,
+        imageHeigth: 200,
       ),
     );
   }
@@ -61,10 +65,15 @@ class TrendCell extends StatelessWidget {
           Expanded(
             child: CustomAutoSizeText(
               text:
-                  NumberHelper.shared.fixNum(searchTrendCoinEntity.btcPrice, 5),
+                  NumberHelper.shared.fixNum(searchCoinEntity.currentPrice, 5),
               textStyle: TextStyle(color: Colors.black, fontSize: 15),
             ),
           ),
+          Expanded(
+            child: PercentageChip(
+              percentage: searchCoinEntity.priceChangePercentage24h ?? 0,
+            ),
+          )
         ],
       ),
     );
@@ -76,17 +85,17 @@ class TrendCell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          flex: 2,
+          flex: 1,
           child: CustomAutoSizeText(
-            text: searchTrendCoinEntity.name,
+            text: searchCoinEntity.name,
             textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
         Expanded(
-          flex: 4,
+          flex: 2,
           child: CustomAutoSizeText(
-            text: searchTrendCoinEntity.symbol.toUpperCase(),
-            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+            text: searchCoinEntity.symbol.toUpperCase(),
+            textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
           ),
         )
       ],

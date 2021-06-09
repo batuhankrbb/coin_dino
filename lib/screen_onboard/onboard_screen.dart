@@ -1,10 +1,10 @@
 
+import '../screen_home/homepage_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../global/components/app_bar_components.dart';
 import '../global/extensions/style_extensions.dart';
 import '../global/utils/custom_colors.dart';
-import '../homepage_screen/homepage_screen.dart';
 import 'view_model/onboard_screen_viewmodel.dart';
 import 'widgets/page_view_indicator.dart';
 

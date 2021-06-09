@@ -1,11 +1,12 @@
-import 'package:coin_dino/features/search/domain/entity/search_trend_entity.dart';
-import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/components/state_result_builder.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/search_screen/components/trend_cell.dart';
-import 'package:coin_dino/search_screen/viewmodels/search_screen_view_model.dart';
+import '../features/search/domain/entity/search_trend_entity.dart';
+import '../global/components/app_bar_components.dart';
+import '../global/components/state_result_builder.dart';
+import '../global/starting_files/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import 'components/trend_cell.dart';
+import 'viewmodels/search_screen_view_model.dart';
 
 class TrendsScreen extends StatefulWidget {
   TrendsScreen({Key? key}) : super(key: key);

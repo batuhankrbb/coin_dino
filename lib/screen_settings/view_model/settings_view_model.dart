@@ -1,4 +1,4 @@
-import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
+import '../../global/app_settings/app_settings_viewmodel.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/result_types/state_result.dart';

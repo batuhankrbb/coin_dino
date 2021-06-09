@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/mini_services/image/image_helper.dart';
-import 'package:coin_dino/core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/extensions/style_extensions.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
+import '../core/mini_services/image/image_helper.dart';
+import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
+import '../global/components/app_bar_components.dart';
+import '../global/extensions/style_extensions.dart';
+import '../global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class InAppPurchase extends StatelessWidget {

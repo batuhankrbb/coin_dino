@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/mini_services/date/date_helper.dart';
-import 'package:coin_dino/core/parsing/html_parser.dart';
+import '../../../../core/mini_services/date/date_helper.dart';
+import '../../../../core/parsing/html_parser.dart';
 
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entity/coin_detail_entity.dart';

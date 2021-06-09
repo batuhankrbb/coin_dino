@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/utils/number_helper.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
+import '../../core/utils/number_helper.dart';
+import '../../global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class CoinDetailHoursTableWidget extends StatelessWidget {

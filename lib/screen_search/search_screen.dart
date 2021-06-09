@@ -1,7 +1,7 @@
-import 'package:coin_dino/features/search/domain/entity/search_coin_entity.dart';
-import 'package:coin_dino/global/components/state_result_builder.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/search_screen/viewmodels/search_screen_view_model.dart';
+import '../features/search/domain/entity/search_coin_entity.dart';
+import '../global/components/state_result_builder.dart';
+import '../global/starting_files/injection_container.dart';
+import 'viewmodels/search_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 

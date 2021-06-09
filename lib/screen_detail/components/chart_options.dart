@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_coin_detail/viewmodels/detail_screen_view_model.dart';
+import '../../global/starting_files/injection_container.dart';
+import '../viewmodels/detail_screen_view_model.dart';
+
 import 'package:flutter/material.dart';
 
 class ChartOptions extends StatefulWidget {

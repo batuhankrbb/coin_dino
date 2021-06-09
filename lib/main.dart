@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/screen_coin_detail/coin_detail_screen.dart';
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/core/navigation/services/router_service.dart';
-import 'package:coin_dino/core/utils/number_helper.dart';
-import 'package:coin_dino/inapp_purchase_screen/inapp_purchase_screen.dart';
-import 'package:coin_dino/search_screen/components/percentage_chip.dart';
-import 'package:coin_dino/search_screen/search_screen_main.dart';
+
+import 'core/navigation/services/navigation_service.dart';
+import 'core/navigation/services/router_service.dart';
+import 'core/utils/number_helper.dart';
+import 'screen_home/homepage_screen.dart';
+import 'screen_onboard/onboard_screen.dart';
+import 'screen_search/components/percentage_chip.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +15,6 @@ import 'global/app_settings/app_settings_viewmodel.dart';
 import 'global/extensions/material_extensions.dart';
 import 'global/starting_files/injection_container.dart';
 import 'global/starting_files/launch_app.dart';
-import 'onboard_screen/onboard_screen.dart';
-import 'settings_screen/settings_screen.dart';
 
 void main() async {
   await HiveHelper.shared.setUpHive();
@@ -39,7 +37,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
-        home: SettingsScreen(),
+        home: HomePageScreen(),
       );
     });
   }

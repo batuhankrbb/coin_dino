@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
+import '../../domain/entity/language_preference_entity.dart';
+import '../../domain/entity/theme_preference_entity.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../../../../core/hive/hive_constants.dart';

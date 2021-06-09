@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/inapp_purchase_screen/inapp_purchase_screen.dart';
+import '../../screen_in_app_purchase/inapp_purchase_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/mini_services/image/image_helper.dart';

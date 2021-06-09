@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/extensions/string_extension.dart';
-import 'package:coin_dino/global/components/selection_page/selection_page_cell.dart';
+import '../../../core/extensions/string_extension.dart';
+import 'selection_page_cell.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/user_interface/responsive_layout/utils/screen_information_model.dart';
