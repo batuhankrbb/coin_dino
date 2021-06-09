@@ -3,6 +3,7 @@ import 'package:coin_dino/global/components/state_result_builder.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:coin_dino/screen_coin_detail/components/chart_options.dart';
 import 'package:coin_dino/screen_coin_detail/viewmodels/detail_screen_view_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -55,6 +56,7 @@ class _CoinChartState extends State<CoinChart> {
         completedWidget: (data) {
           return FinanceChart(data: data);
         },
+        loadingWidget: CupertinoActivityIndicator(),
       );
     });
   }

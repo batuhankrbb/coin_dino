@@ -14,7 +14,7 @@ class ChartOptions extends StatefulWidget {
 
 class _ChartOptionsState extends State<ChartOptions>
     with AutomaticKeepAliveClientMixin {
-  var selectedIndex = 0;
+  var selectedIndex = 2;
 
   var detailViewModel = getit.get<DetailScreenViewModel>();
 
