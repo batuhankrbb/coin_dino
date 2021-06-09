@@ -41,6 +41,54 @@ mixin _$DetailScreenViewModel on _DetailScreenViewModelBase, Store {
     });
   }
 
+  final _$appBarTitleAtom =
+      Atom(name: '_DetailScreenViewModelBase.appBarTitle');
+
+  @override
+  String get appBarTitle {
+    _$appBarTitleAtom.reportRead();
+    return super.appBarTitle;
+  }
+
+  @override
+  set appBarTitle(String value) {
+    _$appBarTitleAtom.reportWrite(value, super.appBarTitle, () {
+      super.appBarTitle = value;
+    });
+  }
+
+  final _$appbarCoinImageAtom =
+      Atom(name: '_DetailScreenViewModelBase.appbarCoinImage');
+
+  @override
+  String? get appbarCoinImage {
+    _$appbarCoinImageAtom.reportRead();
+    return super.appbarCoinImage;
+  }
+
+  @override
+  set appbarCoinImage(String? value) {
+    _$appbarCoinImageAtom.reportWrite(value, super.appbarCoinImage, () {
+      super.appbarCoinImage = value;
+    });
+  }
+
+  final _$appBarCoinPriceAtom =
+      Atom(name: '_DetailScreenViewModelBase.appBarCoinPrice');
+
+  @override
+  String get appBarCoinPrice {
+    _$appBarCoinPriceAtom.reportRead();
+    return super.appBarCoinPrice;
+  }
+
+  @override
+  set appBarCoinPrice(String value) {
+    _$appBarCoinPriceAtom.reportWrite(value, super.appBarCoinPrice, () {
+      super.appBarCoinPrice = value;
+    });
+  }
+
   final _$getCoinDetailsAsyncAction =
       AsyncAction('_DetailScreenViewModelBase.getCoinDetails');
 
@@ -65,7 +113,10 @@ mixin _$DetailScreenViewModel on _DetailScreenViewModelBase, Store {
   String toString() {
     return '''
 coinDetailResult: ${coinDetailResult},
-coinChartResult: ${coinChartResult}
+coinChartResult: ${coinChartResult},
+appBarTitle: ${appBarTitle},
+appbarCoinImage: ${appbarCoinImage},
+appBarCoinPrice: ${appBarCoinPrice}
     ''';
   }
 }
