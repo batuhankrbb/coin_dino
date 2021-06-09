@@ -74,14 +74,14 @@ class FinanceChart extends StatelessWidget {
             primaryXAxis: DateTimeAxis(),
             series: <ChartSeries>[
               LineSeries<double, DateTime>(
-                  dataSource: data.prices,
-                  xValueMapper: (value, index) {
-                    return data.dates[index];
-                  },
-                  yValueMapper: (value, index) {
-                    return value;
-                  },
-                 )
+                dataSource: data.prices,
+                xValueMapper: (value, index) {
+                  return data.dates[index];
+                },
+                yValueMapper: (value, index) {
+                  return data.prices[index];
+                },
+              ),
             ],
           ),
         ),

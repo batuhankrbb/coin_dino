@@ -12,7 +12,8 @@ class ChartOptions extends StatefulWidget {
   final String coinID;
 }
 
-class _ChartOptionsState extends State<ChartOptions> {
+class _ChartOptionsState extends State<ChartOptions>
+    with AutomaticKeepAliveClientMixin {
   var selectedIndex = 0;
 
   var detailViewModel = getit.get<DetailScreenViewModel>();
@@ -41,6 +42,9 @@ class _ChartOptionsState extends State<ChartOptions> {
       ).toList(),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 class ChartOptionValue {

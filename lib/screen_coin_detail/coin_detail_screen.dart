@@ -23,7 +23,7 @@ class CoinDetailScreen extends StatefulWidget {
 }
 
 class _CoinDetailScreenState extends State<CoinDetailScreen>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   var _detailViewModel = getit.get<DetailScreenViewModel>();
   late TabController _tabController;
 
@@ -204,4 +204,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
