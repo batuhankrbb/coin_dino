@@ -20,7 +20,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
   @override
   void initState() {
     super.initState();
-    searchViewModel.getAllTrends();
+    
   }
 
   @override

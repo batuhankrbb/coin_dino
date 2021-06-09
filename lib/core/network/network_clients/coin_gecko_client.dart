@@ -96,12 +96,17 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
           "category": category,
           "order": sort,
           "price_change_percentage": date,
+          "per_page": 250
         },
         marketChart: (_, String vsCurrency, String days, String interval) =>
             {"vs_currency": vsCurrency, "days": days, "interval": interval},
         searchTrends: () => null,
-        coinSearch: (String text, String vsCurrency) =>
-            {"vs_currency": vsCurrency, "order": "market_cap_desc","price_change_percentage": "24h",},
+        coinSearch: (String text, String vsCurrency) => {
+          "vs_currency": vsCurrency,
+          "order": "market_cap_desc",
+          "price_change_percentage": "24h",
+          "per_page": 250
+        },
         getAlertCoins: (List<String> coinIds, String vsCurrency) =>
             {"vs_currency": vsCurrency, "ids": coinIds},
       );

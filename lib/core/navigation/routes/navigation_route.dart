@@ -1,4 +1,4 @@
-import 'package:coin_dino/global/components/selection_page.dart';
+import 'package:coin_dino/global/components/selection_page/selection_page.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'navigation_route.freezed.dart';

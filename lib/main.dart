@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
-        home: CoinDetailScreen(coinID: "bitcoin",),
+        home: SettingsScreen(),
       );
     });
   }

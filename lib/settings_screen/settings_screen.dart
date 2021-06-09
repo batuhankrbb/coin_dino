@@ -6,7 +6,7 @@ import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
 import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
-import 'package:coin_dino/global/components/selection_page.dart';
+import 'package:coin_dino/global/components/selection_page/selection_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -180,8 +180,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       dataList: allLanguages,
       title: "Languages",
       isListingActive: false,
+      isCapitalActive: true,
       selectedIndex: allLanguages.indexOf(data.rawValue),
       onSelect: (value) {
+          print("value: $value");
         settingsViewModel.setLanguagePreference(allLanguages[value]);
       },
     )));
@@ -194,8 +196,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       dataList: allThemes,
       title: "Themes",
       isListingActive: false,
+      isCapitalActive: true,
       selectedIndex: allThemes.indexOf(data.rawValue),
       onSelect: (value) {
+        print("value: $value");
         settingsViewModel.setThemePreference(allThemes[value]);
       },
     )));
@@ -208,8 +212,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       dataList: allCurrencies,
       title: "Currencies",
       isListingActive: false,
+      isCapitalActive: true,
       selectedIndex: allCurrencies.indexOf(data),
       onSelect: (value) {
+          print("value: $value");
         settingsViewModel.setBaseCurrencyPreference(allCurrencies[value]);
       },
     )));

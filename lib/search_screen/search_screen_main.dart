@@ -33,6 +33,8 @@ class _SearchScreenMainState extends State<SearchScreenMain>
   void initState() {
     this._tabController = TabController(length: 2, vsync: this);
     super.initState();
+    searchViewModel.getSearchCoins("");
+    searchViewModel.getAllTrends();
   }
 
   @override
