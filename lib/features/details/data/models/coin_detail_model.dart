@@ -1,3 +1,6 @@
+import '../../../../core/mini_services/date/date_helper.dart';
+import '../../../../core/parsing/html_parser.dart';
+
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entity/coin_detail_entity.dart';
 
@@ -146,17 +149,35 @@ class CoinDetailModel extends BaseNetworkModel {
 
   @override
   CoinDetailEntity toEntity() {
+    var parsedDescription = HtmlParser.shared.parseHtmlToString(description.en);
     return CoinDetailEntity(
         id: id,
         symbol: symbol,
         name: name,
-        assetPlatformId: assetPlatformId,
-        blockTimeInMinutes: blockTimeInMinutes,
-        hashingAlgorithm: hashingAlgorithm,
-        categories: categories,
-        publicNotice: publicNotice,
-        additionalNotices: additionalNotices,
-        description: description.en);
+        price: marketData.currentPrice.usd ?? 0,
+        priceChange14dTable: marketData.priceChangePercentage14D,
+        priceChange1yTable: marketData.priceChangePercentage1Y,
+        priceChange24hTable: marketData.priceChangePercentage24H,
+        priceChange30dTable: marketData.priceChangePercentage30D,
+        priceChange60dTable: marketData.priceChangePercentage60D,
+        priceChange7dTable: marketData.priceChangePercentage7D,
+        availableSuppy: marketData.circulatingSupply.toString(),
+        totalSupply: marketData.totalSupply.toString(),
+        priceChange24h: marketData.priceChange24H,
+        marketCap: marketData.marketCap.usd != null ? "\$${marketData.marketCap.usd.toString()}" : "-",
+        marketCapRank: marketData.marketCapRank != null ? marketData.marketCapRank.toString() : "-",
+        tradingVolume: marketData.totalVolume.usd != null ? "\$${marketData.totalVolume.usd.toString()}" : "-",
+        highest24h: marketData.high24H.usd != null ? "\$${marketData.high24H.usd.toString()}" : "-",
+        lowest24h: marketData.low24H.usd != null ? "\$${marketData.low24H.usd.toString()}" : "-",
+        allTimeHigh: marketData.ath.usd != null ? "\$${marketData.ath.usd.toString()}" : "-",
+        sinceAllTimeHigh: marketData.athChangePercentage.usd != null ? "%${marketData.athChangePercentage.usd.toString()}" : "-",
+        allTimeHighDate: DateHelper.shared.formatDate(dateTime: marketData.athDate.usd),
+        allTimeLowDate: DateHelper.shared.formatDate(dateTime: marketData.atlDate.usd),
+        allTimeLow: marketData.atl.usd != null ? marketData.atl.usd.toString() : "-",
+        sinceAllTimeLow: marketData.atlChangePercentage.usd != null ? "%${marketData.atlChangePercentage.usd.toString()}" : "-",
+        homePageUrl: links.homepage.first,
+        imageUrl: image.large,
+        description: parsedDescription);
   }
 }
 
