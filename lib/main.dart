@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
 
 import 'core/navigation/services/navigation_service.dart';
@@ -22,7 +23,7 @@ void main() async {
   setupGetIt();
   await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
-  runApp(MyApp2());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
-        home: HomePage(),
+        home: AlertListScreen(),
       );
     });
   }

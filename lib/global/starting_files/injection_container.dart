@@ -1,3 +1,5 @@
+import 'package:coin_dino/screen_alert_list/viewmodels/screen_alert_view_model.dart';
+
 import '../../screen_detail/viewmodels/detail_screen_view_model.dart';
 import '../../screen_home/cyrpto_currency_screen/wiew_model/cyrpyo_currency_viewmodel.dart';
 import '../../screen_search/viewmodels/search_screen_view_model.dart';
@@ -61,6 +63,10 @@ void _setUpAlertFeature() {
 
   getit.registerLazySingleton<AlertExceptionHandler>(
       () => AlertExceptionHandler());
+
+
+  getit.registerLazySingleton<ScreenAlertViewModel>(
+      () => ScreenAlertViewModel(alertRepository: getit()));
 }
 
 void _setUpMarketFeature() {
