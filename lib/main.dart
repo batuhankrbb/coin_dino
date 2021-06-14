@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
+import 'package:coin_dino/screen_alert/alert_list_screen.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import 'package:coin_dino/screen_search/search_screen.dart';
+import 'package:coin_dino/screen_search/search_screen_main.dart';
+import 'package:coin_dino/screen_settings/settings_screen.dart';
 
 import 'core/navigation/services/navigation_service.dart';
 import 'core/navigation/services/router_service.dart';
@@ -34,45 +37,59 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (context) {
-      return MaterialApp(
-        navigatorKey: NavigationService.shared.navigatorKey,
-        onGenerateRoute: RouterService.generateCustomRoute,
-        theme: appSettingsViewModel.themeData,
-        home: AlertListScreen(),
-      );
-    });
-  }
-}
-
-//*
-class HomePage extends StatelessWidget {
-  final AppSettingsViewModel appSettingsViewModel =
-      getit.get<AppSettingsViewModel>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: PercentageChip(
-          percentage: 0.153214,
-        ),
-      ),
+    return Observer(
+      builder: (context) {
+        return MaterialApp(
+          navigatorKey: NavigationService.shared.navigatorKey,
+          onGenerateRoute: RouterService.generateCustomRoute,
+          theme: appSettingsViewModel.themeData,
+          home: HomePage(),
+        );
+      },
     );
   }
 }
 
-class MyApp2 extends StatelessWidget {
-  const MyApp2({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedIndex = 0;
+  final List<Widget> _children = [
+    //HomePage(),
+    Container(color: Colors.blue[200]),
+    Container(color: Colors.green[200]),
+    Container(color: Colors.yellow[200]),
+    //SettingsScreen()
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: MaterialExtensions.lightModeTheme,
-      darkTheme: MaterialExtensions.darkModeTheme,
-      home: Scaffold(
-        body: Center(child: OnboardScreen()),
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: "Settings"),
+        ],
+        onTap: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+      ),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: _children[selectedIndex],
       ),
     );
   }

@@ -2,7 +2,8 @@ import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/state_result_builder.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_alert_list/viewmodels/screen_alert_view_model.dart';
+import 'package:coin_dino/screen_alert/viewmodels/screen_alert_view_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
