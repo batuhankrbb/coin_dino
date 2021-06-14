@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import 'package:coin_dino/screen_settings/settings_screen.dart';
+import 'package:coin_dino/tab_view.dart';
 
 import 'core/navigation/services/navigation_service.dart';
 import 'core/navigation/services/router_service.dart';
@@ -22,12 +24,17 @@ void main() async {
   setupGetIt();
   await launchApp();
   await getit.get<AppSettingsViewModel>().setUpSettings();
-  runApp(MyApp2());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
 
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   final AppSettingsViewModel appSettingsViewModel =
       getit.get<AppSettingsViewModel>();
 
@@ -38,7 +45,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: NavigationService.shared.navigatorKey,
         onGenerateRoute: RouterService.generateCustomRoute,
         theme: appSettingsViewModel.themeData,
-        home: HomePage(),
+        home: TabBarViewWidget()
       );
     });
   }
@@ -71,7 +78,7 @@ class MyApp2 extends StatelessWidget {
       theme: MaterialExtensions.lightModeTheme,
       darkTheme: MaterialExtensions.darkModeTheme,
       home: Scaffold(
-        body: Center(child: OnboardScreen()),
+        body: Center(child: SettingsScreen()),
       ),
     );
   }

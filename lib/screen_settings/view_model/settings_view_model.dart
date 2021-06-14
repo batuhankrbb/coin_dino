@@ -30,7 +30,6 @@ abstract class _SettingsViewModelBase with Store {
   @action
   Future<void> getThemePreference() async {
     var themePreferenceResult = await preferenceRepository.getThemePreference();
-
     themePreferenceResult.when(success: (data) {
       themePreference = StateResult.completed(data);
     }, failure: (failure) {
