@@ -1,3 +1,7 @@
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+
 import '../features/search/domain/entity/search_trend_entity.dart';
 import '../global/components/app_bar_components.dart';
 import '../global/components/state_result_builder.dart';
@@ -21,7 +25,6 @@ class _TrendsScreenState extends State<TrendsScreen> {
   @override
   void initState() {
     super.initState();
-    
   }
 
   @override
@@ -44,7 +47,13 @@ class _TrendsScreenState extends State<TrendsScreen> {
             return ListView.builder(
               itemBuilder: (context, index) {
                 return TrendCell(
-                    searchTrendCoinEntity: data.coinEntityList[index]);
+                  searchTrendCoinEntity: data.coinEntityList[index],
+                  onTap: () {
+                    NavigationService.shared.navigateTo(
+                        NavigationRoute.toDetails(CoinDetailScreen(
+                            coinID: data.coinEntityList[index].id)));
+                  },
+                );
               },
               itemCount: data.coinEntityList.length,
             );

@@ -9,103 +9,27 @@ class CoinDetailModel extends BaseNetworkModel {
     required this.id,
     required this.symbol,
     required this.name,
-    required this.assetPlatformId,
-    required this.platforms,
-    required this.blockTimeInMinutes,
-    required this.hashingAlgorithm,
-    required this.categories,
-    required this.publicNotice,
-    required this.additionalNotices,
     required this.description,
     required this.links,
     required this.image,
-    required this.countryOrigin,
-    required this.genesisDate,
-    required this.sentimentVotesUpPercentage,
-    required this.sentimentVotesDownPercentage,
     required this.marketCapRank,
-    required this.coingeckoRank,
-    required this.coingeckoScore,
-    required this.developerScore,
-    required this.communityScore,
-    required this.liquidityScore,
-    required this.publicInterestScore,
     required this.marketData,
-    required this.communityData,
-    required this.developerData,
-    required this.publicInterestStats,
-    required this.statusUpdates,
     required this.lastUpdated,
-    required this.tickers,
   });
 
   final String id;
   final String symbol;
   final String name;
-  final dynamic assetPlatformId;
-  final Platforms platforms;
-  final int blockTimeInMinutes;
-  final String hashingAlgorithm;
-  final List<String> categories;
-  final dynamic publicNotice;
-  final List<dynamic> additionalNotices;
   final Description description;
   final Links links;
   final Image image;
-  final String countryOrigin;
-  final DateTime genesisDate;
-  final num sentimentVotesUpPercentage;
-  final num sentimentVotesDownPercentage;
-  final num marketCapRank;
-  final num coingeckoRank;
-  final num coingeckoScore;
-  final num developerScore;
-  final num communityScore;
-  final num liquidityScore;
-  final num publicInterestScore;
-  final MarketData marketData;
-  final CommunityData communityData;
-  final DeveloperData developerData;
-  final PublicInterestStats publicInterestStats;
-  final List<dynamic> statusUpdates;
-  final DateTime lastUpdated;
-  final List<Ticker> tickers;
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "symbol": symbol,
-        "name": name,
-        "asset_platform_id": assetPlatformId,
-        "platforms": platforms.toJson(),
-        "block_time_in_minutes": blockTimeInMinutes,
-        "hashing_algorithm": hashingAlgorithm,
-        "categories": List<dynamic>.from(categories.map((x) => x)),
-        "public_notice": publicNotice,
-        "additional_notices":
-            List<dynamic>.from(additionalNotices.map((x) => x)),
-        "description": description.toJson(),
-        "links": links.toJson(),
-        "image": image.toJson(),
-        "country_origin": countryOrigin,
-        "genesis_date":
-            "${genesisDate.year.toString().padLeft(4, '0')}-${genesisDate.month.toString().padLeft(2, '0')}-${genesisDate.day.toString().padLeft(2, '0')}",
-        "sentiment_votes_up_percentage": sentimentVotesUpPercentage,
-        "sentiment_votes_down_percentage": sentimentVotesDownPercentage,
-        "market_cap_rank": marketCapRank,
-        "coingecko_rank": coingeckoRank,
-        "coingecko_score": coingeckoScore,
-        "developer_score": developerScore,
-        "community_score": communityScore,
-        "liquidity_score": liquidityScore,
-        "public_interest_score": publicInterestScore,
-        "market_data": marketData.toJson(),
-        "community_data": communityData.toJson(),
-        "developer_data": developerData.toJson(),
-        "public_interest_stats": publicInterestStats.toJson(),
-        "status_updates": List<dynamic>.from(statusUpdates.map((x) => x)),
-        "last_updated": lastUpdated.toIso8601String(),
-        "tickers": List<dynamic>.from(tickers.map((x) => x.toJson())),
-      };
+  final num? marketCapRank;
+
+  final MarketData marketData;
+  final DateTime? lastUpdated;
+
+  Map<String, dynamic> toJson() => {};
 
   @override
   fromJson(Map<String, dynamic> json) {
@@ -113,37 +37,12 @@ class CoinDetailModel extends BaseNetworkModel {
       id: json["id"],
       symbol: json["symbol"],
       name: json["name"],
-      assetPlatformId: json["asset_platform_id"],
-      platforms: Platforms.fromJson(json["platforms"]),
-      blockTimeInMinutes: json["block_time_in_minutes"],
-      hashingAlgorithm: json["hashing_algorithm"],
-      categories: List<String>.from(json["categories"].map((x) => x)),
-      publicNotice: json["public_notice"],
-      additionalNotices:
-          List<dynamic>.from(json["additional_notices"].map((x) => x)),
       description: Description.fromJson(json["description"]),
       links: Links.fromJson(json["links"]),
       image: Image.fromJson(json["image"]),
-      countryOrigin: json["country_origin"],
-      genesisDate: DateTime.parse(json["genesis_date"]),
-      sentimentVotesUpPercentage: json["sentiment_votes_up_percentage"],
-      sentimentVotesDownPercentage: json["sentiment_votes_down_percentage"],
       marketCapRank: json["market_cap_rank"],
-      coingeckoRank: json["coingecko_rank"],
-      coingeckoScore: json["coingecko_score"],
-      developerScore: json["developer_score"],
-      communityScore: json["community_score"],
-      liquidityScore: json["liquidity_score"],
-      publicInterestScore: json["public_interest_score"],
       marketData: MarketData.fromJson(json["market_data"]),
-      communityData: CommunityData.fromJson(json["community_data"]),
-      developerData: DeveloperData.fromJson(json["developer_data"]),
-      publicInterestStats:
-          PublicInterestStats.fromJson(json["public_interest_stats"]),
-      statusUpdates: List<dynamic>.from(json["status_updates"].map((x) => x)),
       lastUpdated: DateTime.parse(json["last_updated"]),
-      tickers:
-          List<Ticker>.from(json["tickers"].map((x) => Ticker.fromJson(x))),
     );
   }
 
@@ -164,17 +63,36 @@ class CoinDetailModel extends BaseNetworkModel {
         availableSuppy: marketData.circulatingSupply.toString(),
         totalSupply: marketData.totalSupply.toString(),
         priceChange24h: marketData.priceChange24H,
-        marketCap: marketData.marketCap.usd != null ? "\$${marketData.marketCap.usd.toString()}" : "-",
-        marketCapRank: marketData.marketCapRank != null ? marketData.marketCapRank.toString() : "-",
-        tradingVolume: marketData.totalVolume.usd != null ? "\$${marketData.totalVolume.usd.toString()}" : "-",
-        highest24h: marketData.high24H.usd != null ? "\$${marketData.high24H.usd.toString()}" : "-",
-        lowest24h: marketData.low24H.usd != null ? "\$${marketData.low24H.usd.toString()}" : "-",
-        allTimeHigh: marketData.ath.usd != null ? "\$${marketData.ath.usd.toString()}" : "-",
-        sinceAllTimeHigh: marketData.athChangePercentage.usd != null ? "%${marketData.athChangePercentage.usd.toString()}" : "-",
-        allTimeHighDate: DateHelper.shared.formatDate(dateTime: marketData.athDate.usd),
-        allTimeLowDate: DateHelper.shared.formatDate(dateTime: marketData.atlDate.usd),
-        allTimeLow: marketData.atl.usd != null ? marketData.atl.usd.toString() : "-",
-        sinceAllTimeLow: marketData.atlChangePercentage.usd != null ? "%${marketData.atlChangePercentage.usd.toString()}" : "-",
+        marketCap: marketData.marketCap.usd != null
+            ? "\$${marketData.marketCap.usd.toString()}"
+            : "-",
+        marketCapRank: marketData.marketCapRank != null
+            ? marketData.marketCapRank.toString()
+            : "-",
+        tradingVolume: marketData.totalVolume.usd != null
+            ? "\$${marketData.totalVolume.usd.toString()}"
+            : "-",
+        highest24h: marketData.high24H.usd != null
+            ? "\$${marketData.high24H.usd.toString()}"
+            : "-",
+        lowest24h: marketData.low24H.usd != null
+            ? "\$${marketData.low24H.usd.toString()}"
+            : "-",
+        allTimeHigh: marketData.ath.usd != null
+            ? "\$${marketData.ath.usd.toString()}"
+            : "-",
+        sinceAllTimeHigh: marketData.athChangePercentage.usd != null
+            ? "%${marketData.athChangePercentage.usd.toString()}"
+            : "-",
+        allTimeHighDate:
+            DateHelper.shared.formatDate(dateTime: marketData.athDate.usd),
+        allTimeLowDate:
+            DateHelper.shared.formatDate(dateTime: marketData.atlDate.usd),
+        allTimeLow:
+            marketData.atl.usd != null ? marketData.atl.usd.toString() : "-",
+        sinceAllTimeLow: marketData.atlChangePercentage.usd != null
+            ? "%${marketData.atlChangePercentage.usd.toString()}"
+            : "-",
         homePageUrl: links.homepage.first,
         imageUrl: image.large,
         description: parsedDescription);
@@ -358,12 +276,12 @@ class Links {
   final List<String> officialForumUrl;
   final List<String> chatUrl;
   final List<String> announcementUrl;
-  final String twitterScreenName;
-  final String facebookUsername;
-  final dynamic bitcointalkThreadIdentifier;
-  final String telegramChannelIdentifier;
-  final String subredditUrl;
-  final ReposUrl reposUrl;
+  final String? twitterScreenName;
+  final String? facebookUsername;
+  final dynamic? bitcointalkThreadIdentifier;
+  final String? telegramChannelIdentifier;
+  final String? subredditUrl;
+  final ReposUrl? reposUrl;
 
   factory Links.fromJson(Map<String, dynamic> json) => Links(
         homepage: List<String>.from(json["homepage"].map((x) => x)),
@@ -394,7 +312,7 @@ class Links {
         "bitcointalk_thread_identifier": bitcointalkThreadIdentifier,
         "telegram_channel_identifier": telegramChannelIdentifier,
         "subreddit_url": subredditUrl,
-        "repos_url": reposUrl.toJson(),
+        "repos_url": "",
       };
 }
 
@@ -404,18 +322,13 @@ class ReposUrl {
     required this.bitbucket,
   });
 
-  final List<String> github;
-  final List<dynamic> bitbucket;
+  final List<String>? github;
+  final List<dynamic>? bitbucket;
 
   factory ReposUrl.fromJson(Map<String, dynamic> json) => ReposUrl(
         github: List<String>.from(json["github"].map((x) => x)),
         bitbucket: List<dynamic>.from(json["bitbucket"].map((x) => x)),
       );
-
-  Map<String, dynamic> toJson() => {
-        "github": List<dynamic>.from(github.map((x) => x)),
-        "bitbucket": List<dynamic>.from(bitbucket.map((x) => x)),
-      };
 }
 
 class MarketData {
@@ -1128,152 +1041,6 @@ class Date {
         "bits": bits.toIso8601String(),
         "link": link.toIso8601String(),
         "sats": sats.toIso8601String(),
-      };
-}
-
-class Platforms {
-  Platforms({
-    required this.empty,
-  });
-
-  final String empty;
-
-  factory Platforms.fromJson(Map<String, dynamic> json) => Platforms(
-        empty: json[""],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "": empty,
-      };
-}
-
-class PublicInterestStats {
-  PublicInterestStats({
-    required this.alexaRank,
-    required this.bingMatches,
-  });
-
-  final num alexaRank;
-  final dynamic bingMatches;
-
-  factory PublicInterestStats.fromJson(Map<String, dynamic> json) =>
-      PublicInterestStats(
-        alexaRank: json["alexa_rank"],
-        bingMatches: json["bing_matches"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "alexa_rank": alexaRank,
-        "bing_matches": bingMatches,
-      };
-}
-
-class Ticker {
-  Ticker({
-    required this.base,
-    required this.target,
-    required this.market,
-    required this.last,
-    required this.volume,
-    required this.convertedLast,
-    required this.convertedVolume,
-    required this.trustScore,
-    required this.bidAskSpreadPercentage,
-    required this.timestamp,
-    required this.lastTradedAt,
-    required this.lastFetchAt,
-    required this.isAnomaly,
-    required this.isStale,
-    required this.tradeUrl,
-    required this.tokenInfoUrl,
-    required this.coinId,
-    required this.targetCoinId,
-  });
-
-  final String base;
-  final String target;
-  final Market market;
-  final num last;
-  final num volume;
-  final Converted convertedLast;
-  final Converted convertedVolume;
-  final String trustScore;
-  final num bidAskSpreadPercentage;
-  final DateTime timestamp;
-  final DateTime lastTradedAt;
-  final DateTime lastFetchAt;
-  final bool isAnomaly;
-  final bool isStale;
-  final String? tradeUrl;
-  final dynamic tokenInfoUrl;
-  final String coinId;
-  final String? targetCoinId;
-
-  factory Ticker.fromJson(Map<String, dynamic> json) => Ticker(
-        base: json["base"],
-        target: json["target"],
-        market: Market.fromJson(json["market"]),
-        last: json["last"],
-        volume: json["volume"],
-        convertedLast: Converted.fromJson(json["converted_last"]),
-        convertedVolume: Converted.fromJson(json["converted_volume"]),
-        trustScore: json["trust_score"],
-        bidAskSpreadPercentage: json["bid_ask_spread_percentage"],
-        timestamp: DateTime.parse(json["timestamp"]),
-        lastTradedAt: DateTime.parse(json["last_traded_at"]),
-        lastFetchAt: DateTime.parse(json["last_fetch_at"]),
-        isAnomaly: json["is_anomaly"],
-        isStale: json["is_stale"],
-        tradeUrl: json["trade_url"] == null ? null : json["trade_url"],
-        tokenInfoUrl: json["token_info_url"],
-        coinId: json["coin_id"],
-        targetCoinId:
-            json["target_coin_id"] == null ? null : json["target_coin_id"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "base": base,
-        "target": target,
-        "market": market.toJson(),
-        "last": last,
-        "volume": volume,
-        "converted_last": convertedLast.toJson(),
-        "converted_volume": convertedVolume.toJson(),
-        "trust_score": trustScore,
-        "bid_ask_spread_percentage": bidAskSpreadPercentage,
-        "timestamp": timestamp.toIso8601String(),
-        "last_traded_at": lastTradedAt.toIso8601String(),
-        "last_fetch_at": lastFetchAt.toIso8601String(),
-        "is_anomaly": isAnomaly,
-        "is_stale": isStale,
-        "trade_url": tradeUrl,
-        "token_info_url": tokenInfoUrl,
-        "coin_id": coinId,
-        "target_coin_id": targetCoinId,
-      };
-}
-
-class Converted {
-  Converted({
-    required this.btc,
-    required this.eth,
-    required this.usd,
-  });
-
-  final num btc;
-  final num eth;
-  final num usd;
-
-  factory Converted.fromJson(Map<String, dynamic> json) => Converted(
-        btc: json["btc"],
-        eth: json["eth"],
-        usd: json["usd"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "btc": btc,
-        "eth": eth,
-        "usd": usd,
       };
 }
 

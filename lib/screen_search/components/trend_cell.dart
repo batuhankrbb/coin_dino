@@ -7,41 +7,49 @@ import '../../global/components/custom_autosize_text.dart';
 import 'package:flutter/material.dart';
 
 class TrendCell extends StatelessWidget {
-  TrendCell({Key? key, required this.searchTrendCoinEntity}) : super(key: key);
+  TrendCell(
+      {Key? key, required this.searchTrendCoinEntity, required this.onTap})
+      : super(key: key);
 
   final SearchTrendCoinEntity searchTrendCoinEntity;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return InformerWidget(onPageBuild: (context, screenInfo) {
-      return Container(
-        width: screenInfo.screenSize.width * 0.8,
-        height: screenInfo.screenSize.height * 0.08,
-        padding: EdgeInsets.symmetric(vertical: 6),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 12,
-              child: buildCoinImage(),
+    return GestureDetector(
+      onTap: onTap,
+      child: InformerWidget(
+        onPageBuild: (context, screenInfo) {
+          return Container(
+            width: screenInfo.screenSize.width * 0.8,
+            height: screenInfo.screenSize.height * 0.08,
+            padding: EdgeInsets.symmetric(vertical: 6),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 12,
+                  child: buildCoinImage(),
+                ),
+                Spacer(
+                  flex: 4,
+                ),
+                Expanded(
+                  flex: 44,
+                  child: buildCoinText(),
+                ),
+                Spacer(
+                  flex: 4,
+                ),
+                Expanded(
+                  flex: 31,
+                  child: buildCoinPrice(),
+                ),
+              ],
             ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 44,
-              child: buildCoinText(),
-            ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 31,
-              child: buildCoinPrice(),
-            ),
-          ],
-        ),
-      );
-    });
+          );
+        },
+      ),
+    );
   }
 
   Widget buildCoinImage() {

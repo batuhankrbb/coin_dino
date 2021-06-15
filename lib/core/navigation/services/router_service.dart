@@ -7,11 +7,11 @@ class RouterService {
   static Route<dynamic> generateCustomRoute(RouteSettings settings) {
     NavigationRoute route = settings.arguments as NavigationRoute;
 
-    return route.when(
-      toSelectionPage: (page) {
-        return _convertToRoute(page);
-      },
-    );
+    return route.when(toSelectionPage: (page) {
+      return _convertToRoute(page);
+    }, toDetails: (page) {
+      return _convertToRoute(page);
+    });
   }
 
   static CupertinoPageRoute _convertToRoute(Widget page) {

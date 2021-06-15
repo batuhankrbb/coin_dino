@@ -1,3 +1,7 @@
+import 'package:coin_dino/screen_home/homepage_screen.dart';
+import 'package:coin_dino/screen_search/search_screen.dart';
+import 'package:coin_dino/screen_search/search_screen_main.dart';
+import 'package:coin_dino/screen_settings/settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -48,41 +52,57 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int selectedIndex = 0;
-  final List<Widget> _children = [
-    //HomePage(),
-    Container(color: Colors.blue[200]),
-    Container(color: Colors.green[200]),
-    Container(color: Colors.yellow[200]),
-    //SettingsScreen()
-  ];
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController tabController;
 
   @override
   void initState() {
     super.initState();
+    tabController = TabController(length: 3, vsync: this);
+    tabController.addListener(() {
+      if (!tabController.indexIsChanging) {
+        print("change");
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Settings"),
-        ],
-        onTap: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
+      bottomNavigationBar: SafeArea(
+        child: TabBar(
+          controller: tabController,
+          tabs: [
+            Tab(
+              child: Icon(
+                Icons.home,
+                color: Colors.black,
+              ),
+            ),
+            Tab(
+              child: Icon(
+                Icons.search,
+                color: Colors.black,
+              ),
+            ),
+            Tab(
+              child: Icon(
+                Icons.settings,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
       ),
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: _children[selectedIndex],
+      body: TabBarView(
+        controller: tabController,
+        children: [
+          HomePageScreen(),
+          SearchScreenMain(),
+          SettingsScreen(),
+        ],
       ),
     );
   }

@@ -10,13 +10,14 @@ import 'package:flutter/material.dart';
 import '../search_screen_main.dart';
 
 class SearchCell extends StatelessWidget {
-  SearchCell({Key? key, required this.searchCoinEntity}) : super(key: key);
+  SearchCell({Key? key, required this.searchCoinEntity, required this.onTap}) : super(key: key);
 
   final SearchCoinEntity searchCoinEntity;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return InformerWidget(onPageBuild: (context, screenInfo) {
+    return GestureDetector(onTap: onTap,child: InformerWidget(onPageBuild: (context, screenInfo) {
       return Container(
         width: screenInfo.screenSize.width * 0.8,
         height: screenInfo.screenSize.height * 0.08,
@@ -44,7 +45,7 @@ class SearchCell extends StatelessWidget {
           ],
         ),
       );
-    });
+    },),);
   }
 
   Widget buildCoinImage() {

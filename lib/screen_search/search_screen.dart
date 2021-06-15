@@ -1,3 +1,7 @@
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+
 import '../features/search/domain/entity/search_coin_entity.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';
@@ -69,7 +73,14 @@ class _SearchScreenState extends State<SearchScreen> {
           completedWidget: (data) {
             return ListView.builder(
               itemBuilder: (context, index) {
-                return SearchCell(searchCoinEntity: data[index]);
+                return SearchCell(
+                  searchCoinEntity: data[index],
+                  onTap: () {
+                    NavigationService.shared.navigateTo(
+                        NavigationRoute.toDetails(
+                            CoinDetailScreen(coinID: data[index].id)));
+                  },
+                );
               },
               itemCount: data.length,
             );
