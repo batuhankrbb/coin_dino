@@ -1,3 +1,5 @@
+import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+
 class CoinDetailEntity {
   final String id;
   final String symbol;
@@ -55,4 +57,13 @@ class CoinDetailEntity {
       required this.homePageUrl,
       required this.imageUrl,
       required this.description});
+
+  AlertEntity toAlertEntity() {
+    return AlertEntity(
+        coindID: id,
+        name: name,
+        image: imageUrl,
+        targetPrice: price.toDouble(),
+        price: price.toDouble());
+  }
 }

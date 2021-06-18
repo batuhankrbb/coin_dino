@@ -1,4 +1,7 @@
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -25,6 +28,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     with SingleTickerProviderStateMixin {
   var _detailViewModel = getit.get<DetailScreenViewModel>();
   late TabController _tabController;
+  CoinDetailEntity? detailEntity;
 
   @override
   void initState() {
@@ -46,6 +50,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
           child: StateResultBuilder<CoinDetailEntity>(
             stateResult: _detailViewModel.coinDetailResult,
             completedWidget: (data) {
+              detailEntity = data;
               return TabBarView(
                 controller: _tabController,
                 children: [
@@ -172,11 +177,15 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     );
   }
 
-  AppBar buildAppBar(
-      {required String? coinTitle,
-      required String? coinImageURL,
-      required String? coinPrice}) {
+  AppBar buildAppBar({
+    required String? coinTitle,
+    required String? coinImageURL,
+    required String? coinPrice,
+  }) {
     return AppBar(
+      actions: [
+        buildActions(),
+      ],
       title: Row(
         children: [
           Flexible(
@@ -204,6 +213,29 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
       ),
       centerTitle: false,
     );
+  }
+
+  Widget buildActions() {
+    if (detailEntity != null) {
+      return Padding(
+        padding: EdgeInsets.only(right: 12),
+        child: IconButton(
+          icon: Icon(
+            Icons.alarm,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            NavigationService.shared
+                .navigateTo(NavigationRoute.toAlert(AlertDetailScreen(
+              isUpdate: false,
+              alertEntity: detailEntity!.toAlertEntity(),
+            )));
+          },
+        ),
+      );
+    } else {
+      return SizedBox();
+    }
   }
 }
 

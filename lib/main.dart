@@ -42,16 +42,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          home: AlertDetailScreen(
-            alertEntity: AlertEntity(
-                coindID: "bitcoin",
-                name: "Bitcoin",
-                image:
-                    "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-                targetPrice: 50.00,
-                price: 35.00),
-            isUpdate: false,
-          ),
+          home: HomePage(),
         );
       },
     );
