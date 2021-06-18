@@ -1,3 +1,5 @@
+import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:coin_dino/screen_home/homepage_screen.dart';
 import 'package:coin_dino/screen_search/search_screen.dart';
 import 'package:coin_dino/screen_search/search_screen_main.dart';
@@ -40,7 +42,16 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          home: HomePage(),
+          home: AlertDetailScreen(
+            alertEntity: AlertEntity(
+                coindID: "bitcoin",
+                name: "Bitcoin",
+                image:
+                    "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+                targetPrice: 50.00,
+                price: 35.00),
+            isUpdate: false,
+          ),
         );
       },
     );
