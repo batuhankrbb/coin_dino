@@ -13,6 +13,8 @@ class RouterService {
       return _convertToRoute(page);
     }, toAlert: (page) {
       return _convertToRoute(page);
+    },toAlertList:  (page) {
+      return _convertToRoute(page);
     });
   }
 

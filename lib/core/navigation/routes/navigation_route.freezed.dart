@@ -33,6 +33,12 @@ class _$NavigationRouteTearOff {
       alertDetailScreen,
     );
   }
+
+  RouteAlertListPage toAlertList(AlertListScreen alertListScreen) {
+    return RouteAlertListPage(
+      alertListScreen,
+    );
+  }
 }
 
 /// @nodoc
@@ -45,6 +51,7 @@ mixin _$NavigationRoute {
     required TResult Function(SelectionPage selectionPage) toSelectionPage,
     required TResult Function(CoinDetailScreen detailScreen) toDetails,
     required TResult Function(AlertDetailScreen alertDetailScreen) toAlert,
+    required TResult Function(AlertListScreen alertListScreen) toAlertList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +59,7 @@ mixin _$NavigationRoute {
     TResult Function(SelectionPage selectionPage)? toSelectionPage,
     TResult Function(CoinDetailScreen detailScreen)? toDetails,
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
+    TResult Function(AlertListScreen alertListScreen)? toAlertList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +68,7 @@ mixin _$NavigationRoute {
     required TResult Function(RouteSelectionPage value) toSelectionPage,
     required TResult Function(RouteDetailsPage value) toDetails,
     required TResult Function(RouteAlertPage value) toAlert,
+    required TResult Function(RouteAlertListPage value) toAlertList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +76,7 @@ mixin _$NavigationRoute {
     TResult Function(RouteSelectionPage value)? toSelectionPage,
     TResult Function(RouteDetailsPage value)? toDetails,
     TResult Function(RouteAlertPage value)? toAlert,
+    TResult Function(RouteAlertListPage value)? toAlertList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,6 +168,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     required TResult Function(SelectionPage selectionPage) toSelectionPage,
     required TResult Function(CoinDetailScreen detailScreen) toDetails,
     required TResult Function(AlertDetailScreen alertDetailScreen) toAlert,
+    required TResult Function(AlertListScreen alertListScreen) toAlertList,
   }) {
     return toSelectionPage(selectionPage);
   }
@@ -168,6 +179,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     TResult Function(SelectionPage selectionPage)? toSelectionPage,
     TResult Function(CoinDetailScreen detailScreen)? toDetails,
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
+    TResult Function(AlertListScreen alertListScreen)? toAlertList,
     required TResult orElse(),
   }) {
     if (toSelectionPage != null) {
@@ -182,6 +194,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     required TResult Function(RouteSelectionPage value) toSelectionPage,
     required TResult Function(RouteDetailsPage value) toDetails,
     required TResult Function(RouteAlertPage value) toAlert,
+    required TResult Function(RouteAlertListPage value) toAlertList,
   }) {
     return toSelectionPage(this);
   }
@@ -192,6 +205,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     TResult Function(RouteSelectionPage value)? toSelectionPage,
     TResult Function(RouteDetailsPage value)? toDetails,
     TResult Function(RouteAlertPage value)? toAlert,
+    TResult Function(RouteAlertListPage value)? toAlertList,
     required TResult orElse(),
   }) {
     if (toSelectionPage != null) {
@@ -280,6 +294,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     required TResult Function(SelectionPage selectionPage) toSelectionPage,
     required TResult Function(CoinDetailScreen detailScreen) toDetails,
     required TResult Function(AlertDetailScreen alertDetailScreen) toAlert,
+    required TResult Function(AlertListScreen alertListScreen) toAlertList,
   }) {
     return toDetails(detailScreen);
   }
@@ -290,6 +305,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     TResult Function(SelectionPage selectionPage)? toSelectionPage,
     TResult Function(CoinDetailScreen detailScreen)? toDetails,
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
+    TResult Function(AlertListScreen alertListScreen)? toAlertList,
     required TResult orElse(),
   }) {
     if (toDetails != null) {
@@ -304,6 +320,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     required TResult Function(RouteSelectionPage value) toSelectionPage,
     required TResult Function(RouteDetailsPage value) toDetails,
     required TResult Function(RouteAlertPage value) toAlert,
+    required TResult Function(RouteAlertListPage value) toAlertList,
   }) {
     return toDetails(this);
   }
@@ -314,6 +331,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     TResult Function(RouteSelectionPage value)? toSelectionPage,
     TResult Function(RouteDetailsPage value)? toDetails,
     TResult Function(RouteAlertPage value)? toAlert,
+    TResult Function(RouteAlertListPage value)? toAlertList,
     required TResult orElse(),
   }) {
     if (toDetails != null) {
@@ -403,6 +421,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     required TResult Function(SelectionPage selectionPage) toSelectionPage,
     required TResult Function(CoinDetailScreen detailScreen) toDetails,
     required TResult Function(AlertDetailScreen alertDetailScreen) toAlert,
+    required TResult Function(AlertListScreen alertListScreen) toAlertList,
   }) {
     return toAlert(alertDetailScreen);
   }
@@ -413,6 +432,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     TResult Function(SelectionPage selectionPage)? toSelectionPage,
     TResult Function(CoinDetailScreen detailScreen)? toDetails,
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
+    TResult Function(AlertListScreen alertListScreen)? toAlertList,
     required TResult orElse(),
   }) {
     if (toAlert != null) {
@@ -427,6 +447,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     required TResult Function(RouteSelectionPage value) toSelectionPage,
     required TResult Function(RouteDetailsPage value) toDetails,
     required TResult Function(RouteAlertPage value) toAlert,
+    required TResult Function(RouteAlertListPage value) toAlertList,
   }) {
     return toAlert(this);
   }
@@ -437,6 +458,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     TResult Function(RouteSelectionPage value)? toSelectionPage,
     TResult Function(RouteDetailsPage value)? toDetails,
     TResult Function(RouteAlertPage value)? toAlert,
+    TResult Function(RouteAlertListPage value)? toAlertList,
     required TResult orElse(),
   }) {
     if (toAlert != null) {
@@ -453,5 +475,132 @@ abstract class RouteAlertPage implements NavigationRoute {
   AlertDetailScreen get alertDetailScreen => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RouteAlertPageCopyWith<RouteAlertPage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RouteAlertListPageCopyWith<$Res> {
+  factory $RouteAlertListPageCopyWith(
+          RouteAlertListPage value, $Res Function(RouteAlertListPage) then) =
+      _$RouteAlertListPageCopyWithImpl<$Res>;
+  $Res call({AlertListScreen alertListScreen});
+}
+
+/// @nodoc
+class _$RouteAlertListPageCopyWithImpl<$Res>
+    extends _$NavigationRouteCopyWithImpl<$Res>
+    implements $RouteAlertListPageCopyWith<$Res> {
+  _$RouteAlertListPageCopyWithImpl(
+      RouteAlertListPage _value, $Res Function(RouteAlertListPage) _then)
+      : super(_value, (v) => _then(v as RouteAlertListPage));
+
+  @override
+  RouteAlertListPage get _value => super._value as RouteAlertListPage;
+
+  @override
+  $Res call({
+    Object? alertListScreen = freezed,
+  }) {
+    return _then(RouteAlertListPage(
+      alertListScreen == freezed
+          ? _value.alertListScreen
+          : alertListScreen // ignore: cast_nullable_to_non_nullable
+              as AlertListScreen,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RouteAlertListPage implements RouteAlertListPage {
+  const _$RouteAlertListPage(this.alertListScreen);
+
+  @override
+  final AlertListScreen alertListScreen;
+
+  @override
+  String toString() {
+    return 'NavigationRoute.toAlertList(alertListScreen: $alertListScreen)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is RouteAlertListPage &&
+            (identical(other.alertListScreen, alertListScreen) ||
+                const DeepCollectionEquality()
+                    .equals(other.alertListScreen, alertListScreen)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(alertListScreen);
+
+  @JsonKey(ignore: true)
+  @override
+  $RouteAlertListPageCopyWith<RouteAlertListPage> get copyWith =>
+      _$RouteAlertListPageCopyWithImpl<RouteAlertListPage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SelectionPage selectionPage) toSelectionPage,
+    required TResult Function(CoinDetailScreen detailScreen) toDetails,
+    required TResult Function(AlertDetailScreen alertDetailScreen) toAlert,
+    required TResult Function(AlertListScreen alertListScreen) toAlertList,
+  }) {
+    return toAlertList(alertListScreen);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SelectionPage selectionPage)? toSelectionPage,
+    TResult Function(CoinDetailScreen detailScreen)? toDetails,
+    TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
+    TResult Function(AlertListScreen alertListScreen)? toAlertList,
+    required TResult orElse(),
+  }) {
+    if (toAlertList != null) {
+      return toAlertList(alertListScreen);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RouteSelectionPage value) toSelectionPage,
+    required TResult Function(RouteDetailsPage value) toDetails,
+    required TResult Function(RouteAlertPage value) toAlert,
+    required TResult Function(RouteAlertListPage value) toAlertList,
+  }) {
+    return toAlertList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RouteSelectionPage value)? toSelectionPage,
+    TResult Function(RouteDetailsPage value)? toDetails,
+    TResult Function(RouteAlertPage value)? toAlert,
+    TResult Function(RouteAlertListPage value)? toAlertList,
+    required TResult orElse(),
+  }) {
+    if (toAlertList != null) {
+      return toAlertList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RouteAlertListPage implements NavigationRoute {
+  const factory RouteAlertListPage(AlertListScreen alertListScreen) =
+      _$RouteAlertListPage;
+
+  AlertListScreen get alertListScreen => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RouteAlertListPageCopyWith<RouteAlertListPage> get copyWith =>
       throw _privateConstructorUsedError;
 }

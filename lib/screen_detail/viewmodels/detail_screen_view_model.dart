@@ -22,11 +22,11 @@ abstract class _DetailScreenViewModelBase with Store {
   StateResult<CoinChartEntity> coinChartResult = StateResult.initial();
 
   @observable
-  String appBarTitle = "Details";
+  String appBarTitle = "";
   @observable
-  String? appbarCoinImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579";
+  String? appbarCoinImage = "";
   @observable
-  String appBarCoinPrice = "0";
+  String appBarCoinPrice = "";
 
   @action
   Future<void> getCoinDetails(String coinID) async {

@@ -62,11 +62,6 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
     tabController = TabController(length: 3, vsync: this);
-    tabController.addListener(() {
-      if (!tabController.indexIsChanging) {
-        print("change");
-      }
-    });
   }
 
   @override

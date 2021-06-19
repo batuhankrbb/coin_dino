@@ -70,31 +70,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       children: [
         buildStateResultForTheme(),
         buildStateResultForLanguage(),
-        buildStateResultForBaseCurrency(),
       ],
     );
   }
 
-  Widget buildStateResultForBaseCurrency() {
-    return Observer(builder: (_) {
-      return StateResultBuilder<String>(
-          stateResult: settingsViewModel.baseCurrencyPreference,
-          completedWidget: (data) {
-            return SettingFormRowWidget(
-                leading: SettingsIcon(iconData: Icons.money),
-                title: "Currency",
-                subTitle: "Base currency for the application",
-                trailing: Icon(Icons.chevron_right),
-                onTap: () async {
-                  await baseCurrencyOnTap(data);
-                });
-          },
-          loadingWidget: CupertinoActivityIndicator(),
-          failureWidget: (failure) {
-            return SizedBox();
-          });
-    });
-  }
 
   Widget buildStateResultForLanguage() {
     return Observer(
@@ -205,21 +184,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     )));
   }
 
-  Future<void> baseCurrencyOnTap(String data) async {
-    var allCurrencies = await settingsViewModel.getAllBaseCurrencies();
-    NavigationService.shared
-        .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
-      dataList: allCurrencies,
-      title: "Currencies",
-      isListingActive: false,
-      isCapitalActive: true,
-      selectedIndex: allCurrencies.indexOf(data),
-      onSelect: (value) {
-          print("value: $value");
-        settingsViewModel.setBaseCurrencyPreference(allCurrencies[value]);
-      },
-    )));
-  }
 }
 
 class SettingsFormHeader extends StatelessWidget {

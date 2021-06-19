@@ -53,45 +53,45 @@ class CoinDetailModel extends BaseNetworkModel {
         id: id,
         symbol: symbol,
         name: name,
-        price: marketData.currentPrice.usd ?? 0,
-        priceChange14dTable: marketData.priceChangePercentage14D,
-        priceChange1yTable: marketData.priceChangePercentage1Y,
-        priceChange24hTable: marketData.priceChangePercentage24H,
-        priceChange30dTable: marketData.priceChangePercentage30D,
-        priceChange60dTable: marketData.priceChangePercentage60D,
-        priceChange7dTable: marketData.priceChangePercentage7D,
+        price: marketData.currentPrice?.usd ?? 0,
+        priceChange14dTable: marketData.priceChangePercentage14D ?? 0,
+        priceChange1yTable: marketData.priceChangePercentage1Y ?? 0,
+        priceChange24hTable: marketData.priceChangePercentage24H ?? 0,
+        priceChange30dTable: marketData.priceChangePercentage30D ?? 0,
+        priceChange60dTable: marketData.priceChangePercentage60D ?? 0,
+        priceChange7dTable: marketData.priceChangePercentage7D ?? 0,
         availableSuppy: marketData.circulatingSupply.toString(),
         totalSupply: marketData.totalSupply.toString(),
-        priceChange24h: marketData.priceChange24H,
-        marketCap: marketData.marketCap.usd != null
-            ? "\$${marketData.marketCap.usd.toString()}"
+        priceChange24h: marketData.priceChange24H ?? 0,
+        marketCap: marketData.marketCap?.usd != null
+            ? "\$${marketData.marketCap!.usd.toString()}"
             : "-",
         marketCapRank: marketData.marketCapRank != null
             ? marketData.marketCapRank.toString()
             : "-",
-        tradingVolume: marketData.totalVolume.usd != null
-            ? "\$${marketData.totalVolume.usd.toString()}"
+        tradingVolume: marketData.totalVolume?.usd != null
+            ? "\$${marketData.totalVolume!.usd.toString()}"
             : "-",
-        highest24h: marketData.high24H.usd != null
-            ? "\$${marketData.high24H.usd.toString()}"
+        highest24h: marketData.high24H?.usd != null
+            ? "\$${marketData.high24H!.usd.toString()}"
             : "-",
-        lowest24h: marketData.low24H.usd != null
-            ? "\$${marketData.low24H.usd.toString()}"
+        lowest24h: marketData.low24H?.usd != null
+            ? "\$${marketData.low24H!.usd.toString()}"
             : "-",
-        allTimeHigh: marketData.ath.usd != null
-            ? "\$${marketData.ath.usd.toString()}"
+        allTimeHigh: marketData.ath?.usd != null
+            ? "\$${marketData.ath!.usd.toString()}"
             : "-",
-        sinceAllTimeHigh: marketData.athChangePercentage.usd != null
-            ? "%${marketData.athChangePercentage.usd.toString()}"
+        sinceAllTimeHigh: marketData.athChangePercentage?.usd != null
+            ? "%${marketData.athChangePercentage!.usd.toString()}"
             : "-",
         allTimeHighDate:
-            DateHelper.shared.formatDate(dateTime: marketData.athDate.usd),
+            DateHelper.shared.formatDate(dateTime: marketData.athDate!.usd),
         allTimeLowDate:
-            DateHelper.shared.formatDate(dateTime: marketData.atlDate.usd),
+            DateHelper.shared.formatDate(dateTime: marketData.atlDate!.usd),
         allTimeLow:
-            marketData.atl.usd != null ? marketData.atl.usd.toString() : "-",
-        sinceAllTimeLow: marketData.atlChangePercentage.usd != null
-            ? "%${marketData.atlChangePercentage.usd.toString()}"
+            marketData.atl?.usd != null ? marketData.atl!.usd.toString() : "-",
+        sinceAllTimeLow: marketData.atlChangePercentage?.usd != null
+            ? "%${marketData.atlChangePercentage?.usd.toString()}"
             : "-",
         homePageUrl: links.homepage.first,
         imageUrl: image.large,
@@ -377,47 +377,47 @@ class MarketData {
     required this.lastUpdated,
   });
 
-  final Ath currentPrice;
-  final dynamic totalValueLocked;
-  final dynamic mcapToTvlRatio;
-  final dynamic fdvToTvlRatio;
-  final dynamic roi;
-  final Ath ath;
-  final Ath athChangePercentage;
-  final Date athDate;
-  final Ath atl;
-  final Ath atlChangePercentage;
-  final Date atlDate;
-  final Ath marketCap;
-  final num marketCapRank;
-  final Ath fullyDilutedValuation;
-  final Ath totalVolume;
-  final Ath high24H;
-  final Ath low24H;
-  final num priceChange24H;
-  final num priceChangePercentage24H;
-  final num priceChangePercentage7D;
-  final num priceChangePercentage14D;
-  final num priceChangePercentage30D;
-  final num priceChangePercentage60D;
-  final num priceChangePercentage200D;
-  final num priceChangePercentage1Y;
-  final num marketCapChange24H;
-  final num marketCapChangePercentage24H;
-  final Ath priceChange24HInCurrency;
-  final Ath priceChangePercentage1HInCurrency;
-  final Ath priceChangePercentage24HInCurrency;
-  final Ath priceChangePercentage7DInCurrency;
-  final Ath priceChangePercentage14DInCurrency;
-  final Ath priceChangePercentage30DInCurrency;
-  final Ath priceChangePercentage60DInCurrency;
-  final Ath priceChangePercentage200DInCurrency;
-  final Ath priceChangePercentage1YInCurrency;
-  final Ath marketCapChange24HInCurrency;
-  final Ath marketCapChangePercentage24HInCurrency;
-  final num totalSupply;
-  final num maxSupply;
-  final num circulatingSupply;
+  final Ath? currentPrice;
+  final dynamic? totalValueLocked;
+  final dynamic? mcapToTvlRatio;
+  final dynamic? fdvToTvlRatio;
+  final dynamic? roi;
+  final Ath ?ath;
+  final Ath ?athChangePercentage;
+  final Date? athDate;
+  final Ath ?atl;
+  final Ath ?atlChangePercentage;
+  final Date? atlDate;
+  final Ath ?marketCap;
+  final num ?marketCapRank;
+  final Ath ?fullyDilutedValuation;
+  final Ath ?totalVolume;
+  final Ath ?high24H;
+  final Ath ?low24H;
+  final num ?priceChange24H;
+  final num ?priceChangePercentage24H;
+  final num ?priceChangePercentage7D;
+  final num ?priceChangePercentage14D;
+  final num ?priceChangePercentage30D;
+  final num ?priceChangePercentage60D;
+  final num ?priceChangePercentage200D;
+  final num ?priceChangePercentage1Y;
+  final num ?marketCapChange24H;
+  final num ?marketCapChangePercentage24H;
+  final Ath ?priceChange24HInCurrency;
+  final Ath ?priceChangePercentage1HInCurrency;
+  final Ath ?priceChangePercentage24HInCurrency;
+  final Ath ?priceChangePercentage7DInCurrency;
+  final Ath ?priceChangePercentage14DInCurrency;
+  final Ath ?priceChangePercentage30DInCurrency;
+  final Ath ?priceChangePercentage60DInCurrency;
+  final Ath ?priceChangePercentage200DInCurrency;
+  final Ath ?priceChangePercentage1YInCurrency;
+  final Ath ?marketCapChange24HInCurrency;
+  final Ath ?marketCapChangePercentage24HInCurrency;
+  final num ?totalSupply;
+  final num ?maxSupply;
+  final num ?circulatingSupply;
   final DateTime lastUpdated;
 
   factory MarketData.fromJson(Map<String, dynamic> json) => MarketData(
@@ -470,66 +470,13 @@ class MarketData {
             Ath.fromJson(json["market_cap_change_24h_in_currency"]),
         marketCapChangePercentage24HInCurrency:
             Ath.fromJson(json["market_cap_change_percentage_24h_in_currency"]),
-        totalSupply: json["total_supply"],
+        totalSupply: json["total_supply"] ,
         maxSupply: json["max_supply"],
         circulatingSupply: json["circulating_supply"],
         lastUpdated: DateTime.parse(json["last_updated"]),
       );
 
-  Map<String, dynamic> toJson() => {
-        "current_price": currentPrice.toJson(),
-        "total_value_locked": totalValueLocked,
-        "mcap_to_tvl_ratio": mcapToTvlRatio,
-        "fdv_to_tvl_ratio": fdvToTvlRatio,
-        "roi": roi,
-        "ath": ath.toJson(),
-        "ath_change_percentage": athChangePercentage.toJson(),
-        "ath_date": athDate.toJson(),
-        "atl": atl.toJson(),
-        "atl_change_percentage": atlChangePercentage.toJson(),
-        "atl_date": atlDate.toJson(),
-        "market_cap": marketCap.toJson(),
-        "market_cap_rank": marketCapRank,
-        "fully_diluted_valuation": fullyDilutedValuation.toJson(),
-        "total_volume": totalVolume.toJson(),
-        "high_24h": high24H.toJson(),
-        "low_24h": low24H.toJson(),
-        "price_change_24h": priceChange24H,
-        "price_change_percentage_24h": priceChangePercentage24H,
-        "price_change_percentage_7d": priceChangePercentage7D,
-        "price_change_percentage_14d": priceChangePercentage14D,
-        "price_change_percentage_30d": priceChangePercentage30D,
-        "price_change_percentage_60d": priceChangePercentage60D,
-        "price_change_percentage_200d": priceChangePercentage200D,
-        "price_change_percentage_1y": priceChangePercentage1Y,
-        "market_cap_change_24h": marketCapChange24H,
-        "market_cap_change_percentage_24h": marketCapChangePercentage24H,
-        "price_change_24h_in_currency": priceChange24HInCurrency.toJson(),
-        "price_change_percentage_1h_in_currency":
-            priceChangePercentage1HInCurrency.toJson(),
-        "price_change_percentage_24h_in_currency":
-            priceChangePercentage24HInCurrency.toJson(),
-        "price_change_percentage_7d_in_currency":
-            priceChangePercentage7DInCurrency.toJson(),
-        "price_change_percentage_14d_in_currency":
-            priceChangePercentage14DInCurrency.toJson(),
-        "price_change_percentage_30d_in_currency":
-            priceChangePercentage30DInCurrency.toJson(),
-        "price_change_percentage_60d_in_currency":
-            priceChangePercentage60DInCurrency.toJson(),
-        "price_change_percentage_200d_in_currency":
-            priceChangePercentage200DInCurrency.toJson(),
-        "price_change_percentage_1y_in_currency":
-            priceChangePercentage1YInCurrency.toJson(),
-        "market_cap_change_24h_in_currency":
-            marketCapChange24HInCurrency.toJson(),
-        "market_cap_change_percentage_24h_in_currency":
-            marketCapChangePercentage24HInCurrency.toJson(),
-        "total_supply": totalSupply,
-        "max_supply": maxSupply,
-        "circulating_supply": circulatingSupply,
-        "last_updated": lastUpdated.toIso8601String(),
-      };
+
 }
 
 class Ath {

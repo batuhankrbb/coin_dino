@@ -1,3 +1,6 @@
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/screen_alert/alert_list_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../global/components/app_bar_components.dart';
@@ -23,7 +26,19 @@ class _HomePageScreenState extends State<HomePageScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appbarComponent(
-          title: "Coin Track", bottom: homePageTabBarItemMethod()),
+        title: "Coin Track",
+        bottom: homePageTabBarItemMethod(),
+        leading: IconButton(
+          icon: Icon(
+            Icons.alarm,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            NavigationService.shared
+                .navigateTo(NavigationRoute.toAlertList(AlertListScreen()));
+          },
+        ),
+      ),
       body: homepageTabBarViewMethod(),
     );
   }

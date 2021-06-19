@@ -1,4 +1,5 @@
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
+import 'package:coin_dino/screen_alert/alert_list_screen.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
 
 import '../../../global/components/selection_page/selection_page.dart';
@@ -14,6 +15,8 @@ class NavigationRoute with _$NavigationRoute {
       RouteDetailsPage;
   const factory NavigationRoute.toAlert(AlertDetailScreen alertDetailScreen) =
       RouteAlertPage;
+  const factory NavigationRoute.toAlertList(AlertListScreen alertListScreen) =
+      RouteAlertListPage;
 }
 
 extension MultiNavigation on NavigationRoute {
@@ -21,6 +24,7 @@ extension MultiNavigation on NavigationRoute {
     return this.when(
         toSelectionPage: (_) => "selectionPage",
         toDetails: (_) => "detailsPage",
-        toAlert: (_) => "alertPage");
+        toAlert: (_) => "alertPage",
+        toAlertList: (_) => "alertListPage");
   }
 }

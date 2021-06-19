@@ -28,7 +28,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     with SingleTickerProviderStateMixin {
   var _detailViewModel = getit.get<DetailScreenViewModel>();
   late TabController _tabController;
-  CoinDetailEntity? detailEntity;
 
   @override
   void initState() {
@@ -50,7 +49,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
           child: StateResultBuilder<CoinDetailEntity>(
             stateResult: _detailViewModel.coinDetailResult,
             completedWidget: (data) {
-              detailEntity = data;
               return TabBarView(
                 controller: _tabController,
                 children: [
@@ -216,45 +214,34 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
   }
 
   Widget buildActions() {
-    if (detailEntity != null) {
-      return Padding(
-        padding: EdgeInsets.only(right: 12),
-        child: IconButton(
-          icon: Icon(
-            Icons.alarm,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            NavigationService.shared
-                .navigateTo(NavigationRoute.toAlert(AlertDetailScreen(
-              isUpdate: false,
-              alertEntity: detailEntity!.toAlertEntity(),
-            )));
+    return Observer(
+      builder: (context) {
+        return StateResultBuilder<CoinDetailEntity>(
+          stateResult: _detailViewModel.coinDetailResult,
+          completedWidget: (data) {
+            return Padding(
+              padding: EdgeInsets.only(right: 12),
+              child: IconButton(
+                icon: Icon(
+                  Icons.add_alarm,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  NavigationService.shared
+                      .navigateTo(NavigationRoute.toAlert(AlertDetailScreen(
+                    isUpdate: false,
+                    alertEntity: data.toAlertEntity(),
+                  )));
+                },
+              ),
+            );
           },
-        ),
-      );
-    } else {
-      return SizedBox();
-    }
+          failureWidget: (_) {
+            return SizedBox();
+          },
+          loadingWidget: SizedBox(),
+        );
+      },
+    );
   }
 }
-
-/*
- TabBar(
-        controller: _tabController,
-        tabs: [
-          Tab(
-            child: Text(
-              "Price Chart",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-          Tab(
-            child: Text(
-              "Info",
-              style: TextStyle(color: Colors.black),
-            ),
-          )
-        ],
-      ),
-*/
