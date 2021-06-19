@@ -1,6 +1,7 @@
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:coin_dino/screen_home/homepage_screen.dart';
+import 'package:coin_dino/screen_home_new/home_screen_new.dart';
 import 'package:coin_dino/screen_search/search_screen.dart';
 import 'package:coin_dino/screen_search/search_screen_main.dart';
 import 'package:coin_dino/screen_settings/settings_screen.dart';
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          home: HomePage(),
+          home: HomeScreenNew(),
         );
       },
     );
