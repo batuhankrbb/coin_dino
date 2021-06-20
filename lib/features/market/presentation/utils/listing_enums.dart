@@ -1,5 +1,5 @@
 
-enum MarketDate { hour1, hour24, day1, day7, day30 }
+enum MarketDate { hour1, hour24, day7, day30 }
 
 extension rawExtensionMarketDate on MarketDate {
   String get rawValue {
@@ -8,12 +8,23 @@ extension rawExtensionMarketDate on MarketDate {
         return "1h";
       case MarketDate.hour24:
         return "24h";
-      case MarketDate.day1:
-         return "1d";
       case MarketDate.day7:
         return "7d";
       case MarketDate.day30:
         return "30d";
+    }
+  }
+
+  String get displayValue{
+    switch (this){
+      case MarketDate.hour1:
+        return "1H";
+      case MarketDate.hour24:
+        return "24H";
+      case MarketDate.day7:
+        return "7D";
+      case MarketDate.day30:
+        return "30D";
     }
   }
 }
@@ -48,6 +59,27 @@ extension rawExtensionMarketSort on MarketSort {
         return "volume_asc";
         case MarketSort.volume_desc:
         return "volume_desc";
+    }
+  }
+
+  String get displayValue{
+    switch (this){
+      case MarketSort.gecko_asc:
+        return "GECKO ASC";
+      case MarketSort.gecko_desc:
+        return "GECKO DESC";
+      case MarketSort.id_asc:
+         return "ID ASC";
+      case MarketSort.id_desc:
+        return "ID DESC";
+      case MarketSort.market_cap_asc:
+        return "MARKET CAP ASC";
+        case MarketSort.market_cap_desc:
+        return "MARKET CAP DESC";
+        case MarketSort.volume_asc:
+        return "VOLUME ASC";
+        case MarketSort.volume_desc:
+        return "VOLUME DESC";
     }
   }
 }

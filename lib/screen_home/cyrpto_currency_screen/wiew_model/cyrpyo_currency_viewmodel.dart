@@ -19,7 +19,7 @@ abstract class _CyrptoCurrencyViewModelBase with Store {
   _CyrptoCurrencyViewModelBase({required this.imarketCoinRepository});
 
   @observable
-  MarketDate marketDate = MarketDate.day1;
+  MarketDate marketDate = MarketDate.hour1;
 
   @observable
   MarketSort marketSort = MarketSort.market_cap_desc;
