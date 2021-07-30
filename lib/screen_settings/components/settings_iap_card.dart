@@ -1,4 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import '../../screen_in_app_purchase/inapp_purchase_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +16,11 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
       onPageBuild: (context, screenInformation) {
         return GestureDetector(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => InAppPurchase(),
-                ));
+            NavigationService.shared.navigateTo(
+              NavigationRoute.toInAppPurchase(
+                InAppPurchase(),
+              ),
+            );
           },
           child: Container(
             width: screenInformation.screenSize.width * 0.98,
@@ -39,13 +41,12 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AutoSizeText("Reklamları Kaldır",
+                      AutoSizeText("Remove ads",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 15)),
-                      AutoSizeText(
-                          "Reklamları kaldırar bize destek olabilirsiniz. Bizde sizler için uygulamayı geliştirmek için elimizden geleni yaparız.",
+                      AutoSizeText("For a better experience.",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.normal)),

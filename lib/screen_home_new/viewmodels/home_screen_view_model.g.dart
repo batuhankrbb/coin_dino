@@ -39,6 +39,14 @@ mixin _$HomeScreenViewModel on _HomeScreenViewModelBase, Store {
     });
   }
 
+  final _$getCoinListAsyncAction =
+      AsyncAction('_HomeScreenViewModelBase.getCoinList');
+
+  @override
+  Future<void> getCoinList() {
+    return _$getCoinListAsyncAction.run(() => super.getCoinList());
+  }
+
   @override
   String toString() {
     return '''

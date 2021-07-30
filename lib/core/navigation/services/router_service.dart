@@ -13,7 +13,9 @@ class RouterService {
       return _convertToRoute(page);
     }, toAlert: (page) {
       return _convertToRoute(page);
-    },toAlertList:  (page) {
+    }, toAlertList: (page) {
+      return _convertToRoute(page);
+    }, toInAppPurchase: (page) {
       return _convertToRoute(page);
     });
   }

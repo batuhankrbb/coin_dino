@@ -5,6 +5,7 @@ import 'package:coin_dino/screen_home_new/home_screen_new.dart';
 import 'package:coin_dino/screen_search/search_screen.dart';
 import 'package:coin_dino/screen_search/search_screen_main.dart';
 import 'package:coin_dino/screen_settings/settings_screen.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -19,9 +20,9 @@ import 'global/starting_files/launch_app.dart';
 void main() async {
   await HiveHelper.shared.setUpHive();
   setupGetIt();
-  await launchApp();
-  await getit.get<AppSettingsViewModel>().setUpSettings();
-  runApp(MyApp());
+  await launchApp(); //* sets up base options
+  await getit.get<AppSettingsViewModel>().setUpSettings(); //* sets up theme options.
+  runApp(DevicePreview(builder: (_) => MyApp(),));
 }
 
 class MyApp extends StatefulWidget {
@@ -43,7 +44,9 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          home: HomeScreenNew(),
+          builder: DevicePreview.appBuilder,
+          locale: DevicePreview.locale(context),
+          home: SettingsScreen(),
         );
       },
     );

@@ -1,6 +1,7 @@
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:coin_dino/screen_alert/alert_list_screen.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import 'package:coin_dino/screen_in_app_purchase/inapp_purchase_screen.dart';
 
 import '../../../global/components/selection_page/selection_page.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -17,14 +18,18 @@ class NavigationRoute with _$NavigationRoute {
       RouteAlertPage;
   const factory NavigationRoute.toAlertList(AlertListScreen alertListScreen) =
       RouteAlertListPage;
+  const factory NavigationRoute.toInAppPurchase(
+      InAppPurchase inAppPurchaseScreen) = RouteInAppPurchase;
 }
 
 extension MultiNavigation on NavigationRoute {
   String get rawValue {
     return this.when(
-        toSelectionPage: (_) => "selectionPage",
-        toDetails: (_) => "detailsPage",
-        toAlert: (_) => "alertPage",
-        toAlertList: (_) => "alertListPage");
+      toSelectionPage: (_) => "selectionPage",
+      toDetails: (_) => "detailsPage",
+      toAlert: (_) => "alertPage",
+      toAlertList: (_) => "alertListPage",
+      toInAppPurchase: (_) => "inAppPurchasePage"
+    );
   }
 }
