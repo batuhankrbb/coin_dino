@@ -21,8 +21,12 @@ void main() async {
   await HiveHelper.shared.setUpHive();
   setupGetIt();
   await launchApp(); //* sets up base options
-  await getit.get<AppSettingsViewModel>().setUpSettings(); //* sets up theme options.
-  runApp(DevicePreview(builder: (_) => MyApp(),));
+  await getit
+      .get<AppSettingsViewModel>()
+      .setUpSettings(); //* sets up theme options.
+  runApp(DevicePreview(
+    builder: (_) => MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -46,7 +50,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           theme: appSettingsViewModel.themeData,
           builder: DevicePreview.appBuilder,
           locale: DevicePreview.locale(context),
-          home: SettingsScreen(),
+          home: SearchScreenMain(),
         );
       },
     );

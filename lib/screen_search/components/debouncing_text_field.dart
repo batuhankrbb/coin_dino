@@ -16,11 +16,11 @@ class DebouncingTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 4),
+      margin: EdgeInsets.symmetric(vertical: 4),
       child: CupertinoTextField(
         controller: textEditingController,
         prefix: Container(
-          padding: EdgeInsets.all(8),
+          margin: EdgeInsets.all(8),
           child: Icon(Icons.search),
         ),
         onChanged: (value) {
@@ -29,7 +29,7 @@ class DebouncingTextField extends StatelessWidget {
           }
           _debounce = Timer(Duration(milliseconds: 500), () {
             onChange(value);
-          }); 
+          });
         },
       ),
     );

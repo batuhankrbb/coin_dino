@@ -12,6 +12,7 @@ class PercentageChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return InformerWidget(onPageBuild: (context, screenInfo) {
       return Container(
+        padding: EdgeInsets.all(2),
         width: screenInfo.screenSize.width * 0.13,
         height: screenInfo.screenSize.height * 0.08,
         alignment: Alignment.center,

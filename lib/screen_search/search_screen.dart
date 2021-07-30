@@ -38,7 +38,7 @@ class _SearchScreenState extends State<SearchScreen> {
           flex: 2,
         ),
         Expanded(
-          flex: 4,
+          flex: 6,
           child: buildTextField(),
         ),
         Spacer(

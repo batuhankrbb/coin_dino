@@ -10,46 +10,53 @@ import 'package:flutter/material.dart';
 import '../search_screen_main.dart';
 
 class SearchCell extends StatelessWidget {
-  SearchCell({Key? key, required this.searchCoinEntity, required this.onTap}) : super(key: key);
+  SearchCell({Key? key, required this.searchCoinEntity, required this.onTap})
+      : super(key: key);
 
   final SearchCoinEntity searchCoinEntity;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: onTap,child: InformerWidget(onPageBuild: (context, screenInfo) {
-      return Container(
-        width: screenInfo.screenSize.width * 0.8,
-        height: screenInfo.screenSize.height * 0.08,
-        padding: EdgeInsets.symmetric(vertical: 6),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 15,
-              child: buildCoinImage(),
+    return GestureDetector(
+      onTap: onTap,
+      child: InformerWidget(
+        onPageBuild: (context, screenInfo) {
+          return Container(
+            width: screenInfo.screenSize.width * 0.8,
+            height: screenInfo.screenSize.height * 0.09,
+            padding: EdgeInsets.symmetric(vertical: 6),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 15,
+                  child: buildCoinImage(),
+                ),
+                Spacer(
+                  flex: 4,
+                ),
+                Expanded(
+                  flex: 44,
+                  child: buildCoinText(),
+                ),
+                Spacer(
+                  flex: 4,
+                ),
+                Expanded(
+                  flex: 31,
+                  child: buildCoinPrice(),
+                ),
+              ],
             ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 44,
-              child: buildCoinText(),
-            ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 31,
-              child: buildCoinPrice(),
-            ),
-          ],
-        ),
-      );
-    },),);
+          );
+        },
+      ),
+    );
   }
 
   Widget buildCoinImage() {
-    return Padding(
+    return Container(
       padding: EdgeInsets.all(4),
       child: CashedNetworkImageWidget(
         imageURL: searchCoinEntity.imageUrl,
@@ -62,15 +69,19 @@ class SearchCell extends StatelessWidget {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
+          Flexible(
+            flex: 10,
             child: CustomAutoSizeText(
               text:
                   NumberHelper.shared.fixNum(searchCoinEntity.currentPrice, 5),
               textStyle: TextStyle(color: Colors.black, fontSize: 15),
             ),
           ),
-          Expanded(
+          Spacer(),
+          Flexible(
+            flex: 8,
             child: PercentageChip(
               percentage: searchCoinEntity.priceChangePercentage24h ?? 0,
             ),
@@ -85,15 +96,16 @@ class SearchCell extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
-          flex: 1,
+        Flexible(
+          flex: 5,
           child: CustomAutoSizeText(
             text: searchCoinEntity.name,
             textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
-        Expanded(
-          flex: 2,
+        Spacer(),
+        Flexible(
+          flex: 5,
           child: CustomAutoSizeText(
             text: searchCoinEntity.symbol.toUpperCase(),
             textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),

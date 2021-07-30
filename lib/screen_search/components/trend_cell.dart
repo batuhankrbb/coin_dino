@@ -22,13 +22,13 @@ class TrendCell extends StatelessWidget {
         onPageBuild: (context, screenInfo) {
           return Container(
             width: screenInfo.screenSize.width * 0.8,
-            height: screenInfo.screenSize.height * 0.08,
+            height: screenInfo.screenSize.height * 0.1,
             padding: EdgeInsets.symmetric(vertical: 6),
             child: Row(
               children: [
                 Expanded(
                   flex: 12,
-                  child: buildCoinImage(),
+                  child: buildCoinImage(context),
                 ),
                 Spacer(
                   flex: 4,
@@ -52,11 +52,11 @@ class TrendCell extends StatelessWidget {
     );
   }
 
-  Widget buildCoinImage() {
+  Widget buildCoinImage(BuildContext context) {
     return Container(
       child: CashedNetworkImageWidget(
         imageURL: searchTrendCoinEntity.largeImage,
-        imageHeigth: 100,
+        imageHeigth: MediaQuery.of(context).size.height * 0.1,
       ),
     );
   }
@@ -64,13 +64,14 @@ class TrendCell extends StatelessWidget {
   Container buildCoinPrice() {
     return Container(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(
             child: CustomAutoSizeText(
               text:
                   NumberHelper.shared.fixNum(searchTrendCoinEntity.btcPrice, 5),
-              textStyle: TextStyle(color: Colors.black, fontSize: 15),
+              textStyle: TextStyle(color: Colors.black, fontSize: 18),
             ),
           ),
         ],
@@ -83,18 +84,19 @@ class TrendCell extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
-          flex: 2,
+        Flexible(
+          flex: 6,
           child: CustomAutoSizeText(
             text: searchTrendCoinEntity.name,
-            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ),
-        Expanded(
-          flex: 4,
+        Spacer(),
+        Flexible(
+          flex: 12,
           child: CustomAutoSizeText(
             text: searchTrendCoinEntity.symbol.toUpperCase(),
-            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
           ),
         )
       ],

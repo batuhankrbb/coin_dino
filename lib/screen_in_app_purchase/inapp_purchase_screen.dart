@@ -65,6 +65,7 @@ class InappPurchaseTextWidget extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
+            flex: 15,
             child: AutoSizeText(
               "We know that ads are annoying. Aren't they?",
               maxLines: 2,
@@ -76,7 +77,9 @@ class InappPurchaseTextWidget extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
+          Spacer(),
           Expanded(
+            flex: 15,
             child: AutoSizeText(
               "You can both remove all the ads on the app permanently and support us with 1\$",
               textAlign: TextAlign.center,
