@@ -1,7 +1,10 @@
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
+import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
 import 'package:coin_dino/screen_home/homepage_screen.dart';
 import 'package:coin_dino/screen_home_new/home_screen_new.dart';
+import 'package:coin_dino/screen_in_app_purchase/inapp_purchase_screen.dart';
+import 'package:coin_dino/screen_onboard/onboard_screen.dart';
 import 'package:coin_dino/screen_search/search_screen.dart';
 import 'package:coin_dino/screen_search/search_screen_main.dart';
 import 'package:coin_dino/screen_settings/settings_screen.dart';
@@ -50,7 +53,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           theme: appSettingsViewModel.themeData,
           builder: DevicePreview.appBuilder,
           locale: DevicePreview.locale(context),
-          home: SearchScreenMain(),
+          home: CoinDetailScreen(coinID: "bitcoin"),
         );
       },
     );

@@ -15,7 +15,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import '../global/components/app_bar_components.dart';
 
 class SearchScreenMain extends StatefulWidget {
-  //TODO SEARCH_SCREEN VE TRENDS_SCREEN İÇİN INITIAL + FAILURE VIEWLERI YAPILACAK
+
   SearchScreenMain({Key? key}) : super(key: key);
 
   @override

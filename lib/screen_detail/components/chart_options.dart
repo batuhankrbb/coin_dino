@@ -87,7 +87,7 @@ class ChartOptionCell extends StatelessWidget {
           color: isSelected ? Colors.green[400] : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
         ),
-        margin: EdgeInsets.all(8),
+        margin: EdgeInsets.all(6),
         alignment: Alignment.center,
         child: AutoSizeText(
           value.name,

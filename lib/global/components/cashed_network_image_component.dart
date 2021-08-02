@@ -20,7 +20,7 @@ class CashedNetworkImageWidget extends StatelessWidget {
       width: imageWidth ?? 25,
       height: imageHeigth ?? 25,
       placeholder: (context, url) => CupertinoActivityIndicator(),
-      errorWidget: (context, uri, dynamic) => Icon(Icons.error),
+      errorWidget: (context, uri, dynamic) => CupertinoActivityIndicator(),
     );
   }
 }

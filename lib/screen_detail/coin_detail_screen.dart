@@ -1,6 +1,7 @@
 import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:coin_dino/global/components/failure_widget.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -58,7 +59,10 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
               );
             },
             failureWidget: (failure) {
-              return Text("failure");
+              return FailureWidget(onTryAgain: () {
+                _detailViewModel.getCoinDetails(widget.coinID);
+                _detailViewModel.getCharts(coinID: widget.coinID, days: "7");
+              });
             },
           ),
         ),
@@ -103,31 +107,58 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
   Column buildInformations(CoinDetailEntity data) {
     return Column(
       children: [
-        CoinDetailInformationRowWidget(
-            title: "MARKET CAP RANK", price: data.marketCapRank),
-        CoinDetailInformationRowWidget(
-            title: "MARKET CAP", price: data.marketCap),
-        CoinDetailInformationRowWidget(
-            title: "TRADING VOLUME", price: data.tradingVolume),
-        CoinDetailInformationRowWidget(
-            title: "24H HIGH", price: data.highest24h),
-        CoinDetailInformationRowWidget(title: "24H LOW", price: data.lowest24h),
-        CoinDetailInformationRowWidget(
-            title: "AVAILABLE SUPPLY", price: data.availableSuppy),
-        CoinDetailInformationRowWidget(
-            title: "TOTAL SUPPLY", price: data.totalSupply),
-        CoinDetailInformationRowWidget(
-            title: "ALL-TIME HIGH", price: data.allTimeHigh),
-        CoinDetailInformationRowWidget(
-            title: "SINCE ALL-TIME HIGH", price: data.sinceAllTimeHigh),
-        CoinDetailInformationRowWidget(
-            title: "ALL-TIME HIGH DATE", price: data.allTimeHighDate),
-        CoinDetailInformationRowWidget(
-            title: "ALL-TIME LOW", price: data.allTimeLow),
-        CoinDetailInformationRowWidget(
-            title: "SINCE ALL-TIME LOW", price: data.sinceAllTimeLow),
-        CoinDetailInformationRowWidget(
-            title: "ALL-TIME LOW DATE", price: data.allTimeLowDate),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "MARKET CAP RANK", price: data.marketCapRank),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "MARKET CAP", price: data.marketCap),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "TRADING VOLUME", price: data.tradingVolume),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "24H HIGH", price: data.highest24h),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "24H LOW", price: data.lowest24h),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "AVAILABLE SUPPLY", price: data.availableSuppy),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "TOTAL SUPPLY", price: data.totalSupply),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "ALL-TIME HIGH", price: data.allTimeHigh),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "SINCE ALL-TIME HIGH", price: data.sinceAllTimeHigh),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "ALL-TIME HIGH DATE", price: data.allTimeHighDate),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "ALL-TIME LOW", price: data.allTimeLow),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "SINCE ALL-TIME LOW", price: data.sinceAllTimeLow),
+        ),
+        Expanded(
+          child: CoinDetailInformationRowWidget(
+              title: "ALL-TIME LOW DATE", price: data.allTimeLowDate),
+        ),
       ],
     );
   }
@@ -181,6 +212,27 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     required String? coinPrice,
   }) {
     return AppBar(
+      bottom: TabBar(
+        controller: _tabController,
+        tabs: [
+          Tab(
+            icon: Icon(
+              Icons.bar_chart,
+              color: _tabController.index == 0 ? Colors.green : Colors.grey,
+            ),
+          ),
+          Tab(
+            icon: Icon(
+              Icons.info,
+              color: _tabController.index == 1 ? Colors.green : Colors.grey,
+            ),
+          ),
+        ],
+        onTap: (index) {
+          setState(() {});
+        },
+        indicatorColor: Colors.transparent,
+      ),
       actions: [
         buildActions(),
       ],

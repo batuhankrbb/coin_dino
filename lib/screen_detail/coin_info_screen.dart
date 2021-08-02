@@ -24,25 +24,30 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
       onTap: () async {
         await _detailViewModel.openWebPage(widget.data.homePageUrl);
       },
-      child: Container(
-          child: SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(6),
-          height: MediaQuery.of(context).size.height * 1.2,
+          padding: EdgeInsets.symmetric(horizontal: 6),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Spacer(
-                flex: 1,
+              Flexible(
+                flex: 4,
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
               ),
-              Expanded(
-                flex: 3,
+              Flexible(
+                flex: 4,
                 child: buildHomePage(),
               ),
-              Spacer(
-                flex: 3,
+              Flexible(
+                flex: 4,
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                ),
               ),
-              Expanded(
-                flex: 80,
+              Flexible(
+                flex: 60,
                 child: CustomAutoSizeText(
                   text: widget.data.description,
                   textStyle: TextStyle(
@@ -50,11 +55,17 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
                       fontWeight: FontWeight.w400,
                       fontSize: 16),
                 ),
-              )
+              ),
+              Flexible(
+                flex: 4,
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                ),
+              ),
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 
@@ -71,23 +82,29 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
               "Home Page",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 16,
+                  fontSize: 30,
                   fontWeight: FontWeight.w500),
+              maxLines: 1,
             ),
           ),
           Spacer(
             flex: 20,
           ),
           Expanded(
-            flex: 50,
+            flex: 60,
             child: AutoSizeText(
               widget.data.homePageUrl,
+              maxLines: 1,
+              textAlign: TextAlign.end,
               style: TextStyle(
                   color: Colors.green,
                   fontWeight: FontWeight.w500,
-                  fontSize: 15),
+                  fontSize: 20),
             ),
           ),
+          Spacer(
+            flex: 5,
+          )
         ],
       ),
     );

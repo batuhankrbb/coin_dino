@@ -82,7 +82,7 @@ class CoinDetailModel extends BaseNetworkModel {
             ? "\$${marketData.ath!.usd.toString()}"
             : "-",
         sinceAllTimeHigh: marketData.athChangePercentage?.usd != null
-            ? "%${marketData.athChangePercentage!.usd.toString()}"
+            ? "${marketData.athChangePercentage!.usd.toString()}%"
             : "-",
         allTimeHighDate:
             DateHelper.shared.formatDate(dateTime: marketData.athDate!.usd),
@@ -91,7 +91,7 @@ class CoinDetailModel extends BaseNetworkModel {
         allTimeLow:
             marketData.atl?.usd != null ? marketData.atl!.usd.toString() : "-",
         sinceAllTimeLow: marketData.atlChangePercentage?.usd != null
-            ? "%${marketData.atlChangePercentage?.usd.toString()}"
+            ? "${marketData.atlChangePercentage?.usd.toString()}%"
             : "-",
         homePageUrl: links.homepage.first,
         imageUrl: image.large,

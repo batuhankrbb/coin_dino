@@ -33,12 +33,16 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
           Expanded(
               flex: 1,
               child: Container(
+                  padding: EdgeInsets.all(4),
                   alignment: Alignment.center,
                   child: AutoSizeText(
                     NumberHelper.shared.fixNum(tablePrice, 1) + "%",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: tablePrice < 0 ? Colors.red : Colors.green,
-                        fontWeight: FontWeight.w500),
+                      color: tablePrice < 0 ? Colors.red : Colors.green,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    minFontSize: 4,
                     maxLines: 1,
                   ))),
         ],
