@@ -2,15 +2,13 @@
 
 - Settings içini doldurmak ve gerekli servisleri yazmak -- DONE (In App Purchase ve localization kaldı.)
 - Projedeki kötü yazılmış kodları düzeltmek (Özellikle UI Kodları) --ERTELENDİ. SEARCH, DETAY VE ALERT SAYFALARI BİTİNCE BÜYÜK REFACTOR OLACAK
-- Search sayfası yapmak ve tamamen bitirmek
-- Detay sayfası yapmak ve tamamen bitirmek
 - Alert ekleyebileceğimiz bir alert detay sayfası yapmak
 - Alertleri sıralayabileceğimiz, sileceğimiz, düzenleme için alert detay sayfasına atacağımız bir alert liste sayfası yapmak
 - Mainden başlayarak bütün appi birleştirmek navigation ile
 - Projede kötü yazılmış kodları düzeltmek --BÜYÜK REFACTOR
-- Detailde grafik yapmak
 - Main sayfasını kodla birleştirmek ve düzeltmek
 - App arayüzünü tamamen responsive yapmak
+- in app ve reklam eklemek
 - Localization eklemek
 - Temaları eklemek
 - Son testleri yapmak
@@ -21,10 +19,39 @@ Refactor yapılırken yapılacaklar:
 Singleton classlarda erişilebilecek tek şey shared yapılacak ve instance oluşturma engellenecek
 Sayfalar Widgetlara ayrılacak
 Widgetlar metodlara ayrılacak
-Renkler düzenlenecek
+Renkler düzenlenecek temadan alınacak
 
 
-Settings ve Search içindeki error durumlarını kontrol et + kaydırırken loading ekle
---search problemlerini çözücem kaydırdıkça data gelicek - 2 pomodoro
-tıklayınca gelmeme problemlerini falan çözücem  - 2 pomodoro
-settings ve searchde errorları çözücem yani internet yokken gelecek olan widget vb. - 2 pomodoro
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//ÜSTTE YAZILANLAR ÖNEMSİZ, ALTTA GÜN GÜN PLAN VAR. -Batuhan
+
+Salı
+//Detail tıklayınca crash problemi çöz
+//Home sayfasını yap ve kaydırdıkça gelme mantığı olsun
+
+Çarşamba
+//alert ekleme sayfası yap
+//alert listeleme sayfası yap
+//alertlerle ilgili her şeyi bitir
+
+Perşembe
+//Bütün sayfaları birleştir ve tam bir app olsun
+//In app purchase ekle
+//Reklamları ekle
+
+Cuma
+//Allahsız gibi refactor yap bir gün boyunca otur refactor yap app'i (Temalar, UI, Entityler, Servisler, ViewModeller vb. dahil)
+
+Pazar
+//Localization yap (İngilizce, Türkçe)
+//Son testleri yap, gerçek cihazda dene
+//Tekrar refactor yap
+
+Pazartesi
+//Screenshotları ayarla
+//Permissionları ayarla
+//App Store ve Google Play Store'a yükle.
+
+
+
