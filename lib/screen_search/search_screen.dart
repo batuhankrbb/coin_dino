@@ -1,6 +1,9 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/global/components/failure_widget.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../features/search/domain/entity/search_coin_entity.dart';
 import '../global/components/state_result_builder.dart';
@@ -24,10 +27,20 @@ class _SearchScreenState extends State<SearchScreen> {
 
   late TextEditingController textController;
 
+  late ScrollController scrollController;
+
   @override
   void initState() {
     super.initState();
     textController = TextEditingController();
+    scrollController = ScrollController();
+    scrollController.addListener(() {
+      if (scrollController.offset >=
+              scrollController.position.maxScrollExtent &&
+          !scrollController.position.outOfRange) {
+        searchViewModel.getCoinNextPage();
+      }
+    });
   }
 
   @override
@@ -67,23 +80,32 @@ class _SearchScreenState extends State<SearchScreen> {
         return StateResultBuilder<List<SearchCoinEntity>>(
           stateResult: searchViewModel.searchCoinsResult,
           failureWidget: (failure) {
-            return Text("fail");
-          },
-          initialWidget: Text("Burada daha bir şey olmamış"),
-          completedWidget: (data) {
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return SearchCell(
-                  searchCoinEntity: data[index],
-                  onTap: () {
-                    NavigationService.shared.navigateTo(
-                        NavigationRoute.toDetails(
-                            CoinDetailScreen(coinID: data[index].id)));
-                  },
-                );
+            return FailureWidget(
+              onTryAgain: () {
+                print(textController.text);
+                searchViewModel.getSearchCoins(textController.text);
               },
-              itemCount: data.length,
             );
+          },
+          initialWidget: CupertinoActivityIndicator(),
+          completedWidget: (data) {
+            return Observer(builder: (_) {
+              return ListView.builder(
+                controller: scrollController,
+                itemBuilder: (context, index) {
+                  return SearchCell(
+                    searchCoinEntity:
+                        searchViewModel.searchCoinResultToShow[index],
+                    onTap: () {
+                      NavigationService.shared.navigateTo(
+                          NavigationRoute.toDetails(
+                              CoinDetailScreen(coinID: data[index].id)));
+                    },
+                  );
+                },
+                itemCount: searchViewModel.searchCoinResultToShow.length,
+              );
+            });
           },
         );
       },

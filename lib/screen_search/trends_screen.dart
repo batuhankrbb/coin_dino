@@ -1,6 +1,8 @@
 import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/global/components/failure_widget.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../features/search/domain/entity/search_trend_entity.dart';
 import '../global/components/app_bar_components.dart';
@@ -42,25 +44,30 @@ class _TrendsScreenState extends State<TrendsScreen> {
   Widget buildList() {
     return Observer(builder: (context) {
       return StateResultBuilder<SearchTrendEntity>(
-          stateResult: searchViewModel.searchTrendResult,
-          completedWidget: (data) {
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return TrendCell(
-                  searchTrendCoinEntity: data.coinEntityList[index],
-                  onTap: () {
-                    NavigationService.shared.navigateTo(
-                        NavigationRoute.toDetails(CoinDetailScreen(
-                            coinID: data.coinEntityList[index].id)));
-                  },
-                );
-              },
-              itemCount: data.coinEntityList.length,
-            );
-          },
-          failureWidget: (failure) {
-            return Text("failure");
-          });
+        stateResult: searchViewModel.searchTrendResult,
+        completedWidget: (data) {
+          return ListView.builder(
+            itemBuilder: (context, index) {
+              return TrendCell(
+                searchTrendCoinEntity: data.coinEntityList[index],
+                onTap: () {
+                  NavigationService.shared.navigateTo(NavigationRoute.toDetails(
+                      CoinDetailScreen(coinID: data.coinEntityList[index].id)));
+                },
+              );
+            },
+            itemCount: data.coinEntityList.length,
+          );
+        },
+        failureWidget: (failure) {
+          return FailureWidget(
+            onTryAgain: () {
+              searchViewModel.getAllTrends();
+            },
+          );
+        },
+        initialWidget: CupertinoActivityIndicator(),
+      );
     });
   }
 }

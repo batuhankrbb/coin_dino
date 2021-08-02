@@ -21,7 +21,19 @@ abstract class _SearchScreenViewModelBase with Store {
   StateResult<SearchTrendEntity> searchTrendResult = StateResult.initial();
 
   @observable
+  ObservableList<SearchCoinEntity> searchCoinResultToShow = ObservableList();
+
+  @observable
   String appBarText = "Search";
+
+  @observable
+  int currentPage = 1;
+
+  @observable
+  String currentText = "";
+
+  @observable
+  bool isScrolled = false;
 
   @action
   Future<void> getAllTrends() async {
@@ -36,13 +48,31 @@ abstract class _SearchScreenViewModelBase with Store {
 
   @action
   Future<void> getSearchCoins(String text) async {
+    currentPage = 1;
+    currentText = text;
     searchCoinsResult = StateResult.loading();
-    var coins = await searchRepository.getCoinsBySearch(text);
+    var coins = await searchRepository.getCoinsBySearch(text, currentPage);
     coins.when(success: (data) {
       searchCoinsResult = StateResult.completed(data);
+      searchCoinResultToShow.clear();
+      searchCoinResultToShow.addAll(data);
     }, failure: (failure) {
       searchCoinsResult = StateResult.failed(failure);
     });
+  }
+
+  @action
+  Future<void> getCoinNextPage() async {
+    currentPage += 1;
+    isScrolled = true;
+    var coins =
+        await searchRepository.getCoinsBySearch(currentText, currentPage);
+    coins.when(success: (data) {
+      searchCoinResultToShow.addAll(data);
+    }, failure: (failure) {
+      print("olm failure geldi mk");
+    });
+    isScrolled = false;
   }
 
   @action

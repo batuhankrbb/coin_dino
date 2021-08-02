@@ -21,7 +21,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
   const factory CoinGeckoClient.marketChart(
       String id, String vsCurrency, String days, String interval) = MarketChart;
   const factory CoinGeckoClient.searchTrends() = SearchTrends;
-  factory CoinGeckoClient.coinSearch(String text, String vsCurrency) =
+  factory CoinGeckoClient.coinSearch(String text, String vsCurrency,int page) =
       CoinSearch;
   factory CoinGeckoClient.getAlertCoins(
       List<String> coinIds, String vsCurrency) = GetAlertCoins;
@@ -46,7 +46,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
           (String id, String vsCurrency, String days, String interval) =>
               "/coins/$id/market_chart",
       searchTrends: () => "/search/trending",
-      coinSearch: (String text, String vsCurrency) => "/coins/markets",
+      coinSearch: (String text, String vsCurrency,_) => "/coins/markets",
       getAlertCoins: (List<String> coinIds, String vsCurrency) =>
           "/coins/markets");
 
@@ -66,7 +66,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
       marketChart: (_, String vsCurrency, String days, String interval) =>
           "GET",
       searchTrends: () => "GET",
-      coinSearch: (_, x) => "GET",
+      coinSearch: (_, x,y) => "GET",
       getAlertCoins: (List<String> coinIds, String vsCurrency) => "GET");
 
   @override
@@ -96,16 +96,17 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
           "category": category,
           "order": sort,
           "price_change_percentage": date,
-          "per_page": 250
+          "per_page": 100
         },
         marketChart: (_, String vsCurrency, String days, String interval) =>
             {"vs_currency": vsCurrency, "days": days, "interval": interval},
         searchTrends: () => null,
-        coinSearch: (String text, String vsCurrency) => {
+        coinSearch: (String text, String vsCurrency,int page) => {
           "vs_currency": vsCurrency,
           "order": "market_cap_desc",
           "price_change_percentage": "24h",
-          "per_page": 250
+          "page": page,
+          "per_page": 50
         },
         getAlertCoins: (List<String> coinIds, String vsCurrency) =>
             {"vs_currency": vsCurrency, "ids": coinIds},

@@ -41,6 +41,23 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     });
   }
 
+  final _$searchCoinResultToShowAtom =
+      Atom(name: '_SearchScreenViewModelBase.searchCoinResultToShow');
+
+  @override
+  ObservableList<SearchCoinEntity> get searchCoinResultToShow {
+    _$searchCoinResultToShowAtom.reportRead();
+    return super.searchCoinResultToShow;
+  }
+
+  @override
+  set searchCoinResultToShow(ObservableList<SearchCoinEntity> value) {
+    _$searchCoinResultToShowAtom
+        .reportWrite(value, super.searchCoinResultToShow, () {
+      super.searchCoinResultToShow = value;
+    });
+  }
+
   final _$appBarTextAtom = Atom(name: '_SearchScreenViewModelBase.appBarText');
 
   @override
@@ -53,6 +70,38 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
   set appBarText(String value) {
     _$appBarTextAtom.reportWrite(value, super.appBarText, () {
       super.appBarText = value;
+    });
+  }
+
+  final _$currentPageAtom =
+      Atom(name: '_SearchScreenViewModelBase.currentPage');
+
+  @override
+  int get currentPage {
+    _$currentPageAtom.reportRead();
+    return super.currentPage;
+  }
+
+  @override
+  set currentPage(int value) {
+    _$currentPageAtom.reportWrite(value, super.currentPage, () {
+      super.currentPage = value;
+    });
+  }
+
+  final _$currentTextAtom =
+      Atom(name: '_SearchScreenViewModelBase.currentText');
+
+  @override
+  String get currentText {
+    _$currentTextAtom.reportRead();
+    return super.currentText;
+  }
+
+  @override
+  set currentText(String value) {
+    _$currentTextAtom.reportWrite(value, super.currentText, () {
+      super.currentText = value;
     });
   }
 
@@ -70,6 +119,14 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
   @override
   Future<void> getSearchCoins(String text) {
     return _$getSearchCoinsAsyncAction.run(() => super.getSearchCoins(text));
+  }
+
+  final _$getCoinNextPageAsyncAction =
+      AsyncAction('_SearchScreenViewModelBase.getCoinNextPage');
+
+  @override
+  Future<void> getCoinNextPage() {
+    return _$getCoinNextPageAsyncAction.run(() => super.getCoinNextPage());
   }
 
   final _$_SearchScreenViewModelBaseActionController =
@@ -91,7 +148,10 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     return '''
 searchCoinsResult: ${searchCoinsResult},
 searchTrendResult: ${searchTrendResult},
-appBarText: ${appBarText}
+searchCoinResultToShow: ${searchCoinResultToShow},
+appBarText: ${appBarText},
+currentPage: ${currentPage},
+currentText: ${currentText}
     ''';
   }
 }

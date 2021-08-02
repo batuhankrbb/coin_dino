@@ -10,11 +10,10 @@ class PercentageChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InformerWidget(onPageBuild: (context, screenInfo) {
-      return Container(
+    return Container(
         padding: EdgeInsets.all(2),
-        width: screenInfo.screenSize.width * 0.13,
-        height: screenInfo.screenSize.height * 0.08,
+        width: MediaQuery.of(context).size.width * 0.13,
+        height: MediaQuery.of(context).size.height * 0.08,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: percentage < 0 ? Colors.red : Colors.green,
@@ -24,6 +23,5 @@ class PercentageChip extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontSize: 15),
         ),
       );
-    });
   }
 }

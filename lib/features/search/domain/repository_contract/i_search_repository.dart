@@ -4,5 +4,5 @@ import '../entity/search_trend_entity.dart';
 
 abstract class ISearchRepository {
   Future<Result<SearchTrendEntity>> getAllTrends();
-  Future<Result<List<SearchCoinEntity>>> getCoinsBySearch(String text);
+  Future<Result<List<SearchCoinEntity>>> getCoinsBySearch(String text, int page);
 }

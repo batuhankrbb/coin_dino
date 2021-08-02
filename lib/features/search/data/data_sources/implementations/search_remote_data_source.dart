@@ -29,12 +29,12 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
 
   @override
   Future<List<SearchCoinModel>> getCoinsBySearch(
-      String text, String vsCurrency) async {
+      String text, String vsCurrency, int page) async {
     try {
       var getCoinBySearchs =
           await networkExecuter.execute<SearchCoinModel, List<SearchCoinModel>>(
               responseType: DefaultResponseTypes.shared.searchCoing,
-              options: CoinGeckoClient.coinSearch(text, vsCurrency));
+              options: CoinGeckoClient.coinSearch(text, vsCurrency,page));
       if (getCoinBySearchs != null) {
         var filteredCoins = getCoinBySearchs.where((element) {
           return element.name.toLowerCase().startsWith(text.toLowerCase());

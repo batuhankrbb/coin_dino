@@ -22,3 +22,9 @@ Singleton classlarda erişilebilecek tek şey shared yapılacak ve instance olu�
 Sayfalar Widgetlara ayrılacak
 Widgetlar metodlara ayrılacak
 Renkler düzenlenecek
+
+
+Settings ve Search içindeki error durumlarını kontrol et + kaydırırken loading ekle
+--search problemlerini çözücem kaydırdıkça data gelicek - 2 pomodoro
+tıklayınca gelmeme problemlerini falan çözücem  - 2 pomodoro
+settings ve searchde errorları çözücem yani internet yokken gelecek olan widget vb. - 2 pomodoro

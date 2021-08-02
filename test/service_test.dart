@@ -97,7 +97,7 @@ main() async {
       });
 
       test("get coins by search", () async {
-        var coins = await searchRepository.getCoinsBySearch("tElCo");
+        var coins = await searchRepository.getCoinsBySearch("tElCo",0);
         var deneme = "selam".startsWith("sea");
         print(deneme);
         coins.when(success: (data) {
