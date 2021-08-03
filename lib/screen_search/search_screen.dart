@@ -82,30 +82,31 @@ class _SearchScreenState extends State<SearchScreen> {
           failureWidget: (failure) {
             return FailureWidget(
               onTryAgain: () {
-                print(textController.text);
                 searchViewModel.getSearchCoins(textController.text);
               },
             );
           },
           initialWidget: CupertinoActivityIndicator(),
           completedWidget: (data) {
-            return Observer(builder: (_) {
-              return ListView.builder(
-                controller: scrollController,
-                itemBuilder: (context, index) {
-                  return SearchCell(
-                    searchCoinEntity:
-                        searchViewModel.searchCoinResultToShow[index],
-                    onTap: () {
-                      NavigationService.shared.navigateTo(
+            return Observer(
+              builder: (_) {
+                return ListView.builder(
+                  controller: scrollController,
+                  itemBuilder: (context, index) {
+                    return SearchCell(
+                      searchCoinEntity:
+                          searchViewModel.searchCoinResultToShow[index],
+                      onTap: () {
+                       NavigationService.shared.navigateTo(
                           NavigationRoute.toDetails(
-                              CoinDetailScreen(coinID: data[index].id)));
-                    },
-                  );
-                },
-                itemCount: searchViewModel.searchCoinResultToShow.length,
-              );
-            });
+                              CoinDetailScreen(coinID: searchViewModel.searchCoinResultToShow[index].id)));
+                      },
+                    );
+                  },
+                  itemCount: searchViewModel.searchCoinResultToShow.length,
+                );
+              },
+            );
           },
         );
       },

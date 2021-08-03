@@ -58,6 +58,7 @@ abstract class _SearchScreenViewModelBase with Store {
       searchCoinResultToShow.addAll(data);
     }, failure: (failure) {
       searchCoinsResult = StateResult.failed(failure);
+      searchCoinResultToShow.clear();
     });
   }
 
@@ -70,7 +71,8 @@ abstract class _SearchScreenViewModelBase with Store {
     coins.when(success: (data) {
       searchCoinResultToShow.addAll(data);
     }, failure: (failure) {
-      print("olm failure geldi mk");
+      searchCoinResultToShow.clear();
+      searchCoinsResult = StateResult.failed(failure);
     });
     isScrolled = false;
   }

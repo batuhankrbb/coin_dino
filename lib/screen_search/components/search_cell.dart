@@ -18,11 +18,12 @@ class SearchCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: InformerWidget(
-        onPageBuild: (context, screenInfo) {
-          return Container(
+    return InformerWidget(
+      onPageBuild: (context, screenInfo) {
+        return GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: onTap,
+          child: Container(
             width: screenInfo.screenSize.width * 0.8,
             height: screenInfo.screenSize.height * 0.09,
             padding: EdgeInsets.symmetric(vertical: 6),
@@ -49,9 +50,9 @@ class SearchCell extends StatelessWidget {
                 ),
               ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 
