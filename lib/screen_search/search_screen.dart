@@ -38,6 +38,7 @@ class _SearchScreenState extends State<SearchScreen> {
       if (scrollController.offset >=
               scrollController.position.maxScrollExtent &&
           !scrollController.position.outOfRange) {
+        searchViewModel.isScrolled = true;
         searchViewModel.getCoinNextPage();
       }
     });
@@ -77,37 +78,50 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget buildList() {
     return Observer(
       builder: (context) {
-        return StateResultBuilder<List<SearchCoinEntity>>(
-          stateResult: searchViewModel.searchCoinsResult,
-          failureWidget: (failure) {
-            return FailureWidget(
-              onTryAgain: () {
-                searchViewModel.getSearchCoins(textController.text);
-              },
-            );
-          },
-          initialWidget: CupertinoActivityIndicator(),
-          completedWidget: (data) {
-            return Observer(
-              builder: (_) {
-                return ListView.builder(
-                  controller: scrollController,
-                  itemBuilder: (context, index) {
-                    return SearchCell(
-                      searchCoinEntity:
-                          searchViewModel.searchCoinResultToShow[index],
-                      onTap: () {
-                       NavigationService.shared.navigateTo(
-                          NavigationRoute.toDetails(
-                              CoinDetailScreen(coinID: searchViewModel.searchCoinResultToShow[index].id)));
-                      },
-                    );
-                  },
-                  itemCount: searchViewModel.searchCoinResultToShow.length,
-                );
-              },
-            );
-          },
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(
+              child: StateResultBuilder<List<SearchCoinEntity>>(
+                stateResult: searchViewModel.searchCoinsResult,
+                failureWidget: (failure) {
+                  return FailureWidget(
+                    onTryAgain: () {
+                      searchViewModel.getSearchCoins(textController.text);
+                    },
+                  );
+                },
+                initialWidget: CupertinoActivityIndicator(),
+                completedWidget: (data) {
+                  return Observer(
+                    builder: (_) {
+                      return ListView.builder(
+                        controller: scrollController,
+                        itemBuilder: (context, index) {
+                          return SearchCell(
+                            searchCoinEntity:
+                                searchViewModel.searchCoinResultToShow[index],
+                            onTap: () {
+                              NavigationService.shared.navigateTo(
+                                NavigationRoute.toDetails(
+                                  CoinDetailScreen(
+                                      coinID: searchViewModel
+                                          .searchCoinResultToShow[index].id),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        itemCount:
+                            searchViewModel.searchCoinResultToShow.length,
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+             if (searchViewModel.isScrolled) CupertinoActivityIndicator(),
+          ],
         );
       },
     );

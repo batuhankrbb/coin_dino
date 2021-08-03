@@ -70,11 +70,12 @@ abstract class _SearchScreenViewModelBase with Store {
         await searchRepository.getCoinsBySearch(currentText, currentPage);
     coins.when(success: (data) {
       searchCoinResultToShow.addAll(data);
+      isScrolled = false;
     }, failure: (failure) {
+      isScrolled = false;
       searchCoinResultToShow.clear();
       searchCoinsResult = StateResult.failed(failure);
     });
-    isScrolled = false;
   }
 
   @action

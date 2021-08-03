@@ -105,6 +105,21 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     });
   }
 
+  final _$isScrolledAtom = Atom(name: '_SearchScreenViewModelBase.isScrolled');
+
+  @override
+  bool get isScrolled {
+    _$isScrolledAtom.reportRead();
+    return super.isScrolled;
+  }
+
+  @override
+  set isScrolled(bool value) {
+    _$isScrolledAtom.reportWrite(value, super.isScrolled, () {
+      super.isScrolled = value;
+    });
+  }
+
   final _$getAllTrendsAsyncAction =
       AsyncAction('_SearchScreenViewModelBase.getAllTrends');
 
@@ -151,7 +166,8 @@ searchTrendResult: ${searchTrendResult},
 searchCoinResultToShow: ${searchCoinResultToShow},
 appBarText: ${appBarText},
 currentPage: ${currentPage},
-currentText: ${currentText}
+currentText: ${currentText},
+isScrolled: ${isScrolled}
     ''';
   }
 }
