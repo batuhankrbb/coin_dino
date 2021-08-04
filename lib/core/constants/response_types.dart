@@ -113,16 +113,7 @@ class DefaultResponseTypes {
     description: Description(en: "en"),
     links: Links(
       homepage: [],
-      blockchainSite: [],
-      officialForumUrl: [],
-      chatUrl: [],
-      announcementUrl: [],
-      twitterScreenName: "twitterScreenName",
-      facebookUsername: "facebookUsername",
-      bitcointalkThreadIdentifier: "bitcointalkThreadIdentifier",
-      telegramChannelIdentifier: "telegramChannelIdentifier",
-      subredditUrl: "subredditUrl",
-      reposUrl: ReposUrl(bitbucket: [], github: []),
+  
     ),
     image: Image(small: "", large: '', thumb: ""),
     marketData: MarketData(

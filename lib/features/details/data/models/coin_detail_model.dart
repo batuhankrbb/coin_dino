@@ -99,46 +99,6 @@ class CoinDetailModel extends BaseNetworkModel {
   }
 }
 
-class CommunityData {
-  CommunityData({
-    required this.facebookLikes,
-    required this.twitterFollowers,
-    required this.redditAveragePosts48H,
-    required this.redditAverageComments48H,
-    required this.redditSubscribers,
-    required this.redditAccountsActive48H,
-    required this.telegramChannelUserCount,
-  });
-
-  final dynamic facebookLikes;
-  final num twitterFollowers;
-  final num redditAveragePosts48H;
-  final num redditAverageComments48H;
-  final num redditSubscribers;
-  final num redditAccountsActive48H;
-  final dynamic telegramChannelUserCount;
-
-  factory CommunityData.fromJson(Map<String, dynamic> json) => CommunityData(
-        facebookLikes: json["facebook_likes"],
-        twitterFollowers: json["twitter_followers"],
-        redditAveragePosts48H: json["reddit_average_posts_48h"],
-        redditAverageComments48H: json["reddit_average_comments_48h"],
-        redditSubscribers: json["reddit_subscribers"],
-        redditAccountsActive48H: json["reddit_accounts_active_48h"],
-        telegramChannelUserCount: json["telegram_channel_user_count"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "facebook_likes": facebookLikes,
-        "twitter_followers": twitterFollowers,
-        "reddit_average_posts_48h": redditAveragePosts48H,
-        "reddit_average_comments_48h": redditAverageComments48H,
-        "reddit_subscribers": redditSubscribers,
-        "reddit_accounts_active_48h": redditAccountsActive48H,
-        "telegram_channel_user_count": telegramChannelUserCount,
-      };
-}
-
 class Description {
   Description({
     required this.en,
@@ -152,83 +112,6 @@ class Description {
 
   Map<String, dynamic> toJson() => {
         "en": en,
-      };
-}
-
-class DeveloperData {
-  DeveloperData({
-    required this.forks,
-    required this.stars,
-    required this.subscribers,
-    required this.totalIssues,
-    required this.closedIssues,
-    required this.pullRequestsMerged,
-    required this.pullRequestContributors,
-    required this.codeAdditionsDeletions4Weeks,
-    required this.commitCount4Weeks,
-    required this.last4WeeksCommitActivitySeries,
-  });
-
-  final num forks;
-  final num stars;
-  final num subscribers;
-  final num totalIssues;
-  final num closedIssues;
-  final num pullRequestsMerged;
-  final num pullRequestContributors;
-  final CodeAdditionsDeletions4Weeks codeAdditionsDeletions4Weeks;
-  final num commitCount4Weeks;
-  final List<num> last4WeeksCommitActivitySeries;
-
-  factory DeveloperData.fromJson(Map<String, dynamic> json) => DeveloperData(
-        forks: json["forks"],
-        stars: json["stars"],
-        subscribers: json["subscribers"],
-        totalIssues: json["total_issues"],
-        closedIssues: json["closed_issues"],
-        pullRequestsMerged: json["pull_requests_merged"],
-        pullRequestContributors: json["pull_request_contributors"],
-        codeAdditionsDeletions4Weeks: CodeAdditionsDeletions4Weeks.fromJson(
-            json["code_additions_deletions_4_weeks"]),
-        commitCount4Weeks: json["commit_count_4_weeks"],
-        last4WeeksCommitActivitySeries: List<num>.from(
-            json["last_4_weeks_commit_activity_series"].map((x) => x)),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "forks": forks,
-        "stars": stars,
-        "subscribers": subscribers,
-        "total_issues": totalIssues,
-        "closed_issues": closedIssues,
-        "pull_requests_merged": pullRequestsMerged,
-        "pull_request_contributors": pullRequestContributors,
-        "code_additions_deletions_4_weeks":
-            codeAdditionsDeletions4Weeks.toJson(),
-        "commit_count_4_weeks": commitCount4Weeks,
-        "last_4_weeks_commit_activity_series":
-            List<dynamic>.from(last4WeeksCommitActivitySeries.map((x) => x)),
-      };
-}
-
-class CodeAdditionsDeletions4Weeks {
-  CodeAdditionsDeletions4Weeks({
-    required this.additions,
-    required this.deletions,
-  });
-
-  final num additions;
-  final num deletions;
-
-  factory CodeAdditionsDeletions4Weeks.fromJson(Map<String, dynamic> json) =>
-      CodeAdditionsDeletions4Weeks(
-        additions: json["additions"],
-        deletions: json["deletions"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "additions": additions,
-        "deletions": deletions,
       };
 }
 
@@ -259,76 +142,17 @@ class Image {
 class Links {
   Links({
     required this.homepage,
-    required this.blockchainSite,
-    required this.officialForumUrl,
-    required this.chatUrl,
-    required this.announcementUrl,
-    required this.twitterScreenName,
-    required this.facebookUsername,
-    required this.bitcointalkThreadIdentifier,
-    required this.telegramChannelIdentifier,
-    required this.subredditUrl,
-    required this.reposUrl,
   });
 
   final List<String> homepage;
-  final List<String> blockchainSite;
-  final List<String> officialForumUrl;
-  final List<String> chatUrl;
-  final List<String> announcementUrl;
-  final String? twitterScreenName;
-  final String? facebookUsername;
-  final dynamic? bitcointalkThreadIdentifier;
-  final String? telegramChannelIdentifier;
-  final String? subredditUrl;
-  final ReposUrl? reposUrl;
 
   factory Links.fromJson(Map<String, dynamic> json) => Links(
         homepage: List<String>.from(json["homepage"].map((x) => x)),
-        blockchainSite:
-            List<String>.from(json["blockchain_site"].map((x) => x)),
-        officialForumUrl:
-            List<String>.from(json["official_forum_url"].map((x) => x)),
-        chatUrl: List<String>.from(json["chat_url"].map((x) => x)),
-        announcementUrl:
-            List<String>.from(json["announcement_url"].map((x) => x)),
-        twitterScreenName: json["twitter_screen_name"],
-        facebookUsername: json["facebook_username"],
-        bitcointalkThreadIdentifier: json["bitcointalk_thread_identifier"],
-        telegramChannelIdentifier: json["telegram_channel_identifier"],
-        subredditUrl: json["subreddit_url"],
-        reposUrl: ReposUrl.fromJson(json["repos_url"]),
       );
 
   Map<String, dynamic> toJson() => {
         "homepage": List<dynamic>.from(homepage.map((x) => x)),
-        "blockchain_site": List<dynamic>.from(blockchainSite.map((x) => x)),
-        "official_forum_url":
-            List<dynamic>.from(officialForumUrl.map((x) => x)),
-        "chat_url": List<dynamic>.from(chatUrl.map((x) => x)),
-        "announcement_url": List<dynamic>.from(announcementUrl.map((x) => x)),
-        "twitter_screen_name": twitterScreenName,
-        "facebook_username": facebookUsername,
-        "bitcointalk_thread_identifier": bitcointalkThreadIdentifier,
-        "telegram_channel_identifier": telegramChannelIdentifier,
-        "subreddit_url": subredditUrl,
-        "repos_url": "",
       };
-}
-
-class ReposUrl {
-  ReposUrl({
-    required this.github,
-    required this.bitbucket,
-  });
-
-  final List<String>? github;
-  final List<dynamic>? bitbucket;
-
-  factory ReposUrl.fromJson(Map<String, dynamic> json) => ReposUrl(
-        github: List<String>.from(json["github"].map((x) => x)),
-        bitbucket: List<dynamic>.from(json["bitbucket"].map((x) => x)),
-      );
 }
 
 class MarketData {
@@ -382,42 +206,42 @@ class MarketData {
   final dynamic? mcapToTvlRatio;
   final dynamic? fdvToTvlRatio;
   final dynamic? roi;
-  final Ath ?ath;
-  final Ath ?athChangePercentage;
+  final Ath? ath;
+  final Ath? athChangePercentage;
   final Date? athDate;
-  final Ath ?atl;
-  final Ath ?atlChangePercentage;
+  final Ath? atl;
+  final Ath? atlChangePercentage;
   final Date? atlDate;
-  final Ath ?marketCap;
-  final num ?marketCapRank;
-  final Ath ?fullyDilutedValuation;
-  final Ath ?totalVolume;
-  final Ath ?high24H;
-  final Ath ?low24H;
-  final num ?priceChange24H;
-  final num ?priceChangePercentage24H;
-  final num ?priceChangePercentage7D;
-  final num ?priceChangePercentage14D;
-  final num ?priceChangePercentage30D;
-  final num ?priceChangePercentage60D;
-  final num ?priceChangePercentage200D;
-  final num ?priceChangePercentage1Y;
-  final num ?marketCapChange24H;
-  final num ?marketCapChangePercentage24H;
-  final Ath ?priceChange24HInCurrency;
-  final Ath ?priceChangePercentage1HInCurrency;
-  final Ath ?priceChangePercentage24HInCurrency;
-  final Ath ?priceChangePercentage7DInCurrency;
-  final Ath ?priceChangePercentage14DInCurrency;
-  final Ath ?priceChangePercentage30DInCurrency;
-  final Ath ?priceChangePercentage60DInCurrency;
-  final Ath ?priceChangePercentage200DInCurrency;
-  final Ath ?priceChangePercentage1YInCurrency;
-  final Ath ?marketCapChange24HInCurrency;
-  final Ath ?marketCapChangePercentage24HInCurrency;
-  final num ?totalSupply;
-  final num ?maxSupply;
-  final num ?circulatingSupply;
+  final Ath? marketCap;
+  final num? marketCapRank;
+  final Ath? fullyDilutedValuation;
+  final Ath? totalVolume;
+  final Ath? high24H;
+  final Ath? low24H;
+  final num? priceChange24H;
+  final num? priceChangePercentage24H;
+  final num? priceChangePercentage7D;
+  final num? priceChangePercentage14D;
+  final num? priceChangePercentage30D;
+  final num? priceChangePercentage60D;
+  final num? priceChangePercentage200D;
+  final num? priceChangePercentage1Y;
+  final num? marketCapChange24H;
+  final num? marketCapChangePercentage24H;
+  final Ath? priceChange24HInCurrency;
+  final Ath? priceChangePercentage1HInCurrency;
+  final Ath? priceChangePercentage24HInCurrency;
+  final Ath? priceChangePercentage7DInCurrency;
+  final Ath? priceChangePercentage14DInCurrency;
+  final Ath? priceChangePercentage30DInCurrency;
+  final Ath? priceChangePercentage60DInCurrency;
+  final Ath? priceChangePercentage200DInCurrency;
+  final Ath? priceChangePercentage1YInCurrency;
+  final Ath? marketCapChange24HInCurrency;
+  final Ath? marketCapChangePercentage24HInCurrency;
+  final num? totalSupply;
+  final num? maxSupply;
+  final num? circulatingSupply;
   final DateTime lastUpdated;
 
   factory MarketData.fromJson(Map<String, dynamic> json) => MarketData(
@@ -470,13 +294,11 @@ class MarketData {
             Ath.fromJson(json["market_cap_change_24h_in_currency"]),
         marketCapChangePercentage24HInCurrency:
             Ath.fromJson(json["market_cap_change_percentage_24h_in_currency"]),
-        totalSupply: json["total_supply"] ,
+        totalSupply: json["total_supply"],
         maxSupply: json["max_supply"],
         circulatingSupply: json["circulating_supply"],
         lastUpdated: DateTime.parse(json["last_updated"]),
       );
-
-
 }
 
 class Ath {
