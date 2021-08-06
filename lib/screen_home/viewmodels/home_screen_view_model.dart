@@ -1,4 +1,5 @@
 import 'package:coin_dino/core/result_types/state_result.dart';
+import 'package:coin_dino/features/market/domain/entities/market_coin_category_entity.dart';
 import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
 import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
 import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
@@ -13,10 +14,17 @@ abstract class _HomeScreenViewModelBase with Store {
   _HomeScreenViewModelBase({required this.marketCoinRepository});
 
   @observable
-  var marketDate = MarketDate.hour24;
+  var marketDate = MarketDate.hour24; //* Buna reaction ata her değiştiğinde sorgu yapsın tekrar.
 
   @observable
-  var marketSort = MarketSort.market_cap_asc;
+  var marketSort = MarketSort.market_cap_asc; //* Buna reaction ata her değiştiğinde sorgu yapsın tekrar.
+
+  @observable
+  MarketCoinCategoryEntity selectedCategory =
+      MarketCoinCategoryEntity(categoryID: "all", categoryName: "All"); //* Buna reaction ata her değiştiğinde sorgu yapsın tekrar.
+
+  @observable
+  var categoryList = ObservableList<MarketCoinCategoryEntity>();
 
   StateResult<List<MarketCoinEntity>> coinListResult = StateResult.initial();
 
@@ -33,16 +41,3 @@ abstract class _HomeScreenViewModelBase with Store {
 
   
 }
-
-/*
-abstract class IMarketCoinRepository {
-  Future<Result<List<MarketCoinEntity>>> getCryptoCurrencies(
-      {required MarketDate date,
-      required MarketSort sort,
-      MarketCoinCategoryEntity? category});
-
-  Future<Result<List<MarketCoinCategoryEntity>>> getAllCategories();
-}
-
-
-*/

@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+
 import '../../../core/extensions/string_extension.dart';
 import 'selection_page_cell.dart';
 import 'package:flutter/material.dart';
@@ -9,15 +11,16 @@ import '../app_bar_components.dart';
 import '../custom_autosize_text.dart';
 
 class SelectionPage extends StatefulWidget {
-  SelectionPage({
-    Key? key,
-    required this.title,
-    required this.dataList,
-    required this.isListingActive,
-    required this.onSelect,
-    required this.selectedIndex,
-    required this.isCapitalActive,
-  }) : super(key: key);
+  SelectionPage(
+      {Key? key,
+      required this.title,
+      required this.dataList,
+      required this.isListingActive,
+      required this.onSelect,
+      required this.selectedIndex,
+      required this.isCapitalActive,
+      this.isClosedWhenSelect = false})
+      : super(key: key);
 
   final String title;
   final List<String> dataList;
@@ -25,6 +28,7 @@ class SelectionPage extends StatefulWidget {
   final bool isListingActive;
   final bool isCapitalActive;
   final Function(int index) onSelect;
+  final bool isClosedWhenSelect;
 
   @override
   _SelectionPageState createState() => _SelectionPageState();
@@ -155,7 +159,9 @@ class _SelectionPageState extends State<SelectionPage> {
 
   SelectionPageCell buildSelectionPageCell(int index) {
     return SelectionPageCell(
-      text: widget.isCapitalActive ? widget.dataList[index].toCapitalCase() : widget.dataList[index],
+      text: widget.isCapitalActive
+          ? widget.dataList[index].toCapitalCase()
+          : widget.dataList[index],
       isSelected: index == widget.selectedIndex,
       isVisible: widget.dataList[index]
           .toLowerCase()
@@ -165,8 +171,10 @@ class _SelectionPageState extends State<SelectionPage> {
           widget.selectedIndex = index;
         });
         widget.onSelect(index);
+        if (widget.isClosedWhenSelect) {
+          NavigationService.shared.goBack();
+        }
       },
     );
   }
 }
-

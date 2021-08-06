@@ -1,5 +1,5 @@
 
-import '../screen_home/homepage_screen.dart';
+import 'package:coin_dino/screen_home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../global/components/app_bar_components.dart';
@@ -56,7 +56,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
       child: Icon(Icons.arrow_right_alt),
       onPressed: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => HomePageScreen(),
+          builder: (context) => HomeScreen(),
         ));
       },
       style: context.buttonStyle(

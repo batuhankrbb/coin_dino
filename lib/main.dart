@@ -1,8 +1,8 @@
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
+import 'package:coin_dino/screen_alert/alert_list_screen.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
-import 'package:coin_dino/screen_home/homepage_screen.dart';
-import 'package:coin_dino/screen_home_new/home_screen_new.dart';
+import 'package:coin_dino/screen_home/home_screen.dart';
 import 'package:coin_dino/screen_in_app_purchase/inapp_purchase_screen.dart';
 import 'package:coin_dino/screen_onboard/onboard_screen.dart';
 import 'package:coin_dino/screen_search/search_screen.dart';
@@ -27,9 +27,7 @@ void main() async {
   await getit
       .get<AppSettingsViewModel>()
       .setUpSettings(); //* sets up theme options.
-  runApp(DevicePreview(
-    builder: (_) => MyApp(),
-  ));
+  runApp(DevicePreview(builder: (_) => MyApp(),),);
 }
 
 class MyApp extends StatefulWidget {
@@ -53,7 +51,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           theme: appSettingsViewModel.themeData,
           builder: DevicePreview.appBuilder,
           locale: DevicePreview.locale(context),
-          home: CoinDetailScreen(coinID: "bitcoin"),
+          home: HomeScreen(),
         );
       },
     );
@@ -107,7 +105,7 @@ class _HomePageState extends State<HomePage>
       body: TabBarView(
         controller: tabController,
         children: [
-          HomePageScreen(),
+          HomeScreen(),
           SearchScreenMain(),
           SettingsScreen(),
         ],

@@ -1,7 +1,8 @@
 import 'package:coin_dino/screen_alert/viewmodels/screen_alert_view_model.dart';
+import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
 
 import '../../screen_detail/viewmodels/detail_screen_view_model.dart';
-import '../../screen_home/cyrpto_currency_screen/wiew_model/cyrpyo_currency_viewmodel.dart';
+
 import '../../screen_search/viewmodels/search_screen_view_model.dart';
 import '../../screen_settings/view_model/settings_view_model.dart';
 import 'package:get_it/get_it.dart';
@@ -84,8 +85,8 @@ void _setUpMarketFeature() {
 
   getit.registerLazySingleton<MarketExceptionHandler>(
       () => MarketExceptionHandler());
-  getit.registerLazySingleton<CyrptoCurrencyViewModel>(
-      () => CyrptoCurrencyViewModel(imarketCoinRepository: getit()));
+  getit.registerLazySingleton<HomeScreenViewModel>(
+      () => HomeScreenViewModel(marketCoinRepository: getit()));
 }
 
 void _setUpDetailsFeature() {
