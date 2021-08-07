@@ -4,6 +4,7 @@ import 'package:coin_dino/features/market/domain/entities/market_coin_category_e
 import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
 import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
 import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'home_screen_view_model.g.dart';
 
@@ -38,23 +39,28 @@ abstract class _HomeScreenViewModelBase with Store {
   var currentPage = 1;
 
   @observable
-  var isScrolled = false;
+  bool isScrolled = false;
 
   @observable
   StateResult<List<MarketCoinEntity>> coinListResult = StateResult.initial();
 
   List<ReactionDisposer> _disposers = [];
 
+  ScrollController scrollController = ScrollController();
+
   void setUpReactions() {
     _disposers = [
       reaction<MarketDate>((_) => marketDate, (newValue) {
         getCoinList();
+        scrollController.jumpTo(scrollController.position.minScrollExtent);
       }),
       reaction<MarketSort>((_) => marketSort, (newValue) {
         getCoinList();
+       scrollController.jumpTo(scrollController.position.minScrollExtent);
       }),
       reaction<MarketCoinCategoryEntity>((_) => selectedCategory, (newValue) {
         getCoinList();
+        scrollController.jumpTo(scrollController.position.minScrollExtent);
       }),
     ];
   }
@@ -67,7 +73,6 @@ abstract class _HomeScreenViewModelBase with Store {
 
   @action
   Future<void> getCoinList() async {
-    print("tetiklendi dikkat");
     currentPage = 1;
     var result = await marketCoinRepository.getCryptoCurrencies(
         date: marketDate, sort: marketSort, page: currentPage);
@@ -84,8 +89,8 @@ abstract class _HomeScreenViewModelBase with Store {
 
   @action
   Future<void> getCoinListNextPage() async {
-    currentPage += 1;
     isScrolled = true;
+    currentPage += 1;
     var result = await marketCoinRepository.getCryptoCurrencies(
         date: marketDate, sort: marketSort, page: currentPage);
     result.when(success: (data) {

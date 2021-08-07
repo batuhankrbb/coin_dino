@@ -1,3 +1,4 @@
+import 'package:coin_dino/screen_home/components/home_header_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeTableHeader extends StatefulWidget {
@@ -11,56 +12,44 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      color: Colors.grey[400],
       padding: EdgeInsets.all(4),
       child: Row(
         children: [
           Expanded(
             flex: 11,
-            child: Container(
-              color: Colors.blue[300],
-            ),
+            child: HomeHeaderButton(text: "#"),
           ),
           Spacer(
             flex: 2,
           ),
           Expanded(
             flex: 15,
-            child: Container(
-              color: Colors.pink[300],
-            ),
+            child: HomeHeaderButton(text: "Coin"),
           ),
           Spacer(
             flex: 2,
           ),
           Expanded(
             flex: 26,
-            child: Container(
-              color: Colors.green[300],
-            ),
+            child: HomeHeaderButton(text: "Price"),
           ),
           Spacer(
             flex: 2,
           ),
           Expanded(
             flex: 15,
-            child: Container(
-              color: Colors.yellow[300],
-            ),
+            child: HomeHeaderButton(text: "7G"),
           ),
           Spacer(
             flex: 2,
           ),
           Expanded(
             flex: 30,
-            child: Container(
-              color: Colors.red[300],
-            ),
+            child: HomeHeaderButton(text: "Market Cap"),
           ),
         ],
       ),
     );
   }
-
-  
 }

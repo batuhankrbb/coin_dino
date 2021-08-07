@@ -1,11 +1,17 @@
+import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
+import 'package:coin_dino/global/components/failure_widget.dart';
+import 'package:coin_dino/global/components/state_result_builder.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
+import 'package:coin_dino/screen_home/components/home_page_cell.dart';
 import 'package:coin_dino/screen_home/components/home_table_header.dart';
 import 'package:coin_dino/screen_home/components/home_top_chip_list.dart';
 import 'package:coin_dino/screen_home/components/top_home_chip.dart';
 import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +26,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    homeScreenViewModel.setUpReactions();
+    homeScreenViewModel.getCoinList();
+    homeScreenViewModel.scrollController.addListener(() {
+      if (homeScreenViewModel.scrollController.offset >=
+              homeScreenViewModel.scrollController.position.maxScrollExtent &&
+          !homeScreenViewModel.scrollController.position.outOfRange) {
+        homeScreenViewModel.isScrolled = true;
+        homeScreenViewModel.getCoinListNextPage();
+      }
+    });
+  }
 
+  @override
+  void dispose() {
+    super.dispose();
+    homeScreenViewModel.disposeReactions();
   }
 
   @override
@@ -37,18 +58,56 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Spacer(),
             Expanded(
-              flex: 8,
-              child: HomeTableHeader(),
+              flex: 10,
+              child: Container(
+                color: Colors.red,
+              ),
             ),
             Expanded(
-              flex: 90,
-              child: Container(
-                color: Colors.blue,
-              ),
+              flex: 80,
+              child: buildListView(),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Widget buildListView() {
+    return Observer(builder: (context) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Flexible(
+            child: StateResultBuilder<List<MarketCoinEntity>>(
+              stateResult: homeScreenViewModel.coinListResult,
+              initialWidget: CupertinoActivityIndicator(),
+              completedWidget: (data) {
+                return Observer(builder: (context) {
+                  return ListView.separated(
+                      controller: homeScreenViewModel.scrollController,
+                      itemBuilder: (context, index) {
+                        return HomePageCell(
+                            data: homeScreenViewModel.coinListToShow[index]);
+                      },
+                      separatorBuilder: (context, index) {
+                        return Divider();
+                      },
+                      itemCount: homeScreenViewModel.coinListToShow.length);
+                });
+              },
+              failureWidget: (failure) {
+                return FailureWidget(
+                  onTryAgain: () {
+                    homeScreenViewModel.getCoinList();
+                  },
+                );
+              },
+            ),
+          ),
+          if (homeScreenViewModel.isScrolled) CupertinoActivityIndicator(),
+        ],
+      );
+    });
   }
 }

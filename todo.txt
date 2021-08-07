@@ -26,32 +26,44 @@ Renkler düzenlenecek temadan alınacak
 
 //ÜSTTE YAZILANLAR ÖNEMSİZ, ALTTA GÜN GÜN PLAN VAR. -Batuhan
 
-Salı
+Perşembe
 //Detail tıklayınca crash problemi çöz
 //Home sayfasını yap ve kaydırdıkça gelme mantığı olsun
 
-Çarşamba
+Cuma
 //alert ekleme sayfası yap
 //alert listeleme sayfası yap
 //alertlerle ilgili her şeyi bitir
 
-Perşembe
+
+Pazar
 //Bütün sayfaları birleştir ve tam bir app olsun
 //In app purchase ekle
 //Reklamları ekle
 
-Cuma
+Pazartesi
 //Allahsız gibi refactor yap bir gün boyunca otur refactor yap app'i (Temalar, UI, Entityler, Servisler, ViewModeller vb. dahil)
 
-Pazar
+Salı
 //Localization yap (İngilizce, Türkçe)
 //Son testleri yap, gerçek cihazda dene
 //Tekrar refactor yap
 
-Pazartesi
+Çarşamba
 //Screenshotları ayarla
 //Permissionları ayarla
 //App Store ve Google Play Store'a yükle.
 
 
 
+
+
+----
+Refactor edilecek şeyler
+UI Kodları
+Hive kodları
+İsimlendirmeler
+Renkler ve tema
+Paddingler ve boyut atamaları
+Modeller ve entityler (mesela coinentity tarafında gelenleri virgülden sonra fixle, 1324234123 gelen sayıları virgülle ayır.)
+viewmodeller
