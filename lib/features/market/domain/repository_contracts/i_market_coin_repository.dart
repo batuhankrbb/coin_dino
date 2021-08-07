@@ -7,6 +7,7 @@ abstract class IMarketCoinRepository {
   Future<Result<List<MarketCoinEntity>>> getCryptoCurrencies(
       {required MarketDate date,
       required MarketSort sort,
+      required int page,
       MarketCoinCategoryEntity? category});
 
   Future<Result<List<MarketCoinCategoryEntity>>> getAllCategories();

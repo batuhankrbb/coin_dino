@@ -39,6 +39,85 @@ mixin _$HomeScreenViewModel on _HomeScreenViewModelBase, Store {
     });
   }
 
+  final _$selectedCategoryAtom =
+      Atom(name: '_HomeScreenViewModelBase.selectedCategory');
+
+  @override
+  MarketCoinCategoryEntity get selectedCategory {
+    _$selectedCategoryAtom.reportRead();
+    return super.selectedCategory;
+  }
+
+  @override
+  set selectedCategory(MarketCoinCategoryEntity value) {
+    _$selectedCategoryAtom.reportWrite(value, super.selectedCategory, () {
+      super.selectedCategory = value;
+    });
+  }
+
+  final _$categoryListAtom =
+      Atom(name: '_HomeScreenViewModelBase.categoryList');
+
+  @override
+  ObservableList<MarketCoinCategoryEntity> get categoryList {
+    _$categoryListAtom.reportRead();
+    return super.categoryList;
+  }
+
+  @override
+  set categoryList(ObservableList<MarketCoinCategoryEntity> value) {
+    _$categoryListAtom.reportWrite(value, super.categoryList, () {
+      super.categoryList = value;
+    });
+  }
+
+  final _$coinListToShowAtom =
+      Atom(name: '_HomeScreenViewModelBase.coinListToShow');
+
+  @override
+  ObservableList<MarketCoinEntity> get coinListToShow {
+    _$coinListToShowAtom.reportRead();
+    return super.coinListToShow;
+  }
+
+  @override
+  set coinListToShow(ObservableList<MarketCoinEntity> value) {
+    _$coinListToShowAtom.reportWrite(value, super.coinListToShow, () {
+      super.coinListToShow = value;
+    });
+  }
+
+  final _$currentPageAtom = Atom(name: '_HomeScreenViewModelBase.currentPage');
+
+  @override
+  int get currentPage {
+    _$currentPageAtom.reportRead();
+    return super.currentPage;
+  }
+
+  @override
+  set currentPage(int value) {
+    _$currentPageAtom.reportWrite(value, super.currentPage, () {
+      super.currentPage = value;
+    });
+  }
+
+  final _$coinListResultAtom =
+      Atom(name: '_HomeScreenViewModelBase.coinListResult');
+
+  @override
+  StateResult<List<MarketCoinEntity>> get coinListResult {
+    _$coinListResultAtom.reportRead();
+    return super.coinListResult;
+  }
+
+  @override
+  set coinListResult(StateResult<List<MarketCoinEntity>> value) {
+    _$coinListResultAtom.reportWrite(value, super.coinListResult, () {
+      super.coinListResult = value;
+    });
+  }
+
   final _$getCoinListAsyncAction =
       AsyncAction('_HomeScreenViewModelBase.getCoinList');
 
@@ -47,11 +126,25 @@ mixin _$HomeScreenViewModel on _HomeScreenViewModelBase, Store {
     return _$getCoinListAsyncAction.run(() => super.getCoinList());
   }
 
+  final _$getCoinListNextPageAsyncAction =
+      AsyncAction('_HomeScreenViewModelBase.getCoinListNextPage');
+
+  @override
+  Future<void> getCoinListNextPage() {
+    return _$getCoinListNextPageAsyncAction
+        .run(() => super.getCoinListNextPage());
+  }
+
   @override
   String toString() {
     return '''
 marketDate: ${marketDate},
-marketSort: ${marketSort}
+marketSort: ${marketSort},
+selectedCategory: ${selectedCategory},
+categoryList: ${categoryList},
+coinListToShow: ${coinListToShow},
+currentPage: ${currentPage},
+coinListResult: ${coinListResult}
     ''';
   }
 }

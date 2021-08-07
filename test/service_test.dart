@@ -37,6 +37,7 @@ main() async {
         preferencesLocalDataSource: PreferencesLocalDataSource());
     test("get crypto currencies", () async {
       var currencies = await marketCoinRepository.getCryptoCurrencies(
+        page: 1,
           date: MarketDate.day7, sort: MarketSort.market_cap_asc);
       currencies.when(success: (data) {
         print("SUCCESS | get crypto currencies = ${data.length}");

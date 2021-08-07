@@ -9,7 +9,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
     with _$CoinGeckoClient {
   const CoinGeckoClient._() : super();
   const factory CoinGeckoClient.coinsMarket(
-          String date, String sort, String? category, String vsCurrency) =
+          String date, String sort, String? category, String vsCurrency, int page) =
       CoinsMarket;
   const factory CoinGeckoClient.details(String id,
       {String? localization,
@@ -40,7 +40,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
               String? sparkline) =>
           "/coins/$id",
       coinsMarket:
-          (String date, String sort, String? category, String vsCurrency) =>
+          (String date, String sort, String? category, String vsCurrency, int page) =>
               "/coins/markets",
       marketChart:
           (String id, String vsCurrency, String days, String interval) =>
@@ -61,7 +61,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
               String? sparkline) =>
           "GET",
       coinsMarket:
-          (String date, String sort, String? category, String vsCurrency) =>
+          (String date, String sort, String? category, String vsCurrency, int page) =>
               "GET",
       marketChart: (_, String vsCurrency, String days, String interval) =>
           "GET",
@@ -91,11 +91,12 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
           };
         },
         coinsMarket:
-            (String date, String sort, String? category, String vsCurrency) => {
+            (String date, String sort, String? category, String vsCurrency, int page) => {
           "vs_currency": vsCurrency,
           "category": category,
           "order": sort,
           "price_change_percentage": date,
+"page":page,
           "per_page": 100
         },
         marketChart: (_, String vsCurrency, String days, String interval) =>

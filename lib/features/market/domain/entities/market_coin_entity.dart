@@ -1,10 +1,10 @@
 class MarketCoinEntity {
-  final int? marketCapRank;
+  final String marketCapRank;
   final String imageUrl;
   final String symbol;
   final String name;
-  final num currentPrice;
-  final num marketCap;
+  final String currentPrice;
+  final String marketCap;
   final String id;
   final num? priceChangePercentage1h;
   final num? priceChangePercentage24h;

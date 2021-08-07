@@ -76,36 +76,18 @@ class DefaultResponseTypes {
   );
 
   var marketCoinModel = MarketCoinModel(
-      ath: 0,
-      athChangePercentage: 0,
-      atl: 0,
-      atlChangePercentage: 0,
-      circulatingSupply: 0,
-      currentPrice: 0,
-      fullyDilutedValuation: 1,
-      high24H: 10,
-      id: "",
-      image: "",
-      low24H: 0,
-      marketCap: 1,
-      marketCapChange24H: 0,
-      marketCapChangePercentage24H: 0,
-      marketCapRank: 0,
-      priceChange24H: 0,
-      name: "",
-      priceChangePercentage1HInCurrency: 0,
-      priceChangePercentage24H: 1,
-      priceChangePercentage24HInCurrency: 0,
-      priceChangePercentage30DInCurrency: 0,
-      priceChangePercentage7DInCurrency: 0,
-      symbol: "",
-      totalSupply: 0,
-      totalVolume: 0,
-      athDate: DateTime(1991),
-      atlDate: DateTime(1991),
-      lastUpdated: DateTime(1991),
-      maxSupply: 0,
-      roi: Roi(currency: "", percentage: 1, times: 1));
+    currentPrice: 0,
+    id: "",
+    image: "",
+    marketCap: 1,
+    marketCapRank: 0,
+    name: "",
+    priceChangePercentage1HInCurrency: 0,
+    priceChangePercentage24HInCurrency: 0,
+    priceChangePercentage30DInCurrency: 0,
+    priceChangePercentage7DInCurrency: 0,
+    symbol: "",
+  );
   var coinDetail = CoinDetailModel(
     id: "",
     symbol: "symbol",
@@ -113,7 +95,6 @@ class DefaultResponseTypes {
     description: Description(en: "en"),
     links: Links(
       homepage: [],
-  
     ),
     image: Image(small: "", large: '', thumb: ""),
     marketData: MarketData(
@@ -282,7 +263,8 @@ class DefaultResponseTypes {
       circulatingSupply: 0,
       lastUpdated: DateTime(1),
     ),
-    marketCapRank: 1, lastUpdated: null,
+    marketCapRank: 1,
+    lastUpdated: null,
   );
 }
 

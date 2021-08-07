@@ -14,13 +14,13 @@ class MarketRemoteDataSource implements IMarketRemoteDataSource {
   int? page;
   @override
   Future<List<MarketCoinModel>> getCryptoCurrencies(
-      String date, String sort, String? category, String vsCurrency) async {
+      String date, String sort, String? category, String vsCurrency, int page) async {
     try {
       var response =
           await _executer.execute<MarketCoinModel, List<MarketCoinModel>>(
               responseType: DefaultResponseTypes.shared.marketCoinModel,
               options: CoinGeckoClient.coinsMarket(
-                  date, sort, category, vsCurrency));
+                  date, sort, category, vsCurrency, page));
 
       if (response != null) {
         return response;

@@ -17,12 +17,13 @@ class _$CoinGeckoClientTearOff {
   const _$CoinGeckoClientTearOff();
 
   CoinsMarket coinsMarket(
-      String date, String sort, String? category, String vsCurrency) {
+      String date, String sort, String? category, String vsCurrency, int page) {
     return CoinsMarket(
       date,
       sort,
       category,
       vsCurrency,
+      page,
     );
   }
 
@@ -81,8 +82,8 @@ const $CoinGeckoClient = _$CoinGeckoClientTearOff();
 mixin _$CoinGeckoClient {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String date, String sort, String? category, String vsCurrency)
+    required TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)
         coinsMarket,
     required TResult Function(
             String id,
@@ -105,8 +106,8 @@ mixin _$CoinGeckoClient {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String date, String sort, String? category, String vsCurrency)?
+    TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)?
         coinsMarket,
     TResult Function(
             String id,
@@ -171,7 +172,12 @@ abstract class $CoinsMarketCopyWith<$Res> {
   factory $CoinsMarketCopyWith(
           CoinsMarket value, $Res Function(CoinsMarket) then) =
       _$CoinsMarketCopyWithImpl<$Res>;
-  $Res call({String date, String sort, String? category, String vsCurrency});
+  $Res call(
+      {String date,
+      String sort,
+      String? category,
+      String vsCurrency,
+      int page});
 }
 
 /// @nodoc
@@ -191,6 +197,7 @@ class _$CoinsMarketCopyWithImpl<$Res>
     Object? sort = freezed,
     Object? category = freezed,
     Object? vsCurrency = freezed,
+    Object? page = freezed,
   }) {
     return _then(CoinsMarket(
       date == freezed
@@ -209,6 +216,10 @@ class _$CoinsMarketCopyWithImpl<$Res>
           ? _value.vsCurrency
           : vsCurrency // ignore: cast_nullable_to_non_nullable
               as String,
+      page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -216,7 +227,8 @@ class _$CoinsMarketCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CoinsMarket extends CoinsMarket {
-  const _$CoinsMarket(this.date, this.sort, this.category, this.vsCurrency)
+  const _$CoinsMarket(
+      this.date, this.sort, this.category, this.vsCurrency, this.page)
       : super._();
 
   @override
@@ -227,10 +239,12 @@ class _$CoinsMarket extends CoinsMarket {
   final String? category;
   @override
   final String vsCurrency;
+  @override
+  final int page;
 
   @override
   String toString() {
-    return 'CoinGeckoClient.coinsMarket(date: $date, sort: $sort, category: $category, vsCurrency: $vsCurrency)';
+    return 'CoinGeckoClient.coinsMarket(date: $date, sort: $sort, category: $category, vsCurrency: $vsCurrency, page: $page)';
   }
 
   @override
@@ -246,7 +260,9 @@ class _$CoinsMarket extends CoinsMarket {
                     .equals(other.category, category)) &&
             (identical(other.vsCurrency, vsCurrency) ||
                 const DeepCollectionEquality()
-                    .equals(other.vsCurrency, vsCurrency)));
+                    .equals(other.vsCurrency, vsCurrency)) &&
+            (identical(other.page, page) ||
+                const DeepCollectionEquality().equals(other.page, page)));
   }
 
   @override
@@ -255,7 +271,8 @@ class _$CoinsMarket extends CoinsMarket {
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(sort) ^
       const DeepCollectionEquality().hash(category) ^
-      const DeepCollectionEquality().hash(vsCurrency);
+      const DeepCollectionEquality().hash(vsCurrency) ^
+      const DeepCollectionEquality().hash(page);
 
   @JsonKey(ignore: true)
   @override
@@ -265,8 +282,8 @@ class _$CoinsMarket extends CoinsMarket {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String date, String sort, String? category, String vsCurrency)
+    required TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)
         coinsMarket,
     required TResult Function(
             String id,
@@ -286,14 +303,14 @@ class _$CoinsMarket extends CoinsMarket {
     required TResult Function(List<String> coinIds, String vsCurrency)
         getAlertCoins,
   }) {
-    return coinsMarket(date, sort, category, vsCurrency);
+    return coinsMarket(date, sort, category, vsCurrency, page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String date, String sort, String? category, String vsCurrency)?
+    TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)?
         coinsMarket,
     TResult Function(
             String id,
@@ -313,7 +330,7 @@ class _$CoinsMarket extends CoinsMarket {
     required TResult orElse(),
   }) {
     if (coinsMarket != null) {
-      return coinsMarket(date, sort, category, vsCurrency);
+      return coinsMarket(date, sort, category, vsCurrency, page);
     }
     return orElse();
   }
@@ -350,15 +367,15 @@ class _$CoinsMarket extends CoinsMarket {
 }
 
 abstract class CoinsMarket extends CoinGeckoClient {
-  const factory CoinsMarket(
-          String date, String sort, String? category, String vsCurrency) =
-      _$CoinsMarket;
+  const factory CoinsMarket(String date, String sort, String? category,
+      String vsCurrency, int page) = _$CoinsMarket;
   const CoinsMarket._() : super._();
 
   String get date => throw _privateConstructorUsedError;
   String get sort => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String get vsCurrency => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CoinsMarketCopyWith<CoinsMarket> get copyWith =>
       throw _privateConstructorUsedError;
@@ -507,8 +524,8 @@ class _$Details extends Details {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String date, String sort, String? category, String vsCurrency)
+    required TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)
         coinsMarket,
     required TResult Function(
             String id,
@@ -535,8 +552,8 @@ class _$Details extends Details {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String date, String sort, String? category, String vsCurrency)?
+    TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)?
         coinsMarket,
     TResult Function(
             String id,
@@ -713,8 +730,8 @@ class _$MarketChart extends MarketChart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String date, String sort, String? category, String vsCurrency)
+    required TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)
         coinsMarket,
     required TResult Function(
             String id,
@@ -740,8 +757,8 @@ class _$MarketChart extends MarketChart {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String date, String sort, String? category, String vsCurrency)?
+    TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)?
         coinsMarket,
     TResult Function(
             String id,
@@ -852,8 +869,8 @@ class _$SearchTrends extends SearchTrends {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String date, String sort, String? category, String vsCurrency)
+    required TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)
         coinsMarket,
     required TResult Function(
             String id,
@@ -879,8 +896,8 @@ class _$SearchTrends extends SearchTrends {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String date, String sort, String? category, String vsCurrency)?
+    TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)?
         coinsMarket,
     TResult Function(
             String id,
@@ -1026,8 +1043,8 @@ class _$CoinSearch extends CoinSearch {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String date, String sort, String? category, String vsCurrency)
+    required TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)
         coinsMarket,
     required TResult Function(
             String id,
@@ -1053,8 +1070,8 @@ class _$CoinSearch extends CoinSearch {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String date, String sort, String? category, String vsCurrency)?
+    TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)?
         coinsMarket,
     TResult Function(
             String id,
@@ -1200,8 +1217,8 @@ class _$GetAlertCoins extends GetAlertCoins {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String date, String sort, String? category, String vsCurrency)
+    required TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)
         coinsMarket,
     required TResult Function(
             String id,
@@ -1227,8 +1244,8 @@ class _$GetAlertCoins extends GetAlertCoins {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String date, String sort, String? category, String vsCurrency)?
+    TResult Function(String date, String sort, String? category,
+            String vsCurrency, int page)?
         coinsMarket,
     TResult Function(
             String id,

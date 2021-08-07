@@ -38,11 +38,12 @@ class MarketCoinRepository extends IMarketCoinRepository {
   Future<Result<List<MarketCoinEntity>>> getCryptoCurrencies(
       {required MarketDate date,
       required MarketSort sort,
+      required int page,
       MarketCoinCategoryEntity? category}) async {
     try {
       var basecurrency = await getBaseCurrency();
       var currencies = await marketRemoteDataSource.getCryptoCurrencies(
-          date.rawValue, sort.rawValue, category?.categoryID, basecurrency);
+          date.rawValue, sort.rawValue, category?.categoryID, basecurrency, page);
       var entities = currencies.map((e) => e.toEntity()).toList();
       return Result.success(entities.toList());
     } on MarketException catch (e) {
