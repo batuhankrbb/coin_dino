@@ -3,7 +3,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../features/preferences/domain/entity/theme_preference_entity.dart';
 import '../../features/preferences/domain/repository_contract/i_preference_repository.dart';
-import '../extensions/material_extensions.dart';
+import '../utils/app_themes.dart';
 import '../starting_files/injection_container.dart';
 
 part 'app_settings_viewmodel.g.dart';
@@ -16,7 +16,7 @@ abstract class _AppSettingsViewModelBase with Store {
       getit.get<IPreferenceRepository>();
 
   @observable
-  ThemeData themeData = MaterialExtensions.lightModeTheme;
+  ThemeData themeData = AppThemes().lightModeTheme;
 
   @action
   Future<void> setUpSettings() async {
@@ -32,10 +32,10 @@ abstract class _AppSettingsViewModelBase with Store {
   void setTheme(ThemePreferenceEntity themePreference) {
     switch (themePreference) {
       case ThemePreferenceEntity.dark:
-        themeData = MaterialExtensions.darkModeTheme;
+        themeData = AppThemes().darkModeTheme;
         break;
       case ThemePreferenceEntity.light:
-        themeData = MaterialExtensions.lightModeTheme;
+        themeData = AppThemes().lightModeTheme;
         break;
     }
   }

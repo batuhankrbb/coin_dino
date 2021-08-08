@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbarComponent(title: "Home"),
+      appBar: customAppBar(context: context,title: "Home"),
       body: Container(
         alignment: Alignment.center,
         child: Column(

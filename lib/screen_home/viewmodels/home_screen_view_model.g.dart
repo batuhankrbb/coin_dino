@@ -102,6 +102,21 @@ mixin _$HomeScreenViewModel on _HomeScreenViewModelBase, Store {
     });
   }
 
+  final _$isScrolledAtom = Atom(name: '_HomeScreenViewModelBase.isScrolled');
+
+  @override
+  bool get isScrolled {
+    _$isScrolledAtom.reportRead();
+    return super.isScrolled;
+  }
+
+  @override
+  set isScrolled(bool value) {
+    _$isScrolledAtom.reportWrite(value, super.isScrolled, () {
+      super.isScrolled = value;
+    });
+  }
+
   final _$coinListResultAtom =
       Atom(name: '_HomeScreenViewModelBase.coinListResult');
 
@@ -144,6 +159,7 @@ selectedCategory: ${selectedCategory},
 categoryList: ${categoryList},
 coinListToShow: ${coinListToShow},
 currentPage: ${currentPage},
+isScrolled: ${isScrolled},
 coinListResult: ${coinListResult}
     ''';
   }

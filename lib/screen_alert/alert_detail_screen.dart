@@ -32,7 +32,7 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbarComponent(title: "Alert Detail"),
+      appBar: customAppBar(context: context,title: "Alert Detail"),
       body: SafeArea(
         child: Column(
           children: [

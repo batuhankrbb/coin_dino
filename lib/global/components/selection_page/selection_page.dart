@@ -49,7 +49,7 @@ class _SelectionPageState extends State<SelectionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: appbarComponent(title: widget.title),
+      appBar: customAppBar(context: context,title: widget.title),
       body: SafeArea(
         bottom: false,
         child: Column(

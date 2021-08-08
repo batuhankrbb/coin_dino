@@ -41,23 +41,6 @@ mixin _$SettingsViewModel on _SettingsViewModelBase, Store {
     });
   }
 
-  final _$baseCurrencyPreferenceAtom =
-      Atom(name: '_SettingsViewModelBase.baseCurrencyPreference');
-
-  @override
-  StateResult<String> get baseCurrencyPreference {
-    _$baseCurrencyPreferenceAtom.reportRead();
-    return super.baseCurrencyPreference;
-  }
-
-  @override
-  set baseCurrencyPreference(StateResult<String> value) {
-    _$baseCurrencyPreferenceAtom
-        .reportWrite(value, super.baseCurrencyPreference, () {
-      super.baseCurrencyPreference = value;
-    });
-  }
-
   final _$getThemePreferenceAsyncAction =
       AsyncAction('_SettingsViewModelBase.getThemePreference');
 
@@ -76,21 +59,11 @@ mixin _$SettingsViewModel on _SettingsViewModelBase, Store {
         .run(() => super.getLanguagePreference());
   }
 
-  final _$getBaseCurrencyPreferenceAsyncAction =
-      AsyncAction('_SettingsViewModelBase.getBaseCurrencyPreference');
-
-  @override
-  Future<void> getBaseCurrencyPreference() {
-    return _$getBaseCurrencyPreferenceAsyncAction
-        .run(() => super.getBaseCurrencyPreference());
-  }
-
   @override
   String toString() {
     return '''
 themePreference: ${themePreference},
-languagePreference: ${languagePreference},
-baseCurrencyPreference: ${baseCurrencyPreference}
+languagePreference: ${languagePreference}
     ''';
   }
 }

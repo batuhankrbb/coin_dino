@@ -3,17 +3,15 @@ import 'package:coin_dino/screen_settings/components/settings_form_header.dart';
 import '../core/mini_services/rating/rating_service.dart';
 import '../core/mini_services/share/share_service.dart';
 import '../core/mini_services/url_launcher/url_launcher_service.dart';
-import '../core/navigation/routes/navigation_route.dart';
-import '../core/navigation/services/navigation_service.dart';
 import '../features/preferences/domain/entity/language_preference_entity.dart';
 import '../features/preferences/domain/entity/theme_preference_entity.dart';
-import '../global/components/selection_page/selection_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../global/components/app_bar_components.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';
+import 'components/settings_form_row.dart';
 import 'components/settings_iap_card.dart';
 import 'components/settings_icon.dart';
 import 'view_model/settings_view_model.dart';
@@ -31,30 +29,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     super.initState();
-    setUpSettings();
-  }
-
-  Future<void> setUpSettings() async {
-    await settingsViewModel.getBaseCurrencyPreference();
-    await settingsViewModel.getLanguagePreference();
-    await settingsViewModel.getThemePreference();
+    settingsViewModel.setUpSettings();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbarComponent(title: "Settings"),
+      appBar: customAppBar(context: context,title: "Settings"),
       body: Container(
         padding: EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(height: 10),
-              settingsSection(),
+              buildSettingsSection(),
               SizedBox(height: 10),
               SettingInAppPurchaseCardWidget(),
               SizedBox(height: 10),
-              othersSection(),
+              buildOthersSection(),
             ],
           ),
         ),
@@ -62,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Widget settingsSection() {
+  Widget buildSettingsSection() {
     return CupertinoFormSection(
       header: SettingsFormHeader(
         headerTitle: "Settings",
@@ -74,7 +66,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ],
     );
   }
-
 
   Widget buildStateResultForLanguage() {
     return Observer(
@@ -91,7 +82,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 },
               );
             },
-            loadingWidget: CupertinoActivityIndicator(),
             failureWidget: (failure) {
               return SizedBox();
             });
@@ -112,14 +102,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   await themeOnTap(data);
                 });
           },
-          loadingWidget: CupertinoActivityIndicator(),
           failureWidget: (failure) {
             return SizedBox();
           });
     });
   }
 
-  Widget othersSection() {
+  Widget buildOthersSection() {
     return CupertinoFormSection(
       header: SettingsFormHeader(
         headerTitle: "Others",
@@ -155,34 +144,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> languageOnTap(LanguagePreferenceEntity data) async {
     var allLanguages = await settingsViewModel.getAllLanguages();
-    NavigationService.shared
-        .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
-      dataList: allLanguages,
-      title: "Languages",
-      isListingActive: false,
-      isCapitalActive: true,
-      selectedIndex: allLanguages.indexOf(data.rawValue),
-      onSelect: (value) {
-          print("value: $value");
+    settingsViewModel.tapAndNavigate(allLanguages, "Languages", allLanguages.indexOf(data.rawValue),  (value) {
         settingsViewModel.setLanguagePreference(allLanguages[value]);
-      },
-    )));
+      });
   }
 
   Future<void> themeOnTap(ThemePreferenceEntity data) async {
     var allThemes = await settingsViewModel.getAllThemes();
-    NavigationService.shared
-        .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
-      dataList: allThemes,
-      title: "Themes",
-      isListingActive: false,
-      isCapitalActive: true,
-      selectedIndex: allThemes.indexOf(data.rawValue),
-      onSelect: (value) {
-        print("value: $value");
-        settingsViewModel.setThemePreference(allThemes[value]);
-      },
-    )));
+    settingsViewModel.tapAndNavigate(
+        allThemes, "Themes", allThemes.indexOf(data.rawValue), (value) {
+      settingsViewModel.setThemePreference(allThemes[value]);
+    });
   }
-
 }

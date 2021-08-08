@@ -12,7 +12,7 @@ class InAppPurchase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbarComponent(),
+      appBar: customAppBar(context: context,title: "Purchase"),
       body: Container(
         padding: EdgeInsets.all(15),
         child: Column(
@@ -102,7 +102,7 @@ class InAppPurchaseButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.9,
       child: ElevatedButton(
         style: context.buttonStyle(
-            backgroundColor: CustomColor.shared.backgroundBlueColor),
+            backgroundColor: Colors.blue),
         onPressed: () {
           //TODO REKLAM KALDIRMA KODU
         },

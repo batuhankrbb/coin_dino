@@ -29,7 +29,7 @@ class _AlertListScreenState extends State<AlertListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbarComponent(title: "Alerts"),
+      appBar: customAppBar(context: context,title: "Alerts"),
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,

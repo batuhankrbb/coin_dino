@@ -3,7 +3,7 @@ import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import '../../screen_in_app_purchase/inapp_purchase_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import '../../core/mini_services/image/image_helper.dart';
 import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 
@@ -15,20 +15,11 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
     return InformerWidget(
       onPageBuild: (context, screenInformation) {
         return GestureDetector(
-          onTap: () {
-            NavigationService.shared.navigateTo(
-              NavigationRoute.toInAppPurchase(
-                InAppPurchase(),
-              ),
-            );
-          },
+          onTap: navigateToInAppScreen,
           child: Container(
             width: screenInformation.screenSize.width * 0.98,
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                gradient: LinearGradient(
-                    colors: [Colors.orange, Colors.orangeAccent])),
+            padding: EdgeInsets.all(context.getWidth(0.02)),
+            decoration: buildBoxDecoration(),
             child: Row(
               children: [
                 Expanded(
@@ -37,21 +28,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
                 Spacer(flex: 1),
                 Expanded(
                   flex: 30,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AutoSizeText("Remove ads",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15)),
-                      AutoSizeText("For a better experience.",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.normal)),
-                    ],
-                  ),
+                  child: buildTexts(context),
                 ),
                 Spacer(flex: 1),
                 Expanded(
@@ -65,6 +42,46 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  BoxDecoration buildBoxDecoration() {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(5),
+      gradient: LinearGradient(colors: [Colors.orange, Colors.orangeAccent]),
+    );
+  }
+
+  Column buildTexts(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AutoSizeText(
+          "Remove ads",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: context.getWidth(0.05),
+          ),
+        ),
+        AutoSizeText(
+          "For a better experience.",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.normal,
+            fontSize: context.getWidth(0.03),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void navigateToInAppScreen() {
+    NavigationService.shared.navigateTo(
+      NavigationRoute.toInAppPurchase(
+        InAppPurchase(),
+      ),
     );
   }
 }

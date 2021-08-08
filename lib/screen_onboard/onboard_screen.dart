@@ -20,7 +20,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbarComponent(title: "Coin Track"),
+      appBar: customAppBar(context: context,title: "Coin Track"),
       body: Column(
         children: [
           Spacer(flex: 5),

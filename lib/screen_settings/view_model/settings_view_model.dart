@@ -1,3 +1,7 @@
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/global/components/selection_page/selection_page.dart';
+
 import '../../global/app_settings/app_settings_viewmodel.dart';
 import 'package:mobx/mobx.dart';
 
@@ -24,9 +28,6 @@ abstract class _SettingsViewModelBase with Store {
   StateResult<LanguagePreferenceEntity> languagePreference =
       StateResult.initial();
 
-  @observable
-  StateResult<String> baseCurrencyPreference = StateResult.initial();
-
   @action
   Future<void> getThemePreference() async {
     var themePreferenceResult = await preferenceRepository.getThemePreference();
@@ -49,28 +50,6 @@ abstract class _SettingsViewModelBase with Store {
     });
   }
 
-  @action
-  Future<void> getBaseCurrencyPreference() async {
-    var baseCurrenciesResult =
-        await preferenceRepository.getBaseCurrencyPreference();
-    baseCurrenciesResult.when(success: (data) {
-      baseCurrencyPreference = StateResult.completed(data);
-    }, failure: (failure) {
-      baseCurrencyPreference = StateResult.failed(failure);
-    });
-  }
-
-  Future<List<String>> getAllBaseCurrencies() async {
-    var currenciesResult =
-        await preferenceRepository.getAllSupportedBaseCurrencies();
-
-    return currenciesResult.when(success: (data) {
-      return data;
-    }, failure: (failure) {
-      return [];
-    });
-  }
-
   Future<List<String>> getAllThemes() async {
     var themesResult = await preferenceRepository.getAllThemes();
     return themesResult.map((e) => e.rawValue).toList();
@@ -78,8 +57,7 @@ abstract class _SettingsViewModelBase with Store {
 
   Future<List<String>> getAllLanguages() async {
     var languages = await preferenceRepository.getAllLanguages();
-    var languagelist = languages.map((e) => e.rawValue).toList();
-    return languagelist;
+    return languages.map((e) => e.rawValue).toList();
   }
 
   Future<void> setThemePreference(String preferenceEntity) async {
@@ -95,8 +73,21 @@ abstract class _SettingsViewModelBase with Store {
     await getLanguagePreference();
   }
 
-  Future<void> setBaseCurrencyPreference(String baseCurrency) async {
-    await preferenceRepository.setBaseCurrencyPreference(baseCurrency);
-    await getBaseCurrencyPreference();
+  Future<void> setUpSettings() async {
+    await getLanguagePreference();
+    await getThemePreference();
   }
+
+  void tapAndNavigate(List<String> dataList, String title, int selectedIndex, Function(int) onSelect){
+    NavigationService.shared
+        .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
+      dataList: dataList,
+      title: title,
+      isListingActive: false,
+      isCapitalActive: true,
+      selectedIndex: selectedIndex,
+      onSelect: onSelect,
+    )));
+  }
+  
 }

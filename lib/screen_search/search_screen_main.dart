@@ -15,7 +15,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import '../global/components/app_bar_components.dart';
 
 class SearchScreenMain extends StatefulWidget {
-
   SearchScreenMain({Key? key}) : super(key: key);
 
   @override
@@ -65,7 +64,8 @@ class _SearchScreenMainState extends State<SearchScreenMain>
   }
 
   AppBar buildAppBar() {
-    return appbarComponent(
+    return customAppBar(
+      context: context,
       title: searchViewModel.appBarText,
       bottom: TabBar(
         onTap: (index) {
