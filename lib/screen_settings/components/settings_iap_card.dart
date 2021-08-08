@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 import '../../core/mini_services/image/image_helper.dart';
 import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class SettingInAppPurchaseCardWidget extends StatelessWidget {
   const SettingInAppPurchaseCardWidget({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
           child: Container(
             width: screenInformation.screenSize.width * 0.98,
             padding: EdgeInsets.all(context.getWidth(0.02)),
-            decoration: buildBoxDecoration(),
+            decoration: buildBoxDecoration(context),
             child: Row(
               children: [
                 Expanded(
@@ -32,11 +33,13 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
                 ),
                 Spacer(flex: 1),
                 Expanded(
-                    flex: 2,
-                    child: Icon(
-                      Icons.chevron_right,
-                      color: Colors.white,
-                    ))
+                  flex: 3,
+                  child: Icon(
+                    Icons.chevron_right,
+                    color: context.colorScheme.onSurface,
+                    size: context.getWidth(0.07),
+                  ),
+                )
               ],
             ),
           ),
@@ -45,10 +48,13 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
     );
   }
 
-  BoxDecoration buildBoxDecoration() {
+  BoxDecoration buildBoxDecoration(BuildContext context) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(5),
-      gradient: LinearGradient(colors: [Colors.orange, Colors.orangeAccent]),
+      gradient: LinearGradient(colors: [
+        context.colorScheme.onError,
+        context.colorScheme.onBackground,
+      ]),
     );
   }
 
@@ -60,7 +66,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
         AutoSizeText(
           "Remove ads",
           style: TextStyle(
-            color: Colors.white,
+            color: context.colorScheme.onSurface,
             fontWeight: FontWeight.bold,
             fontSize: context.getWidth(0.05),
           ),
@@ -68,7 +74,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
         AutoSizeText(
           "For a better experience.",
           style: TextStyle(
-            color: Colors.white,
+            color: context.colorScheme.onSurface,
             fontWeight: FontWeight.normal,
             fontSize: context.getWidth(0.03),
           ),

@@ -24,19 +24,20 @@ class SettingFormRowWidget extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.translucent,
       child: Container(
-          padding: EdgeInsets.all(10),
-          child: Row(
-            children: [
-              leading,
-              Spacer(flex: 3),
-              Expanded(
-                flex: 80,
-                child: buildTitles(context),
-              ),
-              Spacer(flex: 6),
-              getTrailing(),
-            ],
-          )),
+        padding: EdgeInsets.all(10),
+        child: Row(
+          children: [
+            leading,
+            Spacer(flex: 3),
+            Expanded(
+              flex: 80,
+              child: buildTitles(context),
+            ),
+            Spacer(flex: 6),
+            getTrailing(),
+          ],
+        ),
+      ),
     );
   }
 

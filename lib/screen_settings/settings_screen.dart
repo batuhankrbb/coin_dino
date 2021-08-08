@@ -15,6 +15,7 @@ import 'components/settings_form_row.dart';
 import 'components/settings_iap_card.dart';
 import 'components/settings_icon.dart';
 import 'view_model/settings_view_model.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -76,7 +77,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               return SettingFormRowWidget(
                 leading: SettingsIcon(iconData: Icons.language),
                 title: "Language",
-                trailing: Icon(Icons.chevron_right),
+                trailing: Icon(Icons.chevron_right,),
                 onTap: () async {
                   await languageOnTap(data);
                 },
