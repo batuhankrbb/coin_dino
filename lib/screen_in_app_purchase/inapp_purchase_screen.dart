@@ -68,8 +68,9 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
         child: AutoSizeText(
           "Restore Purchase",
           textAlign: TextAlign.center,
-          style:
-              TextStyle(color: Colors.blue, fontSize: context.getWidth(0.05)),
+          style: TextStyle(
+              color: context.theme.buttonColor,
+              fontSize: context.getWidth(0.05)),
         ),
       ),
       onTap: () {

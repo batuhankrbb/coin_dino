@@ -32,7 +32,7 @@ class InappPurchaseTextWidget extends StatelessWidget {
       textAlign: TextAlign.center,
       maxLines: 2,
       style: TextStyle(
-        color: Colors.grey,
+        color: context.colorScheme.background,
         fontSize: context.getWidth(0.045),
       ),
     );
@@ -43,7 +43,7 @@ class InappPurchaseTextWidget extends StatelessWidget {
       "We know that ads are annoying. Aren't they?",
       maxLines: 2,
       style: TextStyle(
-        color: Colors.black,
+        color: context.colorScheme.primary,
         fontWeight: FontWeight.bold,
         fontSize: context.getWidth(0.08),
       ),

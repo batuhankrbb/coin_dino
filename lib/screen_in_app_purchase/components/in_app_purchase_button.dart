@@ -16,7 +16,7 @@ class InAppPurchaseButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.9,
         child: ElevatedButton(
           style: context.buttonStyle(
-            backgroundColor: Colors.blue,
+            backgroundColor: context.colorScheme.surface,
           ),
           onPressed: null,
           child: buildText(context),
@@ -27,11 +27,11 @@ class InAppPurchaseButton extends StatelessWidget {
 
   AutoSizeText buildText(BuildContext context) {
     return AutoSizeText(
-          "Remove Ads",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: context.getWidth(0.06),
-          ),
-        );
+      "Remove Ads",
+      style: TextStyle(
+        color: context.colorScheme.onSurface,
+        fontSize: context.getWidth(0.06),
+      ),
+    );
   }
 }
