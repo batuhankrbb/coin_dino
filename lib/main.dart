@@ -27,7 +27,11 @@ void main() async {
   await getit
       .get<AppSettingsViewModel>()
       .setUpSettings(); //* sets up theme options.
-  runApp(DevicePreview(builder: (_) => MyApp(),),);
+  runApp(
+    DevicePreview(
+      builder: (_) => MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -51,7 +55,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           theme: appSettingsViewModel.themeData,
           builder: DevicePreview.appBuilder,
           locale: DevicePreview.locale(context),
-          home: SearchScreenMain(),
+          home: OnboardScreen(),
         );
       },
     );

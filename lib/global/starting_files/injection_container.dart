@@ -1,5 +1,6 @@
 import 'package:coin_dino/screen_alert/viewmodels/screen_alert_view_model.dart';
 import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
+import 'package:coin_dino/screen_onboard/view_model/onboard_screen_viewmodel.dart';
 
 import '../../screen_detail/viewmodels/detail_screen_view_model.dart';
 
@@ -47,6 +48,7 @@ void setupGetIt() {
   _setUpPreferencesFeature();
   _setUpSearchFeature();
   _setupAppSettings();
+  _setupOnboardScreen();
 }
 
 void _setUpAlertFeature() {
@@ -64,7 +66,6 @@ void _setUpAlertFeature() {
 
   getit.registerLazySingleton<AlertExceptionHandler>(
       () => AlertExceptionHandler());
-
 
   getit.registerLazySingleton<ScreenAlertViewModel>(
       () => ScreenAlertViewModel(alertRepository: getit()));
@@ -147,4 +148,9 @@ void _setUpSearchFeature() {
 void _setupAppSettings() {
   getit.registerLazySingleton<AppSettingsViewModel>(
       () => AppSettingsViewModel());
+}
+
+void _setupOnboardScreen() {
+  getit.registerLazySingleton<OnboardScreenViewModel>(
+      () => OnboardScreenViewModel());
 }

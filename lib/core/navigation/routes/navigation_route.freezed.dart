@@ -45,6 +45,12 @@ class _$NavigationRouteTearOff {
       inAppPurchaseScreen,
     );
   }
+
+  RouteHomePage toHomePage(HomePage homePage) {
+    return RouteHomePage(
+      homePage,
+    );
+  }
 }
 
 /// @nodoc
@@ -60,6 +66,7 @@ mixin _$NavigationRoute {
     required TResult Function(AlertListScreen alertListScreen) toAlertList,
     required TResult Function(InAppPurchase inAppPurchaseScreen)
         toInAppPurchase,
+    required TResult Function(HomePage homePage) toHomePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +76,7 @@ mixin _$NavigationRoute {
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
     TResult Function(AlertListScreen alertListScreen)? toAlertList,
     TResult Function(InAppPurchase inAppPurchaseScreen)? toInAppPurchase,
+    TResult Function(HomePage homePage)? toHomePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,6 +87,7 @@ mixin _$NavigationRoute {
     required TResult Function(RouteAlertPage value) toAlert,
     required TResult Function(RouteAlertListPage value) toAlertList,
     required TResult Function(RouteInAppPurchase value) toInAppPurchase,
+    required TResult Function(RouteHomePage value) toHomePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +97,7 @@ mixin _$NavigationRoute {
     TResult Function(RouteAlertPage value)? toAlert,
     TResult Function(RouteAlertListPage value)? toAlertList,
     TResult Function(RouteInAppPurchase value)? toInAppPurchase,
+    TResult Function(RouteHomePage value)? toHomePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -182,6 +192,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     required TResult Function(AlertListScreen alertListScreen) toAlertList,
     required TResult Function(InAppPurchase inAppPurchaseScreen)
         toInAppPurchase,
+    required TResult Function(HomePage homePage) toHomePage,
   }) {
     return toSelectionPage(selectionPage);
   }
@@ -194,6 +205,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
     TResult Function(AlertListScreen alertListScreen)? toAlertList,
     TResult Function(InAppPurchase inAppPurchaseScreen)? toInAppPurchase,
+    TResult Function(HomePage homePage)? toHomePage,
     required TResult orElse(),
   }) {
     if (toSelectionPage != null) {
@@ -210,6 +222,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     required TResult Function(RouteAlertPage value) toAlert,
     required TResult Function(RouteAlertListPage value) toAlertList,
     required TResult Function(RouteInAppPurchase value) toInAppPurchase,
+    required TResult Function(RouteHomePage value) toHomePage,
   }) {
     return toSelectionPage(this);
   }
@@ -222,6 +235,7 @@ class _$RouteSelectionPage implements RouteSelectionPage {
     TResult Function(RouteAlertPage value)? toAlert,
     TResult Function(RouteAlertListPage value)? toAlertList,
     TResult Function(RouteInAppPurchase value)? toInAppPurchase,
+    TResult Function(RouteHomePage value)? toHomePage,
     required TResult orElse(),
   }) {
     if (toSelectionPage != null) {
@@ -313,6 +327,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     required TResult Function(AlertListScreen alertListScreen) toAlertList,
     required TResult Function(InAppPurchase inAppPurchaseScreen)
         toInAppPurchase,
+    required TResult Function(HomePage homePage) toHomePage,
   }) {
     return toDetails(detailScreen);
   }
@@ -325,6 +340,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
     TResult Function(AlertListScreen alertListScreen)? toAlertList,
     TResult Function(InAppPurchase inAppPurchaseScreen)? toInAppPurchase,
+    TResult Function(HomePage homePage)? toHomePage,
     required TResult orElse(),
   }) {
     if (toDetails != null) {
@@ -341,6 +357,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     required TResult Function(RouteAlertPage value) toAlert,
     required TResult Function(RouteAlertListPage value) toAlertList,
     required TResult Function(RouteInAppPurchase value) toInAppPurchase,
+    required TResult Function(RouteHomePage value) toHomePage,
   }) {
     return toDetails(this);
   }
@@ -353,6 +370,7 @@ class _$RouteDetailsPage implements RouteDetailsPage {
     TResult Function(RouteAlertPage value)? toAlert,
     TResult Function(RouteAlertListPage value)? toAlertList,
     TResult Function(RouteInAppPurchase value)? toInAppPurchase,
+    TResult Function(RouteHomePage value)? toHomePage,
     required TResult orElse(),
   }) {
     if (toDetails != null) {
@@ -445,6 +463,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     required TResult Function(AlertListScreen alertListScreen) toAlertList,
     required TResult Function(InAppPurchase inAppPurchaseScreen)
         toInAppPurchase,
+    required TResult Function(HomePage homePage) toHomePage,
   }) {
     return toAlert(alertDetailScreen);
   }
@@ -457,6 +476,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
     TResult Function(AlertListScreen alertListScreen)? toAlertList,
     TResult Function(InAppPurchase inAppPurchaseScreen)? toInAppPurchase,
+    TResult Function(HomePage homePage)? toHomePage,
     required TResult orElse(),
   }) {
     if (toAlert != null) {
@@ -473,6 +493,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     required TResult Function(RouteAlertPage value) toAlert,
     required TResult Function(RouteAlertListPage value) toAlertList,
     required TResult Function(RouteInAppPurchase value) toInAppPurchase,
+    required TResult Function(RouteHomePage value) toHomePage,
   }) {
     return toAlert(this);
   }
@@ -485,6 +506,7 @@ class _$RouteAlertPage implements RouteAlertPage {
     TResult Function(RouteAlertPage value)? toAlert,
     TResult Function(RouteAlertListPage value)? toAlertList,
     TResult Function(RouteInAppPurchase value)? toInAppPurchase,
+    TResult Function(RouteHomePage value)? toHomePage,
     required TResult orElse(),
   }) {
     if (toAlert != null) {
@@ -577,6 +599,7 @@ class _$RouteAlertListPage implements RouteAlertListPage {
     required TResult Function(AlertListScreen alertListScreen) toAlertList,
     required TResult Function(InAppPurchase inAppPurchaseScreen)
         toInAppPurchase,
+    required TResult Function(HomePage homePage) toHomePage,
   }) {
     return toAlertList(alertListScreen);
   }
@@ -589,6 +612,7 @@ class _$RouteAlertListPage implements RouteAlertListPage {
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
     TResult Function(AlertListScreen alertListScreen)? toAlertList,
     TResult Function(InAppPurchase inAppPurchaseScreen)? toInAppPurchase,
+    TResult Function(HomePage homePage)? toHomePage,
     required TResult orElse(),
   }) {
     if (toAlertList != null) {
@@ -605,6 +629,7 @@ class _$RouteAlertListPage implements RouteAlertListPage {
     required TResult Function(RouteAlertPage value) toAlert,
     required TResult Function(RouteAlertListPage value) toAlertList,
     required TResult Function(RouteInAppPurchase value) toInAppPurchase,
+    required TResult Function(RouteHomePage value) toHomePage,
   }) {
     return toAlertList(this);
   }
@@ -617,6 +642,7 @@ class _$RouteAlertListPage implements RouteAlertListPage {
     TResult Function(RouteAlertPage value)? toAlert,
     TResult Function(RouteAlertListPage value)? toAlertList,
     TResult Function(RouteInAppPurchase value)? toInAppPurchase,
+    TResult Function(RouteHomePage value)? toHomePage,
     required TResult orElse(),
   }) {
     if (toAlertList != null) {
@@ -709,6 +735,7 @@ class _$RouteInAppPurchase implements RouteInAppPurchase {
     required TResult Function(AlertListScreen alertListScreen) toAlertList,
     required TResult Function(InAppPurchase inAppPurchaseScreen)
         toInAppPurchase,
+    required TResult Function(HomePage homePage) toHomePage,
   }) {
     return toInAppPurchase(inAppPurchaseScreen);
   }
@@ -721,6 +748,7 @@ class _$RouteInAppPurchase implements RouteInAppPurchase {
     TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
     TResult Function(AlertListScreen alertListScreen)? toAlertList,
     TResult Function(InAppPurchase inAppPurchaseScreen)? toInAppPurchase,
+    TResult Function(HomePage homePage)? toHomePage,
     required TResult orElse(),
   }) {
     if (toInAppPurchase != null) {
@@ -737,6 +765,7 @@ class _$RouteInAppPurchase implements RouteInAppPurchase {
     required TResult Function(RouteAlertPage value) toAlert,
     required TResult Function(RouteAlertListPage value) toAlertList,
     required TResult Function(RouteInAppPurchase value) toInAppPurchase,
+    required TResult Function(RouteHomePage value) toHomePage,
   }) {
     return toInAppPurchase(this);
   }
@@ -749,6 +778,7 @@ class _$RouteInAppPurchase implements RouteInAppPurchase {
     TResult Function(RouteAlertPage value)? toAlert,
     TResult Function(RouteAlertListPage value)? toAlertList,
     TResult Function(RouteInAppPurchase value)? toInAppPurchase,
+    TResult Function(RouteHomePage value)? toHomePage,
     required TResult orElse(),
   }) {
     if (toInAppPurchase != null) {
@@ -765,5 +795,139 @@ abstract class RouteInAppPurchase implements NavigationRoute {
   InAppPurchase get inAppPurchaseScreen => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RouteInAppPurchaseCopyWith<RouteInAppPurchase> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RouteHomePageCopyWith<$Res> {
+  factory $RouteHomePageCopyWith(
+          RouteHomePage value, $Res Function(RouteHomePage) then) =
+      _$RouteHomePageCopyWithImpl<$Res>;
+  $Res call({HomePage homePage});
+}
+
+/// @nodoc
+class _$RouteHomePageCopyWithImpl<$Res>
+    extends _$NavigationRouteCopyWithImpl<$Res>
+    implements $RouteHomePageCopyWith<$Res> {
+  _$RouteHomePageCopyWithImpl(
+      RouteHomePage _value, $Res Function(RouteHomePage) _then)
+      : super(_value, (v) => _then(v as RouteHomePage));
+
+  @override
+  RouteHomePage get _value => super._value as RouteHomePage;
+
+  @override
+  $Res call({
+    Object? homePage = freezed,
+  }) {
+    return _then(RouteHomePage(
+      homePage == freezed
+          ? _value.homePage
+          : homePage // ignore: cast_nullable_to_non_nullable
+              as HomePage,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RouteHomePage implements RouteHomePage {
+  const _$RouteHomePage(this.homePage);
+
+  @override
+  final HomePage homePage;
+
+  @override
+  String toString() {
+    return 'NavigationRoute.toHomePage(homePage: $homePage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is RouteHomePage &&
+            (identical(other.homePage, homePage) ||
+                const DeepCollectionEquality()
+                    .equals(other.homePage, homePage)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(homePage);
+
+  @JsonKey(ignore: true)
+  @override
+  $RouteHomePageCopyWith<RouteHomePage> get copyWith =>
+      _$RouteHomePageCopyWithImpl<RouteHomePage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SelectionPage selectionPage) toSelectionPage,
+    required TResult Function(CoinDetailScreen detailScreen) toDetails,
+    required TResult Function(AlertDetailScreen alertDetailScreen) toAlert,
+    required TResult Function(AlertListScreen alertListScreen) toAlertList,
+    required TResult Function(InAppPurchase inAppPurchaseScreen)
+        toInAppPurchase,
+    required TResult Function(HomePage homePage) toHomePage,
+  }) {
+    return toHomePage(homePage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SelectionPage selectionPage)? toSelectionPage,
+    TResult Function(CoinDetailScreen detailScreen)? toDetails,
+    TResult Function(AlertDetailScreen alertDetailScreen)? toAlert,
+    TResult Function(AlertListScreen alertListScreen)? toAlertList,
+    TResult Function(InAppPurchase inAppPurchaseScreen)? toInAppPurchase,
+    TResult Function(HomePage homePage)? toHomePage,
+    required TResult orElse(),
+  }) {
+    if (toHomePage != null) {
+      return toHomePage(homePage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RouteSelectionPage value) toSelectionPage,
+    required TResult Function(RouteDetailsPage value) toDetails,
+    required TResult Function(RouteAlertPage value) toAlert,
+    required TResult Function(RouteAlertListPage value) toAlertList,
+    required TResult Function(RouteInAppPurchase value) toInAppPurchase,
+    required TResult Function(RouteHomePage value) toHomePage,
+  }) {
+    return toHomePage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RouteSelectionPage value)? toSelectionPage,
+    TResult Function(RouteDetailsPage value)? toDetails,
+    TResult Function(RouteAlertPage value)? toAlert,
+    TResult Function(RouteAlertListPage value)? toAlertList,
+    TResult Function(RouteInAppPurchase value)? toInAppPurchase,
+    TResult Function(RouteHomePage value)? toHomePage,
+    required TResult orElse(),
+  }) {
+    if (toHomePage != null) {
+      return toHomePage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RouteHomePage implements NavigationRoute {
+  const factory RouteHomePage(HomePage homePage) = _$RouteHomePage;
+
+  HomePage get homePage => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RouteHomePageCopyWith<RouteHomePage> get copyWith =>
       throw _privateConstructorUsedError;
 }

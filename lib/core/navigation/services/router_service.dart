@@ -7,17 +7,26 @@ class RouterService {
   static Route<dynamic> generateCustomRoute(RouteSettings settings) {
     NavigationRoute route = settings.arguments as NavigationRoute;
 
-    return route.when(toSelectionPage: (page) {
-      return _convertToRoute(page);
-    }, toDetails: (page) {
-      return _convertToRoute(page);
-    }, toAlert: (page) {
-      return _convertToRoute(page);
-    }, toAlertList: (page) {
-      return _convertToRoute(page);
-    }, toInAppPurchase: (page) {
-      return _convertToRoute(page);
-    });
+    return route.when(
+      toSelectionPage: (page) {
+        return _convertToRoute(page);
+      },
+      toDetails: (page) {
+        return _convertToRoute(page);
+      },
+      toAlert: (page) {
+        return _convertToRoute(page);
+      },
+      toAlertList: (page) {
+        return _convertToRoute(page);
+      },
+      toInAppPurchase: (page) {
+        return _convertToRoute(page);
+      },
+      toHomePage: (page) {
+        return _convertToRoute(page);
+      },
+    );
   }
 
   static CupertinoPageRoute _convertToRoute(Widget page) {
