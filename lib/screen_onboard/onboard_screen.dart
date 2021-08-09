@@ -30,7 +30,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Spacer(flex: 5),
+          Spacer(flex: 10),
           Expanded(
             flex: 95,
             child: onboardScreenPageViewMethod(),

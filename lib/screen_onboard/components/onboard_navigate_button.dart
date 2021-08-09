@@ -16,7 +16,7 @@ class OnboardNavigateButton extends StatelessWidget {
       child: ElevatedButton(
         child: Icon(
           Icons.arrow_right_alt,
-          color: Colors.white,
+          color: context.colorScheme.onSurface,
           size: context.getWidth(0.08),
         ),
         onPressed: () {
@@ -24,9 +24,9 @@ class OnboardNavigateButton extends StatelessWidget {
               .navigateTo(NavigationRoute.toHomePage(HomePage()));
         },
         style: context.buttonStyle(
-          backgroundColor: CustomColor.shared.backgroundBlueColor,
-          shadowColor: CustomColor.shared.backgroundBlueColor,
-          elevation: 20,
+          backgroundColor: context.colorScheme.secondary,
+          shadowColor: context.colorScheme.secondary,
+          elevation: 12,
         ),
       ),
     );

@@ -7,8 +7,7 @@ import '../view_model/onboard_screen_viewmodel.dart';
 
 class PageViewIndicatorWidget extends StatelessWidget {
   final int index;
-  PageViewIndicatorWidget({Key? key, required this.index})
-      : super(key: key);
+  PageViewIndicatorWidget({Key? key, required this.index}) : super(key: key);
 
   var onBoardScreenViewModel = getit.get<OnboardScreenViewModel>();
 
@@ -22,18 +21,18 @@ class PageViewIndicatorWidget extends StatelessWidget {
               : context.getWidth(0.06),
           height: 1,
           duration: Duration(milliseconds: 100),
-          decoration: buildBoxDecoration(),
+          decoration: buildBoxDecoration(context),
         );
       },
     );
   }
 
-  BoxDecoration buildBoxDecoration() {
+  BoxDecoration buildBoxDecoration(BuildContext context) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(10),
       color: (onBoardScreenViewModel.selectedIndex == index)
-          ? CustomColor.shared.backgroundBlueColor
-          : Colors.grey,
+          ? context.colorScheme.secondary
+          : context.colorScheme.background,
     );
   }
 }
