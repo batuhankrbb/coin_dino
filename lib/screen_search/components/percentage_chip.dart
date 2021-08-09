@@ -16,18 +16,20 @@ class PercentageChip extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.13,
       height: MediaQuery.of(context).size.height * 0.1,
       alignment: Alignment.center,
-      decoration: buildBoxDecoration(),
+      decoration: buildBoxDecoration(context),
       child: AutoSizeText(
         NumberHelper.shared.giveFormattedTextByPercentage(percentage),
         maxLines: 1,
-        style: TextStyle(color: Colors.white, fontSize: 50),
+        style: TextStyle(color: context.colorScheme.onSurface, fontSize: 50),
       ),
     );
   }
 
-  BoxDecoration buildBoxDecoration() {
+  BoxDecoration buildBoxDecoration(BuildContext context) {
     return BoxDecoration(
-      color: percentage < 0 ? Colors.red : Colors.green,
+      color: percentage < 0
+          ? context.colorScheme.onPrimary
+          : context.colorScheme.surface,
       borderRadius: BorderRadius.circular(12),
     );
   }

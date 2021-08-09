@@ -77,7 +77,8 @@ class SearchCell extends StatelessWidget {
             child: CustomAutoSizeText(
               text: searchCoinEntity.currentPrice,
               textStyle: TextStyle(
-                  color: Colors.black, fontSize: context.getWidth(0.045)),
+                  color: context.colorScheme.primary,
+                  fontSize: context.getWidth(0.045)),
             ),
           ),
           Spacer(),
@@ -111,7 +112,7 @@ class SearchCell extends StatelessWidget {
         Flexible(
           flex: 5,
           child: CustomAutoSizeText(
-            text: searchCoinEntity.symbol.toUpperCase(),
+            text: searchCoinEntity.symbol,
             textStyle: TextStyle(
               fontSize: context.getWidth(0.03),
               fontWeight: FontWeight.w300,

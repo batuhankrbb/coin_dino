@@ -71,8 +71,11 @@ class _TrendsScreenState extends State<TrendsScreen> {
     return TrendCell(
       searchTrendCoinEntity: data.coinEntityList[index],
       onTap: () {
-        NavigationService.shared.navigateTo(NavigationRoute.toDetails(
-            CoinDetailScreen(coinID: data.coinEntityList[index].id)));
+        NavigationService.shared.navigateTo(
+          NavigationRoute.toDetails(
+            CoinDetailScreen(coinID: data.coinEntityList[index].id),
+          ),
+        );
       },
     );
   }

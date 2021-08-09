@@ -153,7 +153,7 @@ class SearchCoinModel extends BaseNetworkModel {
     return SearchCoinEntity(
         marketCapRank: marketCapRank == null ? "-" : "$marketCapRank",
         imageUrl: image,
-        symbol: symbol,
+        symbol: symbol.toUpperCase(),
         name: name,
         currentPrice: NumberHelper.shared.toCommaString(number: currentPrice,digitNumber: 4),
         marketCap: "$marketCap",

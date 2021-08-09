@@ -65,8 +65,9 @@ class TrendCell extends StatelessWidget {
     return Center(
       child: CustomAutoSizeText(
         text: searchTrendCoinEntity.btcPrice,
-        textStyle:
-            TextStyle(color: Colors.black, fontSize: context.getWidth(0.05)),
+        textStyle: TextStyle(
+            color: context.colorScheme.primary,
+            fontSize: context.getWidth(0.05)),
         maxLines: 1,
       ),
     );

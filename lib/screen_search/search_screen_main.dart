@@ -68,7 +68,7 @@ class _SearchScreenMainState extends State<SearchScreenMain>
       context: context,
       title: _searchViewModel.tabIndex == 0 ? "Search" : "Trends",
       bottom: TabBar(
-        indicatorColor: Colors.green,
+        indicatorColor: context.colorScheme.surface,
         onTap: onTapTabBar,
         controller: _tabController,
         tabs: buildTabs(),
@@ -85,13 +85,17 @@ class _SearchScreenMainState extends State<SearchScreenMain>
       Tab(
         icon: Icon(
           Icons.search,
-          color: _searchViewModel.tabIndex == 0 ? Colors.green : Colors.grey,
+          color: _searchViewModel.tabIndex == 0
+              ? context.colorScheme.surface
+              : context.colorScheme.background,
         ),
       ),
       Tab(
         icon: Icon(
           Icons.trending_up,
-          color: _searchViewModel.tabIndex == 1 ? Colors.green : Colors.grey,
+          color: _searchViewModel.tabIndex == 1
+              ? context.colorScheme.surface
+              : context.colorScheme.background,
         ),
       ),
     ];
