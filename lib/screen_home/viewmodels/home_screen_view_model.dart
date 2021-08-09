@@ -51,18 +51,20 @@ abstract class _HomeScreenViewModelBase with Store {
   void setUpReactions() {
     _disposers = [
       reaction<MarketDate>((_) => marketDate, (newValue) {
-        getCoinList();
-        scrollController.jumpTo(scrollController.position.minScrollExtent);
+       refreshPage();
       }),
       reaction<MarketSort>((_) => marketSort, (newValue) {
-        getCoinList();
-       scrollController.jumpTo(scrollController.position.minScrollExtent);
+       refreshPage();
       }),
       reaction<MarketCoinCategoryEntity>((_) => selectedCategory, (newValue) {
-        getCoinList();
-        scrollController.jumpTo(scrollController.position.minScrollExtent);
+        refreshPage();
       }),
     ];
+  }
+
+  void refreshPage() {
+    getCoinList();
+    scrollController.jumpTo(scrollController.position.minScrollExtent);
   }
 
   void disposeReactions() {

@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/utils/number_helper.dart';
+
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entities/market_coin_entity.dart';
 
@@ -58,8 +60,14 @@ class MarketCoinModel extends BaseNetworkModel {
         imageUrl: image,
         symbol: symbol,
         name: name,
-        currentPrice: currentPrice != -1 ? currentPrice.toString() : "-",
-        marketCap: marketCap != -1 ? marketCap.toString() : "-",
+        currentPrice: currentPrice != -1
+            ? NumberHelper.shared
+                .toCommaString(number: currentPrice, digitNumber: 5)
+            : "-",
+        marketCap: marketCap != -1
+            ? NumberHelper.shared
+                .toCommaString(number: marketCap, digitNumber: 8)
+            : "-",
         id: id,
         priceChangePercentage1h: priceChangePercentage1HInCurrency,
         priceChangePercentage24h: priceChangePercentage24HInCurrency,
