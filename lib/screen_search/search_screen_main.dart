@@ -11,7 +11,7 @@ import 'viewmodels/search_screen_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import '../global/components/app_bar_components.dart';
 
 class SearchScreenMain extends StatefulWidget {
@@ -23,15 +23,15 @@ class SearchScreenMain extends StatefulWidget {
 
 class _SearchScreenMainState extends State<SearchScreenMain>
     with SingleTickerProviderStateMixin {
-  var searchViewModel = getit.get<SearchScreenViewModel>();
+  var _searchViewModel = getit.get<SearchScreenViewModel>();
   late TabController _tabController;
 
   @override
   void initState() {
     this._tabController = TabController(length: 2, vsync: this);
     super.initState();
-    searchViewModel.getSearchCoins("");
-    searchViewModel.getAllTrends();
+    _searchViewModel.getSearchCoins("");
+    _searchViewModel.getAllTrends();
   }
 
   @override
@@ -66,27 +66,34 @@ class _SearchScreenMainState extends State<SearchScreenMain>
   AppBar buildAppBar() {
     return customAppBar(
       context: context,
-      title: searchViewModel.appBarText,
+      title: _searchViewModel.tabIndex == 0 ? "Search" : "Trends",
       bottom: TabBar(
-        onTap: (index) {
-          searchViewModel.changeAppBarText(index);
-        },
+        indicatorColor: Colors.green,
+        onTap: onTapTabBar,
         controller: _tabController,
-        tabs: [
-          Tab(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-          ),
-          Tab(
-            icon: Icon(
-              Icons.trending_up,
-              color: Colors.black,
-            ),
-          ),
-        ],
+        tabs: buildTabs(),
       ),
     );
+  }
+
+  void onTapTabBar(index) {
+    _searchViewModel.tabIndex = index;
+  }
+
+  List<Widget> buildTabs() {
+    return [
+      Tab(
+        icon: Icon(
+          Icons.search,
+          color: _searchViewModel.tabIndex == 0 ? Colors.green : Colors.grey,
+        ),
+      ),
+      Tab(
+        icon: Icon(
+          Icons.trending_up,
+          color: _searchViewModel.tabIndex == 1 ? Colors.green : Colors.grey,
+        ),
+      ),
+    ];
   }
 }

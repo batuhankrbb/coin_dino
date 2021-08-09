@@ -14,7 +14,7 @@ class SearchTrendCoinEntity {
   final String smallImage;
   final String largeImage;
   final String slug;
-  final double btcPrice;
+  final String btcPrice;
   final int score;
 
   SearchTrendCoinEntity(

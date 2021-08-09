@@ -23,8 +23,6 @@ abstract class _SearchScreenViewModelBase with Store {
   @observable
   ObservableList<SearchCoinEntity> searchCoinResultToShow = ObservableList();
 
-  @observable
-  String appBarText = "Search";
 
   @observable
   int currentPage = 1;
@@ -34,6 +32,9 @@ abstract class _SearchScreenViewModelBase with Store {
 
   @observable
   bool isScrolled = false;
+
+  @observable
+  int tabIndex = 0;
 
   @action
   Future<void> getAllTrends() async {
@@ -76,10 +77,5 @@ abstract class _SearchScreenViewModelBase with Store {
       searchCoinResultToShow.clear();
       searchCoinsResult = StateResult.failed(failure);
     });
-  }
-
-  @action
-  void changeAppBarText(int index) {
-    appBarText = index == 0 ? "Search" : "Trends";
   }
 }

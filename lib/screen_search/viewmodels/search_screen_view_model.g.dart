@@ -58,21 +58,6 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     });
   }
 
-  final _$appBarTextAtom = Atom(name: '_SearchScreenViewModelBase.appBarText');
-
-  @override
-  String get appBarText {
-    _$appBarTextAtom.reportRead();
-    return super.appBarText;
-  }
-
-  @override
-  set appBarText(String value) {
-    _$appBarTextAtom.reportWrite(value, super.appBarText, () {
-      super.appBarText = value;
-    });
-  }
-
   final _$currentPageAtom =
       Atom(name: '_SearchScreenViewModelBase.currentPage');
 
@@ -120,6 +105,21 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     });
   }
 
+  final _$tabIndexAtom = Atom(name: '_SearchScreenViewModelBase.tabIndex');
+
+  @override
+  int get tabIndex {
+    _$tabIndexAtom.reportRead();
+    return super.tabIndex;
+  }
+
+  @override
+  set tabIndex(int value) {
+    _$tabIndexAtom.reportWrite(value, super.tabIndex, () {
+      super.tabIndex = value;
+    });
+  }
+
   final _$getAllTrendsAsyncAction =
       AsyncAction('_SearchScreenViewModelBase.getAllTrends');
 
@@ -144,30 +144,16 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     return _$getCoinNextPageAsyncAction.run(() => super.getCoinNextPage());
   }
 
-  final _$_SearchScreenViewModelBaseActionController =
-      ActionController(name: '_SearchScreenViewModelBase');
-
-  @override
-  void changeAppBarText(int index) {
-    final _$actionInfo = _$_SearchScreenViewModelBaseActionController
-        .startAction(name: '_SearchScreenViewModelBase.changeAppBarText');
-    try {
-      return super.changeAppBarText(index);
-    } finally {
-      _$_SearchScreenViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
   @override
   String toString() {
     return '''
 searchCoinsResult: ${searchCoinsResult},
 searchTrendResult: ${searchTrendResult},
 searchCoinResultToShow: ${searchCoinResultToShow},
-appBarText: ${appBarText},
 currentPage: ${currentPage},
 currentText: ${currentText},
-isScrolled: ${isScrolled}
+isScrolled: ${isScrolled},
+tabIndex: ${tabIndex}
     ''';
   }
 }

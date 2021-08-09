@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/utils/number_helper.dart';
+
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entity/search_trend_entity.dart';
 
@@ -28,7 +30,6 @@ class SearchTrendModel extends BaseNetworkModel {
     var coinEntityList = coins.map((e) => e.toEntity()).toList();
     return SearchTrendEntity(
         coinEntityList: coinEntityList, exchangeList: exchanges);
-
   }
 }
 
@@ -43,25 +44,24 @@ class Coin {
         "item": item.toJson(),
       };
 
-
-   factory Coin.fromJson(Map<String, dynamic> json) {
+  factory Coin.fromJson(Map<String, dynamic> json) {
     return Coin(
       item: Item.fromJson(json["item"]),
     );
   }
-
 
   SearchTrendCoinEntity toEntity() {
     return SearchTrendCoinEntity(
         id: item.id,
         coinID: item.coinId,
         name: item.name,
-        symbol: item.symbol,
+        symbol: item.symbol.toUpperCase(),
         thumbImage: item.thumb,
         smallImage: item.small,
         largeImage: item.large,
         slug: item.slug,
-        btcPrice: item.priceBtc,
+        btcPrice: NumberHelper.shared
+            .toCommaString(number: item.priceBtc, digitNumber: 5),
         score: item.score);
   }
 }

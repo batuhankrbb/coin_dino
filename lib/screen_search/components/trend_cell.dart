@@ -3,7 +3,7 @@ import '../../core/utils/number_helper.dart';
 import '../../features/search/domain/entity/search_trend_entity.dart';
 import '../../global/components/cashed_network_image_component.dart';
 import '../../global/components/custom_autosize_text.dart';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class TrendCell extends StatelessWidget {
@@ -23,7 +23,7 @@ class TrendCell extends StatelessWidget {
           return Container(
             width: screenInfo.screenSize.width * 0.8,
             height: screenInfo.screenSize.height * 0.1,
-            padding: EdgeInsets.symmetric(vertical: 6),
+            margin: EdgeInsets.symmetric(vertical: context.getHeight(0.01)),
             child: Row(
               children: [
                 Expanded(
@@ -35,14 +35,14 @@ class TrendCell extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 44,
-                  child: buildCoinText(),
+                  child: buildCoinTexts(context),
                 ),
                 Spacer(
                   flex: 4,
                 ),
                 Expanded(
                   flex: 31,
-                  child: buildCoinPrice(),
+                  child: buildCoinPrice(context),
                 ),
               ],
             ),
@@ -56,30 +56,23 @@ class TrendCell extends StatelessWidget {
     return Container(
       child: CashedNetworkImageWidget(
         imageURL: searchTrendCoinEntity.largeImage,
-        imageHeigth: MediaQuery.of(context).size.height * 0.1,
+        imageHeigth: context.getHeight(0.1),
       ),
     );
   }
 
-  Container buildCoinPrice() {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Expanded(
-            child: CustomAutoSizeText(
-              text:
-                  NumberHelper.shared.fixNum(searchTrendCoinEntity.btcPrice, 5),
-              textStyle: TextStyle(color: Colors.black, fontSize: 18),
-            ),
-          ),
-        ],
+  Widget buildCoinPrice(BuildContext context) {
+    return Center(
+      child: CustomAutoSizeText(
+        text: searchTrendCoinEntity.btcPrice,
+        textStyle:
+            TextStyle(color: Colors.black, fontSize: context.getWidth(0.05)),
+        maxLines: 1,
       ),
     );
   }
 
-  Column buildCoinText() {
+  Column buildCoinTexts(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -88,15 +81,17 @@ class TrendCell extends StatelessWidget {
           flex: 6,
           child: CustomAutoSizeText(
             text: searchTrendCoinEntity.name,
-            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            textStyle: TextStyle(
+                fontSize: context.getWidth(0.05), fontWeight: FontWeight.bold),
           ),
         ),
         Spacer(),
         Flexible(
           flex: 12,
           child: CustomAutoSizeText(
-            text: searchTrendCoinEntity.symbol.toUpperCase(),
-            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+            text: searchTrendCoinEntity.symbol,
+            textStyle: TextStyle(
+                fontSize: context.getWidth(0.04), fontWeight: FontWeight.w300),
           ),
         )
       ],

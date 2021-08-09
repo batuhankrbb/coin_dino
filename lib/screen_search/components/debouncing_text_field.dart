@@ -1,8 +1,9 @@
 import 'dart:async';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DebouncingTextField extends StatelessWidget {
   DebouncingTextField(
       {Key? key, required this.onChange, required this.textEditingController})
@@ -19,19 +20,28 @@ class DebouncingTextField extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 4),
       child: CupertinoTextField(
         controller: textEditingController,
-        prefix: Container(
-          margin: EdgeInsets.all(8),
-          child: Icon(Icons.search),
+        prefix: buildLeadingIcon(context),
+        onChanged: _doDebouncedOnChange,
+      ),
+    );
+  }
+
+  Container buildLeadingIcon(BuildContext context) {
+    return Container(
+        margin: EdgeInsets.only(left: context.getHeight(0.015), right: 4),
+        child: Icon(
+          Icons.search,
+          size: context.getWidth(0.05),
         ),
-        onChanged: (value) {
-          if (_debounce?.isActive ?? false) {
+      );
+  }
+
+  void _doDebouncedOnChange(String value){
+  if (_debounce?.isActive ?? false) {
             _debounce?.cancel();
           }
           _debounce = Timer(Duration(milliseconds: 500), () {
             onChange(value);
           });
-        },
-      ),
-    );
   }
 }

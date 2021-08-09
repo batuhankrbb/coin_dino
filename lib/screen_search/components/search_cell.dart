@@ -4,7 +4,7 @@ import '../../features/search/domain/entity/search_coin_entity.dart';
 import '../../global/components/cashed_network_image_component.dart';
 import '../../global/components/custom_autosize_text.dart';
 import 'percentage_chip.dart';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../search_screen_main.dart';
@@ -25,28 +25,28 @@ class SearchCell extends StatelessWidget {
           onTap: onTap,
           child: Container(
             width: screenInfo.screenSize.width * 0.8,
-            height: screenInfo.screenSize.height * 0.09,
-            padding: EdgeInsets.symmetric(vertical: 6),
+            height: screenInfo.screenSize.height * 0.11,
+            margin: EdgeInsets.symmetric(vertical: context.getHeight(0.01)),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
                   flex: 15,
-                  child: buildCoinImage(),
+                  child: buildCoinImage(context),
                 ),
                 Spacer(
-                  flex: 4,
+                  flex: 2,
                 ),
                 Expanded(
                   flex: 44,
-                  child: buildCoinText(),
+                  child: buildCoinText(context),
                 ),
                 Spacer(
                   flex: 4,
                 ),
                 Expanded(
                   flex: 31,
-                  child: buildCoinPrice(),
+                  child: buildCoinPrice(context),
                 ),
               ],
             ),
@@ -56,17 +56,17 @@ class SearchCell extends StatelessWidget {
     );
   }
 
-  Widget buildCoinImage() {
+  Widget buildCoinImage(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(4),
       child: CashedNetworkImageWidget(
         imageURL: searchCoinEntity.imageUrl,
-        imageHeigth: 200,
+        imageHeigth: context.getHeight(0.1),
       ),
     );
   }
 
-  Container buildCoinPrice() {
+  Container buildCoinPrice(BuildContext context) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -75,14 +75,14 @@ class SearchCell extends StatelessWidget {
           Flexible(
             flex: 10,
             child: CustomAutoSizeText(
-              text:
-                  NumberHelper.shared.fixNum(searchCoinEntity.currentPrice, 5),
-              textStyle: TextStyle(color: Colors.black, fontSize: 15),
+              text: searchCoinEntity.currentPrice,
+              textStyle: TextStyle(
+                  color: Colors.black, fontSize: context.getWidth(0.045)),
             ),
           ),
           Spacer(),
           Flexible(
-            flex: 8,
+            flex: 7,
             child: PercentageChip(
               percentage: searchCoinEntity.priceChangePercentage24h ?? 0,
             ),
@@ -92,7 +92,7 @@ class SearchCell extends StatelessWidget {
     );
   }
 
-  Column buildCoinText() {
+  Column buildCoinText(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -101,7 +101,10 @@ class SearchCell extends StatelessWidget {
           flex: 5,
           child: CustomAutoSizeText(
             text: searchCoinEntity.name,
-            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            textStyle: TextStyle(
+              fontSize: context.getWidth(0.05),
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Spacer(),
@@ -109,7 +112,10 @@ class SearchCell extends StatelessWidget {
           flex: 5,
           child: CustomAutoSizeText(
             text: searchCoinEntity.symbol.toUpperCase(),
-            textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+            textStyle: TextStyle(
+              fontSize: context.getWidth(0.03),
+              fontWeight: FontWeight.w300,
+            ),
           ),
         )
       ],

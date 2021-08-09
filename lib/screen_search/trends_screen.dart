@@ -22,7 +22,7 @@ class TrendsScreen extends StatefulWidget {
 }
 
 class _TrendsScreenState extends State<TrendsScreen> {
-  var searchViewModel = getit.get<SearchScreenViewModel>();
+  var _searchViewModel = getit.get<SearchScreenViewModel>();
 
   @override
   void initState() {
@@ -31,43 +31,49 @@ class _TrendsScreenState extends State<TrendsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          flex: 80,
-          child: buildList(),
-        ),
-      ],
+    return Observer(
+      builder: (context) {
+        return StateResultBuilder<SearchTrendEntity>(
+          stateResult: _searchViewModel.searchTrendResult,
+          completedWidget: (data) {
+            return buildCompletedListView(data);
+          },
+          failureWidget: (failure) {
+            return buildFailureWidget();
+          },
+          initialWidget: CupertinoActivityIndicator(),
+        );
+      },
     );
   }
 
-  Widget buildList() {
-    return Observer(builder: (context) {
-      return StateResultBuilder<SearchTrendEntity>(
-        stateResult: searchViewModel.searchTrendResult,
-        completedWidget: (data) {
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              return TrendCell(
-                searchTrendCoinEntity: data.coinEntityList[index],
-                onTap: () {
-                  NavigationService.shared.navigateTo(NavigationRoute.toDetails(
-                      CoinDetailScreen(coinID: data.coinEntityList[index].id)));
-                },
-              );
-            },
-            itemCount: data.coinEntityList.length,
-          );
-        },
-        failureWidget: (failure) {
-          return FailureWidget(
-            onTryAgain: () {
-              searchViewModel.getAllTrends();
-            },
-          );
-        },
-        initialWidget: CupertinoActivityIndicator(),
-      );
-    });
+  Widget buildCompletedListView(SearchTrendEntity data) {
+    return ListView.separated(
+      itemBuilder: (context, index) {
+        return buildCell(data, index);
+      },
+      separatorBuilder: (context, index) {
+        return Divider();
+      },
+      itemCount: data.coinEntityList.length,
+    );
+  }
+
+  Widget buildFailureWidget() {
+    return FailureWidget(
+      onTryAgain: () {
+        _searchViewModel.getAllTrends();
+      },
+    );
+  }
+
+  Widget buildCell(SearchTrendEntity data, int index) {
+    return TrendCell(
+      searchTrendCoinEntity: data.coinEntityList[index],
+      onTap: () {
+        NavigationService.shared.navigateTo(NavigationRoute.toDetails(
+            CoinDetailScreen(coinID: data.coinEntityList[index].id)));
+      },
+    );
   }
 }
