@@ -20,7 +20,7 @@ class NavigationRoute with _$NavigationRoute {
   const factory NavigationRoute.toAlertList(AlertListScreen alertListScreen) =
       RouteAlertListPage;
   const factory NavigationRoute.toInAppPurchase(
-      InAppPurchase inAppPurchaseScreen) = RouteInAppPurchase;
+      InAppPurchaseScreen inAppPurchaseScreen) = RouteInAppPurchase;
   const factory NavigationRoute.toHomePage(HomePage homePage) = RouteHomePage;
 }
 

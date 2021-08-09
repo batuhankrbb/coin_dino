@@ -86,7 +86,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
   void navigateToInAppScreen() {
     NavigationService.shared.navigateTo(
       NavigationRoute.toInAppPurchase(
-        InAppPurchase(),
+        InAppPurchaseScreen(),
       ),
     );
   }
