@@ -1,5 +1,8 @@
+import 'package:coin_dino/core/utils/number_helper.dart';
+
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entity/search_coin_entity.dart';
+import 'package:coin_dino/core/extensions/num_extension.dart';
 
 class SearchCoinModel extends BaseNetworkModel {
   SearchCoinModel({
@@ -148,12 +151,12 @@ class SearchCoinModel extends BaseNetworkModel {
 
   SearchCoinEntity toEntity() {
     return SearchCoinEntity(
-        marketCapRank: marketCapRank,
+        marketCapRank: marketCapRank == null ? "-" : "$marketCapRank",
         imageUrl: image,
         symbol: symbol,
         name: name,
-        currentPrice: currentPrice,
-        marketCap: marketCap,
+        currentPrice: NumberHelper.shared.toCommaString(number: currentPrice,digitNumber: 4),
+        marketCap: "$marketCap",
         id: id,
         priceChangePercentage1h: priceChangePercentage1HInCurrency,
         priceChangePercentage24h: priceChangePercentage24HInCurrency,

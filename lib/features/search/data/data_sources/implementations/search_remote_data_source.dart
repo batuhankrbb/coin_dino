@@ -9,13 +9,13 @@ import '../../model/search_trend_model.dart';
 import '../contracts/i_search_remote_data_source.dart';
 
 class SearchRemoteDataSource implements ISearchRemoteDataSource {
-  var networkExecuter = NetworkExecuter();
+  var _networkExecuter = NetworkExecuter();
 
   @override
   Future<SearchTrendModel> getAllTrends() async {
     try {
       var searchTrendModel =
-          await networkExecuter.execute<SearchTrendModel, SearchTrendModel>(
+          await _networkExecuter.execute<SearchTrendModel, SearchTrendModel>(
               responseType: DefaultResponseTypes.shared.searchTrend,
               options: CoinGeckoClient.searchTrends());
       if (searchTrendModel == null) {
@@ -32,7 +32,7 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
       String text, String vsCurrency, int page) async {
     try {
       var getCoinBySearchs =
-          await networkExecuter.execute<SearchCoinModel, List<SearchCoinModel>>(
+          await _networkExecuter.execute<SearchCoinModel, List<SearchCoinModel>>(
               responseType: DefaultResponseTypes.shared.searchCoing,
               options: CoinGeckoClient.coinSearch(text, vsCurrency,page));
       if (getCoinBySearchs != null) {
