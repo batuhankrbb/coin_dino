@@ -34,4 +34,9 @@ class NumberHelper {
       return finalText;
     }
   }
+
+  String toPercentageText(num? number) {
+    var newNumber = number ?? 0;
+    return "${newNumber.toStringAsFixed(2)}%";
+  }
 }

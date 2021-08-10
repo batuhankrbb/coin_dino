@@ -68,13 +68,13 @@ class MarketCoinModel extends BaseNetworkModel {
           : "-",
       id: id,
       priceChangePercentage1h:
-          "${(priceChangePercentage1HInCurrency ?? 0.0).toStringAsFixed(2)}%",
+         NumberHelper.shared.toPercentageText(priceChangePercentage1HInCurrency),
       priceChangePercentage24h:
-          "${(priceChangePercentage24HInCurrency ?? 0.0).toStringAsFixed(2)}%",
+          NumberHelper.shared.toPercentageText(priceChangePercentage24HInCurrency),
       priceChangePercentage7d:
-          "${(priceChangePercentage7DInCurrency ?? 0.0).toStringAsFixed(2)}%",
+           NumberHelper.shared.toPercentageText(priceChangePercentage7DInCurrency),
       priceChangePercentage30d:
-          "${(priceChangePercentage30DInCurrency ?? 0.0).toStringAsFixed(2)}%",
+          NumberHelper.shared.toPercentageText(priceChangePercentage30DInCurrency),
       isPricePercentage1hPositive:
           (priceChangePercentage1HInCurrency ?? 0) >= 0,
       isPricePercentage24hPositive:
