@@ -34,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
       if (homeScreenViewModel.scrollController.offset >=
               homeScreenViewModel.scrollController.position.maxScrollExtent &&
           !homeScreenViewModel.scrollController.position.outOfRange) {
-        homeScreenViewModel.isScrolled = true;
         homeScreenViewModel.getCoinListNextPage();
       }
     });

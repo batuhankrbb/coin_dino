@@ -49,11 +49,24 @@ class _HomeTableState extends State<HomeTable> {
   }
 
   Widget buildCompletedWidget(List<MarketCoinEntity> data) {
-    return ListView.separated(
-      itemBuilder: buildCell,
-      separatorBuilder: buildSeparator,
-      itemCount: homeScreenViewModel.coinListToShow.length,
-    );
+    return Observer(builder: (context) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Flexible(
+            flex: 25,
+            child: ListView.separated(
+              itemBuilder: buildCell,
+              separatorBuilder: buildSeparator,
+              itemCount: homeScreenViewModel.coinListToShow.length,
+              controller: homeScreenViewModel.scrollController,
+              physics: BouncingScrollPhysics(),
+            ),
+          ),
+          if (homeScreenViewModel.isScrolled) CupertinoActivityIndicator(),
+        ],
+      );
+    });
   }
 
   Widget buildCell(BuildContext context, int index) {
