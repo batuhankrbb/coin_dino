@@ -56,23 +56,34 @@ class MarketCoinModel extends BaseNetworkModel {
 
   MarketCoinEntity toEntity() {
     return MarketCoinEntity(
-        marketCapRank: marketCapRank != -1 ? marketCapRank.toString() : "-",
-        imageUrl: image,
-        symbol: symbol,
-        name: name,
-        currentPrice: currentPrice != -1
-            ? NumberHelper.shared
-                .toCommaString(number: currentPrice, digitNumber: 5)
-            : "-",
-        marketCap: marketCap != -1
-            ? NumberHelper.shared
-                .toCommaString(number: marketCap, digitNumber: 8)
-            : "-",
-        id: id,
-        priceChangePercentage1h: priceChangePercentage1HInCurrency,
-        priceChangePercentage24h: priceChangePercentage24HInCurrency,
-        priceChangePercentage7d: priceChangePercentage7DInCurrency,
-        priceChangePercentage30d: priceChangePercentage30DInCurrency);
+      marketCapRank: marketCapRank != -1 ? marketCapRank.toString() : "-",
+      imageUrl: image,
+      symbol: symbol.toUpperCase(),
+      name: name,
+      currentPrice: currentPrice != -1
+          ? "\$${NumberHelper.shared.toCommaString(number: currentPrice, digitNumber: 5)}"
+          : "-",
+      marketCap: marketCap != -1
+          ? "\$${NumberHelper.shared.toCommaString(number: marketCap, digitNumber: 8)}"
+          : "-",
+      id: id,
+      priceChangePercentage1h:
+          "${(priceChangePercentage1HInCurrency ?? 0.0).toStringAsFixed(2)}%",
+      priceChangePercentage24h:
+          "${(priceChangePercentage24HInCurrency ?? 0.0).toStringAsFixed(2)}%",
+      priceChangePercentage7d:
+          "${(priceChangePercentage7DInCurrency ?? 0.0).toStringAsFixed(2)}%",
+      priceChangePercentage30d:
+          "${(priceChangePercentage30DInCurrency ?? 0.0).toStringAsFixed(2)}%",
+      isPricePercentage1hPositive:
+          (priceChangePercentage1HInCurrency ?? 0) >= 0,
+      isPricePercentage24hPositive:
+          (priceChangePercentage24HInCurrency ?? 0) >= 0,
+      isPricePercentage7dPositive:
+          (priceChangePercentage7DInCurrency ?? 0) >= 0,
+      isPricePercentage30dPositive:
+          (priceChangePercentage30DInCurrency ?? 0) >= 0,
+    );
   }
 }
 

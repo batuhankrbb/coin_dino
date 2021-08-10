@@ -16,18 +16,14 @@ abstract class _HomeScreenViewModelBase with Store {
   _HomeScreenViewModelBase({required this.marketCoinRepository});
 
   @observable
-  var marketDate = MarketDate
-      .hour24; //* Buna reaction ata her değiştiğinde sorgu yapsın tekrar.
+  var marketDate = MarketDate.hour24;
 
   @observable
-  var marketSort = MarketSort
-      .market_cap_asc; //* Buna reaction ata her değiştiğinde sorgu yapsın tekrar.
+  var marketSort = MarketSort.market_cap_asc;
 
   @observable
-  MarketCoinCategoryEntity selectedCategory = MarketCoinCategoryEntity(
-      categoryID: "all",
-      categoryName:
-          "All"); //* Buna reaction ata her değiştiğinde sorgu yapsın tekrar.
+  MarketCoinCategoryEntity selectedCategory =
+      MarketCoinCategoryEntity(categoryID: "all", categoryName: "All");
 
   @observable
   var categoryList = ObservableList<MarketCoinCategoryEntity>();
@@ -51,10 +47,10 @@ abstract class _HomeScreenViewModelBase with Store {
   void setUpReactions() {
     _disposers = [
       reaction<MarketDate>((_) => marketDate, (newValue) {
-       refreshPage();
+        refreshPage();
       }),
       reaction<MarketSort>((_) => marketSort, (newValue) {
-       refreshPage();
+        refreshPage();
       }),
       reaction<MarketCoinCategoryEntity>((_) => selectedCategory, (newValue) {
         refreshPage();
@@ -76,6 +72,7 @@ abstract class _HomeScreenViewModelBase with Store {
   @action
   Future<void> getCoinList() async {
     currentPage = 1;
+    coinListResult = StateResult.loading();
     var result = await marketCoinRepository.getCryptoCurrencies(
         date: marketDate, sort: marketSort, page: currentPage);
     result.when(success: (data) {
@@ -102,5 +99,37 @@ abstract class _HomeScreenViewModelBase with Store {
       coinListResult = StateResult.failed(failure);
       isScrolled = false;
     });
+  }
+
+  String getPriceChange(MarketCoinEntity data) {
+    switch (marketDate) {
+      case MarketDate.hour1:
+        return data.priceChangePercentage1h;
+
+      case MarketDate.hour24:
+        return data.priceChangePercentage24h;
+
+      case MarketDate.day7:
+        return data.priceChangePercentage7d;
+
+      case MarketDate.day30:
+        return data.priceChangePercentage30d;
+    }
+  }
+
+  bool getPriceChangePositivity(MarketCoinEntity data) {
+    switch (marketDate) {
+      case MarketDate.hour1:
+        return data.isPricePercentage1hPositive;
+
+      case MarketDate.hour24:
+        return data.isPricePercentage24hPositive;
+
+      case MarketDate.day7:
+        return data.isPricePercentage7dPositive;
+
+      case MarketDate.day30:
+        return data.isPricePercentage30dPositive;
+    }
   }
 }
