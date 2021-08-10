@@ -26,7 +26,7 @@ class AppThemes {
   ThemeData get darkModeTheme => ThemeData(
         scaffoldBackgroundColor: CustomColor.shared.backgroundDarkModeColor,
         appBarTheme: AppBarTheme(
-          backgroundColor: CustomColor.shared.backgroundDarkModeColor,
+          backgroundColor: CustomColor.shared.white,
           elevation: 0,
           centerTitle: true,
         ),
@@ -53,7 +53,7 @@ class AppThemes {
   ThemeData get lightModeTheme => ThemeData(
         scaffoldBackgroundColor: CustomColor.shared.backgroundWhiteColor,
         appBarTheme: AppBarTheme(
-          backgroundColor: CustomColor.shared.backgroundWhiteColor,
+          backgroundColor: CustomColor.shared.white,
           elevation: 0,
           centerTitle: true,
         ),
