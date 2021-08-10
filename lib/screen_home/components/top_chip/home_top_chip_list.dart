@@ -1,7 +1,7 @@
 import 'package:coin_dino/features/details/data/models/coin_detail_model.dart';
 import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_home/components/top_home_chip.dart';
+import 'package:coin_dino/screen_home/components/top_chip/top_home_chip.dart';
 import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
 

@@ -3,15 +3,17 @@ import 'package:coin_dino/global/components/app_bar_components.dart';
 import 'package:coin_dino/global/components/failure_widget.dart';
 import 'package:coin_dino/global/components/state_result_builder.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_home/components/home_page_cell.dart';
-import 'package:coin_dino/screen_home/components/home_table_header.dart';
-import 'package:coin_dino/screen_home/components/home_top_chip_list.dart';
-import 'package:coin_dino/screen_home/components/top_home_chip.dart';
+import 'package:coin_dino/screen_home/components/home_table/home_page_cell.dart';
+import 'package:coin_dino/screen_home/components/home_table/home_header_table.dart';
+import 'package:coin_dino/screen_home/components/home_table/home_table.dart';
+import 'package:coin_dino/screen_home/components/top_chip/home_top_chip_list.dart';
+import 'package:coin_dino/screen_home/components/top_chip/top_home_chip.dart';
 import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -47,7 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context: context,title: "Home"),
+      appBar: customAppBar(context: context, title: "Home"),
+      backgroundColor: context.colorScheme.onSurface,
       body: Container(
         alignment: Alignment.center,
         child: Column(
@@ -58,56 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Spacer(),
             Expanded(
-              flex: 10,
-              child: Container(
-                color: Colors.red,
-              ),
-            ),
-            Expanded(
-              flex: 80,
-              child: buildListView(),
+              flex: 90,
+              child: HomeTable(),
             ),
           ],
         ),
       ),
     );
-  }
-
-  Widget buildListView() {
-    return Observer(builder: (context) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Flexible(
-            child: StateResultBuilder<List<MarketCoinEntity>>(
-              stateResult: homeScreenViewModel.coinListResult,
-              initialWidget: CupertinoActivityIndicator(),
-              completedWidget: (data) {
-                return Observer(builder: (context) {
-                  return ListView.separated(
-                      controller: homeScreenViewModel.scrollController,
-                      itemBuilder: (context, index) {
-                        return HomePageCell(
-                            data: homeScreenViewModel.coinListToShow[index]);
-                      },
-                      separatorBuilder: (context, index) {
-                        return Divider();
-                      },
-                      itemCount: homeScreenViewModel.coinListToShow.length);
-                });
-              },
-              failureWidget: (failure) {
-                return FailureWidget(
-                  onTryAgain: () {
-                    homeScreenViewModel.getCoinList();
-                  },
-                );
-              },
-            ),
-          ),
-          if (homeScreenViewModel.isScrolled) CupertinoActivityIndicator(),
-        ],
-      );
-    });
   }
 }
