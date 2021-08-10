@@ -1,3 +1,7 @@
+import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
+import 'package:coin_dino/screen_home/components/home_table/home_header_button.dart';
+import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 
@@ -14,11 +18,12 @@ class HomeTableHeader extends StatefulWidget {
 }
 
 class _HomeTableHeaderState extends State<HomeTableHeader> {
-  //TODO TO BE CONTINUED...
+  var homeScreenViewModel = getit.get<HomeScreenViewModel>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.getHeight(0.08),
+      height: context.getHeight(0.07),
       color: context.colorScheme.primaryVariant,
       padding: EdgeInsets.all(8),
       child: Row(
@@ -26,44 +31,48 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
         children: [
           Expanded(
             flex: widget.itemFlexList[0],
-            child: Container(
-              color: Colors.red,
+            child: HomeHeaderButton(
+              text: "#",
             ),
           ),
-          Spacer(
+          Expanded(
             flex: widget.spacerFlexList[1],
+            child: VerticalDivider(),
           ),
           Expanded(
             flex: widget.itemFlexList[1],
-            child: Container(
-              color: Colors.green,
+            child: HomeHeaderButton(
+              text: "Coin",
             ),
           ),
-          Spacer(
+          Expanded(
             flex: widget.spacerFlexList[2],
+            child: VerticalDivider(),
           ),
           Expanded(
             flex: widget.itemFlexList[2],
-            child: Container(
-              color: Colors.yellow,
+            child: HomeHeaderButton(
+              text: "Price",
             ),
           ),
-          Spacer(
+          Expanded(
             flex: widget.spacerFlexList[3],
+            child: VerticalDivider(),
           ),
           Expanded(
             flex: widget.itemFlexList[3],
-            child: Container(
-              color: Colors.pink,
+            child: HomeHeaderButton(
+              text: homeScreenViewModel.marketDate.displayValue,
             ),
           ),
-          Spacer(
+          Expanded(
             flex: widget.spacerFlexList[4],
+            child: VerticalDivider(),
           ),
           Expanded(
             flex: widget.itemFlexList[4],
-            child: Container(
-              color: Colors.blue,
+            child: HomeHeaderButton(
+              text: "Market Cap",
             ),
           ),
           Spacer(
