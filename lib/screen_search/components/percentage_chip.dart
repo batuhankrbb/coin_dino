@@ -13,8 +13,8 @@ class PercentageChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(context.getWidth(0.009)),
-      width: MediaQuery.of(context).size.width * 0.13,
-      height: MediaQuery.of(context).size.height * 0.1,
+      width: context.getWidth(0.13),
+      height: context.getHeight(0.1),
       alignment: Alignment.center,
       decoration: buildBoxDecoration(context),
       child: AutoSizeText(

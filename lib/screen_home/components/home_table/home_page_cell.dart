@@ -34,7 +34,7 @@ class _HomePageCellState extends State<HomePageCell> {
     return Container(
       alignment: Alignment.center,
       color: context.colorScheme.onSurface,
-      height: MediaQuery.of(context).size.height * 0.07,
+      height: context.getHeight(0.07),
       child: Row(
         children: [
           Spacer(

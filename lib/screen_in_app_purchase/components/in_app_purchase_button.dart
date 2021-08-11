@@ -13,7 +13,7 @@ class InAppPurchaseButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
+        width: context.getHeight(0.9),
         child: ElevatedButton(
           style: context.buttonStyle(
             backgroundColor: context.colorScheme.surface,

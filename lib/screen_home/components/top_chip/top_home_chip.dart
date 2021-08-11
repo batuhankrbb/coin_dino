@@ -41,7 +41,7 @@ class _TopHomeChipState extends State<TopHomeChip> {
       child: Container(
         padding: EdgeInsets.only(left: 4),
         margin: EdgeInsets.symmetric(horizontal: context.getWidth(0.025)),
-        height: MediaQuery.of(context).size.height * 0.04,
+        height: context.getHeight(0.04),
         decoration: buildDecoration(context),
         child: buildChild(context),
       ),
