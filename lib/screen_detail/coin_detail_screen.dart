@@ -11,7 +11,7 @@ import '../global/components/app_bar_components.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';
 import 'coin_info_screen.dart';
-import 'components/coin_chart.dart';
+import 'components/coin_chart/coin_chart.dart';
 import 'components/coin_detail_information_row.dart';
 import 'components/coin_details_hour_table_widget.dart';
 import 'viewmodels/detail_screen_view_model.dart';
