@@ -1,7 +1,7 @@
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:coin_dino/screen_alert/alert_list_screen.dart';
-import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import 'package:coin_dino/screen_detail/coin_detail_screen.dart'; 
 import 'package:coin_dino/screen_home/home_screen.dart';
 import 'package:coin_dino/screen_in_app_purchase/inapp_purchase_screen.dart';
 import 'package:coin_dino/screen_onboard/onboard_screen.dart';
