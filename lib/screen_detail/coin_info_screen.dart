@@ -2,8 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import '../features/details/domain/entity/coin_detail_entity.dart';
 import '../global/components/custom_autosize_text.dart';
 import '../global/starting_files/injection_container.dart';
+import 'components/info_url_text.dart';
 import 'viewmodels/detail_screen_view_model.dart';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class CoinDetailsInfo extends StatefulWidget {
@@ -26,40 +27,36 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
       },
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 6),
+          padding: EdgeInsets.symmetric(horizontal: context.getWidth(0.03)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Flexible(
                 flex: 4,
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.03,
-                ),
+                child: SizedBox(height: context.getHeight(0.03)),
+              ),
+              Flexible(
+                child: Divider(),
               ),
               Flexible(
                 flex: 4,
-                child: buildHomePage(),
+                child: InfoUrlText(urlText: widget.data.homePageUrl),
+              ),
+              Flexible(
+                child: Divider(),
               ),
               Flexible(
                 flex: 4,
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
+                child: SizedBox(height: context.getHeight(0.03)),
               ),
               Flexible(
                 flex: 60,
-                child: CustomAutoSizeText(
-                  text: widget.data.description,
-                  textStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16),
-                ),
+                child: buildDescriptionText(),
               ),
               Flexible(
                 flex: 4,
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
+                  height: 0.05,
                 ),
               ),
             ],
@@ -69,43 +66,13 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
     );
   }
 
-  Widget buildHomePage() {
-    return Container(
-      padding: EdgeInsets.all(6),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Divider(),
-          Expanded(
-            flex: 35,
-            child: AutoSizeText(
-              "Home Page",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500),
-              maxLines: 1,
-            ),
-          ),
-          Spacer(
-            flex: 20,
-          ),
-          Expanded(
-            flex: 60,
-            child: AutoSizeText(
-              widget.data.homePageUrl,
-              maxLines: 1,
-              textAlign: TextAlign.end,
-              style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20),
-            ),
-          ),
-          Spacer(
-            flex: 5,
-          )
-        ],
+  Widget buildDescriptionText() {
+    return CustomAutoSizeText(
+      text: widget.data.description,
+      textStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+        fontSize: context.getWidth(0.045),
       ),
     );
   }

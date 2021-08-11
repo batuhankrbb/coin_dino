@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/utils/number_helper.dart';
+
 import '../../core/mini_services/share/share_service.dart';
 import '../../core/mini_services/url_launcher/url_launcher_service.dart';
 import '../../core/result_types/state_result.dart';
@@ -23,10 +25,12 @@ abstract class _DetailScreenViewModelBase with Store {
 
   @observable
   String appBarTitle = "";
+
   @observable
-  String? appbarCoinImage = "";
+  String appbarCoinImage = "";
+
   @observable
-  String appBarCoinPrice = "";
+  String appBarSymbol = "";
 
   @action
   Future<void> getCoinDetails(String coinID) async {
@@ -34,11 +38,7 @@ abstract class _DetailScreenViewModelBase with Store {
     var detailsResult = await detailRepository.getCoinDetail(id: coinID);
     detailsResult.when(success: (data) {
       coinDetailResult = StateResult.completed(data);
-      appBarTitle = data.name;
-      appBarCoinPrice = data.price.toString();
-      appbarCoinImage = data.imageUrl;
-      print(appbarCoinImage);
-      print("completed $data");
+      setAppBar(data);
     }, failure: (failure) {
       coinDetailResult = StateResult.failed(failure);
     });
@@ -66,5 +66,11 @@ abstract class _DetailScreenViewModelBase with Store {
 
   Future<void> openWebPage(String url) async {
     await UrlLauncherService.shared.openUrl(url);
+  }
+
+  void setAppBar(CoinDetailEntity data) {
+    appBarTitle = data.name;
+    appbarCoinImage = data.imageUrl;
+    appBarSymbol = "(${data.symbol})";
   }
 }

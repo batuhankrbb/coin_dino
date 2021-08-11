@@ -61,31 +61,31 @@ mixin _$DetailScreenViewModel on _DetailScreenViewModelBase, Store {
       Atom(name: '_DetailScreenViewModelBase.appbarCoinImage');
 
   @override
-  String? get appbarCoinImage {
+  String get appbarCoinImage {
     _$appbarCoinImageAtom.reportRead();
     return super.appbarCoinImage;
   }
 
   @override
-  set appbarCoinImage(String? value) {
+  set appbarCoinImage(String value) {
     _$appbarCoinImageAtom.reportWrite(value, super.appbarCoinImage, () {
       super.appbarCoinImage = value;
     });
   }
 
-  final _$appBarCoinPriceAtom =
-      Atom(name: '_DetailScreenViewModelBase.appBarCoinPrice');
+  final _$appBarSymbolAtom =
+      Atom(name: '_DetailScreenViewModelBase.appBarSymbol');
 
   @override
-  String get appBarCoinPrice {
-    _$appBarCoinPriceAtom.reportRead();
-    return super.appBarCoinPrice;
+  String get appBarSymbol {
+    _$appBarSymbolAtom.reportRead();
+    return super.appBarSymbol;
   }
 
   @override
-  set appBarCoinPrice(String value) {
-    _$appBarCoinPriceAtom.reportWrite(value, super.appBarCoinPrice, () {
-      super.appBarCoinPrice = value;
+  set appBarSymbol(String value) {
+    _$appBarSymbolAtom.reportWrite(value, super.appBarSymbol, () {
+      super.appBarSymbol = value;
     });
   }
 
@@ -116,7 +116,7 @@ coinDetailResult: ${coinDetailResult},
 coinChartResult: ${coinChartResult},
 appBarTitle: ${appBarTitle},
 appbarCoinImage: ${appbarCoinImage},
-appBarCoinPrice: ${appBarCoinPrice}
+appBarSymbol: ${appBarSymbol}
     ''';
   }
 }
