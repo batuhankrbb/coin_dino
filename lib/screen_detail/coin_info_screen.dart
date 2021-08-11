@@ -72,7 +72,7 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
       textStyle: TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.w400,
-        fontSize: context.getWidth(0.045),
+        fontSize: context.getWidth(0.04),
       ),
     );
   }

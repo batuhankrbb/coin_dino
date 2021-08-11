@@ -34,11 +34,11 @@ class _CoinChartState extends State<CoinChart> {
       child: Column(
         children: [
           Expanded(
-            flex: 90,
+            flex: 92,
             child: buildGraph(),
           ),
           Expanded(
-            flex: 10,
+            flex: 9,
             child: ChartOptions(
               coinID: widget.coinID,
             ),
@@ -63,4 +63,3 @@ class _CoinChartState extends State<CoinChart> {
     });
   }
 }
-

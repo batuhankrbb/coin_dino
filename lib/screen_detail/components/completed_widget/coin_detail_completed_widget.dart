@@ -46,6 +46,7 @@ class _CoinDetailCompletedWidgetState extends State<CoinDetailCompletedWidget> {
           flex: 1,
           child: Divider(),
         ),
+        Spacer(),
         Expanded(
           flex: 4,
           child: CoinDetailHoursInformationRow(data: widget.data),
