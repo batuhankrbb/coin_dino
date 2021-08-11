@@ -2,15 +2,18 @@ import 'package:auto_size_text/auto_size_text.dart';
 import '../../core/utils/number_helper.dart';
 import '../../global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class CoinDetailHoursTableWidget extends StatelessWidget {
   final String tableTitle;
-  final num tablePrice;
-  CoinDetailHoursTableWidget({
-    Key? key,
-    required this.tablePrice,
-    required this.tableTitle,
-  }) : super(key: key);
+  final String tablePrice;
+  final bool isPricePositive;
+  CoinDetailHoursTableWidget(
+      {Key? key,
+      required this.tablePrice,
+      required this.tableTitle,
+      required this.isPricePositive})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,32 +24,48 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-              flex: 1,
-              child: Container(
-                child: AutoSizeText(
-                  tableTitle,
-                  style: TextStyle(color: Colors.white, fontSize: 14),
-                ),
-                alignment: Alignment.center,
-                color: CustomColor.shared.backgroundBlueColor,
-              )),
+            flex: 1,
+            child: buildTitleText(context),
+          ),
           Expanded(
-              flex: 1,
-              child: Container(
-                  padding: EdgeInsets.all(4),
-                  alignment: Alignment.center,
-                  child: AutoSizeText(
-                    NumberHelper.shared.fixNum(tablePrice, 1) + "%",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: tablePrice < 0 ? Colors.red : Colors.green,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    minFontSize: 4,
-                    maxLines: 1,
-                  ))),
+            flex: 1,
+            child: buildPriceText(context),
+          ),
         ],
       ),
+    );
+  }
+
+  Widget buildPriceText(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(2),
+      alignment: Alignment.center,
+      child: AutoSizeText(
+        tablePrice,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: isPricePositive ? Colors.green : Colors.red,
+          fontWeight: FontWeight.w500,
+          fontSize: context.getWidth(0.035),
+        ),
+        minFontSize: 6,
+        maxLines: 1,
+      ),
+    );
+  }
+
+  Widget buildTitleText(BuildContext context) {
+    return Container(
+      child: AutoSizeText(
+        tableTitle,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: context.getWidth(0.04),
+        ),
+        maxLines: 1,
+      ),
+      alignment: Alignment.center,
+      color: CustomColor.shared.backgroundBlueColor,
     );
   }
 }

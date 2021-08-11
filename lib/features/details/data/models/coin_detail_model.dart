@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/utils/number_helper.dart';
+
 import '../../../../core/mini_services/date/date_helper.dart';
 import '../../../../core/parsing/html_parser.dart';
 
@@ -50,52 +52,78 @@ class CoinDetailModel extends BaseNetworkModel {
   CoinDetailEntity toEntity() {
     var parsedDescription = HtmlParser.shared.parseHtmlToString(description.en);
     return CoinDetailEntity(
-        id: id,
-        symbol: symbol,
-        name: name,
-        price: marketData.currentPrice?.usd ?? 0,
-        priceChange14dTable: marketData.priceChangePercentage14D ?? 0,
-        priceChange1yTable: marketData.priceChangePercentage1Y ?? 0,
-        priceChange24hTable: marketData.priceChangePercentage24H ?? 0,
-        priceChange30dTable: marketData.priceChangePercentage30D ?? 0,
-        priceChange60dTable: marketData.priceChangePercentage60D ?? 0,
-        priceChange7dTable: marketData.priceChangePercentage7D ?? 0,
-        availableSuppy: marketData.circulatingSupply.toString(),
-        totalSupply: marketData.totalSupply.toString(),
-        priceChange24h: marketData.priceChange24H ?? 0,
-        marketCap: marketData.marketCap?.usd != null
-            ? "\$${marketData.marketCap!.usd.toString()}"
-            : "-",
-        marketCapRank: marketData.marketCapRank != null
-            ? marketData.marketCapRank.toString()
-            : "-",
-        tradingVolume: marketData.totalVolume?.usd != null
-            ? "\$${marketData.totalVolume!.usd.toString()}"
-            : "-",
-        highest24h: marketData.high24H?.usd != null
-            ? "\$${marketData.high24H!.usd.toString()}"
-            : "-",
-        lowest24h: marketData.low24H?.usd != null
-            ? "\$${marketData.low24H!.usd.toString()}"
-            : "-",
-        allTimeHigh: marketData.ath?.usd != null
-            ? "\$${marketData.ath!.usd.toString()}"
-            : "-",
-        sinceAllTimeHigh: marketData.athChangePercentage?.usd != null
-            ? "${marketData.athChangePercentage!.usd.toString()}%"
-            : "-",
-        allTimeHighDate:
-            DateHelper.shared.formatDate(dateTime: marketData.athDate!.usd),
-        allTimeLowDate:
-            DateHelper.shared.formatDate(dateTime: marketData.atlDate!.usd),
-        allTimeLow:
-            marketData.atl?.usd != null ? marketData.atl!.usd.toString() : "-",
-        sinceAllTimeLow: marketData.atlChangePercentage?.usd != null
-            ? "${marketData.atlChangePercentage?.usd.toString()}%"
-            : "-",
-        homePageUrl: links.homepage.first,
-        imageUrl: image.large,
-        description: parsedDescription);
+      id: id,
+      symbol: symbol.toUpperCase(),
+      name: name.toUpperCase(),
+      price: marketData.currentPrice?.usd ?? 0,
+      priceChange7dTable: NumberHelper.shared
+              .fixNum(marketData.priceChangePercentage7D ?? 0, 1) +
+          "%",
+      priceChange14dTable: NumberHelper.shared
+              .fixNum(marketData.priceChangePercentage14D ?? 0, 1) +
+          "%",
+      priceChange1yTable: NumberHelper.shared
+              .fixNum(marketData.priceChangePercentage1Y ?? 0, 1) +
+          "%",
+      priceChange24hTable: NumberHelper.shared
+              .fixNum(marketData.priceChangePercentage24H ?? 0, 1) +
+          "%",
+      priceChange30dTable: NumberHelper.shared
+              .fixNum(marketData.priceChangePercentage30D ?? 0, 1) +
+          "%",
+      priceChange60dTable: NumberHelper.shared
+              .fixNum(marketData.priceChangePercentage60D ?? 0, 1) +
+          "%",
+      availableSuppy: marketData.circulatingSupply != null
+          ? NumberHelper.shared
+              .toCommaString(number: marketData.circulatingSupply!)
+          : "-",
+      totalSupply: NumberHelper.shared
+          .toCommaString(number: marketData.totalSupply ?? 0),
+      priceChange24h: marketData.priceChange24H ?? 0,
+      marketCap: marketData.marketCap?.usd != null
+          ? NumberHelper.shared
+              .toCommaString(number: marketData.marketCap!.usd!)
+          : "-",
+      marketCapRank: marketData.marketCapRank != null
+          ? marketData.marketCapRank.toString()
+          : "-",
+      tradingVolume: marketData.totalVolume?.usd != null
+          ? NumberHelper.shared
+              .toCommaString(number: marketData.totalVolume!.usd!)
+          : "-",
+      highest24h: marketData.high24H?.usd != null
+          ? NumberHelper.shared.toCommaString(number: marketData.high24H!.usd!)
+          : "-",
+      lowest24h: marketData.low24H?.usd != null
+          ? NumberHelper.shared.toCommaString(number: marketData.low24H!.usd!)
+          : "-",
+      allTimeHigh: marketData.ath?.usd != null
+          ? NumberHelper.shared.toCommaString(number: marketData.ath!.usd!)
+          : "-",
+      sinceAllTimeHigh: marketData.athChangePercentage?.usd != null
+          ? "${NumberHelper.shared.toCommaString(number: marketData.athChangePercentage!.usd!)}%"
+          : "-",
+      allTimeHighDate:
+          DateHelper.shared.formatDate(dateTime: marketData.athDate!.usd),
+      allTimeLowDate:
+          DateHelper.shared.formatDate(dateTime: marketData.atlDate!.usd),
+      allTimeLow: marketData.atl?.usd != null
+          ? NumberHelper.shared.toCommaString(number: marketData.atl!.usd!)
+          : "-",
+      sinceAllTimeLow: marketData.atlChangePercentage?.usd != null
+          ? "${NumberHelper.shared.toCommaString(number: marketData.atlChangePercentage!.usd!)}%"
+          : "-",
+      homePageUrl: links.homepage.first,
+      imageUrl: image.large,
+      description: parsedDescription,
+      ispriceChange14dPositive: (marketData.priceChangePercentage14D ?? 0) >= 0,
+      ispriceChange1yPositive: (marketData.priceChangePercentage1Y ?? 0) >= 0,
+      ispriceChange24hPositive: (marketData.priceChangePercentage24H ?? 0) >= 0,
+      ispriceChange30dPositive: (marketData.priceChangePercentage30D ?? 0) >= 0,
+      ispriceChange60dPositive: (marketData.priceChangePercentage60D ?? 0) >= 0,
+      ispriceChange7dPositive: (marketData.priceChangePercentage7D ?? 0) >= 0,
+    );
   }
 }
 
