@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'chart_options.dart';
+import 'chart_option/chart_options.dart';
 
 class CoinChart extends StatefulWidget {
   CoinChart({Key? key, required this.coinID}) : super(key: key);

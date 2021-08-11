@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           theme: appSettingsViewModel.themeData,
           builder: DevicePreview.appBuilder,
           locale: DevicePreview.locale(context),
-          home: HomeScreen(),
+          home: CoinDetailScreen(coinID: "bitcoin",),
         );
       },
     );
