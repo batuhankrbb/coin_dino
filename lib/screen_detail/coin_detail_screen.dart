@@ -1,7 +1,7 @@
 import 'package:coin_dino/core/error_handling/custom_failure.dart';
 import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:coin_dino/global/components/cached_network_image.dart';
 import 'package:coin_dino/global/components/failure_widget.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:coin_dino/screen_detail/components/completed_widget/coin_detail_completed_widget.dart';

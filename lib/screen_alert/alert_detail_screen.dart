@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:coin_dino/global/components/cached_network_image.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:coin_dino/screen_alert/components/alert_custom_textfield.dart';
 import 'package:coin_dino/screen_alert/viewmodels/screen_alert_view_model.dart';
@@ -32,7 +32,7 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context: context,title: "Alert Detail"),
+      appBar: customAppBar(context: context, title: "Alert Detail"),
       body: SafeArea(
         child: Column(
           children: [
@@ -101,7 +101,7 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
     return Column(
       children: [
         Expanded(
-          child: CashedNetworkImageWidget(
+          child: CachedNetworkImageWidget(
             imageURL: widget.alertEntity.image,
             imageHeigth: 70,
             imageWidth: 70,
@@ -118,8 +118,9 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
   }
 
   void onSave() {
-    double price =
-        textEditingController.text == "" ? 0 : double.parse(textEditingController.text);
+    double price = textEditingController.text == ""
+        ? 0
+        : double.parse(textEditingController.text);
 
     var entity = AlertEntity(
         coindID: widget.alertEntity.coindID,

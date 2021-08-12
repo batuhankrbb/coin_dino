@@ -3,7 +3,6 @@ import 'package:coin_dino/global/components/colored_tab_bar.dart';
 import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../core/utils/number_helper.dart';
 import '../features/search/domain/entity/search_coin_entity.dart';
-import '../global/components/custom_autosize_text.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';
 import 'search_screen.dart';

@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:coin_dino/global/components/cached_network_image.dart';
 import 'package:coin_dino/global/components/icon_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
@@ -29,7 +29,7 @@ Row buildAppBarTitle(String coinImageURL, BuildContext context,
     children: [
       Flexible(
         flex: 20,
-        child: CashedNetworkImageWidget(
+        child: CachedNetworkImageWidget(
           imageURL: coinImageURL,
           imageHeigth: context.getWidth(0.06),
           imageWidth: context.getWidth(0.06),

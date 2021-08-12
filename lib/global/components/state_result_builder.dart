@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/error_handling/custom_failure.dart';
 import '../../core/result_types/state_result.dart';
-import 'loading_screen_components.dart';
+import 'loading_screen.dart';
 
 class StateResultBuilder<T> extends StatelessWidget {
   StateResultBuilder(

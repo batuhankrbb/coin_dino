@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'loading_screen_components.dart';
+import 'loading_screen.dart';
 
-class CashedNetworkImageWidget extends StatelessWidget {
+class CachedNetworkImageWidget extends StatelessWidget {
   final String imageURL;
   final double? imageWidth;
   final double? imageHeigth;
 
-  const CashedNetworkImageWidget(
+  const CachedNetworkImageWidget(
       {Key? key, required this.imageURL, this.imageHeigth, this.imageWidth})
       : super(key: key);
 

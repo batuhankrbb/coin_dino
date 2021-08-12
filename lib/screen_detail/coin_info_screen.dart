@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import '../features/details/domain/entity/coin_detail_entity.dart';
-import '../global/components/custom_autosize_text.dart';
 import '../global/starting_files/injection_container.dart';
 import 'components/info_url_text.dart';
 import 'viewmodels/detail_screen_view_model.dart';
@@ -67,9 +66,10 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
   }
 
   Widget buildDescriptionText() {
-    return CustomAutoSizeText(
-      text: widget.data.description,
-      textStyle: TextStyle(
+    return AutoSizeText(
+        widget.data.description,
+minFontSize: 14,
+      style: TextStyle(
         color: context.colorScheme.primary,
         fontWeight: FontWeight.w400,
         fontSize: context.getWidth(0.035),

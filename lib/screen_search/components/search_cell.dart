@@ -1,8 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
+
 import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../../core/utils/number_helper.dart';
 import '../../features/search/domain/entity/search_coin_entity.dart';
-import '../../global/components/cashed_network_image_component.dart';
-import '../../global/components/custom_autosize_text.dart';
+import '../../global/components/cached_network_image.dart';
+
 import 'percentage_chip.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +61,7 @@ class SearchCell extends StatelessWidget {
   Widget buildCoinImage(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(4),
-      child: CashedNetworkImageWidget(
+      child: CachedNetworkImageWidget(
         imageURL: searchCoinEntity.imageUrl,
         imageHeigth: context.getHeight(0.1),
       ),
@@ -74,9 +76,10 @@ class SearchCell extends StatelessWidget {
         children: [
           Flexible(
             flex: 10,
-            child: CustomAutoSizeText(
-              text: searchCoinEntity.currentPrice,
-              textStyle: TextStyle(
+            child: AutoSizeText(
+              searchCoinEntity.currentPrice,
+              minFontSize: 14,
+              style: TextStyle(
                   color: context.colorScheme.primary,
                   fontSize: context.getWidth(0.035)),
             ),
@@ -100,9 +103,10 @@ class SearchCell extends StatelessWidget {
       children: [
         Flexible(
           flex: 5,
-          child: CustomAutoSizeText(
-            text: searchCoinEntity.name,
-            textStyle: TextStyle(
+          child: AutoSizeText(
+            searchCoinEntity.name,
+            minFontSize: 14,
+            style: TextStyle(
               fontSize: context.getWidth(0.04),
               fontWeight: FontWeight.bold,
             ),
@@ -111,9 +115,10 @@ class SearchCell extends StatelessWidget {
         Spacer(),
         Flexible(
           flex: 5,
-          child: CustomAutoSizeText(
-            text: searchCoinEntity.symbol,
-            textStyle: TextStyle(
+          child: AutoSizeText(
+            searchCoinEntity.symbol,
+            minFontSize: 14,
+            style: TextStyle(
               fontSize: context.getWidth(0.025),
               fontWeight: FontWeight.w300,
             ),

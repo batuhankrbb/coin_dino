@@ -1,8 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
+
 import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../../core/utils/number_helper.dart';
 import '../../features/search/domain/entity/search_trend_entity.dart';
-import '../../global/components/cashed_network_image_component.dart';
-import '../../global/components/custom_autosize_text.dart';
+import '../../global/components/cached_network_image.dart';
+
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +56,7 @@ class TrendCell extends StatelessWidget {
 
   Widget buildCoinImage(BuildContext context) {
     return Container(
-      child: CashedNetworkImageWidget(
+      child: CachedNetworkImageWidget(
         imageURL: searchTrendCoinEntity.largeImage,
         imageHeigth: context.getHeight(0.04),
         imageWidth: context.getHeight(0.04),
@@ -64,9 +66,10 @@ class TrendCell extends StatelessWidget {
 
   Widget buildCoinPrice(BuildContext context) {
     return Center(
-      child: CustomAutoSizeText(
-        text: searchTrendCoinEntity.btcPrice,
-        textStyle: TextStyle(
+      child: AutoSizeText(
+        searchTrendCoinEntity.btcPrice,
+        minFontSize: 14,
+        style: TextStyle(
           color: context.colorScheme.primary,
           fontSize: context.getWidth(0.04),
         ),
@@ -82,9 +85,9 @@ class TrendCell extends StatelessWidget {
       children: [
         Flexible(
           flex: 10,
-          child: CustomAutoSizeText(
-            text: searchTrendCoinEntity.name,
-            textStyle: TextStyle(
+          child: AutoSizeText(
+            searchTrendCoinEntity.name,
+            style: TextStyle(
               fontSize: context.getWidth(0.04),
               fontWeight: FontWeight.bold,
             ),
@@ -94,9 +97,9 @@ class TrendCell extends StatelessWidget {
         Spacer(),
         Flexible(
           flex: 12,
-          child: CustomAutoSizeText(
-            text: searchTrendCoinEntity.symbol,
-            textStyle: TextStyle(
+          child: AutoSizeText(
+            searchTrendCoinEntity.symbol,
+            style: TextStyle(
               fontSize: context.getWidth(0.025),
               fontWeight: FontWeight.w300,
             ),

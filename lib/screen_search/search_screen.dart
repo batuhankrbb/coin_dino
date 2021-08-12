@@ -82,7 +82,7 @@ class _SearchScreenState extends State<SearchScreen> {
               child: StateResultBuilder<List<SearchCoinEntity>>(
                 stateResult: _searchViewModel.searchCoinsResult,
                 failureWidget: buildFailureWidget,
-                initialWidget: CupertinoActivityIndicator(),
+                initialWidget: Center(child: CupertinoActivityIndicator(),),
                 completedWidget: buildCompletedListView,
               ),
             ),

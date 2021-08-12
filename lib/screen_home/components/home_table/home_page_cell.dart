@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
 import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
-import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:coin_dino/global/components/cached_network_image.dart';
 import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:coin_dino/screen_home/components/home_table/home_cell_custom_text.dart';
 import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
@@ -14,7 +14,8 @@ class HomePageCell extends StatefulWidget {
       {Key? key,
       required this.data,
       required this.itemFlexList,
-      required this.spacerFlexList, required this.onTap})
+      required this.spacerFlexList,
+      required this.onTap})
       : super(key: key);
 
   final MarketCoinEntity data;
@@ -134,7 +135,7 @@ class _HomePageCellState extends State<HomePageCell> {
             flex: 15,
             child: Container(
               alignment: Alignment.center,
-              child: CashedNetworkImageWidget(
+              child: CachedNetworkImageWidget(
                 imageURL: widget.data.imageUrl,
                 imageHeigth: 30,
                 imageWidth: 30,
