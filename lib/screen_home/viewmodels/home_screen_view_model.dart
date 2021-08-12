@@ -19,7 +19,7 @@ abstract class _HomeScreenViewModelBase with Store {
   var marketDate = MarketDate.hour24;
 
   @observable
-  var marketSort = MarketSort.market_cap_asc;
+  var marketSort = MarketSort.market_cap_desc;
 
   @observable
   MarketCoinCategoryEntity selectedCategory =
@@ -44,18 +44,23 @@ abstract class _HomeScreenViewModelBase with Store {
 
   ScrollController scrollController = ScrollController();
 
-  void setUpReactions() {
-    _disposers = [
-      reaction<MarketDate>((_) => marketDate, (newValue) {
-        refreshPage();
-      }),
-      reaction<MarketSort>((_) => marketSort, (newValue) {
-        refreshPage();
-      }),
-      reaction<MarketCoinCategoryEntity>((_) => selectedCategory, (newValue) {
-        refreshPage();
-      }),
-    ];
+  void setUpViewModel() {
+    if (coinListToShow.isEmpty) {
+      getCoinList();
+    }
+    if (_disposers.isEmpty) {
+      _disposers = [
+        reaction<MarketDate>((_) => marketDate, (newValue) {
+          refreshPage();
+        }),
+        reaction<MarketSort>((_) => marketSort, (newValue) {
+          refreshPage();
+        }),
+        reaction<MarketCoinCategoryEntity>((_) => selectedCategory, (newValue) {
+          refreshPage();
+        }),
+      ];
+    }
   }
 
   void refreshPage() {
@@ -76,11 +81,11 @@ abstract class _HomeScreenViewModelBase with Store {
     var result = await marketCoinRepository.getCryptoCurrencies(
         date: marketDate, sort: marketSort, page: currentPage);
     result.when(success: (data) {
+      print("success ${data[0].name}");
       coinListResult = StateResult.completed(data);
       coinListToShow.clear();
       coinListToShow.addAll(data);
     }, failure: (failure) {
-      print("failure aloo ${failure.message}");
       coinListToShow.clear();
       coinListResult = StateResult.failed(failure);
     });

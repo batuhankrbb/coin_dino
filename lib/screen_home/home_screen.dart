@@ -22,14 +22,14 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with AutomaticKeepAliveClientMixin {
   var homeScreenViewModel = getit.get<HomeScreenViewModel>();
 
   @override
   void initState() {
     super.initState();
-    homeScreenViewModel.setUpReactions();
-    homeScreenViewModel.getCoinList();
+    homeScreenViewModel.setUpViewModel();
     homeScreenViewModel.scrollController.addListener(() {
       if (homeScreenViewModel.scrollController.offset >=
               homeScreenViewModel.scrollController.position.maxScrollExtent &&
@@ -48,14 +48,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context: context, title: "Home"),
+      appBar: customAppBar(
+        context: context,
+        title: "Home",
+      ),
       backgroundColor: context.colorScheme.onSurface,
       body: Container(
         alignment: Alignment.center,
         child: Column(
           children: [
             Expanded(
-              flex: 6,
+              flex: 5,
               child: HomeTopChipList(),
             ),
             Spacer(),
@@ -68,4 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

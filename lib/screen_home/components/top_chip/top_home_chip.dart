@@ -50,7 +50,7 @@ class _TopHomeChipState extends State<TopHomeChip> {
 
   BoxDecoration buildDecoration(BuildContext context) {
     return BoxDecoration(
-      color: Colors.green[400],
+      color: context.colorScheme.secondary,
       borderRadius: BorderRadius.circular(6),
     );
   }
@@ -75,7 +75,7 @@ class _TopHomeChipState extends State<TopHomeChip> {
   Icon buildIcon(BuildContext context) {
     return Icon(
       Icons.arrow_drop_down,
-      color: Colors.white,
+      color: context.colorScheme.onSurface,
       size: context.getWidth(0.06),
     );
   }
@@ -87,7 +87,7 @@ class _TopHomeChipState extends State<TopHomeChip> {
         widget.texts[selected],
         maxLines: 1,
         style: TextStyle(
-          color: Colors.white,
+          color: context.colorScheme.onSurface,
           fontWeight: FontWeight.bold,
           fontSize: context.getWidth(0.035),
         ),

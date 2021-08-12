@@ -84,7 +84,7 @@ class _HomePageCellState extends State<HomePageCell> {
     return HomeCellCustomText(
       text: widget.data.marketCap,
       fontSize: context.getWidth(0.04),
-      textColor: Colors.black,
+      textColor: context.colorScheme.primary,
       minFontSize: 8,
       padding: 4,
     );
@@ -96,8 +96,8 @@ class _HomePageCellState extends State<HomePageCell> {
       fontSize: context.getWidth(0.035),
       minFontSize: 6,
       textColor: homeScreenViewModel.getPriceChangePositivity(widget.data)
-          ? Colors.green
-          : Colors.red,
+          ? context.colorScheme.secondary
+          : context.colorScheme.onPrimary,
     );
   }
 
@@ -105,7 +105,7 @@ class _HomePageCellState extends State<HomePageCell> {
     return HomeCellCustomText(
       text: widget.data.currentPrice,
       fontSize: context.getWidth(0.035),
-      textColor: Colors.black,
+      textColor: context.colorScheme.primary,
       minFontSize: 6,
     );
   }
@@ -114,7 +114,7 @@ class _HomePageCellState extends State<HomePageCell> {
     return HomeCellCustomText(
       text: widget.data.marketCapRank,
       fontSize: context.getWidth(0.04),
-      textColor: Colors.black,
+      textColor: context.colorScheme.primary,
       minFontSize: 6,
       textAlign: TextAlign.center,
       padding: 2,
@@ -145,7 +145,7 @@ class _HomePageCellState extends State<HomePageCell> {
             child: HomeCellCustomText(
               text: widget.data.symbol,
               fontSize: context.getWidth(0.4),
-              textColor: Colors.black,
+              textColor: context.colorScheme.primary,
               textAlign: TextAlign.center,
               minFontSize: 8,
             ),
