@@ -1,3 +1,4 @@
+import 'package:coin_dino/global/components/icon_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 import '../utils/custom_colors.dart';
@@ -7,9 +8,10 @@ AppBar customAppBar({
   String? title,
   List<Widget>? action,
   PreferredSizeWidget? bottom,
-  Widget? leading,
+  bool? leading,
   Color? titleColor,
   Color? backgroundColor,
+  bool showBackButton = false,
 }) =>
     AppBar(
       backgroundColor: backgroundColor,
@@ -22,5 +24,7 @@ AppBar customAppBar({
       ),
       actions: action,
       bottom: bottom,
-      leading: leading,
+      leading: leading ?? showBackButton
+          ? IconBackButton()
+          : null,
     );

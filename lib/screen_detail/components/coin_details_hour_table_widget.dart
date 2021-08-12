@@ -19,8 +19,9 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(2),
-      decoration:
-          ShapeDecoration(shape: Border.all(color: Colors.grey, width: 0.3)),
+      decoration: ShapeDecoration(
+          shape: Border.all(
+              color: context.colorScheme.secondaryVariant, width: 0.3)),
       child: Column(
         children: [
           Expanded(
@@ -44,7 +45,9 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
         tablePrice,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: isPricePositive ? Colors.green : Colors.red,
+          color: isPricePositive
+              ? context.colorScheme.secondary
+              : context.colorScheme.onPrimary,
           fontWeight: FontWeight.w500,
           fontSize: context.getWidth(0.035),
         ),
@@ -59,7 +62,7 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
       child: AutoSizeText(
         tableTitle,
         style: TextStyle(
-          color: Colors.white,
+          color: context.colorScheme.onSurface,
           fontSize: context.getWidth(0.04),
         ),
         maxLines: 1,

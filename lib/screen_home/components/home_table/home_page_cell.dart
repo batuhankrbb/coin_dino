@@ -14,13 +14,14 @@ class HomePageCell extends StatefulWidget {
       {Key? key,
       required this.data,
       required this.itemFlexList,
-      required this.spacerFlexList})
+      required this.spacerFlexList, required this.onTap})
       : super(key: key);
 
   final MarketCoinEntity data;
 
   final List<int> itemFlexList;
   final List<int> spacerFlexList;
+  final VoidCallback onTap;
 
   @override
   _HomePageCellState createState() => _HomePageCellState();
@@ -31,51 +32,54 @@ class _HomePageCellState extends State<HomePageCell> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      color: context.colorScheme.onSurface,
-      height: context.getHeight(0.05),
-      child: Row(
-        children: [
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: 10,
-            child: buildMarketCapRank(),
-          ),
-          Spacer(
-            flex: 2,
-          ),
-          Expanded(
-            flex: 15,
-            child: buildCoinNameAndImage(),
-          ),
-          Spacer(
-            flex: 2,
-          ),
-          Expanded(
-            flex: 28,
-            child: buildCurrentPrice(),
-          ),
-          Spacer(
-            flex: 3,
-          ),
-          Expanded(
-            flex: 15,
-            child: buildPriceChange(),
-          ),
-          Spacer(
-            flex: 2,
-          ),
-          Expanded(
-            flex: 32,
-            child: buildMarketCap(),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-        ],
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
+        alignment: Alignment.center,
+        color: context.colorScheme.onSurface,
+        height: context.getHeight(0.05),
+        child: Row(
+          children: [
+            Spacer(
+              flex: 1,
+            ),
+            Expanded(
+              flex: 10,
+              child: buildMarketCapRank(),
+            ),
+            Spacer(
+              flex: 2,
+            ),
+            Expanded(
+              flex: 15,
+              child: buildCoinNameAndImage(),
+            ),
+            Spacer(
+              flex: 2,
+            ),
+            Expanded(
+              flex: 28,
+              child: buildCurrentPrice(),
+            ),
+            Spacer(
+              flex: 3,
+            ),
+            Expanded(
+              flex: 15,
+              child: buildPriceChange(),
+            ),
+            Spacer(
+              flex: 2,
+            ),
+            Expanded(
+              flex: 32,
+              child: buildMarketCap(),
+            ),
+            Spacer(
+              flex: 1,
+            ),
+          ],
+        ),
       ),
     );
   }

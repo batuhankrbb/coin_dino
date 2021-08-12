@@ -39,7 +39,7 @@ class DetailAppBarActions extends StatelessWidget {
       child: IconButton(
         icon: Icon(
           Icons.add_alarm,
-          color: Colors.black,
+          color: context.colorScheme.primary,
           size: context.getHeight(0.033),
         ),
         onPressed: () {

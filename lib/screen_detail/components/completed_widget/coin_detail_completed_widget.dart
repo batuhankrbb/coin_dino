@@ -39,7 +39,7 @@ class _CoinDetailCompletedWidgetState extends State<CoinDetailCompletedWidget> {
       children: [
         Spacer(flex: 1),
         Expanded(
-          flex: 23,
+          flex: 20,
           child: buildGraph(),
         ),
         Expanded(

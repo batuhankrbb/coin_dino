@@ -38,8 +38,8 @@ class InfoUrlText extends StatelessWidget {
     return AutoSizeText(
       "Home Page",
       style: TextStyle(
-          color: Colors.black,
-          fontSize: context.getWidth(0.05),
+          color: context.colorScheme.primary,
+          fontSize: context.getWidth(0.04),
           fontWeight: FontWeight.w500),
       maxLines: 1,
     );
@@ -51,9 +51,9 @@ class InfoUrlText extends StatelessWidget {
       maxLines: 1,
       textAlign: TextAlign.end,
       style: TextStyle(
-        color: Colors.green,
+        color: context.colorScheme.surface,
         fontWeight: FontWeight.w500,
-        fontSize: context.getWidth(0.4),
+        fontSize: context.getWidth(0.04),
       ),
     );
   }

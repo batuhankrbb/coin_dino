@@ -19,6 +19,7 @@ import 'components/coin_chart/coin_chart.dart';
 import 'components/coin_detail_information_row.dart';
 import 'components/coin_details_hour_table_widget.dart';
 import 'viewmodels/detail_screen_view_model.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class CoinDetailScreen extends StatefulWidget {
   CoinDetailScreen({Key? key, required this.coinID}) : super(key: key);
@@ -46,6 +47,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       return Scaffold(
+        backgroundColor: context.colorScheme.onSurface,
         appBar: buildAppBar(),
         body: Center(
           child: StateResultBuilder<CoinDetailEntity>(
@@ -61,6 +63,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
   Widget buildCompletedWidget(CoinDetailEntity data) {
     return TabBarView(
       controller: _tabController,
+      physics: NeverScrollableScrollPhysics(),
       children: [
         CoinDetailCompletedWidget(data: data),
         CoinDetailsInfo(data: data),

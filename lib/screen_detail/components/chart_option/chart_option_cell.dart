@@ -23,7 +23,7 @@ class ChartOptionCell extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        decoration: buildDecoration(),
+        decoration: buildDecoration(context),
         margin: EdgeInsets.all(context.getWidth(0.01)),
         alignment: Alignment.center,
         child: buildText(context),
@@ -35,16 +35,18 @@ class ChartOptionCell extends StatelessWidget {
     return AutoSizeText(
       value.name,
       style: TextStyle(
-        color: isSelected ? Colors.white : Colors.black,
+        color: isSelected
+            ? context.colorScheme.onSurface
+            : context.colorScheme.primary,
         fontWeight: FontWeight.w500,
         fontSize: context.getWidth(0.04),
       ),
     );
   }
 
-  BoxDecoration buildDecoration() {
+  BoxDecoration buildDecoration(BuildContext context) {
     return BoxDecoration(
-      color: isSelected ? Colors.green[400] : Colors.transparent,
+      color: isSelected ? context.colorScheme.surface : Colors.transparent,
       borderRadius: BorderRadius.circular(12),
     );
   }

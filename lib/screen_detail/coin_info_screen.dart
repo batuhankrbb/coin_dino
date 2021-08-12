@@ -70,9 +70,9 @@ class _CoinDetailsInfoState extends State<CoinDetailsInfo> {
     return CustomAutoSizeText(
       text: widget.data.description,
       textStyle: TextStyle(
-        color: Colors.black,
+        color: context.colorScheme.primary,
         fontWeight: FontWeight.w400,
-        fontSize: context.getWidth(0.04),
+        fontSize: context.getWidth(0.035),
       ),
     );
   }

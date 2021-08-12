@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/global/components/cashed_network_image_component.dart';
+import 'package:coin_dino/global/components/icon_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'detail_app_bar_actions.dart';
@@ -13,6 +14,7 @@ AppBar detailAppBar(
     required Function(int index) onTap}) {
   return AppBar(
     bottom: buildBottomTabBar(context, tabController, onTap),
+    leading: IconBackButton(),
     actions: [
       DetailAppBarActions(),
     ],
@@ -45,13 +47,14 @@ Row buildAppBarTitle(String coinImageURL, BuildContext context,
 AutoSizeText buildTitleText(
     String coinTitle, String coinSymbol, BuildContext context) {
   return AutoSizeText(
-    coinTitle + coinSymbol,
+    coinTitle + " " + coinSymbol,
     style: TextStyle(
       fontSize: context.getWidth(0.04),
-      color: Colors.black,
+      color: context.colorScheme.primary,
       fontWeight: FontWeight.bold,
     ),
     maxLines: 2,
+    minFontSize: 10,
   );
 }
 
@@ -63,19 +66,23 @@ TabBar buildBottomTabBar(
       Tab(
         icon: Icon(
           Icons.bar_chart,
-          color: tabController.index == 0 ? Colors.green : Colors.grey,
+          color: tabController.index == 0
+              ? context.colorScheme.secondary
+              : context.colorScheme.background,
           size: context.getHeight(0.033),
         ),
       ),
       Tab(
         icon: Icon(
           Icons.info,
-          color: tabController.index == 1 ? Colors.green : Colors.grey,
+          color: tabController.index == 1
+              ? context.colorScheme.secondary
+              : context.colorScheme.background,
           size: context.getHeight(0.033),
         ),
       ),
     ],
     onTap: onTap,
-    indicatorColor: Colors.green,
+    indicatorColor: context.colorScheme.secondary,
   );
 }
