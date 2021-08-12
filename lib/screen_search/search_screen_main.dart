@@ -47,7 +47,7 @@ class _SearchScreenMainState extends State<SearchScreenMain>
         return Container(
           decoration: buildGradientDecoration(context),
           child: Scaffold(
-           resizeToAvoidBottomInset: false,
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             appBar: buildAppBar(),
             body: SafeArea(

@@ -9,15 +9,17 @@ import 'package:coin_dino/screen_settings/view_model/settings_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class SettingsOptionSection extends StatelessWidget {
-   SettingsOptionSection({Key? key}) : super(key: key);
+  SettingsOptionSection({Key? key}) : super(key: key);
 
-   SettingsViewModel settingsViewModel = getit.get<SettingsViewModel>();
+  SettingsViewModel settingsViewModel = getit.get<SettingsViewModel>();
 
   @override
   Widget build(BuildContext context) {
     return CupertinoFormSection(
+      backgroundColor: context.colorScheme.primaryVariant,
       header: SettingsFormHeader(
         headerTitle: "Settings",
         headerIcon: Icons.settings,

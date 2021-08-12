@@ -17,4 +17,5 @@ class CustomColor {
   Color pink = Color(0xFFE65E8B);
   Color orange = Color(0xFFFF9802);
   Color lightOrange = Color(0xFFFFAA3F);
+  Color darkerWhite = Color(0xFFFDFDFD);
 }

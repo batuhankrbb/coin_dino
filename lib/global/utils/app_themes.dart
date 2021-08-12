@@ -45,7 +45,7 @@ class AppThemes {
           onSecondary: CustomColor.shared.textGrey,
           onSurface: CustomColor.shared.white,
           brightness: Brightness.light,
-          onError: Colors.red,
+          onError: CustomColor.shared.darkerWhite,
           onBackground: Colors.white,
         ),
       );
@@ -70,7 +70,7 @@ class AppThemes {
           onSecondary: CustomColor.shared.textGrey,
           onSurface: CustomColor.shared.white,
           brightness: Brightness.light,
-          onError: CustomColor.shared.orange,
+          onError: CustomColor.shared.darkerWhite,
           onBackground: CustomColor.shared.lightOrange,
         ),
       );

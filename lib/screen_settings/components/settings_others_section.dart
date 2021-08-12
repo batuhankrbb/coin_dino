@@ -6,6 +6,7 @@ import 'package:coin_dino/screen_settings/components/settings_form_row.dart';
 import 'package:coin_dino/screen_settings/components/settings_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class SettingsOtherSection extends StatelessWidget {
   const SettingsOtherSection({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class SettingsOtherSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoFormSection(
+      backgroundColor: context.colorScheme.primaryVariant,
       header: SettingsFormHeader(
         headerTitle: "Others",
         headerIcon: Icons.apps,
