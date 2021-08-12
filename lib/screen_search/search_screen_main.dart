@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/global/components/colored_tab_bar.dart';
 import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../core/utils/number_helper.dart';
 import '../features/search/domain/entity/search_coin_entity.dart';
@@ -22,7 +23,7 @@ class SearchScreenMain extends StatefulWidget {
 }
 
 class _SearchScreenMainState extends State<SearchScreenMain>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   var _searchViewModel = getit.get<SearchScreenViewModel>();
   late TabController _tabController;
 
@@ -30,8 +31,7 @@ class _SearchScreenMainState extends State<SearchScreenMain>
   void initState() {
     this._tabController = TabController(length: 2, vsync: this);
     super.initState();
-    _searchViewModel.getSearchCoins("");
-    _searchViewModel.getAllTrends();
+    _searchViewModel.setUpViewModel();
   }
 
   @override
@@ -44,17 +44,22 @@ class _SearchScreenMainState extends State<SearchScreenMain>
   Widget build(BuildContext context) {
     return Observer(
       builder: (context) {
-        return Scaffold(
-          appBar: buildAppBar(),
-          body: SafeArea(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12),
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  SearchScreen(),
-                  TrendsScreen(),
-                ],
+        return Container(
+          decoration: buildGradientDecoration(context),
+          child: Scaffold(
+           resizeToAvoidBottomInset: false,
+            backgroundColor: Colors.transparent,
+            appBar: buildAppBar(),
+            body: SafeArea(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 12),
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    SearchScreen(),
+                    TrendsScreen(),
+                  ],
+                ),
               ),
             ),
           ),
@@ -63,16 +68,22 @@ class _SearchScreenMainState extends State<SearchScreenMain>
     );
   }
 
+  BoxDecoration buildGradientDecoration(BuildContext context) {
+    return BoxDecoration(
+      gradient: LinearGradient(colors: [
+        context.colorScheme.primaryVariant,
+        context.colorScheme.onSurface,
+        context.colorScheme.onSurface,
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+    );
+  }
+
   AppBar buildAppBar() {
     return customAppBar(
       context: context,
       title: _searchViewModel.tabIndex == 0 ? "Search" : "Trends",
-      bottom: TabBar(
-        indicatorColor: context.colorScheme.surface,
-        onTap: onTapTabBar,
-        controller: _tabController,
-        tabs: buildTabs(),
-      ),
+      backgroundColor: context.colorScheme.primaryVariant,
+      bottom: buildTabBar(),
     );
   }
 
@@ -80,24 +91,35 @@ class _SearchScreenMainState extends State<SearchScreenMain>
     _searchViewModel.tabIndex = index;
   }
 
-  List<Widget> buildTabs() {
-    return [
-      Tab(
-        icon: Icon(
-          Icons.search,
-          color: _searchViewModel.tabIndex == 0
-              ? context.colorScheme.surface
-              : context.colorScheme.background,
-        ),
+  ColoredTabBar buildTabBar() {
+    return ColoredTabBar(
+      color: context.colorScheme.primaryVariant,
+      tabBar: TabBar(
+        indicatorColor: Colors.transparent,
+        onTap: onTapTabBar,
+        controller: _tabController,
+        tabs: [
+          Tab(
+            icon: Icon(
+              Icons.search,
+              color: _searchViewModel.tabIndex == 0
+                  ? context.colorScheme.surface
+                  : context.colorScheme.background,
+            ),
+          ),
+          Tab(
+            icon: Icon(
+              Icons.trending_up,
+              color: _searchViewModel.tabIndex == 1
+                  ? context.colorScheme.surface
+                  : context.colorScheme.background,
+            ),
+          ),
+        ],
       ),
-      Tab(
-        icon: Icon(
-          Icons.trending_up,
-          color: _searchViewModel.tabIndex == 1
-              ? context.colorScheme.surface
-              : context.colorScheme.background,
-        ),
-      ),
-    ];
+    );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

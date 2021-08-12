@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../core/result_types/state_result.dart';
 import '../../features/search/data/repository/search_repository.dart';
 import '../../features/search/domain/entity/search_coin_entity.dart';
@@ -23,18 +25,30 @@ abstract class _SearchScreenViewModelBase with Store {
   @observable
   ObservableList<SearchCoinEntity> searchCoinResultToShow = ObservableList();
 
-
   @observable
   int currentPage = 1;
 
   @observable
-  String currentText = "";
+  TextEditingController textEditingController = TextEditingController();
 
   @observable
   bool isScrolled = false;
 
   @observable
   int tabIndex = 0;
+
+  @action
+  Future<void> setUpViewModel() async {
+    if (searchCoinResultToShow.isEmpty) {
+      getSearchCoins("");
+    }
+    searchTrendResult.maybeWhen(
+        completed: (data) {
+        },
+        orElse: () {
+          getAllTrends();
+        });
+  }
 
   @action
   Future<void> getAllTrends() async {
@@ -50,7 +64,6 @@ abstract class _SearchScreenViewModelBase with Store {
   @action
   Future<void> getSearchCoins(String text) async {
     currentPage = 1;
-    currentText = text;
     searchCoinsResult = StateResult.loading();
     var coins = await searchRepository.getCoinsBySearch(text, currentPage);
     coins.when(success: (data) {
@@ -68,7 +81,7 @@ abstract class _SearchScreenViewModelBase with Store {
     currentPage += 1;
     isScrolled = true;
     var coins =
-        await searchRepository.getCoinsBySearch(currentText, currentPage);
+        await searchRepository.getCoinsBySearch(textEditingController.text, currentPage);
     coins.when(success: (data) {
       searchCoinResultToShow.addAll(data);
       isScrolled = false;

@@ -9,12 +9,14 @@ AppBar customAppBar({
   PreferredSizeWidget? bottom,
   Widget? leading,
   Color? titleColor,
+  Color? backgroundColor,
 }) =>
     AppBar(
+      backgroundColor: backgroundColor,
       title: Text(
         title ?? "",
         style: TextStyle(
-          color: titleColor ?? CustomColor.shared.backgroundBlueColor,
+          color: titleColor ?? context.colorScheme.secondaryVariant,
           fontSize: context.getWidth(0.05),
         ),
       ),

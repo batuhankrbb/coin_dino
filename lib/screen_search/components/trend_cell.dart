@@ -22,7 +22,7 @@ class TrendCell extends StatelessWidget {
         onPageBuild: (context, screenInfo) {
           return Container(
             width: screenInfo.screenSize.width * 0.8,
-            height: screenInfo.screenSize.height * 0.1,
+            height: screenInfo.screenSize.height * 0.06,
             margin: EdgeInsets.symmetric(vertical: context.getHeight(0.01)),
             child: Row(
               children: [
@@ -56,7 +56,8 @@ class TrendCell extends StatelessWidget {
     return Container(
       child: CashedNetworkImageWidget(
         imageURL: searchTrendCoinEntity.largeImage,
-        imageHeigth: context.getHeight(0.1),
+        imageHeigth: context.getHeight(0.04),
+        imageWidth: context.getHeight(0.04),
       ),
     );
   }
@@ -66,8 +67,9 @@ class TrendCell extends StatelessWidget {
       child: CustomAutoSizeText(
         text: searchTrendCoinEntity.btcPrice,
         textStyle: TextStyle(
-            color: context.colorScheme.primary,
-            fontSize: context.getWidth(0.05)),
+          color: context.colorScheme.primary,
+          fontSize: context.getWidth(0.04),
+        ),
         maxLines: 1,
       ),
     );
@@ -79,11 +81,14 @@ class TrendCell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Flexible(
-          flex: 6,
+          flex: 10,
           child: CustomAutoSizeText(
             text: searchTrendCoinEntity.name,
             textStyle: TextStyle(
-                fontSize: context.getWidth(0.05), fontWeight: FontWeight.bold),
+              fontSize: context.getWidth(0.04),
+              fontWeight: FontWeight.bold,
+            ),
+            minFontSize: 10,
           ),
         ),
         Spacer(),
@@ -92,7 +97,10 @@ class TrendCell extends StatelessWidget {
           child: CustomAutoSizeText(
             text: searchTrendCoinEntity.symbol,
             textStyle: TextStyle(
-                fontSize: context.getWidth(0.04), fontWeight: FontWeight.w300),
+              fontSize: context.getWidth(0.025),
+              fontWeight: FontWeight.w300,
+            ),
+            minFontSize: 12,
           ),
         )
       ],

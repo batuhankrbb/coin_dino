@@ -5,7 +5,7 @@ import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/global/components/failure_widget.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import '../features/search/domain/entity/search_coin_entity.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';
@@ -26,14 +26,11 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   var _searchViewModel = getit.get<SearchScreenViewModel>();
 
-  late TextEditingController textController;
-
   late ScrollController scrollController;
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
     scrollController = ScrollController();
     scrollController.addListener(() {
       if (scrollController.offset >=
@@ -72,7 +69,6 @@ class _SearchScreenState extends State<SearchScreen> {
       onChange: (value) {
         return _searchViewModel.getSearchCoins(value);
       },
-      textEditingController: textController,
     );
   }
 
@@ -131,7 +127,8 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget buildFailureWidget(CustomFailure failure) {
     return FailureWidget(
       onTryAgain: () {
-        _searchViewModel.getSearchCoins(textController.text);
+        _searchViewModel
+            .getSearchCoins(_searchViewModel.textEditingController.text);
       },
     );
   }

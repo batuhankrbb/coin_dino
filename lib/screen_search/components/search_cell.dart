@@ -25,7 +25,7 @@ class SearchCell extends StatelessWidget {
           onTap: onTap,
           child: Container(
             width: screenInfo.screenSize.width * 0.8,
-            height: screenInfo.screenSize.height * 0.11,
+            height: screenInfo.screenSize.height * 0.06,
             margin: EdgeInsets.symmetric(vertical: context.getHeight(0.01)),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +78,7 @@ class SearchCell extends StatelessWidget {
               text: searchCoinEntity.currentPrice,
               textStyle: TextStyle(
                   color: context.colorScheme.primary,
-                  fontSize: context.getWidth(0.045)),
+                  fontSize: context.getWidth(0.035)),
             ),
           ),
           Spacer(),
@@ -103,7 +103,7 @@ class SearchCell extends StatelessWidget {
           child: CustomAutoSizeText(
             text: searchCoinEntity.name,
             textStyle: TextStyle(
-              fontSize: context.getWidth(0.05),
+              fontSize: context.getWidth(0.04),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -114,7 +114,7 @@ class SearchCell extends StatelessWidget {
           child: CustomAutoSizeText(
             text: searchCoinEntity.symbol,
             textStyle: TextStyle(
-              fontSize: context.getWidth(0.03),
+              fontSize: context.getWidth(0.025),
               fontWeight: FontWeight.w300,
             ),
           ),

@@ -74,19 +74,20 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     });
   }
 
-  final _$currentTextAtom =
-      Atom(name: '_SearchScreenViewModelBase.currentText');
+  final _$textEditingControllerAtom =
+      Atom(name: '_SearchScreenViewModelBase.textEditingController');
 
   @override
-  String get currentText {
-    _$currentTextAtom.reportRead();
-    return super.currentText;
+  TextEditingController get textEditingController {
+    _$textEditingControllerAtom.reportRead();
+    return super.textEditingController;
   }
 
   @override
-  set currentText(String value) {
-    _$currentTextAtom.reportWrite(value, super.currentText, () {
-      super.currentText = value;
+  set textEditingController(TextEditingController value) {
+    _$textEditingControllerAtom.reportWrite(value, super.textEditingController,
+        () {
+      super.textEditingController = value;
     });
   }
 
@@ -120,6 +121,14 @@ mixin _$SearchScreenViewModel on _SearchScreenViewModelBase, Store {
     });
   }
 
+  final _$setUpViewModelAsyncAction =
+      AsyncAction('_SearchScreenViewModelBase.setUpViewModel');
+
+  @override
+  Future<void> setUpViewModel() {
+    return _$setUpViewModelAsyncAction.run(() => super.setUpViewModel());
+  }
+
   final _$getAllTrendsAsyncAction =
       AsyncAction('_SearchScreenViewModelBase.getAllTrends');
 
@@ -151,7 +160,7 @@ searchCoinsResult: ${searchCoinsResult},
 searchTrendResult: ${searchTrendResult},
 searchCoinResultToShow: ${searchCoinResultToShow},
 currentPage: ${currentPage},
-currentText: ${currentText},
+textEditingController: ${textEditingController},
 isScrolled: ${isScrolled},
 tabIndex: ${tabIndex}
     ''';

@@ -17,7 +17,6 @@ class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
 
-
   @override
   void initState() {
     super.initState();
@@ -27,6 +26,7 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: SafeArea(
         child: MainTabBar(tabController: tabController),
       ),
@@ -35,8 +35,12 @@ class _MainScreenState extends State<MainScreen>
         controller: tabController,
         children: [
           HomeScreen(),
-          SearchScreenMain(),
-          SettingsScreen(),
+          SearchScreenMain(
+            key: PageStorageKey("search"),
+          ),
+          SettingsScreen(
+            key: PageStorageKey("settings"),
+          ),
         ],
       ),
     );
