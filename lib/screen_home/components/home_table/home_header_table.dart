@@ -23,7 +23,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.getHeight(0.07),
+      height: context.getHeight(0.06),
       color: context.colorScheme.primaryVariant,
       padding: EdgeInsets.all(8),
       child: Row(

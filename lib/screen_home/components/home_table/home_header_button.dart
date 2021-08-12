@@ -32,7 +32,7 @@ class _HomeHeaderButtonState extends State<HomeHeaderButton> {
         textAlign: TextAlign.center,
         style: TextStyle(
             color: context.colorScheme.secondaryVariant,
-            fontSize: context.getWidth(0.035),
+            fontSize: context.getWidth(0.031),
             fontWeight: FontWeight.w500),
       ),
     );

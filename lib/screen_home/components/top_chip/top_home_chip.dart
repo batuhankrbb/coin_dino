@@ -89,7 +89,7 @@ class _TopHomeChipState extends State<TopHomeChip> {
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: context.getWidth(0.05),
+          fontSize: context.getWidth(0.035),
         ),
         textAlign: TextAlign.center,
         minFontSize: 8,

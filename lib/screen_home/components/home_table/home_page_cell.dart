@@ -34,7 +34,7 @@ class _HomePageCellState extends State<HomePageCell> {
     return Container(
       alignment: Alignment.center,
       color: context.colorScheme.onSurface,
-      height: context.getHeight(0.07),
+      height: context.getHeight(0.05),
       child: Row(
         children: [
           Spacer(
@@ -132,6 +132,8 @@ class _HomePageCellState extends State<HomePageCell> {
               alignment: Alignment.center,
               child: CashedNetworkImageWidget(
                 imageURL: widget.data.imageUrl,
+                imageHeigth: 30,
+                imageWidth: 30,
               ),
             ),
           ),
@@ -139,12 +141,13 @@ class _HomePageCellState extends State<HomePageCell> {
             flex: 1,
           ),
           Expanded(
-            flex: 10,
+            flex: 12,
             child: HomeCellCustomText(
               text: widget.data.symbol,
-              fontSize: context.getWidth(0.5),
+              fontSize: context.getWidth(0.4),
               textColor: Colors.black,
               textAlign: TextAlign.center,
+              minFontSize: 8,
             ),
           ),
         ],
