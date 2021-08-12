@@ -28,6 +28,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colorScheme.primaryVariant,
       body: Column(
         children: [
           Spacer(flex: 10),

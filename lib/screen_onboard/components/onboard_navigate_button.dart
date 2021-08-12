@@ -15,20 +15,24 @@ class OnboardNavigateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: context.getWidth(0.15),
-      child: ElevatedButton(
-        child: Icon(
-          Icons.arrow_right_alt,
-          color: context.colorScheme.onSurface,
-          size: context.getWidth(0.08),
-        ),
-        onPressed: () {
+      child: InkWell(
+        hoverColor: Colors.transparent,
+        onTap: () {
           NavigationService.shared
               .navigateTo(NavigationRoute.toMainScreen(MainScreen()));
         },
-        style: context.buttonStyle(
-          backgroundColor: context.colorScheme.secondary,
-          shadowColor: context.colorScheme.secondary,
-          elevation: 12,
+        child: ElevatedButton(
+          child: Icon(
+            Icons.arrow_right_alt,
+            color: context.colorScheme.onSurface,
+            size: context.getWidth(0.08),
+          ),
+          onPressed: null,
+          style: context.buttonStyle(
+            backgroundColor: context.colorScheme.secondary,
+            shadowColor: context.colorScheme.secondary,
+            elevation: 12,
+          ),
         ),
       ),
     );
