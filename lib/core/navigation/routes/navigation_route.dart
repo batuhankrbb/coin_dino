@@ -1,7 +1,9 @@
 import 'package:coin_dino/main.dart';
+import 'package:coin_dino/main_screen.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:coin_dino/screen_alert/alert_list_screen.dart';
 import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import 'package:coin_dino/screen_home/home_screen.dart';
 import 'package:coin_dino/screen_in_app_purchase/inapp_purchase_screen.dart';
 
 import '../../../global/components/selection_page/selection_page.dart';
@@ -21,7 +23,8 @@ class NavigationRoute with _$NavigationRoute {
       RouteAlertListPage;
   const factory NavigationRoute.toInAppPurchase(
       InAppPurchaseScreen inAppPurchaseScreen) = RouteInAppPurchase;
-  const factory NavigationRoute.toHomePage(HomePage homePage) = RouteHomePage;
+  const factory NavigationRoute.toMainScreen(MainScreen mainScreen) =
+      RouteMainScreen;
 }
 
 extension MultiNavigation on NavigationRoute {
@@ -31,6 +34,7 @@ extension MultiNavigation on NavigationRoute {
         toDetails: (_) => "detailsPage",
         toAlert: (_) => "alertPage",
         toAlertList: (_) => "alertListPage",
-        toInAppPurchase: (_) => "inAppPurchasePage",toHomePage: (_) => "homePage");
+        toInAppPurchase: (_) => "inAppPurchasePage",
+        toMainScreen: (_) => "homePage");
   }
 }

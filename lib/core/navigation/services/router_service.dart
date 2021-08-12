@@ -23,7 +23,7 @@ class RouterService {
       toInAppPurchase: (page) {
         return _convertToRoute(page);
       },
-      toHomePage: (page) {
+      toMainScreen: (page) {
         return _convertToRoute(page);
       },
     );

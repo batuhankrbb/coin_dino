@@ -1,7 +1,8 @@
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import 'package:coin_dino/main_screen.dart';
 import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
 import 'package:coin_dino/screen_alert/alert_list_screen.dart';
-import 'package:coin_dino/screen_detail/coin_detail_screen.dart'; 
+import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
 import 'package:coin_dino/screen_home/home_screen.dart';
 import 'package:coin_dino/screen_in_app_purchase/inapp_purchase_screen.dart';
 import 'package:coin_dino/screen_onboard/onboard_screen.dart';
@@ -50,70 +51,15 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
     return Observer(
       builder: (context) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
           builder: DevicePreview.appBuilder,
           locale: DevicePreview.locale(context),
-          home: CoinDetailScreen(coinID: "bitcoin",),
+          home: MainScreen(),
         );
       },
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
-  late TabController tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    tabController = TabController(length: 3, vsync: this);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: SafeArea(
-        child: TabBar(
-          controller: tabController,
-          tabs: [
-            Tab(
-              child: Icon(
-                Icons.home,
-                color: Colors.black,
-              ),
-            ),
-            Tab(
-              child: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-            ),
-            Tab(
-              child: Icon(
-                Icons.settings,
-                color: Colors.black,
-              ),
-            ),
-          ],
-        ),
-      ),
-      backgroundColor: Colors.white,
-      body: TabBarView(
-        controller: tabController,
-        children: [
-          HomeScreen(),
-          SearchScreenMain(),
-          SettingsScreen(),
-        ],
-      ),
     );
   }
 }
