@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/market/domain/entities/market_coin_category_entity.dart';
+import '../../domain/entities/market_coin_category_entity.dart';
 
 enum MarketDate { hour1, hour24, day7, day30 }
 

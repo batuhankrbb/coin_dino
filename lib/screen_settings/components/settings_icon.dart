@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class SettingsIcon extends StatelessWidget {
   const SettingsIcon({Key? key, required this.iconData}) : super(key: key);

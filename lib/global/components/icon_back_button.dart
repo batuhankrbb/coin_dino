@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class IconBackButton extends StatelessWidget {
   const IconBackButton({Key? key}) : super(key: key);

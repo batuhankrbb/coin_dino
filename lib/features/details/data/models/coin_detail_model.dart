@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/utils/number_helper.dart';
+import '../../../../core/utils/number_helper.dart';
 
 import '../../../../core/mini_services/date/date_helper.dart';
 import '../../../../core/parsing/html_parser.dart';

@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/global/components/selection_page/selection_page_text_field.dart';
+import '../../../core/navigation/services/navigation_service.dart';
+import 'selection_page_text_field.dart';
 
 import '../../../core/extensions/string_extension.dart';
 import 'selection_page_cell.dart';

@@ -1,8 +1,8 @@
-import 'package:coin_dino/core/result_types/state_result.dart';
-import 'package:coin_dino/core/user_interface/helpers/alert_helper.dart';
-import 'package:coin_dino/features/alert/data/repository/alert_repository.dart';
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
-import 'package:coin_dino/features/alert/domain/repository_contract/i_alert_repository.dart';
+import '../../core/result_types/state_result.dart';
+import '../../core/user_interface/helpers/alert_helper.dart';
+import '../../features/alert/data/repository/alert_repository.dart';
+import '../../features/alert/domain/entity/alert_entity.dart';
+import '../../features/alert/domain/repository_contract/i_alert_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'screen_alert_view_model.g.dart';

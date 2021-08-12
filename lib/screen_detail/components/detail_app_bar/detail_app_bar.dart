@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/global/components/cached_network_image.dart';
-import 'package:coin_dino/global/components/icon_back_button.dart';
+import '../../../global/components/cached_network_image.dart';
+import '../../../global/components/icon_back_button.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 import 'detail_app_bar_actions.dart';
 
 AppBar detailAppBar(

@@ -1,4 +1,4 @@
-import 'package:coin_dino/screen_onboard/components/onboard_image_title_widget.dart';
+import '../components/onboard_image_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 

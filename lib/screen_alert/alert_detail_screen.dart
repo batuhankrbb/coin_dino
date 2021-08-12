@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
-import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/global/components/cached_network_image.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_alert/components/alert_custom_textfield.dart';
-import 'package:coin_dino/screen_alert/viewmodels/screen_alert_view_model.dart';
+import '../features/alert/domain/entity/alert_entity.dart';
+import '../global/components/app_bar_components.dart';
+import '../global/components/cached_network_image.dart';
+import '../global/starting_files/injection_container.dart';
+import 'components/alert_custom_textfield.dart';
+import 'viewmodels/screen_alert_view_model.dart';
 import 'package:flutter/material.dart';
 
 class AlertDetailScreen extends StatefulWidget {

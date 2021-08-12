@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/utils/number_helper.dart';
+import '../../core/utils/number_helper.dart';
 
 import '../../core/mini_services/share/share_service.dart';
 import '../../core/mini_services/url_launcher/url_launcher_service.dart';

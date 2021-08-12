@@ -1,14 +1,14 @@
-import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
-import 'package:coin_dino/global/components/state_result_builder.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
-import 'package:coin_dino/screen_detail/viewmodels/detail_screen_view_model.dart';
+import '../../../core/navigation/routes/navigation_route.dart';
+import '../../../core/navigation/services/navigation_service.dart';
+import '../../../features/details/domain/entity/coin_detail_entity.dart';
+import '../../../global/components/state_result_builder.dart';
+import '../../../global/starting_files/injection_container.dart';
+import '../../../screen_alert/alert_detail_screen.dart';
+import '../../viewmodels/detail_screen_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 
 class DetailAppBarActions extends StatelessWidget {
   DetailAppBarActions({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/global/extensions/style_extensions.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../global/extensions/style_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class InAppPurchaseButton extends StatelessWidget {
   const InAppPurchaseButton({Key? key, required this.onTap}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/error_handling/custom_failure.dart';
-import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/global/components/failure_widget.dart';
-import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
+import '../core/error_handling/custom_failure.dart';
+import '../core/navigation/routes/navigation_route.dart';
+import '../core/navigation/services/navigation_service.dart';
+import '../global/components/failure_widget.dart';
+import '../screen_detail/coin_detail_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../core/extensions/context_extensions.dart';
 import '../features/search/domain/entity/search_coin_entity.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';

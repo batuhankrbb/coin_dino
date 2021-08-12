@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
+import '../../../features/details/domain/entity/coin_detail_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../coin_details_hour_table_widget.dart';

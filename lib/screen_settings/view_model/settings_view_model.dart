@@ -1,6 +1,6 @@
-import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/global/components/selection_page/selection_page.dart';
+import '../../core/navigation/routes/navigation_route.dart';
+import '../../core/navigation/services/navigation_service.dart';
+import '../../global/components/selection_page/selection_page.dart';
 
 import '../../global/app_settings/app_settings_viewmodel.dart';
 import 'package:mobx/mobx.dart';

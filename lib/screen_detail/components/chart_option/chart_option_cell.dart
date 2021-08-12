@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/screen_detail/components/chart_option/chart_options.dart';
+import 'chart_options.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 import 'chart_option_value_data.dart';
 
 class ChartOptionCell extends StatelessWidget {

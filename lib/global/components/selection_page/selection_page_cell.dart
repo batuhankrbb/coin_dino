@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 import '../../../core/user_interface/responsive_layout/utils/screen_information_model.dart';
 import '../../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../../utils/custom_colors.dart';

@@ -1,9 +1,9 @@
-import 'package:coin_dino/core/result_types/state_result.dart';
-import 'package:coin_dino/features/details/data/models/coin_detail_model.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_category_entity.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
-import 'package:coin_dino/features/market/domain/repository_contracts/i_market_coin_repository.dart';
-import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
+import '../../core/result_types/state_result.dart';
+import '../../features/details/data/models/coin_detail_model.dart';
+import '../../features/market/domain/entities/market_coin_category_entity.dart';
+import '../../features/market/domain/entities/market_coin_entity.dart';
+import '../../features/market/domain/repository_contracts/i_market_coin_repository.dart';
+import '../../features/market/presentation/utils/listing_enums.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'home_screen_view_model.g.dart';

@@ -1,13 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coin_dino/features/market/domain/entities/market_coin_entity.dart';
-import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
-import 'package:coin_dino/global/components/cached_network_image.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_home/components/home_table/home_cell_custom_text.dart';
-import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
+import '../../../features/market/domain/entities/market_coin_entity.dart';
+import '../../../features/market/presentation/utils/listing_enums.dart';
+import '../../../global/components/cached_network_image.dart';
+import '../../../global/starting_files/injection_container.dart';
+import 'home_cell_custom_text.dart';
+import '../../viewmodels/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 
 class HomePageCell extends StatefulWidget {
   HomePageCell(

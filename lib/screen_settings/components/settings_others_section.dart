@@ -1,12 +1,12 @@
-import 'package:coin_dino/core/mini_services/rating/rating_service.dart';
-import 'package:coin_dino/core/mini_services/share/share_service.dart';
-import 'package:coin_dino/core/mini_services/url_launcher/url_launcher_service.dart';
-import 'package:coin_dino/screen_settings/components/settings_form_header.dart';
-import 'package:coin_dino/screen_settings/components/settings_form_row.dart';
-import 'package:coin_dino/screen_settings/components/settings_icon.dart';
+import '../../core/mini_services/rating/rating_service.dart';
+import '../../core/mini_services/share/share_service.dart';
+import '../../core/mini_services/url_launcher/url_launcher_service.dart';
+import 'settings_form_header.dart';
+import 'settings_form_row.dart';
+import 'settings_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class SettingsOtherSection extends StatelessWidget {
   const SettingsOtherSection({Key? key}) : super(key: key);

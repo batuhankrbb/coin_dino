@@ -1,7 +1,7 @@
-import 'package:coin_dino/global/starting_files/injection_container.dart';
+import '../../global/starting_files/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import '../../global/utils/custom_colors.dart';
 import '../view_model/onboard_screen_viewmodel.dart';
 

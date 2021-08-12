@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/global/components/selection_page/selection_page.dart';
+import '../../../core/navigation/routes/navigation_route.dart';
+import '../../../core/navigation/services/navigation_service.dart';
+import '../../../global/components/selection_page/selection_page.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 
 class TopHomeChip extends StatefulWidget {
   TopHomeChip(

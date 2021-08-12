@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import '../../core/utils/number_helper.dart';
 import '../../global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class CoinDetailHoursTableWidget extends StatelessWidget {
   final String tableTitle;

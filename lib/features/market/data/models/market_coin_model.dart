@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/utils/number_helper.dart';
+import '../../../../core/utils/number_helper.dart';
 
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entities/market_coin_entity.dart';

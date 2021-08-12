@@ -1,9 +1,9 @@
-import 'package:coin_dino/features/market/presentation/utils/listing_enums.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_home/components/home_table/home_header_button.dart';
-import 'package:coin_dino/screen_home/viewmodels/home_screen_view_model.dart';
+import '../../../features/market/presentation/utils/listing_enums.dart';
+import '../../../global/starting_files/injection_container.dart';
+import 'home_header_button.dart';
+import '../../viewmodels/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 
 class HomeTableHeader extends StatefulWidget {
   HomeTableHeader(

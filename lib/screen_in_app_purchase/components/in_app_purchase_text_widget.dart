@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class InappPurchaseTextWidget extends StatelessWidget {
   const InappPurchaseTextWidget({Key? key}) : super(key: key);

@@ -6,7 +6,7 @@ import '../../features/search/domain/entity/search_coin_entity.dart';
 import '../../global/components/cached_network_image.dart';
 
 import 'percentage_chip.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../search_screen_main.dart';

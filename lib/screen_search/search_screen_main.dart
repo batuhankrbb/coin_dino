@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/global/components/colored_tab_bar.dart';
+import '../global/components/colored_tab_bar.dart';
 import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../core/utils/number_helper.dart';
 import '../features/search/domain/entity/search_coin_entity.dart';
@@ -11,7 +11,7 @@ import 'viewmodels/search_screen_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../core/extensions/context_extensions.dart';
 import '../global/components/app_bar_components.dart';
 
 class SearchScreenMain extends StatefulWidget {

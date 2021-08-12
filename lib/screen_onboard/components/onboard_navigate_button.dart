@@ -1,12 +1,12 @@
-import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/global/utils/custom_colors.dart';
-import 'package:coin_dino/main.dart';
-import 'package:coin_dino/main_screen.dart';
-import 'package:coin_dino/screen_home/home_screen.dart';
+import '../../core/navigation/routes/navigation_route.dart';
+import '../../core/navigation/services/navigation_service.dart';
+import '../../global/utils/custom_colors.dart';
+import '../../main.dart';
+import '../../main_screen.dart';
+import '../../screen_home/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
-import 'package:coin_dino/global/extensions/style_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
+import '../../global/extensions/style_extensions.dart';
 
 class OnboardNavigateButton extends StatelessWidget {
   const OnboardNavigateButton({Key? key}) : super(key: key);

@@ -1,10 +1,10 @@
-import 'package:coin_dino/main.dart';
-import 'package:coin_dino/main_screen.dart';
-import 'package:coin_dino/screen_alert/alert_detail_screen.dart';
-import 'package:coin_dino/screen_alert/alert_list_screen.dart';
-import 'package:coin_dino/screen_detail/coin_detail_screen.dart';
-import 'package:coin_dino/screen_home/home_screen.dart';
-import 'package:coin_dino/screen_in_app_purchase/inapp_purchase_screen.dart';
+import '../../../main.dart';
+import '../../../main_screen.dart';
+import '../../../screen_alert/alert_detail_screen.dart';
+import '../../../screen_alert/alert_list_screen.dart';
+import '../../../screen_detail/coin_detail_screen.dart';
+import '../../../screen_home/home_screen.dart';
+import '../../../screen_in_app_purchase/inapp_purchase_screen.dart';
 
 import '../../../global/components/selection_page/selection_page.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

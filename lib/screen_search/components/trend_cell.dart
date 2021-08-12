@@ -5,7 +5,7 @@ import '../../core/utils/number_helper.dart';
 import '../../features/search/domain/entity/search_trend_entity.dart';
 import '../../global/components/cached_network_image.dart';
 
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class TrendCell extends StatelessWidget {

@@ -3,7 +3,7 @@ import '../features/details/domain/entity/coin_detail_entity.dart';
 import '../global/starting_files/injection_container.dart';
 import 'components/info_url_text.dart';
 import 'viewmodels/detail_screen_view_model.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class CoinDetailsInfo extends StatefulWidget {

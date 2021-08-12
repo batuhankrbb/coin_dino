@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import '../../core/navigation/routes/navigation_route.dart';
+import '../../core/navigation/services/navigation_service.dart';
 import '../../screen_in_app_purchase/inapp_purchase_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import '../../core/mini_services/image/image_helper.dart';
 import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class SettingInAppPurchaseCardWidget extends StatelessWidget {
   const SettingInAppPurchaseCardWidget({Key? key}) : super(key: key);

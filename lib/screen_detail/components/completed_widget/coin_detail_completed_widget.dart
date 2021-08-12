@@ -1,8 +1,8 @@
-import 'package:coin_dino/features/details/domain/entity/coin_detail_entity.dart';
-import 'package:coin_dino/screen_detail/components/completed_widget/coin_detail_hours_information_list.dart';
-import 'package:coin_dino/screen_detail/components/completed_widget/coin_detail_information_column.dart';
+import '../../../features/details/domain/entity/coin_detail_entity.dart';
+import 'coin_detail_hours_information_list.dart';
+import 'coin_detail_information_column.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 import '../coin_chart/coin_chart.dart';
 import '../coin_detail_information_row.dart';
 import '../coin_details_hour_table_widget.dart';

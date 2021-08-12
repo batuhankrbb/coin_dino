@@ -91,7 +91,6 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
 
   @override
   Future<List<String>> getAllLanguages() async {
-    //TODO JSONDAN ALINMASI LAZIM
     return [
       LanguagePreferenceEntity.english.rawValue,
       LanguagePreferenceEntity.turkish.rawValue
@@ -100,7 +99,6 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
 
   @override
   Future<List<String>> getAllThemes() async {
-    //TODO JSONDAN ALINMASI LAZIM
     return [
       ThemePreferenceEntity.light.rawValue,
       ThemePreferenceEntity.dark.rawValue

@@ -1,15 +1,15 @@
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
-import 'package:coin_dino/features/preferences/domain/entity/theme_preference_entity.dart';
-import 'package:coin_dino/global/components/state_result_builder.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_settings/components/settings_form_header.dart';
-import 'package:coin_dino/screen_settings/components/settings_form_row.dart';
-import 'package:coin_dino/screen_settings/components/settings_icon.dart';
-import 'package:coin_dino/screen_settings/view_model/settings_view_model.dart';
+import '../../features/preferences/domain/entity/language_preference_entity.dart';
+import '../../features/preferences/domain/entity/theme_preference_entity.dart';
+import '../../global/components/state_result_builder.dart';
+import '../../global/starting_files/injection_container.dart';
+import 'settings_form_header.dart';
+import 'settings_form_row.dart';
+import 'settings_icon.dart';
+import '../view_model/settings_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 class SettingsOptionSection extends StatelessWidget {
   SettingsOptionSection({Key? key}) : super(key: key);

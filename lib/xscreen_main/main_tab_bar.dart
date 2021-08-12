@@ -1,8 +1,8 @@
-import 'package:coin_dino/global/components/colored_tab_bar.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/xscreen_main/view_model/main_screen_view_model.dart';
+import '../global/components/colored_tab_bar.dart';
+import '../global/starting_files/injection_container.dart';
+import 'view_model/main_screen_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../core/extensions/context_extensions.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class MainTabBar extends StatefulWidget {

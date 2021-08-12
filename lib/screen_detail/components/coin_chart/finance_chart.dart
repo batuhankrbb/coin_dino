@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/details/domain/entity/coin_chart_entity.dart';
+import '../../../features/details/domain/entity/coin_chart_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
