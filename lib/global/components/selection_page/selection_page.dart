@@ -1,4 +1,5 @@
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/global/components/selection_page/selection_page_text_field.dart';
 
 import '../../../core/extensions/string_extension.dart';
 import 'selection_page_cell.dart';
@@ -8,7 +9,6 @@ import '../../../core/user_interface/responsive_layout/utils/screen_information_
 import '../../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../../utils/custom_colors.dart';
 import '../app_bar_components.dart';
-import '../custom_autosize_text.dart';
 
 class SelectionPage extends StatefulWidget {
   SelectionPage(
@@ -35,21 +35,20 @@ class SelectionPage extends StatefulWidget {
 }
 
 class _SelectionPageState extends State<SelectionPage> {
-  TextEditingController textController = TextEditingController();
-  String filterText = "";
-  late FocusNode focusNode;
+  late TextEditingController textEditingController;
 
   @override
   void initState() {
-    focusNode = FocusNode();
     super.initState();
+    textEditingController = TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: customAppBar(context: context,title: widget.title),
+      appBar: customAppBar(
+          context: context, title: widget.title, showBackButton: true),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -57,7 +56,9 @@ class _SelectionPageState extends State<SelectionPage> {
             Visibility(
                 child: Expanded(
                   flex: 13,
-                  child: buildCustomTextField(),
+                  child: SelectionPageTextField(
+                    textEditingController: textEditingController,
+                  ),
                 ),
                 visible: widget.isListingActive),
             Expanded(
@@ -67,69 +68,6 @@ class _SelectionPageState extends State<SelectionPage> {
           ],
         ),
       ),
-    );
-  }
-
-  Container buildCustomTextField() {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      color: Colors.grey,
-      child: Container(
-        color: CustomColor.shared.backgroundWhiteColor,
-        child: buildTextFieldRow(),
-      ),
-    );
-  }
-
-  Row buildTextFieldRow() {
-    return Row(
-      children: [
-        Expanded(
-          flex: 10,
-          child: Icon(Icons.search),
-        ),
-        Expanded(
-          flex: 70,
-          child: buildTextField(),
-        ),
-        Expanded(
-          flex: 20,
-          child: buildCancelButtonForTextfield(),
-        )
-      ],
-    );
-  }
-
-  Visibility buildCancelButtonForTextfield() {
-    return Visibility(
-        child: TextButton(
-          onPressed: () {
-            focusNode.unfocus();
-            textController.clear();
-          },
-          child: Text(
-            "Cancel",
-            style: TextStyle(color: Colors.black),
-          ),
-          style: ButtonStyle(
-              overlayColor: MaterialStateProperty.all(Colors.transparent)),
-        ),
-        visible: focusNode.hasFocus);
-  }
-
-  TextField buildTextField() {
-    return TextField(
-      focusNode: focusNode,
-      controller: textController,
-      onChanged: (data) {
-        setState(() {
-          filterText = data;
-        });
-      },
-      decoration: InputDecoration(
-        border: InputBorder.none,
-      ),
-      cursorColor: Colors.black,
     );
   }
 
@@ -153,7 +91,7 @@ class _SelectionPageState extends State<SelectionPage> {
       child: Divider(),
       visible: widget.dataList[index]
           .toLowerCase()
-          .startsWith(filterText.toLowerCase()),
+          .startsWith(textEditingController.text.toLowerCase()),
     );
   }
 
@@ -165,16 +103,20 @@ class _SelectionPageState extends State<SelectionPage> {
       isSelected: index == widget.selectedIndex,
       isVisible: widget.dataList[index]
           .toLowerCase()
-          .startsWith(filterText.toLowerCase()),
+          .startsWith(textEditingController.text.toLowerCase()),
       onTap: () {
-        setState(() {
-          widget.selectedIndex = index;
-        });
-        widget.onSelect(index);
-        if (widget.isClosedWhenSelect) {
-          NavigationService.shared.goBack();
-        }
+        cellOnTap(index);
       },
     );
+  }
+
+  void cellOnTap(int index) {
+    setState(() {
+      widget.selectedIndex = index;
+    });
+    widget.onSelect(index);
+    if (widget.isClosedWhenSelect) {
+      NavigationService.shared.goBack();
+    }
   }
 }
