@@ -33,6 +33,7 @@ class _MainScreenState extends State<MainScreen>
       backgroundColor: context.colorScheme.secondaryVariant,
       body: TabBarView(
         controller: tabController,
+        physics: NeverScrollableScrollPhysics(),
         children: [
           HomeScreen(),
           SearchScreenMain(

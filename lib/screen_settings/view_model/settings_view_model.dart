@@ -28,6 +28,8 @@ abstract class _SettingsViewModelBase with Store {
   StateResult<LanguagePreferenceEntity> languagePreference =
       StateResult.initial();
 
+  var didSetUp = false;
+
   @action
   Future<void> getThemePreference() async {
     var themePreferenceResult = await preferenceRepository.getThemePreference();
@@ -74,11 +76,15 @@ abstract class _SettingsViewModelBase with Store {
   }
 
   Future<void> setUpSettings() async {
-    await getLanguagePreference();
-    await getThemePreference();
+    if (!didSetUp) {
+      await getLanguagePreference();
+      await getThemePreference();
+      didSetUp = true;
+    }
   }
 
-  void tapAndNavigate(List<String> dataList, String title, int selectedIndex, Function(int) onSelect){
+  void tapAndNavigate(List<String> dataList, String title, int selectedIndex,
+      Function(int) onSelect) {
     NavigationService.shared
         .navigateTo(NavigationRoute.toSelectionPage(SelectionPage(
       dataList: dataList,
@@ -89,5 +95,4 @@ abstract class _SettingsViewModelBase with Store {
       onSelect: onSelect,
     )));
   }
-  
 }

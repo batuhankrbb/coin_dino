@@ -52,8 +52,8 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(5),
       gradient: LinearGradient(colors: [
-        context.colorScheme.onError,
-        context.colorScheme.onBackground,
+        context.colorScheme.surface,
+        context.colorScheme.secondary,
       ]),
     );
   }

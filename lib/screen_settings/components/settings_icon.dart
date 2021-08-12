@@ -12,13 +12,13 @@ class SettingsIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return InformerWidget(onPageBuild: (context, screenInfo) {
       return Container(
-        width: screenInfo.screenSize.width * 0.09,
-        height: screenInfo.screenSize.width * 0.09,
+        width: screenInfo.screenSize.width * 0.08,
+        height: screenInfo.screenSize.width * 0.08,
         decoration: buildBoxDecoration(context),
         child: Icon(
           iconData,
           color: context.colorScheme.onSurface,
-          size: context.getWidth(0.05),
+          size: context.getWidth(0.045),
         ),
       );
     });
@@ -27,12 +27,12 @@ class SettingsIcon extends StatelessWidget {
   BoxDecoration buildBoxDecoration(BuildContext context) {
     return BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: context.colorScheme.error,
+        color: context.colorScheme.onSecondary,
         boxShadow: [
           BoxShadow(
-              color: context.colorScheme.error,
-              blurRadius: 8,
-              offset: Offset(0, 5))
+              color: context.colorScheme.onSecondary,
+              blurRadius: 6,
+              offset: Offset(0, 3))
         ]);
   }
 }

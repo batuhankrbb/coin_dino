@@ -20,11 +20,20 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context: context, title: "Purchase"),
+      appBar: customAppBar(
+        context: context,
+        title: "Purchase",
+      ),
+      backgroundColor: context.colorScheme.onSurface,
       body: Container(
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
+            Expanded(
+              flex: 1,
+              child: Divider(),
+            ),
+            Spacer(),
             Expanded(
               flex: 30,
               child: InappPurchaseTextWidget(),

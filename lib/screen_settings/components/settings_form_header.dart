@@ -1,9 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class SettingsFormHeader extends StatelessWidget {
   final String headerTitle;
-  final Widget headerIcon;
+  final IconData headerIcon;
   const SettingsFormHeader(
       {Key? key, required this.headerTitle, required this.headerIcon})
       : super(key: key);
@@ -13,9 +14,17 @@ class SettingsFormHeader extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          Text(headerTitle),
+          AutoSizeText(
+            headerTitle,
+            style: TextStyle(
+              fontSize: context.getWidth(0.045),
+            ),
+          ),
           Spacer(),
-          headerIcon,
+          Icon(
+            headerIcon,
+            size: context.getHeight(0.03),
+          ),
         ],
       ),
     );

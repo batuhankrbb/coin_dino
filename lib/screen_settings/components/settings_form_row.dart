@@ -48,7 +48,9 @@ class SettingFormRowWidget extends StatelessWidget {
         AutoSizeText(
           title,
           style: TextStyle(
-              fontWeight: FontWeight.w500, fontSize: context.getWidth(0.04)),
+            fontWeight: FontWeight.w500,
+            fontSize: context.getWidth(0.04),
+          ),
         ),
         getSubtitle(context),
       ],
@@ -60,9 +62,10 @@ class SettingFormRowWidget extends StatelessWidget {
     return AutoSizeText(
       subTitle!,
       style: TextStyle(
-          fontWeight: FontWeight.w300,
-          color: Colors.grey,
-          fontSize: context.getWidth(0.025)),
+        fontWeight: FontWeight.w300,
+        color: context.colorScheme.secondaryVariant,
+        fontSize: context.getWidth(0.025),
+      ),
     );
   }
 
