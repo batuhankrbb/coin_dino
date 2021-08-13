@@ -3,7 +3,9 @@ import 'dart:core';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncherService {
-  static final shared = UrlLauncherService();
+  static final shared = UrlLauncherService._privateConstructor();
+
+  UrlLauncherService._privateConstructor();
 
   Future<void> sendEmail(
       {required String mail, required String subject, String? body}) async {

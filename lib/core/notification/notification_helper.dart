@@ -1,7 +1,10 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationHelper {
-  static final shared = NotificationHelper();
+  static final shared = NotificationHelper._privateConstructor();
+
+  NotificationHelper._privateConstructor();
+
   static const AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails("1", 'coin', 'coin alert',
           importance: Importance.max,

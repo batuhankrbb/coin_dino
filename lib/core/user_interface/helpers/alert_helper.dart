@@ -5,7 +5,9 @@ import '../../../global/utils/custom_colors.dart';
 import '../../navigation/services/navigation_service.dart';
 
 class AlertHelper {
-  static AlertHelper shared = AlertHelper();
+  static final shared = AlertHelper._privateConstructor();
+
+  AlertHelper._privateConstructor();
 
   void showCupertinoAlertDialog(
       String title, String message, BuildContext context) {

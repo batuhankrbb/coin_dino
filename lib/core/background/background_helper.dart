@@ -1,7 +1,9 @@
 import 'package:background_fetch/background_fetch.dart';
 
 class BackgroundHelper {
-  static final shared = BackgroundHelper();
+  static final shared = BackgroundHelper._privateConstructor();
+
+   BackgroundHelper._privateConstructor();
 
   Future<void> initializeBackground(Function fetchFunction,
       Function timeoutFunction, Function headlessTask) async {

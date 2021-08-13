@@ -28,7 +28,7 @@ class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
         throw DioError(requestOptions: RequestOptions(path: ""));
       }
     } on DioError catch (e) {
-      ErrorHelper().printError("DetailRemoteDataSource/getChart", e);
+      ErrorHelper.shared.printError("DetailRemoteDataSource/getChart", e);
       throw DetailsException.chartFetchingException();
     }
   }
@@ -45,7 +45,7 @@ class DetailsRemoteDataSource implements IDetailsRemoteDataSource {
         throw DioError(requestOptions: RequestOptions(path: ""));
       }
     } on DioError catch (e) {
-      ErrorHelper().printError("DetailRemoteDataSource/getDetails", e);
+      ErrorHelper.shared.printError("DetailRemoteDataSource/getDetails", e);
       throw DetailsException.detailsFetchingException();
     }
   }

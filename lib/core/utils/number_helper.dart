@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 
 class NumberHelper {
-  static NumberHelper shared = NumberHelper();
+  static final shared = NumberHelper._privateConstructor();
+
+  NumberHelper._privateConstructor();
 
   String fixNum(num number, int digitNumber) {
     return number.toStringAsFixed(digitNumber);

@@ -1,7 +1,9 @@
 import 'package:share_plus/share_plus.dart';
 
 class ShareService {
-  static final shared = ShareService();
+  static final shared = ShareService._privateConstructor();
+
+  ShareService._privateConstructor();
 
   Future<void> share({required String text, String? subject}) async {
     await Share.share(text, subject: subject);

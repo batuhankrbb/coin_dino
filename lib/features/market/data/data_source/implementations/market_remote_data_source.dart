@@ -30,7 +30,7 @@ class MarketRemoteDataSource implements IMarketRemoteDataSource {
         throw DioError(requestOptions: RequestOptions(path: ""));
       }
     } on DioError catch (e) {
-      ErrorHelper().printError("MarketRemoteDataSource/getCryptoCurrencies", e);
+      ErrorHelper.shared.printError("MarketRemoteDataSource/getCryptoCurrencies", e);
       throw MarketException.cryptoCurrencyFetchingException();
     }
   }

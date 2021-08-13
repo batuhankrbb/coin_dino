@@ -8,7 +8,10 @@ import '../../features/search/data/model/search_coin_model.dart';
 import '../../features/search/data/model/search_trend_model.dart';
 
 class DefaultResponseTypes {
-  static DefaultResponseTypes shared = DefaultResponseTypes();
+
+ static final shared =  DefaultResponseTypes._privateConstructor();
+
+    DefaultResponseTypes._privateConstructor();
 
   var searchTrend = SearchTrendModel(coins: [], exchanges: []);
   var searchCoing = SearchCoinModel(

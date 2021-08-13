@@ -1,7 +1,9 @@
 import 'package:intl/intl.dart';
 
 class DateHelper {
-  static var shared = DateHelper();
+  static final shared = DateHelper._privateConstructor();
+
+  DateHelper._privateConstructor();
 
   String formatDate(
       {required DateTime dateTime, String formatPattern = "yyy-MM-dd"}) {
