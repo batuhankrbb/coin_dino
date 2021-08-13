@@ -38,8 +38,6 @@ class _PullToRefreshBuilderState extends State<PullToRefreshBuilder> {
     refreshController.dispose();
   }
 
-//TODO Snackbar göster
-
   @override
   Widget build(BuildContext context) {
     return SmartRefresher(
@@ -52,15 +50,9 @@ class _PullToRefreshBuilderState extends State<PullToRefreshBuilder> {
       onLoading: widget.onLoading,
       onRefresh: () async {
         await widget.onRefresh();
-        AlertHelper.shared.showSnackBar(widget.snackMessage, context);
         refreshController.refreshCompleted();
       },
       child: widget.listView,
-      header: WaterDropHeader(
-        waterDropColor: CustomColor.shared.backgroundBlueColor,
-        refresh: CupertinoActivityIndicator(),
-        failed: Text("failed"),
-      ),
     );
   }
 }

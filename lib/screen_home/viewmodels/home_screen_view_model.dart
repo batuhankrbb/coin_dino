@@ -105,7 +105,7 @@ abstract class _HomeScreenViewModelBase with Store {
         date: marketDate,
         sort: marketSort,
         page: currentPage,
-        category: selectedCategory);
+        category:  selectedCategory.categoryID == "all" ? null : selectedCategory);
     result.when(success: (data) {
       coinListToShow.addAll(data);
       isScrolled = false;
@@ -121,7 +121,6 @@ abstract class _HomeScreenViewModelBase with Store {
       var result = await marketCoinRepository.getAllCategories();
       result.when(
           success: (data) {
-            print("suceess ${data[5].categoryID}");
             categoryList.clear();
             categoryList.addAll(data);
           },

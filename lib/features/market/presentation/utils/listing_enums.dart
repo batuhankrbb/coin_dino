@@ -66,21 +66,21 @@ extension rawExtensionMarketSort on MarketSort {
   String get displayValue {
     switch (this) {
       case MarketSort.gecko_asc:
-        return "GECKO ASC";
+        return "Smart Ranking Ascending";
       case MarketSort.gecko_desc:
-        return "GECKO DESC";
+        return "Smart Ranking Descending";
       case MarketSort.id_asc:
-        return "ID ASC";
+        return "Ascending ID";
       case MarketSort.id_desc:
-        return "ID DESC";
+        return "Descending ID";
       case MarketSort.market_cap_asc:
-        return "MARKET CAP ASC";
+        return "Smallest Market Cap";
       case MarketSort.market_cap_desc:
-        return "MARKET CAP DESC";
+        return "Largest Market Cap";
       case MarketSort.volume_asc:
-        return "VOLUME ASC";
+        return "Ascending Volume";
       case MarketSort.volume_desc:
-        return "VOLUME DESC";
+        return "Descending Volume";
     }
   }
 }

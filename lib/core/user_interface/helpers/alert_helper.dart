@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 import '../../../global/utils/custom_colors.dart';
 import '../../navigation/services/navigation_service.dart';
 
@@ -36,7 +36,7 @@ class AlertHelper {
             padding: EdgeInsets.all(6),
             child: Icon(
               Icons.check_circle_outline_outlined,
-              color: CustomColor.shared.backgroundWhiteColor,
+              color: context.colorScheme.onSurface,
             ),
           ),
           Text(
@@ -46,7 +46,7 @@ class AlertHelper {
         ],
       ),
       behavior: SnackBarBehavior.floating,
-      backgroundColor: CustomColor.shared.backgroundBlueColor,
+      backgroundColor: context.colorScheme.surface,
       elevation: 12,
     ));
   }

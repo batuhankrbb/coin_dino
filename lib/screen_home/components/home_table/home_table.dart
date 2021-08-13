@@ -1,3 +1,5 @@
+import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
+
 import '../../../core/error_handling/custom_failure.dart';
 import '../../../core/navigation/routes/navigation_route.dart';
 import '../../../core/navigation/services/navigation_service.dart';
@@ -59,18 +61,27 @@ class _HomeTableState extends State<HomeTable> {
         children: [
           Flexible(
             flex: 25,
-            child: ListView.separated(
-              itemBuilder: buildCell,
-              separatorBuilder: buildSeparator,
-              itemCount: homeScreenViewModel.coinListToShow.length,
-              controller: homeScreenViewModel.scrollController,
-              physics: BouncingScrollPhysics(),
-            ),
+            child: PullToRefreshBuilder(
+                onRefresh: () async {
+                  await homeScreenViewModel.getCoinList();
+                },
+                listView: buildListView(),
+                snackMessage: "Refreshed"),
           ),
           if (homeScreenViewModel.isScrolled) CupertinoActivityIndicator(),
         ],
       );
     });
+  }
+
+  ListView buildListView() {
+    return ListView.separated(
+                itemBuilder: buildCell,
+                separatorBuilder: buildSeparator,
+                itemCount: homeScreenViewModel.coinListToShow.length,
+                controller: homeScreenViewModel.scrollController,
+                physics: BouncingScrollPhysics(),
+              );
   }
 
   Widget buildCell(BuildContext context, int index) {
