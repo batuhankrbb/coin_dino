@@ -117,14 +117,16 @@ abstract class _HomeScreenViewModelBase with Store {
 
   @action
   Future<void> getAllCategories() async {
-    var result = await marketCoinRepository.getAllCategories();
-    result.when(
-        success: (data) {
-          print("suceess ${data[5].categoryID}");
-          categoryList.clear();
-          categoryList.addAll(data);
-        },
-        failure: (failure) {});
+    if (categoryList.isEmpty) {
+      var result = await marketCoinRepository.getAllCategories();
+      result.when(
+          success: (data) {
+            print("suceess ${data[5].categoryID}");
+            categoryList.clear();
+            categoryList.addAll(data);
+          },
+          failure: (failure) {});
+    }
   }
 
   String getPriceChange(MarketCoinEntity data) {

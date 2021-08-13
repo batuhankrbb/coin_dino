@@ -48,6 +48,7 @@ class _HomeTableState extends State<HomeTable> {
   Widget buildFailureWidget(CustomFailure failure) {
     return FailureWidget(onTryAgain: () {
       homeScreenViewModel.getCoinList();
+      homeScreenViewModel.getAllCategories();
     });
   }
 

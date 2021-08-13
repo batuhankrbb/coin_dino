@@ -79,9 +79,6 @@ class _SelectionPageTextFieldState extends State<SelectionPageTextField> {
     return TextField(
       focusNode: focusNode,
       controller: widget.textEditingController,
-      onChanged: (data) {
-        setState(() {});
-      },
       decoration: InputDecoration(
         border: InputBorder.none,
       ),

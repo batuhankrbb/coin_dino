@@ -41,6 +41,9 @@ class _SelectionPageState extends State<SelectionPage> {
   void initState() {
     super.initState();
     textEditingController = TextEditingController();
+    textEditingController.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
