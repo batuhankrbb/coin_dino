@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/screen_settings/viewmodels/settings_view_model.dart';
 import 'components/settings_form_header.dart';
 import 'components/settings_options_section.dart';
 import 'components/settings_others_section.dart';
@@ -16,7 +17,7 @@ import '../global/starting_files/injection_container.dart';
 import 'components/settings_form_row.dart';
 import 'components/settings_iap_card.dart';
 import 'components/settings_icon.dart';
-import 'view_model/settings_view_model.dart';
+
 import '../core/extensions/context_extensions.dart';
 
 class SettingsScreen extends StatefulWidget {

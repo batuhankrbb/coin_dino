@@ -1,12 +1,14 @@
+import 'package:coin_dino/screen_settings/viewmodels/settings_view_model.dart';
+import 'package:coin_dino/xscreen_main/main_tab_bar.dart';
+import 'package:coin_dino/xscreen_main/viewmodels/main_screen_view_model.dart';
+
 import '../../screen_alert/viewmodels/screen_alert_view_model.dart';
 import '../../screen_home/viewmodels/home_screen_view_model.dart';
 import '../../screen_onboard/view_model/onboard_screen_viewmodel.dart';
-import '../../xscreen_main/view_model/main_screen_view_model.dart';
 
 import '../../screen_detail/viewmodels/detail_screen_view_model.dart';
 
 import '../../screen_search/viewmodels/search_screen_view_model.dart';
-import '../../screen_settings/view_model/settings_view_model.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/alert/data/data_source/contracts/i_alert_local_data_source.dart';

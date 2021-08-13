@@ -1,3 +1,5 @@
+import 'package:coin_dino/screen_settings/viewmodels/settings_view_model.dart';
+
 import '../../features/preferences/domain/entity/language_preference_entity.dart';
 import '../../features/preferences/domain/entity/theme_preference_entity.dart';
 import '../../global/components/state_result_builder.dart';
@@ -5,7 +7,6 @@ import '../../global/starting_files/injection_container.dart';
 import 'settings_form_header.dart';
 import 'settings_form_row.dart';
 import 'settings_icon.dart';
-import '../view_model/settings_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
