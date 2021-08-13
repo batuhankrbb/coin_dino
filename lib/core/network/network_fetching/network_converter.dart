@@ -7,12 +7,13 @@ class NetworkConverter {
 
   NetworkConverter({required this.response});
 
-  K convertResponse<T extends BaseNetworkModel,K>(T responseType){
+  K convertResponse<T extends BaseNetworkModel, K>(T responseType) {
     var data = response.data;
-    if (data is List){  
-      K convertedData = List<T>.from(data.map((e) => responseType.fromJson(e)).toList()) as K;
+    if (data is List) {
+      K convertedData =
+          List<T>.from(data.map((e) => responseType.fromJson(e)).toList()) as K;
       return convertedData;
-    }else{
+    } else {
       K convertedData = responseType.fromJson(data) as K;
       return convertedData;
     }

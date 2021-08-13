@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/network/network_clients/coin_gecko_client.dart';
+
 import '../../core/result_types/state_result.dart';
 import '../../features/details/data/models/coin_detail_model.dart';
 import '../../features/market/domain/entities/market_coin_category_entity.dart';
@@ -22,8 +24,8 @@ abstract class _HomeScreenViewModelBase with Store {
   var marketSort = MarketSort.market_cap_desc;
 
   @observable
-  MarketCoinCategoryEntity selectedCategory =
-      MarketCoinCategoryEntity(categoryID: "all", categoryName: "All");
+  MarketCoinCategoryEntity selectedCategory = MarketCoinCategoryEntity(
+      categoryID: "all", categoryName: "All"); //* all -> no category
 
   @observable
   var categoryList = ObservableList<MarketCoinCategoryEntity>();
@@ -45,6 +47,7 @@ abstract class _HomeScreenViewModelBase with Store {
   ScrollController scrollController = ScrollController();
 
   void setUpViewModel() {
+    getAllCategories();
     if (coinListToShow.isEmpty) {
       getCoinList();
     }
@@ -79,9 +82,12 @@ abstract class _HomeScreenViewModelBase with Store {
     currentPage = 1;
     coinListResult = StateResult.loading();
     var result = await marketCoinRepository.getCryptoCurrencies(
-        date: marketDate, sort: marketSort, page: currentPage);
+        date: marketDate,
+        sort: marketSort,
+        page: currentPage,
+        category:
+            selectedCategory.categoryID == "all" ? null : selectedCategory);
     result.when(success: (data) {
-      print("success ${data[0].name}");
       coinListResult = StateResult.completed(data);
       coinListToShow.clear();
       coinListToShow.addAll(data);
@@ -96,7 +102,10 @@ abstract class _HomeScreenViewModelBase with Store {
     isScrolled = true;
     currentPage += 1;
     var result = await marketCoinRepository.getCryptoCurrencies(
-        date: marketDate, sort: marketSort, page: currentPage);
+        date: marketDate,
+        sort: marketSort,
+        page: currentPage,
+        category: selectedCategory);
     result.when(success: (data) {
       coinListToShow.addAll(data);
       isScrolled = false;
@@ -104,6 +113,18 @@ abstract class _HomeScreenViewModelBase with Store {
       coinListResult = StateResult.failed(failure);
       isScrolled = false;
     });
+  }
+
+  @action
+  Future<void> getAllCategories() async {
+    var result = await marketCoinRepository.getAllCategories();
+    result.when(
+        success: (data) {
+          print("suceess ${data[5].categoryID}");
+          categoryList.clear();
+          categoryList.addAll(data);
+        },
+        failure: (failure) {});
   }
 
   String getPriceChange(MarketCoinEntity data) {

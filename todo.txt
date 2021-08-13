@@ -24,7 +24,27 @@ Renkler düzenlenecek temadan alınacak
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//ÜSTTE YAZILANLAR ÖNEMSİZ, ALTTA GÜN GÜN PLAN VAR. -Batuhan
+
+-------------------
+Cuma//
+Bütün refactorleri yap, color refactor de yap ve alert mantığını kavra.
+
+Pazar//
+Alert ekranlarını bitir mantığı da bitirmeye çalış
+
+Pazartesi//
+Alerti tamamen bitirmiş ol
+
+Salı//
+Reklam ve in app purchase ekle
+
+Çarşamba//
+Localization ve tema ekle
+
+Perşembe//
+Ekran görüntülerini al ve store'da paylaş.
+
+-----------------
 
 Perşembe
 //Detail tıklayınca crash problemi çöz

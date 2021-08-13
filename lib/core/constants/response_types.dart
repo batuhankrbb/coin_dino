@@ -1,3 +1,5 @@
+import 'package:coin_dino/features/market/data/models/market_coin_category.model.dart';
+
 import '../../features/alert/data/model/alert_coin_model.dart';
 import '../../features/details/data/models/coin_chart_model.dart';
 import '../../features/details/data/models/coin_detail_model.dart';
@@ -266,6 +268,10 @@ class DefaultResponseTypes {
     marketCapRank: 1,
     lastUpdated: null,
   );
+
+
+var marketCoinCategoryModel =
+    MarketCoinCategoryModel(categoryId: "categoryId", name: "name");
 }
 
 var responseAth = Ath(
@@ -330,3 +336,4 @@ var responseAth = Ath(
     bits: 1,
     link: 1,
     sats: 1);
+

@@ -21,9 +21,7 @@ import '../../features/details/data/data_source/implementations/details_remote_d
 import '../../features/details/data/exception_handling/details_exception_handler.dart';
 import '../../features/details/data/repository/coin_detail_repository.dart';
 import '../../features/details/domain/repository_contract/i_coin_detail_repository.dart';
-import '../../features/market/data/data_source/contracts/i_market_local_data_source.dart';
 import '../../features/market/data/data_source/contracts/i_market_remote_data_source.dart';
-import '../../features/market/data/data_source/implementations/market_local_data_source.dart';
 import '../../features/market/data/data_source/implementations/market_remote_data_source.dart';
 import '../../features/market/data/exception_handling/market_exception_handler.dart';
 import '../../features/market/data/repository/market_coin_repository.dart';
@@ -75,13 +73,10 @@ void _setUpAlertFeature() {
 
 void _setUpMarketFeature() {
   getit.registerLazySingleton<IMarketCoinRepository>(() => MarketCoinRepository(
-      marketLocalDataSource: getit(),
+
       marketRemoteDataSource: getit(),
       exceptionHandler: getit(),
       preferencesLocalDataSource: getit()));
-
-  getit.registerLazySingleton<IMarketLocalDataSource>(
-      () => MarketLocalDataSource());
 
   getit.registerLazySingleton<IMarketRemoteDataSource>(
       () => MarketRemoteDataSource());

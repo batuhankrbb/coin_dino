@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/network/network_fetching/network_option_generator.dart';
+import 'package:coin_dino/features/market/data/models/market_coin_category.model.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../core/constants/response_types.dart';
@@ -13,8 +15,8 @@ class MarketRemoteDataSource implements IMarketRemoteDataSource {
 
   int? page;
   @override
-  Future<List<MarketCoinModel>> getCryptoCurrencies(
-      String date, String sort, String? category, String vsCurrency, int page) async {
+  Future<List<MarketCoinModel>> getCryptoCurrencies(String date, String sort,
+      String? category, String vsCurrency, int page) async {
     try {
       var response =
           await _executer.execute<MarketCoinModel, List<MarketCoinModel>>(
@@ -30,6 +32,24 @@ class MarketRemoteDataSource implements IMarketRemoteDataSource {
     } on DioError catch (e) {
       ErrorHelper().printError("MarketRemoteDataSource/getCryptoCurrencies", e);
       throw MarketException.cryptoCurrencyFetchingException();
+    }
+  }
+
+  @override
+  Future<List<MarketCoinCategoryModel>> getAllCategories() async {
+    try {
+      var categories = await _executer
+          .execute<MarketCoinCategoryModel, List<MarketCoinCategoryModel>>(
+        responseType: DefaultResponseTypes.shared.marketCoinCategoryModel,
+        options: CoinGeckoClient.getAllCategories(),
+      );
+      if (categories != null) {
+        return categories;
+      } else {
+        throw DioError(requestOptions: RequestOptions(path: ""));
+      }
+    } on DioError catch (e) {
+      throw MarketException.categoryFetchingException();
     }
   }
 }

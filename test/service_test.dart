@@ -9,7 +9,7 @@ import 'package:coin_dino/features/details/data/data_source/implementations/deta
 import 'package:coin_dino/features/details/data/exception_handling/details_exception_handler.dart';
 import 'package:coin_dino/features/details/data/repository/coin_detail_repository.dart';
 import 'package:coin_dino/features/details/domain/repository_contract/i_coin_detail_repository.dart';
-import 'package:coin_dino/features/market/data/data_source/implementations/market_local_data_source.dart';
+
 import 'package:coin_dino/features/market/data/data_source/implementations/market_remote_data_source.dart';
 import 'package:coin_dino/features/market/data/exception_handling/market_exception_handler.dart';
 import 'package:coin_dino/features/market/data/repository/market_coin_repository.dart';
@@ -32,7 +32,6 @@ main() async {
   group("market feature test", () {
     IMarketCoinRepository marketCoinRepository = MarketCoinRepository(
         exceptionHandler: MarketExceptionHandler(),
-        marketLocalDataSource: MarketLocalDataSource(),
         marketRemoteDataSource: MarketRemoteDataSource(),
         preferencesLocalDataSource: PreferencesLocalDataSource());
     test("get crypto currencies", () async {
