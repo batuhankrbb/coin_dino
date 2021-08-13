@@ -49,6 +49,7 @@ class MarketRemoteDataSource implements IMarketRemoteDataSource {
         throw DioError(requestOptions: RequestOptions(path: ""));
       }
     } on DioError catch (e) {
+      ErrorHelper.shared.printError("MarketRemoteDataSource/getAllCategories", e);
       throw MarketException.categoryFetchingException();
     }
   }

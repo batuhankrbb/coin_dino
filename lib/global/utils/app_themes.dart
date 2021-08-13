@@ -15,13 +15,9 @@ import 'custom_colors.dart';
   Color pink = Color(0xFFE65E8B);
 */
 class AppThemes {
-  AppThemes._();
+   static final shared = AppThemes._privateConstructor();
 
-  static final AppThemes _appThemesInstance = AppThemes._();
-
-  factory AppThemes() {
-    return _appThemesInstance;
-  }
+  AppThemes._privateConstructor();
 
   ThemeData get darkModeTheme => ThemeData(
         scaffoldBackgroundColor: CustomColor.shared.white,

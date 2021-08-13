@@ -16,7 +16,7 @@ abstract class _AppSettingsViewModelBase with Store {
       getit.get<IPreferenceRepository>();
 
   @observable
-  ThemeData themeData = AppThemes().lightModeTheme;
+  ThemeData themeData = AppThemes.shared.lightModeTheme;
 
   @action
   Future<void> setUpSettings() async {
@@ -32,10 +32,10 @@ abstract class _AppSettingsViewModelBase with Store {
   void setTheme(ThemePreferenceEntity themePreference) {
     switch (themePreference) {
       case ThemePreferenceEntity.dark:
-        themeData = AppThemes().darkModeTheme;
+        themeData = AppThemes.shared.darkModeTheme;
         break;
       case ThemePreferenceEntity.light:
-        themeData = AppThemes().lightModeTheme;
+        themeData = AppThemes.shared.lightModeTheme;
         break;
     }
   }

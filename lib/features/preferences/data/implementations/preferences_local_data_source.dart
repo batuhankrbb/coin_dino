@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:coin_dino/core/utils/error_printer.dart';
+
 import '../../domain/entity/language_preference_entity.dart';
 import '../../domain/entity/theme_preference_entity.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -20,6 +22,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
           HiveConstants.KEY_BASE_CURRENCY_PREFERENCE);
       return currencyPreference;
     } catch (e) {
+      ErrorHelper.shared.printError("PreferencesLocalDataSource/getBaseCurrencyPreference", e);
       throw PreferencesException.baseCurrencyFetchingException();
     }
   }
@@ -31,6 +34,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
           HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_LANGUAGE_PREFERENCE);
       return languagePreference;
     } catch (e) {
+      ErrorHelper.shared.printError("PreferencesLocalDataSource/getLanguagePreference", e);
       throw PreferencesException.languageFetchingException();
     }
   }
@@ -42,6 +46,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
           HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_THEME_PREFERENCE);
       return themePreference;
     } catch (e) {
+      ErrorHelper.shared.printError("PreferencesLocalDataSource/getThemePreference", e);
       throw PreferencesException.themeFetchingException();
     }
   }
@@ -52,6 +57,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
           HiveConstants.KEY_BASE_CURRENCY_PREFERENCE, currencyPreference);
     } catch (e) {
+      ErrorHelper.shared.printError("PreferencesLocalDataSource/setBaseCurrencyPreference", e);
       throw PreferencesException.baseCurrencySetException();
     }
   }
@@ -62,6 +68,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
           HiveConstants.KEY_LANGUAGE_PREFERENCE, languagePreference);
     } catch (e) {
+      ErrorHelper.shared.printError("PreferencesLocalDataSource/setLangaugePreference", e);
       throw PreferencesException.languageSetException();
     }
   }
@@ -72,6 +79,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
           HiveConstants.KEY_THEME_PREFERENCE, themePreference);
     } catch (e) {
+      ErrorHelper.shared.printError("PreferencesLocalDataSource/setThemePreference", e);
       throw PreferencesException.themeSetException();
     }
   }
@@ -85,6 +93,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       var currencies = decodedData.map((e) => e.toString()).toList();
       return currencies;
     } catch (e) {
+      ErrorHelper.shared.printError("PreferencesLocalDataSource/getAllSupportedBaseCurrencies", e);
       throw PreferencesException.supportedCurrenciesFetchingException();
     }
   }

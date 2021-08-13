@@ -1,3 +1,4 @@
+import 'package:coin_dino/core/utils/error_printer.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../core/constants/response_types.dart';
@@ -23,6 +24,7 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
       }
       return searchTrendModel;
     } on DioError catch (e) {
+        ErrorHelper.shared.printError("SearchRemoteDataSource/getAllTrends", e);
       throw SearchException.trendsFetchingException();
     }
   }
@@ -44,6 +46,7 @@ class SearchRemoteDataSource implements ISearchRemoteDataSource {
         throw DioError(requestOptions: RequestOptions(path: "path"));
       }
     } on DioError catch (e) {
+         ErrorHelper.shared.printError("SearchRemoteDataSource/getCoinsBySearch", e);
       throw SearchException.getCoinsBySearchException();
     }
   }
