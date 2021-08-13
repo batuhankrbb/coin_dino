@@ -1,3 +1,5 @@
+import 'package:coin_dino/screen_home/components/home_screen_app_bar.dart';
+
 import '../features/market/domain/entities/market_coin_entity.dart';
 import '../global/components/app_bar_components.dart';
 import '../global/components/failure_widget.dart';
@@ -40,18 +42,9 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    homeScreenViewModel.disposeReactions();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(
-        context: context,
-        title: "Home",
-      ),
+      appBar: HomeScreenAppBar(),
       backgroundColor: context.colorScheme.onSurface,
       body: Container(
         alignment: Alignment.center,

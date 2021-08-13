@@ -15,10 +15,15 @@ import '../core/extensions/context_extensions.dart';
 import '../global/components/app_bar_components.dart';
 
 class SearchScreenMain extends StatefulWidget {
-  SearchScreenMain({Key? key}) : super(key: key);
+  SearchScreenMain({
+    Key? key,
+    this.showBackButton = false
+  }) : super(key: key);
 
   @override
   _SearchScreenMainState createState() => _SearchScreenMainState();
+
+  bool showBackButton;
 }
 
 class _SearchScreenMainState extends State<SearchScreenMain>
@@ -80,6 +85,7 @@ class _SearchScreenMainState extends State<SearchScreenMain>
   AppBar buildAppBar() {
     return customAppBar(
       context: context,
+      showBackButton: widget.showBackButton,
       title: _searchViewModel.tabIndex == 0 ? "Search" : "Trends",
       backgroundColor: context.colorScheme.primaryVariant,
       bottom: buildTabBar(),

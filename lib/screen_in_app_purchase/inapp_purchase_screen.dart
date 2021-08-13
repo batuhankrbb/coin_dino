@@ -21,9 +21,7 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(
-        context: context,
-        title: "Purchase",
-      ),
+          context: context, title: "Purchase", showBackButton: true),
       backgroundColor: context.colorScheme.onSurface,
       body: Container(
         padding: EdgeInsets.all(15),

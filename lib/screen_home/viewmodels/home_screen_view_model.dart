@@ -63,6 +63,7 @@ abstract class _HomeScreenViewModelBase with Store {
           refreshPage();
         }),
       ];
+
     }
   }
 
@@ -71,11 +72,7 @@ abstract class _HomeScreenViewModelBase with Store {
     scrollController.jumpTo(scrollController.position.minScrollExtent);
   }
 
-  void disposeReactions() {
-    _disposers.forEach((element) {
-      element.reaction.dispose();
-    });
-  }
+
 
   @action
   Future<void> getCoinList() async {
@@ -105,7 +102,8 @@ abstract class _HomeScreenViewModelBase with Store {
         date: marketDate,
         sort: marketSort,
         page: currentPage,
-        category:  selectedCategory.categoryID == "all" ? null : selectedCategory);
+        category:
+            selectedCategory.categoryID == "all" ? null : selectedCategory);
     result.when(success: (data) {
       coinListToShow.addAll(data);
       isScrolled = false;

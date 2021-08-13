@@ -26,6 +26,9 @@ class RouterService {
       toMainScreen: (page) {
         return _convertToRoute(page);
       },
+      toSearchScreenMain: (page) {
+        return _convertToRoute(page);
+      },
     );
   }
 

@@ -1,3 +1,5 @@
+import 'package:coin_dino/screen_search/search_screen_main.dart';
+
 import '../../../main.dart';
 import '../../../main_screen.dart';
 import '../../../screen_alert/alert_detail_screen.dart';
@@ -25,6 +27,8 @@ class NavigationRoute with _$NavigationRoute {
       InAppPurchaseScreen inAppPurchaseScreen) = RouteInAppPurchase;
   const factory NavigationRoute.toMainScreen(MainScreen mainScreen) =
       RouteMainScreen;
+  const factory NavigationRoute.toSearchScreenMain(
+      SearchScreenMain searchScreenMain) = RouteSearchScreenMain;
 }
 
 extension MultiNavigation on NavigationRoute {
@@ -35,6 +39,7 @@ extension MultiNavigation on NavigationRoute {
         toAlert: (_) => "alertPage",
         toAlertList: (_) => "alertListPage",
         toInAppPurchase: (_) => "inAppPurchasePage",
-        toMainScreen: (_) => "homePage");
+        toMainScreen: (_) => "homePage",
+        toSearchScreenMain: (_) => "searchScreenMain");
   }
 }

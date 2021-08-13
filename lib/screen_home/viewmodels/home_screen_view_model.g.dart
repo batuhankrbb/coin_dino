@@ -150,6 +150,14 @@ mixin _$HomeScreenViewModel on _HomeScreenViewModelBase, Store {
         .run(() => super.getCoinListNextPage());
   }
 
+  final _$getAllCategoriesAsyncAction =
+      AsyncAction('_HomeScreenViewModelBase.getAllCategories');
+
+  @override
+  Future<void> getAllCategories() {
+    return _$getAllCategoriesAsyncAction.run(() => super.getAllCategories());
+  }
+
   @override
   String toString() {
     return '''

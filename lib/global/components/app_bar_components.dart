@@ -8,7 +8,7 @@ AppBar customAppBar({
   String? title,
   List<Widget>? action,
   PreferredSizeWidget? bottom,
-  bool? leading,
+  Widget? leading,
   Color? titleColor,
   Color? backgroundColor,
   bool showBackButton = false,
@@ -24,7 +24,7 @@ AppBar customAppBar({
       ),
       actions: action,
       bottom: bottom,
-      leading: leading ?? showBackButton
+      leading: leading ?? (showBackButton
           ? IconBackButton()
-          : null,
+          : null),
     );
