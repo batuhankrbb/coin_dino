@@ -85,10 +85,10 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
 
   TextField buildTextField() {
     return TextField(
-      keyboardType: TextInputType.number,
+      keyboardType: TextInputType.numberWithOptions(decimal: true),
       inputFormatters: [
         FilteringTextInputFormatter.allow(
-          RegExp(r'[0-9]'),
+          RegExp('[0-9.,]'),
         )
       ],
       focusNode: focusNode,

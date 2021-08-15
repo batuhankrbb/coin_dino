@@ -28,8 +28,18 @@ mixin _$ScreenAlertViewModel on _ScreenAlertViewModelBase, Store {
       AsyncAction('_ScreenAlertViewModelBase.addAlert');
 
   @override
-  Future<void> addAlert(AlertEntity alertEntity) {
-    return _$addAlertAsyncAction.run(() => super.addAlert(alertEntity));
+  Future<void> addAlert(AlertEntity alertEntity, num targetPrice) {
+    return _$addAlertAsyncAction
+        .run(() => super.addAlert(alertEntity, targetPrice));
+  }
+
+  final _$updateAlertAsyncAction =
+      AsyncAction('_ScreenAlertViewModelBase.updateAlert');
+
+  @override
+  Future<void> updateAlert(AlertEntity entity, num newTargetPrice) {
+    return _$updateAlertAsyncAction
+        .run(() => super.updateAlert(entity, newTargetPrice));
   }
 
   final _$getAllAlertsAsyncAction =
@@ -46,14 +56,6 @@ mixin _$ScreenAlertViewModel on _ScreenAlertViewModelBase, Store {
   @override
   Future<void> deleteAlert(AlertEntity entity) {
     return _$deleteAlertAsyncAction.run(() => super.deleteAlert(entity));
-  }
-
-  final _$updateAlertAsyncAction =
-      AsyncAction('_ScreenAlertViewModelBase.updateAlert');
-
-  @override
-  Future<void> updateAlert(AlertEntity entity) {
-    return _$updateAlertAsyncAction.run(() => super.updateAlert(entity));
   }
 
   @override

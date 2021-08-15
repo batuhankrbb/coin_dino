@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class AlertDetailExecuteButton extends StatefulWidget {
-  AlertDetailExecuteButton({Key? key, required this.onTap}) : super(key: key);
+  AlertDetailExecuteButton({Key? key, required this.onTap, required this.isUpdate}) : super(key: key);
 
   @override
   _AlertDetailExecuteButtonState createState() =>
       _AlertDetailExecuteButtonState();
 
   VoidCallback onTap;
+  bool isUpdate;
 }
 
 class _AlertDetailExecuteButtonState extends State<AlertDetailExecuteButton> {
@@ -21,14 +22,20 @@ class _AlertDetailExecuteButtonState extends State<AlertDetailExecuteButton> {
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.green[400])),
         onPressed: widget.onTap,
-        child: AutoSizeText(
-          "SAVE",
-          style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-              fontSize: context.getWidth(0.042)),
-        ),
+        child: buildText(context),
       ),
+    );
+  }
+
+  AutoSizeText buildText(BuildContext context) {
+    return AutoSizeText(
+      widget.isUpdate ? "UPDATE" : "SAVE",
+      style: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.w500,
+        fontSize: context.getWidth(0.042),
+      ),
+      maxLines: 1,
     );
   }
 }

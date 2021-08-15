@@ -26,15 +26,29 @@ abstract class _ScreenAlertViewModelBase with Store {
   StateResult<List<AlertEntity>> alertResult = StateResult.initial();
 
   @action
-  Future<void> addAlert(AlertEntity alertEntity) async {
+  Future<void> addAlert(AlertEntity alertEntity,num targetPrice) async {
     var result = await alertRepository.addAlert(alertEntity);
     result.when(success: (_) {
-      AlertHelper.shared.showSnackBar("added successfully", context!);
+      AlertHelper.shared.showSnackBar("Alert has been added successfully", context!);
     }, failure: (failure) {
       AlertHelper.shared
-          .showSnackBar("adding failed ${failure.message}", context!);
+          .showSnackBar("Something went wrong. Try again.", context!);
     });
   }
+
+  @action
+  Future<void> updateAlert(AlertEntity entity,num newTargetPrice) async {
+    var result = await alertRepository.updateAlert(entity);
+    result.when(
+        success: (_) {
+          AlertHelper.shared.showSnackBar("Alert has been updated successfully", context!);
+        },
+        failure: (failure) {
+          AlertHelper.shared
+          .showSnackBar("Something went wrong. Try again.", context!);
+        });
+  }
+
 
   @action
   Future<void> getAllAlerts() async {
@@ -62,15 +76,7 @@ abstract class _ScreenAlertViewModelBase with Store {
     });
   }
 
-  @action
-  Future<void> updateAlert(AlertEntity entity) async {
-    var result = await alertRepository.updateAlert(entity);
-    result.when(
-        success: (_) {},
-        failure: (failure) {
-          //TODO HATA OLURSA VEYA SUCCESS OLURSA CONTEXT DE ALERT-SNAKEBAR GÖSTER
-        });
-  }
+  
 }
 
 /*

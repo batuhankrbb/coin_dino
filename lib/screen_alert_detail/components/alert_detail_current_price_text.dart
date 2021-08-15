@@ -11,7 +11,10 @@ class AlertDetailCurrentPriceText extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoSizeText(
       "Current Price : \$$currentPrice",
-      style: TextStyle(fontSize: context.getWidth(0.04)),
+      style: TextStyle(
+        fontSize: context.getWidth(0.04),
+      ),
+      maxLines: 1,
     );
   }
 }

@@ -92,7 +92,16 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
             Expanded(
               flex: 6,
               child: AlertDetailExecuteButton(
-                onTap: () {},
+                onTap: () {
+                  if (widget.isUpdate) {
+                    
+//TODO BURADA VIEWMODEL ÇAĞIRCAZ
+//TODO SETCONTEXT UNUTMA
+                        num.parse(textEditingController.text);
+                    
+                  }
+                },
+                isUpdate: widget.isUpdate,
               ),
             ),
             Spacer(
