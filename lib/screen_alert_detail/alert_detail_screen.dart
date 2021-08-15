@@ -1,12 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_custom_textfield.dart';
+import 'package:coin_dino/screen_alert_detail/components/alert_detail_execute_button.dart';
+import 'package:coin_dino/screen_alert_detail/components/alert_detail_explanation_text.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_header.dart';
+import 'package:coin_dino/screen_alert_detail/components/alert_percentage/alert_percentage_list.dart';
 import 'package:coin_dino/screen_alert_list/viewmodels/screen_alert_view_model.dart';
 import '../global/components/app_bar_components.dart';
 import '../global/components/cached_network_image.dart';
 import '../global/starting_files/injection_container.dart';
 import 'package:flutter/material.dart';
+
+import 'components/alert_detail_current_price_text.dart';
 
 class AlertDetailScreen extends StatefulWidget {
   AlertDetailScreen(
@@ -54,15 +59,13 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
             ),
             Expanded(
               flex: 12,
-              child: Container(
-                color: Colors.green,
-              ),
+              child: AlertPercentageList(),
             ),
             Spacer(
               flex: 5,
             ),
             Expanded(
-              flex: 11,
+              flex: 10,
               child: AlertCustomTextField(
                 alertEntity: widget.alertEntity,
                 textEditingController: textEditingController,
@@ -73,26 +76,23 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
             ),
             Expanded(
               flex: 8,
-              child: Container(
-                color: Colors.cyan,
-              ),
+              child: AlertDetailCurrentPriceText(
+                  currentPrice: widget.alertEntity.currentPrice),
             ),
             Spacer(
               flex: 3,
             ),
             Expanded(
               flex: 20,
-              child: Container(
-                color: Colors.black,
-              ),
+              child: AlertDetailExplanationText(),
             ),
             Spacer(
               flex: 4,
             ),
             Expanded(
-              flex: 13,
-              child: Container(
-                color: Colors.pink,
+              flex: 6,
+              child: AlertDetailExecuteButton(
+                onTap: () {},
               ),
             ),
             Spacer(

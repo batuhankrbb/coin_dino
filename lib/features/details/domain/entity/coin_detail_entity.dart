@@ -73,11 +73,12 @@ class CoinDetailEntity {
 
   AlertEntity toAlertEntity() {
     return AlertEntity(
-        coindID: id,
-        name: name,
-        image: imageUrl,
-        symbol: symbol,
-        targetPrice: price,
-        currentPrice: price);
+      coindID: id,
+      name: name,
+      image: imageUrl,
+      symbol: symbol,
+      targetPrice: price,
+      currentPrice: price,
+    );
   }
 }
