@@ -8,8 +8,7 @@ import 'features/alert/domain/entity/alert_entity.dart';
 import 'features/alert/domain/repository_contract/i_alert_repository.dart';
 import 'features/preferences/data/implementations/preferences_local_data_source.dart';
 import 'main_screen.dart';
-import 'screen_alert/alert_detail_screen.dart';
-import 'screen_alert/alert_list_screen.dart';
+import 'screen_alert_detail/alert_detail_screen.dart';
 import 'screen_detail/coin_detail_screen.dart';
 import 'screen_home/home_screen.dart';
 import 'screen_in_app_purchase/inapp_purchase_screen.dart';
@@ -37,7 +36,7 @@ void main() async {
       .get<AppSettingsViewModel>()
       .setUpSettings(); //* sets up theme options.
   runApp(
-    MyApp(),
+    DevicePreview(builder: (_) => MyApp()),
   );
 }
 
@@ -61,9 +60,9 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          //   builder: DevicePreview.appBuilder,
-          // locale: DevicePreview.locale(context),
-          home: MainScreen(),
+            builder: DevicePreview.appBuilder,
+           locale: DevicePreview.locale(context),
+          home: AlertDetailScreen(alertEntity: AlertEntity(coindID: "bitcoin", name: "Bitcoin", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579", symbol: "BTC", currentPrice: 1500), isUpdate: false,),
         );
       },
     );

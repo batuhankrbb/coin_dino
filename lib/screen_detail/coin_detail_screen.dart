@@ -3,7 +3,7 @@ import '../core/navigation/routes/navigation_route.dart';
 import '../core/navigation/services/navigation_service.dart';
 import '../global/components/cached_network_image.dart';
 import '../global/components/failure_widget.dart';
-import '../screen_alert/alert_detail_screen.dart';
+import '../screen_alert_detail/alert_detail_screen.dart';
 import 'components/completed_widget/coin_detail_completed_widget.dart';
 import 'components/detail_app_bar/detail_app_bar.dart';
 import 'components/detail_app_bar/detail_app_bar_actions.dart';

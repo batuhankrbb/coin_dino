@@ -11,7 +11,7 @@ class AlertLocalDataSource implements IAlertLocalDataSource {
   Future<List<AlertModel>> getAllSavedAlerts() async {
     try {
       var alerts =
-          await _hiveHelper.getAll<AlertModel>(HiveConstants.BOX_ALERTS);
+          await _hiveHelper.getAll<AlertModel>(HiveConstants.BOX_ALERTS);     
       return alerts;
     } catch (e) {
       throw AlertException.allAlertsFetchingException();

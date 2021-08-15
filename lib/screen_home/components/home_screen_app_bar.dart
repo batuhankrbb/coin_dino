@@ -1,7 +1,8 @@
 import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/global/components/app_bar_components.dart';
-import 'package:coin_dino/screen_alert/alert_list_screen.dart';
+
+import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
 import 'package:coin_dino/screen_search/search_screen_main.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';

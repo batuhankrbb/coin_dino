@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
+import 'package:flutter/services.dart';
 
 class AlertCustomTextField extends StatefulWidget {
   AlertCustomTextField(
@@ -17,6 +19,15 @@ class AlertCustomTextField extends StatefulWidget {
 }
 
 class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
+  late FocusNode focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    focusNode = FocusNode();
+    focusNode.requestFocus();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,15 +37,9 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
             flex: 1,
             child: Divider(),
           ),
-          Spacer(
-            flex: 3,
-          ),
           Expanded(
             flex: 95,
             child: buildRow(),
-          ),
-          Spacer(
-            flex: 3,
           ),
           Expanded(
             flex: 1,
@@ -47,16 +52,14 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
 
   Widget buildRow() {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Spacer(
           flex: 1,
         ),
         Expanded(
-          flex: 20,
+          flex: 18,
           child: buildAlertText(),
-        ),
-        Spacer(
-          flex: 1,
         ),
         Expanded(
           flex: 10,
@@ -67,9 +70,7 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
         ),
         Expanded(
           flex: 45,
-          child: TextField(
-            keyboardType: TextInputType.number,
-          ),
+          child: buildTextField(),
         ),
         Spacer(
           flex: 1,
@@ -82,10 +83,23 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
     );
   }
 
+  TextField buildTextField() {
+    return TextField(
+      keyboardType: TextInputType.number,
+      inputFormatters: [
+        FilteringTextInputFormatter.allow(
+          RegExp(r'[0-9]'),
+        )
+      ],
+      focusNode: focusNode,
+      style: TextStyle(fontSize: context.getWidth(0.04)),
+    );
+  }
+
   AutoSizeText buildAlertText() {
     return AutoSizeText(
-      "1 ${widget.alertEntity.coindID.toUpperCase()}",
-      style: TextStyle(fontSize: 20),
+      "1 ${widget.alertEntity.symbol.toUpperCase()}",
+      style: TextStyle(fontSize: context.getWidth(0.05)),
       maxLines: 1,
       textAlign: TextAlign.center,
     );
@@ -95,7 +109,9 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
     return AutoSizeText(
       "=",
       style: TextStyle(
-          fontSize: 20, color: Colors.green, fontWeight: FontWeight.bold),
+          fontSize: context.getWidth(0.06),
+          color: Colors.green,
+          fontWeight: FontWeight.bold),
       maxLines: 1,
       textAlign: TextAlign.center,
     );
@@ -105,7 +121,7 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
     return AutoSizeText(
       "USD",
       style: TextStyle(
-        fontSize: 20,
+        fontSize: context.getWidth(0.05),
       ),
       maxLines: 1,
       textAlign: TextAlign.center,
