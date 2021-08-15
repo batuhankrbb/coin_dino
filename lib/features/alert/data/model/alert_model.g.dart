@@ -18,27 +18,18 @@ class AlertModelAdapter extends TypeAdapter<AlertModel> {
     };
     return AlertModel(
       coindID: fields[1] as String,
-      name: fields[2] as String,
-      image: fields[3] as String,
-      targetPrice: fields[4] as double,
-      price: fields[5] as double,
+      targetPrice: fields[2] as num,
     );
   }
 
   @override
   void write(BinaryWriter writer, AlertModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(2)
       ..writeByte(1)
       ..write(obj.coindID)
       ..writeByte(2)
-      ..write(obj.name)
-      ..writeByte(3)
-      ..write(obj.image)
-      ..writeByte(4)
-      ..write(obj.targetPrice)
-      ..writeByte(5)
-      ..write(obj.price);
+      ..write(obj.targetPrice);
   }
 
   @override

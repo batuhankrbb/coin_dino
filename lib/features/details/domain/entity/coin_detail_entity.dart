@@ -1,4 +1,4 @@
-import '../../../alert/domain/entity/alert_entity.dart';
+import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 
 class CoinDetailEntity {
   final String id;
@@ -76,7 +76,8 @@ class CoinDetailEntity {
         coindID: id,
         name: name,
         image: imageUrl,
-        targetPrice: price.toDouble(),
-        price: price.toDouble());
+        symbol: symbol,
+        targetPrice: price,
+        currentPrice: price);
   }
 }

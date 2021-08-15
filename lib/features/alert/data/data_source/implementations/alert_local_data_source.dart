@@ -8,7 +8,7 @@ class AlertLocalDataSource implements IAlertLocalDataSource {
   var _hiveHelper = HiveHelper();
 
   @override
-  Future<List<AlertModel>> getAllAlerts() async {
+  Future<List<AlertModel>> getAllSavedAlerts() async {
     try {
       var alerts =
           await _hiveHelper.getAll<AlertModel>(HiveConstants.BOX_ALERTS);
@@ -21,7 +21,8 @@ class AlertLocalDataSource implements IAlertLocalDataSource {
   @override
   Future<void> deleteAlert(AlertModel alertModel) async {
     try {
-      _hiveHelper.deleteData<AlertModel>(HiveConstants.BOX_ALERTS, alertModel.coindID);
+      _hiveHelper.deleteData<AlertModel>(
+          HiveConstants.BOX_ALERTS, alertModel.coindID);
     } catch (e) {
       throw AlertException.alertDeletingException();
     }

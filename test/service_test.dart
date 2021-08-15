@@ -36,8 +36,7 @@ main() async {
         preferencesLocalDataSource: PreferencesLocalDataSource());
     test("get crypto currencies", () async {
       var currencies = await marketCoinRepository.getCryptoCurrencies(
-        page: 1,
-          date: MarketDate.day7, sort: MarketSort.market_cap_asc);
+          page: 1, date: MarketDate.day7, sort: MarketSort.market_cap_asc);
       currencies.when(success: (data) {
         print("SUCCESS | get crypto currencies = ${data.length}");
         print(data.map((e) => e.marketCapRank));
@@ -97,7 +96,7 @@ main() async {
       });
 
       test("get coins by search", () async {
-        var coins = await searchRepository.getCoinsBySearch("tElCo",0);
+        var coins = await searchRepository.getCoinsBySearch("tElCo", 0);
         var deneme = "selam".startsWith("sea");
         print(deneme);
         coins.when(success: (data) {
@@ -145,7 +144,12 @@ main() async {
           remoteDataSource: AlertRemoteDataSource(),
           preferencesLocalDataSource: PreferencesLocalDataSource());
       test("description", () async {
-        alertRepository.checkAlerts();
+        var result = await alertRepository.getAllAlerts();
+        result.when(success: (data) {
+          print(data.length);
+        }, failure: (failure) {
+          print(failure);
+        });
       });
     });
   });

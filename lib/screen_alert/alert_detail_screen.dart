@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import '../features/alert/domain/entity/alert_entity.dart';
+import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import '../global/components/app_bar_components.dart';
 import '../global/components/cached_network_image.dart';
 import '../global/starting_files/injection_container.dart';
@@ -127,7 +127,8 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
         name: widget.alertEntity.name,
         image: widget.alertEntity.image,
         targetPrice: price,
-        price: widget.alertEntity.price);
+        currentPrice: widget.alertEntity.currentPrice,
+        symbol: widget.alertEntity.symbol);
 
     if (widget.isUpdate) {
       alertViewModel.updateAlert(entity);

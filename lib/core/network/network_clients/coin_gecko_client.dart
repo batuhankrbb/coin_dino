@@ -23,7 +23,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
   factory CoinGeckoClient.coinSearch(String text, String vsCurrency, int page) =
       CoinSearch;
   factory CoinGeckoClient.getAlertCoins(
-      List<String> coinIds, String vsCurrency) = GetAlertCoins;
+      String coinIds, String vsCurrency) = GetAlertCoins;
   factory CoinGeckoClient.getAllCategories() = GetAllCategories;
 
   @override
@@ -47,7 +47,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
               "/coins/$id/market_chart",
       searchTrends: () => "/search/trending",
       coinSearch: (String text, String vsCurrency, _) => "/coins/markets",
-      getAlertCoins: (List<String> coinIds, String vsCurrency) =>
+      getAlertCoins: (String coinIds, String vsCurrency) =>
           "/coins/markets",
       getAllCategories: () => "/coins/categories/list");
 
@@ -68,7 +68,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
           "GET",
       searchTrends: () => "GET",
       coinSearch: (_, x, y) => "GET",
-      getAlertCoins: (List<String> coinIds, String vsCurrency) => "GET",
+      getAlertCoins: (String coinIds, String vsCurrency) => "GET",
       getAllCategories: () => "GET");
 
   @override
@@ -112,7 +112,7 @@ abstract class CoinGeckoClient extends NetworkOptionsGenerator
           "page": page,
           "per_page": 50
         },
-        getAlertCoins: (List<String> coinIds, String vsCurrency) =>
+        getAlertCoins: (String coinIds, String vsCurrency) =>
             {"vs_currency": vsCurrency, "ids": coinIds},
         getAllCategories: () => null,
       );

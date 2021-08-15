@@ -1,4 +1,12 @@
+import 'package:coin_dino/features/alert/data/model/alert_model.dart';
+
+import 'features/alert/data/data_source/implementations/alert_local_data_source.dart';
+import 'features/alert/data/data_source/implementations/alert_remote_data_source.dart';
+import 'features/alert/data/exception_handling/exception_handler.dart';
+import 'features/alert/data/repository/alert_repository.dart';
 import 'features/alert/domain/entity/alert_entity.dart';
+import 'features/alert/domain/repository_contract/i_alert_repository.dart';
+import 'features/preferences/data/implementations/preferences_local_data_source.dart';
 import 'main_screen.dart';
 import 'screen_alert/alert_detail_screen.dart';
 import 'screen_alert/alert_list_screen.dart';
@@ -29,9 +37,7 @@ void main() async {
       .get<AppSettingsViewModel>()
       .setUpSettings(); //* sets up theme options.
   runApp(
-    DevicePreview(
-      builder: (_) => MyApp(),
-    ),
+    MyApp(),
   );
 }
 
@@ -55,8 +61,8 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          builder: DevicePreview.appBuilder,
-          locale: DevicePreview.locale(context),
+          //   builder: DevicePreview.appBuilder,
+          // locale: DevicePreview.locale(context),
           home: MainScreen(),
         );
       },

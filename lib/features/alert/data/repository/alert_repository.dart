@@ -1,7 +1,8 @@
+import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+
 import '../../../../core/notification/notification_helper.dart';
 import '../../../../core/result_types/result.dart';
 import '../../../preferences/data/contracts/i_preferences_local_data_source.dart';
-import '../../domain/entity/alert_entity.dart';
 import '../../domain/repository_contract/i_alert_repository.dart';
 import '../data_source/contracts/i_alert_local_data_source.dart';
 import '../data_source/contracts/i_alert_remote_data_source.dart';
@@ -25,8 +26,22 @@ class AlertRepository implements IAlertRepository {
   @override
   Future<Result<List<AlertEntity>>> getAllAlerts() async {
     try {
-      var allAlerts = await localDataSource.getAllAlerts();
-      var entityList = allAlerts.map((e) => e.toEntity()).toList();
+      List<AlertModel> allSavedAlerts = await localDataSource
+          .getAllSavedAlerts(); // get saved alerts from local database
+      List<String> savedIdList = allSavedAlerts.map((e) => e.coindID).toList();
+      String baseCurrency = await getBaseCurrency(); // get base currency
+      List<AlertCoinModel> allCoinAlerts = await remoteDataSource.getGivenCoins(
+          //get coins from api by the help of saved alerts' id
+          coinIds: savedIdList,
+          vsCurrency: baseCurrency);
+
+      List<AlertEntity> entityList = [];
+
+      for (int i = 0; i < savedIdList.length; i++) {
+        //merge coins from api and local saved alerts
+        var entity = allCoinAlerts[i].toEntity(allSavedAlerts[i].targetPrice);
+        entityList.add(entity);
+      }
       return Result.success(entityList);
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
@@ -66,11 +81,22 @@ class AlertRepository implements IAlertRepository {
     }
   }
 
+  Future<String> getBaseCurrency() async {
+    try {
+      var baseCurrency =
+          await preferencesLocalDataSource.getBaseCurrencyPreference();
+      return baseCurrency;
+    } catch (e) {
+      return "usd";
+    }
+  }
+
   @override
-  Future<Result<void>> checkAlerts() async {
+  Future<Result<void>> checkAlertsForNotification() async {
+    //TODO WILL BE REORGANIZED
     try {
       var baseCurrency = await getBaseCurrency();
-      var allAlerts = await localDataSource.getAllAlerts();
+      var allAlerts = await localDataSource.getAllSavedAlerts();
       var alertsIds = allAlerts.map((e) => e.coindID).toList();
       var remoteAlerts = await remoteDataSource.getGivenCoins(
           coinIds: alertsIds, vsCurrency: baseCurrency);
@@ -80,7 +106,7 @@ class AlertRepository implements IAlertRepository {
       for (int i = 0; i < allAlerts.length; i++) {
         var localAlert = allAlerts[i];
         var remoteAlert = remoteAlerts[i];
-        var isTargetHigh = localAlert.targetPrice > localAlert.price;
+        var isTargetHigh = localAlert.targetPrice > remoteAlert.currentPrice;
 
         if (isTargetHigh && remoteAlert.currentPrice > localAlert.targetPrice) {
           alertsToNotify.add(remoteAlert);
@@ -100,16 +126,6 @@ class AlertRepository implements IAlertRepository {
       return Result.success("sadaqsd");
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
-    }
-  }
-
-  Future<String> getBaseCurrency() async {
-    try {
-      var baseCurrency =
-          await preferencesLocalDataSource.getBaseCurrencyPreference();
-      return baseCurrency;
-    } catch (e) {
-      return "usd";
     }
   }
 }

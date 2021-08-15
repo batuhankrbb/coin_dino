@@ -48,36 +48,16 @@ class DefaultResponseTypes {
   var coinChart = CoinChartModel(prices: [[]]);
 
   var alertCoinModel = AlertCoinModel(
-    ath: 0,
-    athChangePercentage: 0,
-    atl: 0,
-    atlChangePercentage: 0,
-    circulatingSupply: 0,
+    
     currentPrice: 0,
-    fullyDilutedValuation: 1,
-    high24H: 10,
+  
     id: "",
     image: "",
-    low24H: 0,
-    marketCap: 1,
-    marketCapChange24H: 0,
-    marketCapChangePercentage24H: 0,
-    marketCapRank: 0,
-    priceChange24H: 0,
+    
     name: "",
-    priceChangePercentage1HInCurrency: 0,
-    priceChangePercentage24H: 1,
-    priceChangePercentage24HInCurrency: 0,
-    priceChangePercentage30DInCurrency: 0,
-    priceChangePercentage7DInCurrency: 0,
+   
     symbol: "",
-    totalSupply: 0,
-    totalVolume: 0,
-    athDate: DateTime(1991),
-    atlDate: DateTime(1991),
-    lastUpdated: DateTime(1991),
-    maxSupply: 0,
-    roi: RoiAlert(currency: "", percentage: 1, times: 1),
+   
   );
 
   var marketCoinModel = MarketCoinModel(

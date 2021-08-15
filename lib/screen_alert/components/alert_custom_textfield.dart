@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import '../../features/alert/domain/entity/alert_entity.dart';
+import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:flutter/material.dart';
 
 class AlertCustomTextField extends StatefulWidget {

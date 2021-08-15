@@ -1,3 +1,4 @@
+import 'package:coin_dino/core/utils/string_helper.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../core/constants/response_types.dart';
@@ -14,16 +15,24 @@ class AlertRemoteDataSource implements IAlertRemoteDataSource {
   Future<List<AlertCoinModel>> getGivenCoins(
       {required List<String> coinIds, required String vsCurrency}) async {
     try {
+      var coinsString = StringHelper.shared.convertListToCommaString(coinIds);
       var alertCoins =
           await _executer.execute<AlertCoinModel, List<AlertCoinModel>>(
-              responseType: DefaultResponseTypes.shared.alertCoinModel,
-              options: CoinGeckoClient.getAlertCoins(coinIds, vsCurrency));
+        responseType: DefaultResponseTypes.shared.alertCoinModel,
+        options: CoinGeckoClient.getAlertCoins(coinsString, vsCurrency),
+      );
+
       if (alertCoins == null) {
         throw DioError(requestOptions: RequestOptions(path: ''));
       }
-      return alertCoins;
+
+     var sortedAlertCoins = coinIds.map((e) {
+        return alertCoins.firstWhere((element) => element.id == e);
+      }).toList();
+
+      return sortedAlertCoins;
     } on DioError catch (e) {
       throw AlertException.alertFetchingRemoteException();
     }
   }
-}// RESULT
+}
