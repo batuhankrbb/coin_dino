@@ -18,7 +18,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'components/alert_cell/alert_cell.dart';
 import 'components/alert_list_app_bar.dart';
 
-//TODO AŞAĞIYA ALERT EKLE BUTONU EKLE
 class AlertListScreen extends StatefulWidget {
   AlertListScreen({Key? key}) : super(key: key);
 

@@ -29,7 +29,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: EdgeInsets.only(right: context.getWidth(0.04)),
         child: Icon(
           Icons.search,
-          color: Colors.black,
+          color: context.colorScheme.primary,
           size: context.getHeight(0.03),
         ),
       ),
@@ -51,7 +51,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
         alignment: Alignment.center,
         child: Icon(
           Icons.notifications,
-          color: Colors.black,
+          color: context.colorScheme.primary,
           size: context.getHeight(0.03),
         ),
       ),

@@ -8,7 +8,7 @@ class AlertDetailExplanationText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[100],
+      color: context.colorScheme.primaryVariant,
       alignment: Alignment.center,
       padding: EdgeInsets.all(context.getWidth(0.03)),
       child: AutoSizeText(

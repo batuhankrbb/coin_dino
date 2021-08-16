@@ -21,7 +21,7 @@ AppBar alertListAppBar(BuildContext context) => customAppBar(
               },
               child: Icon(
                 Icons.add,
-                color: Colors.black,
+                color: context.colorScheme.primary,
                 size: context.getHeight(0.04),
               ),
             ),

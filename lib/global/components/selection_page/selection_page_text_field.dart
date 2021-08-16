@@ -82,7 +82,7 @@ class _SelectionPageTextFieldState extends State<SelectionPageTextField> {
       decoration: InputDecoration(
         border: InputBorder.none,
       ),
-      cursorColor: Colors.black,
+      cursorColor: context.colorScheme.primary,
     );
   }
 }

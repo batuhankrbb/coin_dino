@@ -43,11 +43,11 @@ class AlertCell extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(right: context.getWidth(0.03)),
       alignment: Alignment.centerRight,
-      color: Colors.red,
+      color: context.colorScheme.onPrimary,
       child: AutoSizeText(
         "REMOVE",
         style: TextStyle(
-            color: Colors.white,
+            color: context.colorScheme.onSurface,
             fontSize: context.getWidth(0.045),
             fontWeight: FontWeight.w500),
       ),
@@ -79,7 +79,7 @@ class AlertCell extends StatelessWidget {
       alertEntity.name,
       maxLines: 1,
       style: TextStyle(
-        color: Colors.black,
+        color: context.colorScheme.primary,
         fontWeight: FontWeight.w500,
         fontSize: context.getWidth(0.045),
       ),

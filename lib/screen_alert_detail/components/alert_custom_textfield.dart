@@ -113,7 +113,7 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
       "=",
       style: TextStyle(
           fontSize: context.getWidth(0.06),
-          color: Colors.green,
+          color: context.colorScheme.secondary,
           fontWeight: FontWeight.bold),
       maxLines: 1,
       textAlign: TextAlign.center,

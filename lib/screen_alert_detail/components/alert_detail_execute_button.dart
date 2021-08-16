@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 class AlertDetailExecuteButton extends StatefulWidget {
-  AlertDetailExecuteButton({Key? key, required this.onTap, required this.isUpdate}) : super(key: key);
+  AlertDetailExecuteButton(
+      {Key? key, required this.onTap, required this.isUpdate})
+      : super(key: key);
 
   @override
   _AlertDetailExecuteButtonState createState() =>
@@ -20,7 +22,8 @@ class _AlertDetailExecuteButtonState extends State<AlertDetailExecuteButton> {
       width: context.getWidth(0.9),
       child: ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.green[400])),
+            backgroundColor:
+                MaterialStateProperty.all(context.colorScheme.secondary)),
         onPressed: widget.onTap,
         child: buildText(context),
       ),
@@ -31,7 +34,7 @@ class _AlertDetailExecuteButtonState extends State<AlertDetailExecuteButton> {
     return AutoSizeText(
       widget.isUpdate ? "UPDATE" : "SAVE",
       style: TextStyle(
-        color: Colors.white,
+        color: context.colorScheme.onSurface,
         fontWeight: FontWeight.w500,
         fontSize: context.getWidth(0.042),
       ),
