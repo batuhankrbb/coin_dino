@@ -40,22 +40,38 @@ mixin _$ScreenAlertViewModel on _ScreenAlertViewModelBase, Store {
     });
   }
 
+  final _$textEditingControllerAtom =
+      Atom(name: '_ScreenAlertViewModelBase.textEditingController');
+
+  @override
+  TextEditingController get textEditingController {
+    _$textEditingControllerAtom.reportRead();
+    return super.textEditingController;
+  }
+
+  @override
+  set textEditingController(TextEditingController value) {
+    _$textEditingControllerAtom.reportWrite(value, super.textEditingController,
+        () {
+      super.textEditingController = value;
+    });
+  }
+
   final _$addAlertAsyncAction =
       AsyncAction('_ScreenAlertViewModelBase.addAlert');
 
   @override
-  Future<void> addAlert({required AlertEntity entity, num? targetPrice}) {
-    return _$addAlertAsyncAction
-        .run(() => super.addAlert(entity: entity, targetPrice: targetPrice));
+  Future<void> addAlert({required AlertEntity entity}) {
+    return _$addAlertAsyncAction.run(() => super.addAlert(entity: entity));
   }
 
   final _$updateAlertAsyncAction =
       AsyncAction('_ScreenAlertViewModelBase.updateAlert');
 
   @override
-  Future<void> updateAlert({required AlertEntity entity, num? newTargetPrice}) {
-    return _$updateAlertAsyncAction.run(() =>
-        super.updateAlert(entity: entity, newTargetPrice: newTargetPrice));
+  Future<void> updateAlert({required AlertEntity entity}) {
+    return _$updateAlertAsyncAction
+        .run(() => super.updateAlert(entity: entity));
   }
 
   final _$getAllAlertsAsyncAction =
@@ -79,7 +95,8 @@ mixin _$ScreenAlertViewModel on _ScreenAlertViewModelBase, Store {
   String toString() {
     return '''
 alertResult: ${alertResult},
-alertListToShow: ${alertListToShow}
+alertListToShow: ${alertListToShow},
+textEditingController: ${textEditingController}
     ''';
   }
 }

@@ -1,3 +1,4 @@
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 
 import '../../core/result_types/state_result.dart';
@@ -28,33 +29,38 @@ abstract class _ScreenAlertViewModelBase with Store {
   @observable
   ObservableList<AlertEntity> alertListToShow = ObservableList();
 
-  @action
-  Future<void> addAlert({required AlertEntity entity, num? targetPrice}) async {
-    var newAlertEntity = AlertEntity.copyWithTargetPrice(entity, targetPrice);
+  @observable
+  TextEditingController textEditingController = TextEditingController();
 
-    var result = await alertRepository.addAlert(newAlertEntity);
-    result.when(success: (_) {
-      getAllAlerts();
-      AlertHelper.shared
-          .showSnackBar("Alert has been added successfully", context!);
-    }, failure: (failure) {
-      AlertHelper.shared
-          .showSnackBar("Something went wrong. Try again.", context!);
+  @action
+  Future<void> addAlert({required AlertEntity entity}) async {
+    executeWithCheckingTargetPrice((targetPrice) async {
+      var newAlertEntity = AlertEntity.copyWithTargetPrice(entity, targetPrice);
+      var result = await alertRepository.addAlert(newAlertEntity);
+      result.when(success: (_) {
+        getAllAlerts();
+        AlertHelper.shared
+            .showSnackBar("Alert has been added successfully", context!);
+      }, failure: (failure) {
+        AlertHelper.shared
+            .showSnackBar("Something went wrong. Try again.", context!);
+      });
     });
   }
 
   @action
-  Future<void> updateAlert(
-      {required AlertEntity entity, num? newTargetPrice}) async {
-    var updatedEntity = AlertEntity.copyWithTargetPrice(entity, newTargetPrice);
-    var result = await alertRepository.updateAlert(updatedEntity);
-    result.when(success: (_) {
-      AlertHelper.shared
-          .showSnackBar("Alert has been updated successfully", context!);
-      getAllAlerts();
-    }, failure: (failure) {
-      AlertHelper.shared
-          .showSnackBar("Something went wrong. Try again.", context!);
+  Future<void> updateAlert({required AlertEntity entity}) async {
+    executeWithCheckingTargetPrice((targetPrice) async {
+      var updatedEntity = AlertEntity.copyWithTargetPrice(entity, targetPrice);
+      var result = await alertRepository.updateAlert(updatedEntity);
+      result.when(success: (_) {
+        AlertHelper.shared
+            .showSnackBar("Alert has been updated successfully", context!);
+        getAllAlerts();
+      }, failure: (failure) {
+        AlertHelper.shared
+            .showSnackBar("Something went wrong. Try again.", context!);
+      });
     });
   }
 
@@ -85,5 +91,18 @@ abstract class _ScreenAlertViewModelBase with Store {
     }, failure: (failure) {
       AlertHelper.shared.showSnackBar("deleting failed", context!);
     });
+  }
+
+  Future<void> executeWithCheckingTargetPrice(
+      Function(num targetPrice) func) async {
+    print(textEditingController.text);
+    var newTargetPrice = num.tryParse(textEditingController.text);
+    if (newTargetPrice == null) {
+      AlertHelper.shared
+          .showSnackBar("You should enter a valid number.", context!);
+    } else {
+      await func(newTargetPrice);
+      NavigationService.shared.goBack();
+    }
   }
 }

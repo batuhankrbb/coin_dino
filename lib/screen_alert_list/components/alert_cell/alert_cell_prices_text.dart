@@ -23,7 +23,7 @@ class AlertCellPricesWidget extends StatelessWidget {
         Flexible(
           flex: 3,
           child: AutoSizeText(
-            "Target: \$${alertEntity.targetPrice}",
+            "Target: \$${NumberHelper.shared.toCommaString(number: alertEntity.targetPrice ?? 0)}",
             maxLines: 1,
             style: TextStyle(fontSize: context.getWidth(0.04)),
             textAlign: TextAlign.end,

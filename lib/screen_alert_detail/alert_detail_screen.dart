@@ -1,16 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_custom_textfield.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_execute_button.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_explanation_text.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_header.dart';
-import 'package:coin_dino/screen_alert_detail/components/alert_percentage/alert_percentage_list.dart';
 import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
-
-
 
 import '../global/components/app_bar_components.dart';
 import '../global/components/cached_network_image.dart';
+
 import '../global/starting_files/injection_container.dart';
 import 'package:flutter/material.dart';
 
@@ -29,25 +28,26 @@ class AlertDetailScreen extends StatefulWidget {
 }
 
 class _AlertDetailScreenState extends State<AlertDetailScreen> {
-  late TextEditingController textEditingController;
   var alertViewModel = getit.get<ScreenAlertViewModel>();
 
   @override
   void initState() {
     super.initState();
-     alertViewModel.setContext(context);
-    textEditingController = TextEditingController();
-    if (textEditingController.text.isEmpty){
-     textEditingController.text ="${widget.alertEntity.targetPrice ?? widget.alertEntity.currentPrice}";
+    alertViewModel.setContext(context);
+    alertViewModel.textEditingController.clear();
+    if (widget.isUpdate) {
+      alertViewModel.textEditingController.text =
+          widget.alertEntity.targetPrice.toString();
     }
-   
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(
-          context: context, title: "Add Price Alert", showBackButton: true),
+          context: context,
+          title: "${widget.isUpdate ? "Update" : "Add"} Price Alert",
+          showBackButton: true),
       body: SafeArea(
         child: Column(
           children: [
@@ -65,18 +65,14 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
             Spacer(
               flex: 4,
             ),
-            Expanded(
-              flex: 12,
-              child: AlertPercentageList(),
-            ),
             Spacer(
-              flex: 5,
+              flex: 3,
             ),
             Expanded(
               flex: 10,
               child: AlertCustomTextField(
                 alertEntity: widget.alertEntity,
-                textEditingController: textEditingController,
+                isUpdate: widget.isUpdate,
               ),
             ),
             Spacer(
@@ -100,7 +96,13 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
             Expanded(
               flex: 6,
               child: AlertDetailExecuteButton(
-                onTap: (){},
+                onTap: () {
+                  if (widget.isUpdate) {
+                    alertViewModel.updateAlert(entity: widget.alertEntity);
+                  } else {
+                    alertViewModel.addAlert(entity: widget.alertEntity);
+                  }
+                },
                 isUpdate: widget.isUpdate,
               ),
             ),
@@ -112,6 +114,4 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
       ),
     );
   }
-
-  
 }
