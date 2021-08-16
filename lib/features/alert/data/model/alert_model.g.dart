@@ -19,17 +19,20 @@ class AlertModelAdapter extends TypeAdapter<AlertModel> {
     return AlertModel(
       coindID: fields[1] as String,
       targetPrice: fields[2] as num,
+      alertForBigNumber: fields[3] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, AlertModel obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(1)
       ..write(obj.coindID)
       ..writeByte(2)
-      ..write(obj.targetPrice);
+      ..write(obj.targetPrice)
+      ..writeByte(3)
+      ..write(obj.alertForBigNumber);
   }
 
   @override
