@@ -99,7 +99,7 @@ abstract class _ScreenAlertViewModelBase with Store {
     var newTargetPrice = num.tryParse(textEditingController.text);
     if (newTargetPrice == null) {
       AlertHelper.shared
-          .showSnackBar("You should enter a valid number.", context!);
+          .showSnackBar("You should enter a valid number.", context!, false);
     } else {
       await func(newTargetPrice);
       NavigationService.shared.goBack();

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
@@ -30,26 +31,34 @@ class AlertHelper {
         });
   }
 
-  void showSnackBar(String message, BuildContext context) {
+  void showSnackBar(String message, BuildContext context,
+      [bool isPositive = true]) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: EdgeInsets.all(6),
-            child: Icon(
-              Icons.check_circle_outline_outlined,
-              color: context.colorScheme.onSurface,
-            ),
+          Icon(
+            isPositive
+                ? Icons.check_circle_outline_outlined
+                : Icons.highlight_off,
+            color: context.colorScheme.onSurface,
+            size: context.getHeight(0.03),
           ),
-          Text(
+          SizedBox(
+            width: context.getWidth(0.01),
+          ),
+          AutoSizeText(
             message,
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: context.getWidth(0.04)),
+            maxLines: 1,
           ),
         ],
       ),
-      behavior: SnackBarBehavior.floating,
-      backgroundColor: context.colorScheme.surface,
-      elevation: 12,
+      behavior: SnackBarBehavior.fixed,
+      backgroundColor: context.colorScheme.secondaryVariant,
+      duration: Duration(seconds: 2),
+      elevation: 4,
     ));
   }
 }
