@@ -5,7 +5,8 @@ import 'package:coin_dino/screen_alert_detail/components/alert_detail_execute_bu
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_explanation_text.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_header.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_percentage/alert_percentage_list.dart';
-import 'package:coin_dino/screen_alert_list/viewmodels/screen_alert_view_model.dart';
+import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
+
 
 
 import '../global/components/app_bar_components.dart';
@@ -34,11 +35,12 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
   @override
   void initState() {
     super.initState();
+     alertViewModel.setContext(context);
     textEditingController = TextEditingController();
     if (textEditingController.text.isEmpty){
      textEditingController.text ="${widget.alertEntity.targetPrice ?? widget.alertEntity.currentPrice}";
     }
-    alertViewModel.setContext(context);
+   
   }
 
   @override

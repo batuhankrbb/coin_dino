@@ -24,22 +24,38 @@ mixin _$ScreenAlertViewModel on _ScreenAlertViewModelBase, Store {
     });
   }
 
+  final _$alertListToShowAtom =
+      Atom(name: '_ScreenAlertViewModelBase.alertListToShow');
+
+  @override
+  ObservableList<AlertEntity> get alertListToShow {
+    _$alertListToShowAtom.reportRead();
+    return super.alertListToShow;
+  }
+
+  @override
+  set alertListToShow(ObservableList<AlertEntity> value) {
+    _$alertListToShowAtom.reportWrite(value, super.alertListToShow, () {
+      super.alertListToShow = value;
+    });
+  }
+
   final _$addAlertAsyncAction =
       AsyncAction('_ScreenAlertViewModelBase.addAlert');
 
   @override
-  Future<void> addAlert(AlertEntity alertEntity, num targetPrice) {
+  Future<void> addAlert({required AlertEntity entity, num? targetPrice}) {
     return _$addAlertAsyncAction
-        .run(() => super.addAlert(alertEntity, targetPrice));
+        .run(() => super.addAlert(entity: entity, targetPrice: targetPrice));
   }
 
   final _$updateAlertAsyncAction =
       AsyncAction('_ScreenAlertViewModelBase.updateAlert');
 
   @override
-  Future<void> updateAlert(AlertEntity entity, num newTargetPrice) {
-    return _$updateAlertAsyncAction
-        .run(() => super.updateAlert(entity, newTargetPrice));
+  Future<void> updateAlert({required AlertEntity entity, num? newTargetPrice}) {
+    return _$updateAlertAsyncAction.run(() =>
+        super.updateAlert(entity: entity, newTargetPrice: newTargetPrice));
   }
 
   final _$getAllAlertsAsyncAction =
@@ -54,14 +70,16 @@ mixin _$ScreenAlertViewModel on _ScreenAlertViewModelBase, Store {
       AsyncAction('_ScreenAlertViewModelBase.deleteAlert');
 
   @override
-  Future<void> deleteAlert(AlertEntity entity) {
-    return _$deleteAlertAsyncAction.run(() => super.deleteAlert(entity));
+  Future<void> deleteAlert({required AlertEntity entity}) {
+    return _$deleteAlertAsyncAction
+        .run(() => super.deleteAlert(entity: entity));
   }
 
   @override
   String toString() {
     return '''
-alertResult: ${alertResult}
+alertResult: ${alertResult},
+alertListToShow: ${alertListToShow}
     ''';
   }
 }

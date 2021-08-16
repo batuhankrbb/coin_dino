@@ -1,4 +1,5 @@
 import 'package:coin_dino/features/alert/data/model/alert_model.dart';
+import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
 
 import 'features/alert/data/data_source/implementations/alert_local_data_source.dart';
 import 'features/alert/data/data_source/implementations/alert_remote_data_source.dart';
@@ -60,9 +61,9 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-            builder: DevicePreview.appBuilder,
-           locale: DevicePreview.locale(context),
-          home: AlertDetailScreen(alertEntity: AlertEntity(coindID: "bitcoin", name: "Bitcoin", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579", symbol: "BTC", currentPrice: 1500), isUpdate: false,),
+          builder: DevicePreview.appBuilder,
+          locale: DevicePreview.locale(context),
+          home: MainScreen(),
         );
       },
     );

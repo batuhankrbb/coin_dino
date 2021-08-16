@@ -4,6 +4,9 @@ class StringHelper {
   StringHelper._privateConstructor();
 
   String convertListToCommaString(List<String> texts) {
+    if (texts.isEmpty) {
+      return "";
+    }
     var totalString = "";
     texts.forEach((element) {
       totalString += ",$element";

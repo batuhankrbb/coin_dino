@@ -25,18 +25,16 @@ abstract class _ScreenAlertViewModelBase with Store {
   @observable
   StateResult<List<AlertEntity>> alertResult = StateResult.initial();
 
+  @observable
+  ObservableList<AlertEntity> alertListToShow = ObservableList();
+
   @action
-  Future<void> addAlert(AlertEntity entity, num targetPrice) async {
-    var newAlertEntity = AlertEntity(
-        coindID: entity.coindID,
-        name: entity.name,
-        image: entity.image,
-        symbol: entity.symbol,
-        currentPrice: entity.currentPrice,
-        targetPrice: targetPrice);
-      
+  Future<void> addAlert({required AlertEntity entity, num? targetPrice}) async {
+    var newAlertEntity = AlertEntity.copyWithTargetPrice(entity, targetPrice);
+
     var result = await alertRepository.addAlert(newAlertEntity);
     result.when(success: (_) {
+      getAllAlerts();
       AlertHelper.shared
           .showSnackBar("Alert has been added successfully", context!);
     }, failure: (failure) {
@@ -46,11 +44,14 @@ abstract class _ScreenAlertViewModelBase with Store {
   }
 
   @action
-  Future<void> updateAlert(AlertEntity entity, num newTargetPrice) async {
-    var result = await alertRepository.updateAlert(entity);
+  Future<void> updateAlert(
+      {required AlertEntity entity, num? newTargetPrice}) async {
+    var updatedEntity = AlertEntity.copyWithTargetPrice(entity, newTargetPrice);
+    var result = await alertRepository.updateAlert(updatedEntity);
     result.when(success: (_) {
       AlertHelper.shared
           .showSnackBar("Alert has been updated successfully", context!);
+      getAllAlerts();
     }, failure: (failure) {
       AlertHelper.shared
           .showSnackBar("Something went wrong. Try again.", context!);
@@ -59,14 +60,15 @@ abstract class _ScreenAlertViewModelBase with Store {
 
   @action
   Future<void> getAllAlerts() async {
-    //DONE
-    alertResult = StateResult.loading();
     var result = await alertRepository.getAllAlerts();
+    alertResult = StateResult.loading();
     result.when(success: (alerts) {
+      alertListToShow.clear();
       if (alerts.isEmpty) {
         alertResult = StateResult.initial();
       } else {
         alertResult = StateResult.completed(alerts);
+        alertListToShow.addAll(alerts);
       }
     }, failure: (failure) {
       alertResult = StateResult.failed(failure);
@@ -74,22 +76,14 @@ abstract class _ScreenAlertViewModelBase with Store {
   }
 
   @action
-  Future<void> deleteAlert(AlertEntity entity) async {
-    //DONE
+  Future<void> deleteAlert({required AlertEntity entity}) async {
+    var index = alertListToShow.indexOf(entity);
     var result = await alertRepository.deleteAlert(entity);
+    alertListToShow.removeAt(index);
     result.when(success: (_) {
       AlertHelper.shared.showSnackBar("deleted succesfully", context!);
     }, failure: (failure) {
-      AlertHelper.shared
-          .showSnackBar("deleting failed ${failure.message}", context!);
+      AlertHelper.shared.showSnackBar("deleting failed", context!);
     });
   }
 }
-
-/*
-  Future<Result<List<AlertEntity>>> getAllAlerts();
-  Future<Result<void>> addAlert(AlertEntity alertEntity);
-  Future<Result<void>> deleteAlert(AlertEntity alertEntity);
-  Future<Result<void>> updateAlert(AlertEntity alertEntity);
-  Future<Result<void>> checkAlerts();
-*/

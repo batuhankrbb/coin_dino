@@ -1,4 +1,4 @@
-import 'package:coin_dino/screen_alert_list/viewmodels/screen_alert_view_model.dart';
+import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
 import 'package:coin_dino/screen_settings/viewmodels/settings_view_model.dart';
 import 'package:coin_dino/xscreen_main/main_tab_bar.dart';
 import 'package:coin_dino/xscreen_main/viewmodels/main_screen_view_model.dart';

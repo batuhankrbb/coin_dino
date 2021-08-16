@@ -1,16 +1,24 @@
-
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
+import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import 'package:coin_dino/global/components/failure_widget.dart';
+import 'package:coin_dino/screen_alert_detail/alert_detail_screen.dart';
+import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
+import 'package:coin_dino/screen_alert_list/components/alert_list_no_alert_widget.dart';
 
 import '../global/components/app_bar_components.dart';
 import '../global/components/state_result_builder.dart';
 import '../global/starting_files/injection_container.dart';
-import 'viewmodels/screen_alert_view_model.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'components/alert_cell.dart';
+import 'components/alert_cell/alert_cell.dart';
+import 'components/alert_list_app_bar.dart';
 
+//TODO AŞAĞIYA ALERT EKLE BUTONU EKLE
 class AlertListScreen extends StatefulWidget {
   AlertListScreen({Key? key}) : super(key: key);
 
@@ -31,7 +39,7 @@ class _AlertListScreenState extends State<AlertListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context: context,title: "Alerts"),
+      appBar: alertListAppBar(context),
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
@@ -46,22 +54,54 @@ class _AlertListScreenState extends State<AlertListScreen> {
       builder: (context) {
         return StateResultBuilder<List<AlertEntity>>(
           stateResult: alertViewModel.alertResult,
-          initialWidget: Text("NO DATA BLA BLA BLA ADD SOME ALERT BRO"),
-          completedWidget: (data) {
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return AlertCell(
-                  alertEntity: data[index],
-                );
-              },
-              itemCount: data.length,
-            );
-          },
-          failureWidget: (failure) {
-            return Text("FAILURE ${failure.message}");
-          },
+          initialWidget: AlertListNoAlertWidget(),
+          completedWidget: buildCompletedWidget,
+          failureWidget: buildFailureWidget,
         );
       },
+    );
+  }
+
+  Widget buildFailureWidget(failure) {
+    return FailureWidget(onTryAgain: () {
+      alertViewModel.getAllAlerts();
+    });
+  }
+
+  Widget buildCompletedWidget(data) {
+    return ListView.separated(
+      itemBuilder: (context, index) {
+        var currentAlert = alertViewModel.alertListToShow[index];
+        return buildAlertCell(currentAlert);
+      },
+      separatorBuilder: (context, index) {
+        return Divider();
+      },
+      itemCount: alertViewModel.alertListToShow.length,
+    );
+  }
+
+  AlertCell buildAlertCell(AlertEntity currentAlert) {
+    return AlertCell(
+      alertEntity: currentAlert,
+      onTap: () {
+        navigateToAlertDetails(currentAlert);
+      },
+      onDismiss: (i) {
+        alertViewModel.deleteAlert(entity: currentAlert);
+        setState(() {});
+      },
+    );
+  }
+
+  void navigateToAlertDetails(AlertEntity currentAlert) {
+    NavigationService.shared.navigateTo(
+      NavigationRoute.toAlert(
+        AlertDetailScreen(
+          alertEntity: currentAlert,
+          isUpdate: true,
+        ),
+      ),
     );
   }
 }

@@ -14,4 +14,14 @@ class AlertEntity {
     required this.currentPrice,
     this.targetPrice,
   });
+
+  static AlertEntity copyWithTargetPrice(AlertEntity entity, num? targetPrice) {
+    return AlertEntity(
+        coindID: entity.coindID,
+        name: entity.name,
+        image: entity.image,
+        symbol: entity.symbol,
+        currentPrice: entity.currentPrice,
+        targetPrice: targetPrice ?? entity.currentPrice);
+  }
 }

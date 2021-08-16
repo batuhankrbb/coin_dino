@@ -36,13 +36,13 @@ class DetailAppBarActions extends StatelessWidget {
   Widget buildCompletedWidget(CoinDetailEntity data, BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 12),
-      child: IconButton(
-        icon: Icon(
+      child: GestureDetector(
+        child: Icon(
           Icons.add_alarm,
           color: context.colorScheme.primary,
           size: context.getHeight(0.033),
         ),
-        onPressed: () {
+        onTap: () {
           navigateToAlertDetail(data);
         },
       ),
