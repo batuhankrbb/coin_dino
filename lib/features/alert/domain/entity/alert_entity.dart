@@ -5,6 +5,7 @@ class AlertEntity {
   final String symbol;
   final num currentPrice;
   final num? targetPrice;
+  final bool? alertForBigNumber;
 
   AlertEntity({
     required this.coindID,
@@ -13,6 +14,7 @@ class AlertEntity {
     required this.symbol,
     required this.currentPrice,
     this.targetPrice,
+    this.alertForBigNumber
   });
 
   static AlertEntity copyWithTargetPrice(AlertEntity entity, num? targetPrice) {

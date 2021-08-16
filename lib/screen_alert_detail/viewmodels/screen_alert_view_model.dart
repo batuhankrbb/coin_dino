@@ -86,6 +86,10 @@ abstract class _ScreenAlertViewModelBase with Store {
     var index = alertListToShow.indexOf(entity);
     var result = await alertRepository.deleteAlert(entity);
     alertListToShow.removeAt(index);
+    if (alertListToShow.isEmpty) {
+      alertResult = StateResult.initial();
+    }
+
     result.when(success: (_) {
       AlertHelper.shared.showSnackBar("deleted succesfully", context!);
     }, failure: (failure) {

@@ -36,13 +36,13 @@ class AlertCoinModel extends BaseNetworkModel {
         "current_price": currentPrice,
       };
 
-  AlertEntity toEntity(num targetPrice) {
+  AlertEntity toEntity(num targetPrice, bool alertForBigNumber) {
     return AlertEntity(
         coindID: id,
         name: name,
         image: image,
         symbol: symbol,
         currentPrice: currentPrice,
-        targetPrice: targetPrice);
+        targetPrice: targetPrice,alertForBigNumber: alertForBigNumber);
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 
 import '../../../../core/notification/notification_helper.dart';
@@ -39,7 +41,8 @@ class AlertRepository implements IAlertRepository {
 
       for (int i = 0; i < savedIdList.length; i++) {
         //merge coins from api and local saved alerts
-        var entity = allCoinAlerts[i].toEntity(allSavedAlerts[i].targetPrice);
+        var entity = allCoinAlerts[i].toEntity(
+            allSavedAlerts[i].targetPrice, allSavedAlerts[i].alertForBigNumber);
         entityList.add(entity);
       }
       return Result.success(entityList);
@@ -93,37 +96,32 @@ class AlertRepository implements IAlertRepository {
 
   @override
   Future<Result<void>> checkAlertsForNotification() async {
-    //TODO WILL BE REORGANIZED
     try {
-      var baseCurrency = await getBaseCurrency();
-      var allAlerts = await localDataSource.getAllSavedAlerts();
-      var alertsIds = allAlerts.map((e) => e.coindID).toList();
-      var remoteAlerts = await remoteDataSource.getGivenCoins(
-          coinIds: alertsIds, vsCurrency: baseCurrency);
+      var result = await getAllAlerts();
+      List<AlertEntity> alertsToNotify = [];
 
-      List<AlertCoinModel> alertsToNotify = [];
-
-      for (int i = 0; i < allAlerts.length; i++) {
-        var localAlert = allAlerts[i];
-        var remoteAlert = remoteAlerts[i];
-        var isTargetHigh = localAlert.targetPrice > remoteAlert.currentPrice;
-
-        if (isTargetHigh && remoteAlert.currentPrice > localAlert.targetPrice) {
-          alertsToNotify.add(remoteAlert);
-        } else if (!isTargetHigh &&
-            remoteAlert.currentPrice < localAlert.targetPrice) {
-          alertsToNotify.add(remoteAlert);
-        }
-      }
-
-      alertsToNotify.forEach((element) {
-        NotificationHelper.shared.showNotification(
-            title: element.name,
-            description: "price: ${element.currentPrice} and id: ${element.id}",
-            payLoad: "deneme");
+      result.when(success: (data) {
+        data.forEach((element) {
+          if ((element.alertForBigNumber ?? true) == true &&
+              element.currentPrice > (element.targetPrice ?? 0)) {
+            alertsToNotify.add(element);
+          } else if ((element.alertForBigNumber ?? true) == false &&
+              element.currentPrice < (element.targetPrice ?? 0)) {
+            alertsToNotify.add(element);
+          }
+          alertsToNotify.forEach((element) {
+            NotificationHelper.shared.showNotification(
+                title: element.name,
+                description:
+                    "price: ${element.currentPrice} and id: ${element.coindID}",
+                payLoad: "test");
+          });
+        });
+      }, failure: (failure) {
+        throw AlertException.allAlertsFetchingException();
       });
 
-      return Result.success("sadaqsd");
+      return Result.success(result);
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
     }
