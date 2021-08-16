@@ -26,10 +26,19 @@ abstract class _ScreenAlertViewModelBase with Store {
   StateResult<List<AlertEntity>> alertResult = StateResult.initial();
 
   @action
-  Future<void> addAlert(AlertEntity alertEntity,num targetPrice) async {
-    var result = await alertRepository.addAlert(alertEntity);
+  Future<void> addAlert(AlertEntity entity, num targetPrice) async {
+    var newAlertEntity = AlertEntity(
+        coindID: entity.coindID,
+        name: entity.name,
+        image: entity.image,
+        symbol: entity.symbol,
+        currentPrice: entity.currentPrice,
+        targetPrice: targetPrice);
+      
+    var result = await alertRepository.addAlert(newAlertEntity);
     result.when(success: (_) {
-      AlertHelper.shared.showSnackBar("Alert has been added successfully", context!);
+      AlertHelper.shared
+          .showSnackBar("Alert has been added successfully", context!);
     }, failure: (failure) {
       AlertHelper.shared
           .showSnackBar("Something went wrong. Try again.", context!);
@@ -37,21 +46,20 @@ abstract class _ScreenAlertViewModelBase with Store {
   }
 
   @action
-  Future<void> updateAlert(AlertEntity entity,num newTargetPrice) async {
+  Future<void> updateAlert(AlertEntity entity, num newTargetPrice) async {
     var result = await alertRepository.updateAlert(entity);
-    result.when(
-        success: (_) {
-          AlertHelper.shared.showSnackBar("Alert has been updated successfully", context!);
-        },
-        failure: (failure) {
-          AlertHelper.shared
+    result.when(success: (_) {
+      AlertHelper.shared
+          .showSnackBar("Alert has been updated successfully", context!);
+    }, failure: (failure) {
+      AlertHelper.shared
           .showSnackBar("Something went wrong. Try again.", context!);
-        });
+    });
   }
-
 
   @action
   Future<void> getAllAlerts() async {
+    //DONE
     alertResult = StateResult.loading();
     var result = await alertRepository.getAllAlerts();
     result.when(success: (alerts) {
@@ -67,6 +75,7 @@ abstract class _ScreenAlertViewModelBase with Store {
 
   @action
   Future<void> deleteAlert(AlertEntity entity) async {
+    //DONE
     var result = await alertRepository.deleteAlert(entity);
     result.when(success: (_) {
       AlertHelper.shared.showSnackBar("deleted succesfully", context!);
@@ -75,8 +84,6 @@ abstract class _ScreenAlertViewModelBase with Store {
           .showSnackBar("deleting failed ${failure.message}", context!);
     });
   }
-
-  
 }
 
 /*
