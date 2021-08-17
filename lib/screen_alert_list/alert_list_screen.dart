@@ -3,6 +3,7 @@ import 'package:coin_dino/core/navigation/routes/navigation_route.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/global/components/failure_widget.dart';
+import 'package:coin_dino/global/utils/global_keys.dart';
 import 'package:coin_dino/screen_alert_detail/alert_detail_screen.dart';
 import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
@@ -38,6 +39,7 @@ class _AlertListScreenState extends State<AlertListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: GlobalKeys.shared.scaffoldKey,
       appBar: alertListAppBar(context),
       body: SafeArea(
         child: Container(

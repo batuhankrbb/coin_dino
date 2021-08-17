@@ -1,4 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/global/utils/global_keys.dart';
+import 'package:coin_dino/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
@@ -14,7 +16,7 @@ class AlertHelper {
       String title, String message, BuildContext context) {
     showCupertinoDialog(
         context: context,
-        builder: (context) {
+        builder: (builderContext) {
           return CupertinoAlertDialog(
             title: Text(title),
             content: Text(message),
@@ -33,7 +35,7 @@ class AlertHelper {
 
   void showSnackBar(String message, BuildContext context,
       [bool isPositive = true]) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    ScaffoldMessenger.of(GlobalKeys.shared.scaffoldKey.currentContext ?? context).showSnackBar(SnackBar(
       content: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
