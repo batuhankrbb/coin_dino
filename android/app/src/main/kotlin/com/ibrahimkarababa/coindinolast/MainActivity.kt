@@ -1,4 +1,4 @@
-package com.example.coin_dino
+package com.ibrahimkarababa.coindinolast
 
 import io.flutter.embedding.android.FlutterActivity
 
