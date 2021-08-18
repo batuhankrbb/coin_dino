@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import '../../global/extensions/style_extensions.dart';
 import '../../core/extensions/context_extensions.dart';
 
 class InAppPurchaseButton extends StatelessWidget {
@@ -15,8 +14,9 @@ class InAppPurchaseButton extends StatelessWidget {
       child: Container(
         width: context.getHeight(0.9),
         child: ElevatedButton(
-          style: context.buttonStyle(
-            backgroundColor: context.colorScheme.surface,
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStateProperty.all<Color>(context.colorScheme.surface),
           ),
           onPressed: null,
           child: buildText(context),

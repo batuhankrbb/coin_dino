@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
 import '../../core/mini_services/image/image_helper.dart';
-import '../../global/extensions/style_extensions.dart';
+
 
 class OnboardScreenImageAndTitleWidget extends StatelessWidget {
   final String image;
@@ -42,7 +42,7 @@ class OnboardScreenImageAndTitleWidget extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 20),
       child: AutoSizeText(
         description,
-        style: context.descriptionStyle(
+        style: TextStyle(
           fontSize: context.getWidth(0.05),
         ),
       ),
@@ -53,7 +53,7 @@ class OnboardScreenImageAndTitleWidget extends StatelessWidget {
     return Container(
       child: AutoSizeText(
         title,
-        style: context.rockoFLFStyle().copyWith(fontSize: 60),
+        style: TextStyle(fontSize: 60),
       ),
     );
   }

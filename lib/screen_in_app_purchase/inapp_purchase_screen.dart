@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import '../core/mini_services/image/image_helper.dart';
 import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../global/components/app_bar_components.dart';
-import '../global/extensions/style_extensions.dart';
 import '../global/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 import '../core/extensions/context_extensions.dart';

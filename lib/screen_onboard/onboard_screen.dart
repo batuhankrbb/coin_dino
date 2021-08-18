@@ -7,7 +7,6 @@ import 'components/onboard_navigate_button.dart';
 import 'package:flutter/material.dart';
 import '../core/extensions/context_extensions.dart';
 import '../global/components/app_bar_components.dart';
-import '../global/extensions/style_extensions.dart';
 import '../global/utils/custom_colors.dart';
 import 'components/onboard_image_title_widget.dart';
 import 'components/page_view_indicator.dart';
