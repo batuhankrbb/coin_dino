@@ -1,4 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/mobile_ads/admob_ad_id_helper.dart';
+import 'package:coin_dino/core/mobile_ads/admob_helper.dart';
+import 'package:coin_dino/core/mobile_ads/admob_widget_helper.dart';
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_custom_textfield.dart';
@@ -6,6 +9,7 @@ import 'package:coin_dino/screen_alert_detail/components/alert_detail_execute_bu
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_explanation_text.dart';
 import 'package:coin_dino/screen_alert_detail/components/alert_detail_header.dart';
 import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../global/components/app_bar_components.dart';
 import '../global/components/cached_network_image.dart';
@@ -30,8 +34,12 @@ class AlertDetailScreen extends StatefulWidget {
 class _AlertDetailScreenState extends State<AlertDetailScreen> {
   var alertViewModel = getit.get<ScreenAlertViewModel>();
 
+  final BannerAd myBanner = AdmobHelper.shared
+      .makeBannerAd(bannerID: AdmobIDHelper.shared.alertDetailScreenBannerID);
+
   @override
   void initState() {
+    myBanner.load();
     super.initState();
     alertViewModel.setContext(context);
     alertViewModel.textEditingController.clear();
@@ -107,11 +115,16 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
               ),
             ),
             Spacer(
-              flex: 17,
-            )
+              flex: 14,
+            ),
+            buildBannerAd(),
           ],
         ),
       ),
     );
+  }
+
+  Widget buildBannerAd() {
+    return AdmobWidgetHelper.shared.buildBannerAdWidget(myBanner);
   }
 }
