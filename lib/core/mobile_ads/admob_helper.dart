@@ -1,3 +1,4 @@
+import 'package:get_it/get_it.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdmobHelper {
@@ -36,8 +37,12 @@ class AdmobHelper {
           onAdDismissedFullScreenContent: (ad) {
             if (onAdDismissed != null) {
               onAdDismissed(ad);
+              ad.dispose();
             }
           },
+          onAdFailedToShowFullScreenContent: (ad,error){
+             ad.dispose();
+          }
         );
         ad.show();
       }, onAdFailedToLoad: (error) {
