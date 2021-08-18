@@ -1,5 +1,6 @@
 import 'package:coin_dino/features/alert/data/model/alert_model.dart';
 import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'features/alert/data/data_source/implementations/alert_local_data_source.dart';
 import 'features/alert/data/data_source/implementations/alert_remote_data_source.dart';
@@ -30,6 +31,8 @@ import 'global/starting_files/injection_container.dart';
 import 'global/starting_files/launch_app.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await MobileAds.instance.initialize();
   await HiveHelper.shared.setUpHive();
   setupGetIt();
   await launchApp(); //* sets up base options
