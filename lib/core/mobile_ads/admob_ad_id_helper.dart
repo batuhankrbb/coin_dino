@@ -15,14 +15,6 @@ class AdmobIDHelper { //* TEST IDS
     return _returnWithChecking(iosID: "ca-app-pub-3940256099942544/4411468910", androidID: "ca-app-pub-3940256099942544/1033173712");
   }
 
-  String get homeScreenNativeID {
-    return _returnWithChecking(iosID: "ca-app-pub-3940256099942544/3986624511", androidID: "ca-app-pub-3940256099942544/2247696110");
-  }
-
-  String get searchScreenNativeID {
-    return _returnWithChecking(iosID: "ca-app-pub-3940256099942544/3986624511", androidID: "ca-app-pub-3940256099942544/2247696110");
-  }
-
   String _returnWithChecking(
       {required String iosID, required String androidID}) {
     if (Platform.isIOS || Platform.isMacOS) {

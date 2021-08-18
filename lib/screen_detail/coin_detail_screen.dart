@@ -1,3 +1,6 @@
+import 'package:coin_dino/core/mobile_ads/admob_ad_id_helper.dart';
+import 'package:coin_dino/core/mobile_ads/admob_helper.dart';
+
 import '../core/error_handling/custom_failure.dart';
 import '../core/navigation/routes/navigation_route.dart';
 import '../core/navigation/services/navigation_service.dart';
@@ -41,6 +44,9 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     _tabController = TabController(length: 2, vsync: this);
     _detailViewModel.getCoinDetails(widget.coinID);
     _detailViewModel.getCharts(coinID: widget.coinID, days: "7");
+    AdmobHelper.shared.showInterstitialAd(
+        interstitialID: AdmobIDHelper.shared.coinDetailScreenInterstitialID,
+        onAdFailed: (error) {});
   }
 
   @override
