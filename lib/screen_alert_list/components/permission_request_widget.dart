@@ -1,22 +1,32 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
+import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 
-class PermissionRequestWidget extends StatelessWidget {
-  PermissionRequestWidget({Key? key, required this.visible}) : super(key: key);
+class PermissionRequestWidget extends StatefulWidget {
+  PermissionRequestWidget({Key? key, required this.visible, required this.onTap}) : super(key: key);
 
   bool visible;
+  VoidCallback onTap;
+
+  @override
+  _PermissionRequestWidgetState createState() =>
+      _PermissionRequestWidgetState();
+}
+
+class _PermissionRequestWidgetState extends State<PermissionRequestWidget> {
+
 
   @override
   Widget build(BuildContext context) {
-    return Visibility(visible: visible, child: buildListTile(context));
+    return Visibility(
+        visible: widget.visible, child: buildPermissionWidget(context));
   }
 
-  Widget buildListTile(BuildContext context) {
+  Widget buildPermissionWidget(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        //TODO REQUEST PERMISSION
-      },
+      onTap: widget.onTap,
       child: Container(
         height: context.getHeight(0.1),
         alignment: Alignment.center,

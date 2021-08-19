@@ -40,9 +40,7 @@ void main() async {
   await getit
       .get<AppSettingsViewModel>()
       .setUpSettings(); //* sets up theme options.
-  runApp(
-    DevicePreview(builder: (_) => MyApp()),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -51,7 +49,6 @@ class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
-
 
 class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   final AppSettingsViewModel appSettingsViewModel =
@@ -66,8 +63,8 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           navigatorKey: NavigationService.shared.navigatorKey,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          builder: DevicePreview.appBuilder,
-          locale: DevicePreview.locale(context),
+          //    builder: DevicePreview.appBuilder,
+          //      locale: DevicePreview.locale(context),
           home: RootScreen(),
         );
       },

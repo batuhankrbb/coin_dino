@@ -1,5 +1,7 @@
 import 'package:coin_dino/core/navigation/services/navigation_service.dart';
+import 'package:coin_dino/core/permission/permission_helper.dart';
 import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/result_types/state_result.dart';
 import '../../core/user_interface/helpers/alert_helper.dart';
@@ -31,6 +33,20 @@ abstract class _ScreenAlertViewModelBase with Store {
 
   @observable
   TextEditingController textEditingController = TextEditingController();
+
+  @action
+  Future<bool> checkAlertPermissions({required bool withRequest}) async {
+    var isGranted = await PermissionHelper.shared
+        .isPermissionGranted(Permission.notification);
+    if (!isGranted && withRequest) {
+      var lastGrantedInfo = await PermissionHelper.shared
+          .requestPermission(Permission.notification);
+      print("lastgrantedinfo beklendi");
+      return lastGrantedInfo;
+    }
+     print("isgranted döndü");
+    return isGranted;
+  }
 
   @action
   Future<void> addAlert({required AlertEntity entity}) async {
