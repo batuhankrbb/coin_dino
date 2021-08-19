@@ -9,6 +9,7 @@ import 'package:coin_dino/screen_alert_detail/alert_detail_screen.dart';
 import 'package:coin_dino/screen_alert_detail/viewmodels/screen_alert_view_model.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
 import 'package:coin_dino/screen_alert_list/components/alert_list_no_alert_widget.dart';
+import 'package:coin_dino/screen_alert_list/components/permission_request_widget.dart';
 
 import '../global/components/app_bar_components.dart';
 import '../global/components/state_result_builder.dart';
@@ -45,7 +46,17 @@ class _AlertListScreenState extends State<AlertListScreen> {
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
-          child: buildAlertList(),
+          child: Column(
+            children: [
+              PermissionRequestWidget(
+                visible: false,
+              ),
+              Expanded(
+                flex: 15,
+                child: buildAlertList(),
+              ),
+            ],
+          ),
         ),
       ),
     );
