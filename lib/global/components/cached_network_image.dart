@@ -19,8 +19,8 @@ class CachedNetworkImageWidget extends StatelessWidget {
       imageUrl: imageURL,
       width: imageWidth ?? 25,
       height: imageHeigth ?? 25,
-      placeholder: (context, url) => CupertinoActivityIndicator(),
-      errorWidget: (context, uri, _) => CupertinoActivityIndicator(),
+      placeholder: (context, url) => LoadingScreen(isSmallLoading: true,),
+      errorWidget: (context, uri, _) => LoadingScreen(isSmallLoading: true,),
     );
   }
 }

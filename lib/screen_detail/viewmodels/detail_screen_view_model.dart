@@ -60,8 +60,7 @@ abstract class _DetailScreenViewModelBase with Store {
   }
 
   Future<void> shareCoin(String coinName) async {
-    //TODO DÜZELTİLECEK
-    await ShareService.shared.share(text: "HEY! Check out $coinName");
+ await ShareService.shared.share(text: "HEY! Check out $coinName");
   }
 
   Future<void> openWebPage(String url) async {

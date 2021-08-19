@@ -24,7 +24,7 @@ abstract class _ScreenAlertViewModelBase with Store {
   }
 
   @observable
-  StateResult<List<AlertEntity>> alertResult = StateResult.initial();
+  StateResult<List<AlertEntity>> alertResult = StateResult.loading();
 
   @observable
   ObservableList<AlertEntity> alertListToShow = ObservableList();

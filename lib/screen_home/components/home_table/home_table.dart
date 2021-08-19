@@ -1,3 +1,4 @@
+import 'package:coin_dino/global/components/loading_screen.dart';
 import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
 
 import '../../../core/error_handling/custom_failure.dart';
@@ -38,7 +39,7 @@ class _HomeTableState extends State<HomeTable> {
         builder: (_) {
           return StateResultBuilder<List<MarketCoinEntity>>(
             stateResult: homeScreenViewModel.coinListResult,
-            initialWidget: CupertinoActivityIndicator(),
+            initialWidget: LoadingScreen(isSmallLoading: true,),
             completedWidget: buildCompletedWidget,
             failureWidget: buildFailureWidget,
           );
@@ -68,7 +69,7 @@ class _HomeTableState extends State<HomeTable> {
                 listView: buildListView(),
                 snackMessage: "Refreshed"),
           ),
-          if (homeScreenViewModel.isScrolled) CupertinoActivityIndicator(),
+          if (homeScreenViewModel.isScrolled) LoadingScreen(isSmallLoading: true,),
         ],
       );
     });
@@ -76,12 +77,12 @@ class _HomeTableState extends State<HomeTable> {
 
   ListView buildListView() {
     return ListView.separated(
-                itemBuilder: buildCell,
-                separatorBuilder: buildSeparator,
-                itemCount: homeScreenViewModel.coinListToShow.length,
-                controller: homeScreenViewModel.scrollController,
-                physics: BouncingScrollPhysics(),
-              );
+      itemBuilder: buildCell,
+      separatorBuilder: buildSeparator,
+      itemCount: homeScreenViewModel.coinListToShow.length,
+      controller: homeScreenViewModel.scrollController,
+      physics: BouncingScrollPhysics(),
+    );
   }
 
   Widget buildCell(BuildContext context, int index) {

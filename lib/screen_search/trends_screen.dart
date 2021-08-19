@@ -1,3 +1,5 @@
+import 'package:coin_dino/global/components/loading_screen.dart';
+
 import '../core/navigation/routes/navigation_route.dart';
 import '../core/navigation/services/navigation_service.dart';
 import '../global/components/failure_widget.dart';
@@ -41,7 +43,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
           failureWidget: (failure) {
             return buildFailureWidget();
           },
-          initialWidget: CupertinoActivityIndicator(),
+          initialWidget: LoadingScreen(),
         );
       },
     );

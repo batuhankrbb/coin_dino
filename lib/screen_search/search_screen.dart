@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/global/components/loading_screen.dart';
 import '../core/error_handling/custom_failure.dart';
 import '../core/navigation/routes/navigation_route.dart';
 import '../core/navigation/services/navigation_service.dart';
@@ -82,11 +83,11 @@ class _SearchScreenState extends State<SearchScreen> {
               child: StateResultBuilder<List<SearchCoinEntity>>(
                 stateResult: _searchViewModel.searchCoinsResult,
                 failureWidget: buildFailureWidget,
-                initialWidget: Center(child: CupertinoActivityIndicator(),),
+                initialWidget: LoadingScreen(isSmallLoading: true,),
                 completedWidget: buildCompletedListView,
               ),
             ),
-            if (_searchViewModel.isScrolled) CupertinoActivityIndicator(),
+            if (_searchViewModel.isScrolled) LoadingScreen(isSmallLoading: true,),
           ],
         );
       },

@@ -1,3 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/global/components/failure_widget.dart';
+import 'package:coin_dino/global/components/loading_screen.dart';
+import 'package:coin_dino/screen_detail/components/chart_option/chart_option_value_data.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../features/details/domain/entity/coin_chart_entity.dart';
@@ -53,12 +57,17 @@ class _CoinChartState extends State<CoinChart> {
       return StateResultBuilder<CoinChartEntity>(
         stateResult: detailViewModel.coinChartResult,
         failureWidget: (failure) {
-          return Text(failure.message);
+          return FailureWidget(
+              explanation:
+                  "Something went wrong while getting chart. Give it an another shot.",
+              onTryAgain: () {
+                detailViewModel.getCharts(coinID: widget.coinID, days: "7");
+              });
         },
         completedWidget: (data) {
           return FinanceChart(data: data);
         },
-        loadingWidget: CupertinoActivityIndicator(),
+        loadingWidget: LoadingScreen(isSmallLoading: true,),
       );
     });
   }

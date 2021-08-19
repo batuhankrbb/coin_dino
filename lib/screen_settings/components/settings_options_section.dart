@@ -1,3 +1,4 @@
+import 'package:coin_dino/global/components/failure_widget.dart';
 import 'package:coin_dino/screen_settings/viewmodels/settings_view_model.dart';
 
 import '../../features/preferences/domain/entity/language_preference_entity.dart';
