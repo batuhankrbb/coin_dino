@@ -1,9 +1,9 @@
 import 'package:coin_dino/xscreen_main/viewmodels/main_screen_view_model.dart';
 
-import '../global/components/colored_tab_bar.dart';
-import '../global/starting_files/injection_container.dart';
+import '../../global/components/colored_tab_bar.dart';
+import '../../global/starting_files/injection_container.dart';
 import 'package:flutter/material.dart';
-import '../core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class MainTabBar extends StatefulWidget {
@@ -63,7 +63,6 @@ class _MainTabBarState extends State<MainTabBar> {
   }
 
   void tabBarOnTap(int index) {
-    print(index);
     viewModel.selectedIndex = index;
   }
 }

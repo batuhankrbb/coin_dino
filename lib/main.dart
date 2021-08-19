@@ -1,4 +1,5 @@
 import 'package:coin_dino/features/alert/data/model/alert_model.dart';
+import 'package:coin_dino/root_screen.dart';
 import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -9,7 +10,7 @@ import 'features/alert/data/repository/alert_repository.dart';
 import 'features/alert/domain/entity/alert_entity.dart';
 import 'features/alert/domain/repository_contract/i_alert_repository.dart';
 import 'features/preferences/data/implementations/preferences_local_data_source.dart';
-import 'main_screen.dart';
+import 'xscreen_main/main_screen.dart';
 import 'screen_alert_detail/alert_detail_screen.dart';
 import 'screen_detail/coin_detail_screen.dart';
 import 'screen_home/home_screen.dart';
@@ -66,10 +67,9 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           theme: appSettingsViewModel.themeData,
           builder: DevicePreview.appBuilder,
           locale: DevicePreview.locale(context),
-          home: MainScreen(),
+          home: RootScreen(),
         );
       },
     );
   }
 }
-

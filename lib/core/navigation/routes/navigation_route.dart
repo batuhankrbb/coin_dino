@@ -2,7 +2,7 @@ import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
 import 'package:coin_dino/screen_search/search_screen_main.dart';
 
 import '../../../main.dart';
-import '../../../main_screen.dart';
+import '../../../xscreen_main/main_screen.dart';
 import '../../../screen_alert_detail/alert_detail_screen.dart';
 import '../../../screen_detail/coin_detail_screen.dart';
 import '../../../screen_home/home_screen.dart';

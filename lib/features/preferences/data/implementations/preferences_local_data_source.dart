@@ -20,7 +20,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       var currencyPreference = await _hiveHelper.getData<String>(
           HiveConstants.BOX_PREFERENCES,
           HiveConstants.KEY_BASE_CURRENCY_PREFERENCE);
-      return currencyPreference;
+      return currencyPreference ?? "usd";
     } catch (e) {
       ErrorHelper.shared.printError("PreferencesLocalDataSource/getBaseCurrencyPreference", e);
       throw PreferencesException.baseCurrencyFetchingException();
@@ -32,7 +32,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
     try {
       var languagePreference = await _hiveHelper.getData<String>(
           HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_LANGUAGE_PREFERENCE);
-      return languagePreference;
+      return languagePreference ?? "english";
     } catch (e) {
       ErrorHelper.shared.printError("PreferencesLocalDataSource/getLanguagePreference", e);
       throw PreferencesException.languageFetchingException();
@@ -44,7 +44,7 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
     try {
       var themePreference = await _hiveHelper.getData<String>(
           HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_THEME_PREFERENCE);
-      return themePreference;
+      return themePreference ?? "light";
     } catch (e) {
       ErrorHelper.shared.printError("PreferencesLocalDataSource/getThemePreference", e);
       throw PreferencesException.themeFetchingException();

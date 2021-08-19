@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/hive/hive_constants.dart';
+import 'package:coin_dino/core/hive/hive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -18,8 +20,12 @@ abstract class _AppSettingsViewModelBase with Store {
   @observable
   ThemeData themeData = AppThemes.shared.lightModeTheme;
 
+  @observable
+  bool showOnBoard = true;
+
   @action
   Future<void> setUpSettings() async {
+    await checkOnBoardShow();
     var theme = await _preferenceRepository.getThemePreference();
     theme.when(success: (data) {
       setTheme(data);
@@ -38,5 +44,18 @@ abstract class _AppSettingsViewModelBase with Store {
         themeData = AppThemes.shared.lightModeTheme;
         break;
     }
+  }
+
+  @action
+  Future<void> checkOnBoardShow() async {
+    showOnBoard = await HiveHelper.shared.getData<bool>(
+            HiveConstants.BOX_STARTING, HiveConstants.KEY_ONBOARD_SHOW) ??
+        true;
+  }
+
+  @action
+  Future<void> stopShowingOnboard() async{
+ await HiveHelper.shared.putData<bool>(
+          HiveConstants.BOX_STARTING, HiveConstants.KEY_ONBOARD_SHOW, false);
   }
 }

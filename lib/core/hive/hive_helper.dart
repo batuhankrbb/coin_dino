@@ -12,11 +12,13 @@ class HiveHelper {
     Hive.registerAdapter(AlertModelAdapter());
     await Hive.openBox<String>(HiveConstants.BOX_PREFERENCES);
     await Hive.openBox<AlertModel>(HiveConstants.BOX_ALERTS);
+    await Hive.openBox<bool>(HiveConstants.BOX_STARTING);
+
   }
 
-  Future<T> getData<T>(String boxName, dynamic key) async {
+  Future<T?> getData<T>(String boxName, dynamic key) async {
     var box = Hive.box<T>(boxName);
-    return box.get(key)!;
+    return box.get(key);
   }
 
   Future<void> deleteData<T>(String boxName, dynamic key) async {

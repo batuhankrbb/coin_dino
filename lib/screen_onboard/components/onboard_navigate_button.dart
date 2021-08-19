@@ -1,14 +1,19 @@
+import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
+
 import '../../core/navigation/routes/navigation_route.dart';
 import '../../core/navigation/services/navigation_service.dart';
 import '../../global/utils/custom_colors.dart';
 import '../../main.dart';
-import '../../main_screen.dart';
+import '../../xscreen_main/main_screen.dart';
 import '../../screen_home/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
 
 class OnboardNavigateButton extends StatelessWidget {
-  const OnboardNavigateButton({Key? key}) : super(key: key);
+  OnboardNavigateButton({Key? key}) : super(key: key);
+
+  var appSettingsViewModel = getit.get<AppSettingsViewModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +22,7 @@ class OnboardNavigateButton extends StatelessWidget {
       child: InkWell(
         hoverColor: Colors.transparent,
         onTap: () {
+          appSettingsViewModel.stopShowingOnboard();
           NavigationService.shared
               .navigateTo(NavigationRoute.toMainScreen(MainScreen()));
         },

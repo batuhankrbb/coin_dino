@@ -1,10 +1,10 @@
-import 'global/components/colored_tab_bar.dart';
-import 'screen_home/home_screen.dart';
-import 'screen_search/search_screen_main.dart';
-import 'screen_settings/settings_screen.dart';
-import 'xscreen_main/main_tab_bar.dart';
+import '../global/components/colored_tab_bar.dart';
+import '../screen_home/home_screen.dart';
+import '../screen_search/search_screen_main.dart';
+import '../screen_settings/settings_screen.dart';
+import 'components/main_tab_bar.dart';
 import 'package:flutter/material.dart';
-import 'core/extensions/context_extensions.dart';
+import '../core/extensions/context_extensions.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);

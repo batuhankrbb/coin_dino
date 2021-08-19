@@ -1,3 +1,5 @@
+import 'package:coin_dino/core/hive/hive_helper.dart';
+
 import '../../features/preferences/domain/entity/language_preference_entity.dart';
 import '../../features/preferences/domain/entity/theme_preference_entity.dart';
 import '../../features/preferences/domain/repository_contract/i_preference_repository.dart';
@@ -17,3 +19,10 @@ Future<void> launchApp() async {
   });
   await Future.delayed(Duration(milliseconds: 500));
 }
+
+
+
+
+
+
+
