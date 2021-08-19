@@ -103,7 +103,7 @@ class AlertRepository implements IAlertRepository {
       result.when(success: (data) {
         data.forEach((element) {
           if ((element.alertForBigNumber ?? true) == true &&
-              element.currentPrice > (element.targetPrice ?? 0)) {
+              element.currentPrice >= (element.targetPrice ?? 0)) {
             alertsToNotify.add(element);
           } else if ((element.alertForBigNumber ?? true) == false &&
               element.currentPrice < (element.targetPrice ?? 0)) {
