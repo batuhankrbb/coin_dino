@@ -1,6 +1,9 @@
+import 'package:coin_dino/core/localization/localization_helper.dart';
 import 'package:coin_dino/features/alert/data/model/alert_model.dart';
+import 'package:coin_dino/global/starting_files/start_app.dart';
 import 'package:coin_dino/root_screen.dart';
 import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'features/alert/data/data_source/implementations/alert_local_data_source.dart';
@@ -32,15 +35,12 @@ import 'global/starting_files/injection_container.dart';
 import 'global/starting_files/launch_app.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await MobileAds.instance.initialize();
-  await HiveHelper.shared.setUpHive();
-  setupGetIt();
-  await launchApp(); //* sets up base options
-  await getit
-      .get<AppSettingsViewModel>()
-      .setUpSettings(); //* sets up theme options.
-  runApp(MyApp());
+  await startApp();
+  runApp(
+    LocalizationHelper.shared.runAppWithEasyWidget(
+      MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -60,7 +60,10 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
       builder: (context) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
           navigatorKey: NavigationService.shared.navigatorKey,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
           //    builder: DevicePreview.appBuilder,
@@ -71,4 +74,3 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
     );
   }
 }
-

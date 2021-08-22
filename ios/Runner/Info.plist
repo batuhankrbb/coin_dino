@@ -24,6 +24,11 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>CFBundleLocalizations</key>
+<array>
+	<string>en</string>
+	<string>tr</string>
+</array>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3108242646730560~4896371054</string>
 	<key>LSRequiresIPhoneOS</key>
