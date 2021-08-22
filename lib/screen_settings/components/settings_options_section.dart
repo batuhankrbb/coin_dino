@@ -1,3 +1,5 @@
+
+
 import '../../global/components/failure_widget.dart';
 import '../viewmodels/settings_view_model.dart';
 
@@ -28,12 +30,12 @@ class SettingsOptionSection extends StatelessWidget {
       ),
       children: [
         buildStateResultForTheme(),
-        buildStateResultForLanguage(),
+        buildStateResultForLanguage(context),
       ],
     );
   }
 
-  Widget buildStateResultForLanguage() {
+  Widget buildStateResultForLanguage(BuildContext context) {
     return Observer(
       builder: (_) {
         return StateResultBuilder<LanguagePreferenceEntity>(
@@ -46,7 +48,7 @@ class SettingsOptionSection extends StatelessWidget {
                   Icons.chevron_right,
                 ),
                 onTap: () async {
-                  await languageOnTap(data);
+                  await languageOnTap(data,context);
                 },
               );
             },
@@ -76,12 +78,12 @@ class SettingsOptionSection extends StatelessWidget {
     });
   }
 
-  Future<void> languageOnTap(LanguagePreferenceEntity data) async {
+  Future<void> languageOnTap(LanguagePreferenceEntity data, BuildContext context) async {
     var allLanguages = await settingsViewModel.getAllLanguages();
     settingsViewModel.tapAndNavigate(
         allLanguages, "Languages", allLanguages.indexOf(data.rawValue),
         (value) {
-      settingsViewModel.setLanguagePreference(allLanguages[value]);
+      settingsViewModel.setLanguagePreference(allLanguages[value],context);
     });
   }
 

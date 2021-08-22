@@ -1,3 +1,6 @@
+import 'package:coin_dino/core/localization/localization_helper.dart';
+import 'package:flutter/material.dart';
+
 import '../../core/navigation/routes/navigation_route.dart';
 import '../../core/navigation/services/navigation_service.dart';
 import '../../global/components/selection_page/selection_page.dart';
@@ -69,10 +72,13 @@ abstract class _SettingsViewModelBase with Store {
     await getThemePreference();
   }
 
-  Future<void> setLanguagePreference(String preferenceEntity) async {
+  Future<void> setLanguagePreference(
+      String preferenceEntity, BuildContext context) async {
     await preferenceRepository
         .setLangaugePreference(preferenceEntity.toLanguagePreference());
     await getLanguagePreference();
+    await LocalizationHelper.shared
+        .setLocale(preferenceEntity.toLanguagePreference(),context);
   }
 
   Future<void> setUpSettings() async {

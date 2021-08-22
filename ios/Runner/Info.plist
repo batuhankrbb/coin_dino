@@ -28,6 +28,8 @@
 <array>
 	<string>en</string>
 	<string>tr</string>
+	<string>fr</string>
+	<string>es</string>
 </array>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3108242646730560~4896371054</string>

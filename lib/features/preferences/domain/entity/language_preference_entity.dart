@@ -1,4 +1,4 @@
-enum LanguagePreferenceEntity { turkish, english }
+enum LanguagePreferenceEntity { english, turkish, spanish, french }
 
 extension UltraLanguagePreferenceEntity on LanguagePreferenceEntity {
   String get rawValue {
@@ -7,6 +7,10 @@ extension UltraLanguagePreferenceEntity on LanguagePreferenceEntity {
         return "english";
       case LanguagePreferenceEntity.turkish:
         return "turkish";
+      case LanguagePreferenceEntity.spanish:
+        return "spanish";
+      case LanguagePreferenceEntity.french:
+        return "french";
     }
   }
 }
@@ -18,6 +22,10 @@ extension LanguagePreferenceForString on String {
         return LanguagePreferenceEntity.english;
       case "turkish":
         return LanguagePreferenceEntity.turkish;
+      case "spanish":
+        return LanguagePreferenceEntity.spanish;
+      case "french":
+        return LanguagePreferenceEntity.french;
       default:
         return LanguagePreferenceEntity.english;
     }
