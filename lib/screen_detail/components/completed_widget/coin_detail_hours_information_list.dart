@@ -1,6 +1,6 @@
-import '../../../features/details/domain/entity/coin_detail_entity.dart';
 import 'package:flutter/material.dart';
 
+import '../../../features/details/domain/entity/coin_detail_entity.dart';
 import '../coin_details_hour_table_widget.dart';
 
 class CoinDetailHoursInformationRow extends StatelessWidget {

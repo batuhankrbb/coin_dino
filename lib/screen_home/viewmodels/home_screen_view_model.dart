@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/network/network_clients/coin_gecko_client.dart';
+import '../../core/network/network_clients/coin_gecko_client.dart';
 
 import '../../core/result_types/state_result.dart';
 import '../../features/details/data/models/coin_detail_model.dart';

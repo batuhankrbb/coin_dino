@@ -1,4 +1,4 @@
-import 'package:coin_dino/global/components/loading_screen.dart';
+import '../global/components/loading_screen.dart';
 
 import '../core/navigation/routes/navigation_route.dart';
 import '../core/navigation/services/navigation_service.dart';

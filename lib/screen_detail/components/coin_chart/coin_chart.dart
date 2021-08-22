@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/global/components/failure_widget.dart';
-import 'package:coin_dino/global/components/loading_screen.dart';
-import 'package:coin_dino/screen_detail/components/chart_option/chart_option_value_data.dart';
+import '../../../global/components/failure_widget.dart';
+import '../../../global/components/loading_screen.dart';
+import '../chart_option/chart_option_value_data.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../features/details/domain/entity/coin_chart_entity.dart';

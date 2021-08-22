@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/hive/hive_constants.dart';
-import 'package:coin_dino/core/hive/hive_helper.dart';
+import '../../core/hive/hive_constants.dart';
+import '../../core/hive/hive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 

@@ -1,8 +1,8 @@
-import 'package:coin_dino/core/localization/localization_helper.dart';
-import 'package:coin_dino/features/alert/data/model/alert_model.dart';
-import 'package:coin_dino/global/starting_files/start_app.dart';
-import 'package:coin_dino/root_screen.dart';
-import 'package:coin_dino/screen_alert_list/alert_list_screen.dart';
+import 'core/localization/localization_helper.dart';
+import 'features/alert/data/model/alert_model.dart';
+import 'global/starting_files/start_app.dart';
+import 'root_screen.dart';
+import 'screen_alert_list/alert_list_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 

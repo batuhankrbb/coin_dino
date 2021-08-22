@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/localization/localization_constants.dart';
+import 'localization_constants.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 

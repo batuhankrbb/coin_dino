@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/global/utils/global_keys.dart';
-import 'package:coin_dino/xscreen_main/main_screen.dart';
+import '../../../global/utils/global_keys.dart';
+import '../../../xscreen_main/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../extensions/context_extensions.dart';
 import '../../../global/utils/custom_colors.dart';
 import '../../navigation/services/navigation_service.dart';
 

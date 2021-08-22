@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import '../../domain/entity/alert_entity.dart';
 import 'package:hive/hive.dart';
 
 part 'alert_model.g.dart';

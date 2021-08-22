@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import '../entity/alert_entity.dart';
 
 import '../../../../core/result_types/result.dart';
 

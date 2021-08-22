@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/network/network_fetching/network_option_generator.dart';
-import 'package:coin_dino/features/market/data/models/market_coin_category.model.dart';
+import '../../../../../core/network/network_fetching/network_option_generator.dart';
+import '../../models/market_coin_category.model.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../core/constants/response_types.dart';

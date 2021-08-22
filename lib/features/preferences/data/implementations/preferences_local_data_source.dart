@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:coin_dino/core/utils/error_printer.dart';
+import '../../../../core/utils/error_printer.dart';
 
 import '../../domain/entity/language_preference_entity.dart';
 import '../../domain/entity/theme_preference_entity.dart';

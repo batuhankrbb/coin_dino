@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/utils/error_printer.dart';
+import '../../../../../core/utils/error_printer.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../core/constants/response_types.dart';

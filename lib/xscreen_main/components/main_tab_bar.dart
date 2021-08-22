@@ -1,4 +1,4 @@
-import 'package:coin_dino/xscreen_main/viewmodels/main_screen_view_model.dart';
+import '../viewmodels/main_screen_view_model.dart';
 
 import '../../global/components/colored_tab_bar.dart';
 import '../../global/starting_files/injection_container.dart';

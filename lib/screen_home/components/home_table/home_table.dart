@@ -1,5 +1,5 @@
-import 'package:coin_dino/global/components/loading_screen.dart';
-import 'package:coin_dino/global/components/pull_to_refresh_builder.dart';
+import '../../../global/components/loading_screen.dart';
+import '../../../global/components/pull_to_refresh_builder.dart';
 
 import '../../../core/error_handling/custom_failure.dart';
 import '../../../core/navigation/routes/navigation_route.dart';

@@ -1,4 +1,4 @@
-import 'package:coin_dino/screen_home/components/home_screen_app_bar.dart';
+import 'components/home_screen_app_bar.dart';
 
 import '../features/market/domain/entities/market_coin_entity.dart';
 import '../global/components/app_bar_components.dart';

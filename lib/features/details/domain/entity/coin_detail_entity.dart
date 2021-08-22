@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import '../../../alert/domain/entity/alert_entity.dart';
 
 class CoinDetailEntity {
   final String id;

@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/core/utils/number_helper.dart';
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import '../../../core/utils/number_helper.dart';
+import '../../../features/alert/domain/entity/alert_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 
 
 

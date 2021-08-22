@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/screen_settings/viewmodels/settings_view_model.dart';
+import 'viewmodels/settings_view_model.dart';
 import 'components/settings_form_header.dart';
 import 'components/settings_options_section.dart';
 import 'components/settings_others_section.dart';

@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/market/data/models/market_coin_category.model.dart';
+import '../../features/market/data/models/market_coin_category.model.dart';
 
 import '../../features/alert/data/model/alert_coin_model.dart';
 import '../../features/details/data/models/coin_chart_model.dart';

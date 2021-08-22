@@ -1,6 +1,6 @@
-import 'package:coin_dino/core/navigation/services/navigation_service.dart';
-import 'package:coin_dino/core/permission/permission_helper.dart';
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import '../../core/navigation/services/navigation_service.dart';
+import '../../core/permission/permission_helper.dart';
+import '../../features/alert/domain/entity/alert_entity.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/result_types/state_result.dart';

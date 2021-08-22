@@ -1,6 +1,6 @@
-import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
-import 'package:coin_dino/screen_onboard/onboard_screen.dart';
-import 'package:coin_dino/xscreen_main/main_screen.dart';
+import 'global/app_settings/app_settings_viewmodel.dart';
+import 'screen_onboard/onboard_screen.dart';
+import 'xscreen_main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 

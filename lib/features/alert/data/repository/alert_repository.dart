@@ -1,5 +1,5 @@
 
-import 'package:coin_dino/features/alert/domain/entity/alert_entity.dart';
+import '../../domain/entity/alert_entity.dart';
 
 import '../../../../core/notification/notification_helper.dart';
 import '../../../../core/result_types/result.dart';

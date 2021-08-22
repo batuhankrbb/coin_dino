@@ -1,5 +1,5 @@
-import 'package:coin_dino/core/hive/hive_helper.dart';
-import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
+import '../../core/hive/hive_helper.dart';
+import '../app_settings/app_settings_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';

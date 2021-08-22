@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/hive/hive_helper.dart';
+import '../../core/hive/hive_helper.dart';
 
 import '../../features/preferences/domain/entity/language_preference_entity.dart';
 import '../../features/preferences/domain/entity/theme_preference_entity.dart';

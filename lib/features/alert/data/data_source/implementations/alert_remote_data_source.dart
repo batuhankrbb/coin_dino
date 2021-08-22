@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/utils/string_helper.dart';
+import '../../../../../core/utils/string_helper.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../core/constants/response_types.dart';

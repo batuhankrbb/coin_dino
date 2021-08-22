@@ -1,5 +1,5 @@
-import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
+import '../../global/app_settings/app_settings_viewmodel.dart';
+import '../../global/starting_files/injection_container.dart';
 
 import '../../core/navigation/routes/navigation_route.dart';
 import '../../core/navigation/services/navigation_service.dart';
