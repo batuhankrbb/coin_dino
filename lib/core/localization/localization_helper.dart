@@ -25,14 +25,20 @@ class LocalizationHelper {
       LanguagePreferenceEntity language, BuildContext context) async {
     switch (language) {
       case LanguagePreferenceEntity.turkish:
-        EasyLocalization.of(context)?.setLocale(
-          Locale("tr", "TR"),
-        );
+        EasyLocalization.of(context)
+            ?.setLocale(LocalizationConstants.SUPPORTED_LOCALES_TR);
         break;
       case LanguagePreferenceEntity.english:
-        EasyLocalization.of(context)?.setLocale(
-          Locale("en", "US"),
-        );
+        EasyLocalization.of(context)
+            ?.setLocale(LocalizationConstants.SUPPORTED_LOCALES_EN);
+        break;
+      case LanguagePreferenceEntity.spanish:
+        EasyLocalization.of(context)
+            ?.setLocale(LocalizationConstants.SUPPORTED_LOCALES_ES);
+        break;
+      case LanguagePreferenceEntity.french:
+        EasyLocalization.of(context)
+            ?.setLocale(LocalizationConstants.SUPPORTED_LOCALES_FR);
         break;
     }
   }
