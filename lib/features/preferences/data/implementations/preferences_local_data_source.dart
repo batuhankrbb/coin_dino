@@ -22,7 +22,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
           HiveConstants.KEY_BASE_CURRENCY_PREFERENCE);
       return currencyPreference ?? "usd";
     } catch (e) {
-      ErrorHelper.shared.printError("PreferencesLocalDataSource/getBaseCurrencyPreference", e);
+      ErrorHelper.shared.printError(
+          "PreferencesLocalDataSource/getBaseCurrencyPreference", e);
       throw PreferencesException.baseCurrencyFetchingException();
     }
   }
@@ -34,7 +35,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
           HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_LANGUAGE_PREFERENCE);
       return languagePreference ?? "english";
     } catch (e) {
-      ErrorHelper.shared.printError("PreferencesLocalDataSource/getLanguagePreference", e);
+      ErrorHelper.shared
+          .printError("PreferencesLocalDataSource/getLanguagePreference", e);
       throw PreferencesException.languageFetchingException();
     }
   }
@@ -46,7 +48,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
           HiveConstants.BOX_PREFERENCES, HiveConstants.KEY_THEME_PREFERENCE);
       return themePreference ?? "light";
     } catch (e) {
-      ErrorHelper.shared.printError("PreferencesLocalDataSource/getThemePreference", e);
+      ErrorHelper.shared
+          .printError("PreferencesLocalDataSource/getThemePreference", e);
       throw PreferencesException.themeFetchingException();
     }
   }
@@ -57,7 +60,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
           HiveConstants.KEY_BASE_CURRENCY_PREFERENCE, currencyPreference);
     } catch (e) {
-      ErrorHelper.shared.printError("PreferencesLocalDataSource/setBaseCurrencyPreference", e);
+      ErrorHelper.shared.printError(
+          "PreferencesLocalDataSource/setBaseCurrencyPreference", e);
       throw PreferencesException.baseCurrencySetException();
     }
   }
@@ -68,7 +72,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
           HiveConstants.KEY_LANGUAGE_PREFERENCE, languagePreference);
     } catch (e) {
-      ErrorHelper.shared.printError("PreferencesLocalDataSource/setLangaugePreference", e);
+      ErrorHelper.shared
+          .printError("PreferencesLocalDataSource/setLangaugePreference", e);
       throw PreferencesException.languageSetException();
     }
   }
@@ -79,7 +84,8 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       await _hiveHelper.putData(HiveConstants.BOX_PREFERENCES,
           HiveConstants.KEY_THEME_PREFERENCE, themePreference);
     } catch (e) {
-      ErrorHelper.shared.printError("PreferencesLocalDataSource/setThemePreference", e);
+      ErrorHelper.shared
+          .printError("PreferencesLocalDataSource/setThemePreference", e);
       throw PreferencesException.themeSetException();
     }
   }
@@ -93,24 +99,19 @@ class PreferencesLocalDataSource implements IPreferencesLocalDataSource {
       var currencies = decodedData.map((e) => e.toString()).toList();
       return currencies;
     } catch (e) {
-      ErrorHelper.shared.printError("PreferencesLocalDataSource/getAllSupportedBaseCurrencies", e);
+      ErrorHelper.shared.printError(
+          "PreferencesLocalDataSource/getAllSupportedBaseCurrencies", e);
       throw PreferencesException.supportedCurrenciesFetchingException();
     }
   }
 
   @override
   Future<List<String>> getAllLanguages() async {
-    return [
-      LanguagePreferenceEntity.english.rawValue,
-      LanguagePreferenceEntity.turkish.rawValue
-    ];
+    return LanguagePreferenceEntity.values.map((e) => e.rawValue).toList();
   }
 
   @override
   Future<List<String>> getAllThemes() async {
-    return [
-      ThemePreferenceEntity.light.rawValue,
-      ThemePreferenceEntity.dark.rawValue
-    ];
+    return ThemePreferenceEntity.values.map((e) => e.rawValue).toList();
   }
 }
