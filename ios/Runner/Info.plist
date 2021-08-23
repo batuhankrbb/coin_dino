@@ -24,13 +24,18 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>NSAppTransportSecurity</key>
+<dict>
+  <key>NSAllowsArbitraryLoads</key>
+      <true/>
+</dict>
 	<key>CFBundleLocalizations</key>
-<array>
-	<string>en</string>
-	<string>tr</string>
-	<string>fr</string>
-	<string>es</string>
-</array>
+	<array>
+		<string>en</string>
+		<string>tr</string>
+		<string>fr</string>
+		<string>es</string>
+	</array>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3108242646730560~4896371054</string>
 	<key>LSRequiresIPhoneOS</key>
