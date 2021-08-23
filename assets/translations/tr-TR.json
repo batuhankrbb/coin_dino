@@ -1,5 +1,156 @@
 {
-    "title" : "TURKISH TITLE",
-"app_local_demo" : "Ejemplo de localización de aplicaciones",
-"demo_details" : "Este es un proyecto de ejemplo para cambiar el idioma con un menú desplegable de idiomas"
+    "SETTINGS_SCREEN":{
+    "APP_BAR_TEXT":"Ayarlar",
+    "FORM_HEADER_OTHERS":"Diğer",
+    "FORM_SHARE_TITLE":"Paylaş",
+    "FORM_CONTACT_TITLE":"İletişim",
+    "FORM_CONTACT_SUBTITLE":"Problem ve tavsiyelerinizi bildirmek için bizimle iletişime geçin",
+    "FORM_RATE_TITLE":"Coin Dino'yu değerlendirin",
+    "FORM_RATE_SUBTITLE":"Değerlendirmeniz ile bize destek olun :)",
+    "FORM_HEADER_SETTINGS":"Seçenekler",
+    "FORM_LANGUAGE_TITLE":"Dil",
+    "FORM_THEME_TITLE":"Tema",
+    "FORM_LANGUAGES_SELECTION_TITLE":"Diller",
+    "FORM_THEMES_SELECTION_TITLE":"Temalar",
+    "IAP_CARD_TITLE":"Premium Ol",
+    "IAP_CARD_SUBTITLE":"Daha iyi bir deneyim için."
+    },
+    
+
+    "SEARCH_SCREEN":{
+        "APP_BAR_TITLE_SEARCH":"Arama",
+        "APP_BAR_TITLE_TRENDS":"Trendler"
+    },
+
+
+    "ONBOARD_SCREEN":{
+        "DATA_NOTIFICATON_TITLE":"Haberdar ol",
+        "DATA_NOTIFICATON_DESCRIPTION":"Favori Coin'in belirttiğin değere ulaştığında bildirimler ile haberdar ol.",
+        "DATA_CATEGORY_TITLE":"Gelişmiş Arama",
+        "DATA_CATEGORY_DESCRIPTION":"Coinleri ismine, fiyatına, kategorisine, market değerine ve diğer seçeneklere göre ara. İstediğini kolayca bul!",
+    
+        "DATA_DETAIL_TITLE":"Detaylı Bilgi",
+        "DATA_DETAIL_DESCRIPTION":"Coinler ile ilgili tam detaylı bilgiler. Fiyat, grafik, internet sites, market değeri, coin'in amacı ve çok daha fazlası!",
+        
+        "DATA_THEME_TITLE":"Özelleştirilebilir Arayüz",
+        "DATA_THEME_DESCRIPTION":"Coin Dino'yu birçok tema seçeneği ile istediğin gibi kullan! Herkesin bir favori rengi vardır. Seninkisi ne?"
+    },
+    
+
+    "INAPP_SCREEN":{
+        "APP_BAR_TITLE":"Satın Al",
+        "RESTORE_BUTTON_TEXT":"Satın Alımı Geri Yükle",
+        "BUY_BUTTON_TEXT":"Premium Ol",
+        "TITLE_TEXT":"Biliyoruz ki reklamlar can sıkıcı. Değil mi?",
+        "DESCRIPTION_TEXT":"$1 ile bize destek olabilir ve premium olarak Coin Dino içerisindeki bütün reklamlardan sonsuza dek kurtulabilirsiniz."
+    },
+
+    "HOME_SCREEN":{
+    "APP_BAR_TITLE":"Ana Sayfa",
+    "INTERVAL_SELECTION_PAGE_TITLE":"Süre Ayarla",
+    "ORDER_SELECTION_PAGE_TITLE":"Sıralama Ayarla",
+    "CATEGORY_SELECTION_PAGE_TITLE":"Kategori Ayarla",
+    "REFRESHED_SNACK_MESSAGE":"Yenilendi",
+    "HEADER_RANK_TITLE":"#",
+    "HEADER_COIN_TITLE":"Coin",
+    "HEADER_PRICE_TITLE":"Fiyat",
+    "HEADER_MARKETCAP_TITLE":"Piyasa Değeri"
+    },
+   
+    "DETAIL_INFO_SCREEN":{
+        "HOME_PAGE_LINK_TEXT":"Coin Sayfası"
+    },
+    
+    "DETAIL_SCREEN":{
+        "VIEWMODEL_SHARE_TEXT":"Hey, Coin Dino uygulamasından {} isimli coine göz at! [LINK]",
+        "INFORMATION_ROW_MARKET_CAP_RANK_TEXT":"PİYASA DEĞERİ SIRALAMASI",
+        "INFORMATION_ROW_MARKET_CAP_TEXT":"PİYASA DEĞERİ",
+        "INFORMATION_ROW_TRADING_VOLUME_TEXT":"İŞLEM HACMİ",
+        "INFORMATION_ROW_24H_HIGH_TEXT":"24 SAAT EN YÜKSEK",
+        "INFORMATION_ROW_24H_LOW_TEXT":"24 SAAT EN DÜŞÜK",
+        "INFORMATION_ROW_AVAILABLE_SUPPLY_TEXT":"MEVCUT ARZ",
+        "INFORMATION_ROW_TOTAL_SUPPLY_TEXT":"TOPLAM ARZ",
+        "INFORMATION_ROW_ALLTIME_HIGH_TEXT":"ŞU ANA KADAR EN YÜKSEK DEĞER",
+        "INFORMATION_ROW_SINCE_ALLTIME_HIGH_TEXT":"EN YÜKSEK DEĞERDEN BERİ",
+        "INFORMATION_ROW_ALL_TIME_HIGH_DATE_TEXT":"EN YÜKSEK DEĞERE ULAŞMA TARİHİ",
+        "INFORMATION_ROW_ALLTIME_LOW_TEXT":"ŞU ANA KADAR EN DÜŞÜK DEĞER",
+        "INFORMATION_ROW_SINCE_ALLTIME_LOW_TEXT":"EN DÜŞÜK DEĞERDEN BERİ",
+        "INFORMATION_ROW_ALL_TIME_LOW_DATE_TEXT":"EN DÜŞÜK DEĞERE ULAŞMA TARİHİ",
+        "HOURS_TABLE_24H_TEXT":"24H",
+        "HOURS_TABLE_7D_TEXT":"7D",
+        "HOURS_TABLE_14D_TEXT":"14D",
+        "HOURS_TABLE_30D_TEXT":"30D",
+        "HOURS_TABLE_60D_TEXT":"60D",
+        "HOURS_TABLE_1Y_TEXT":"1Y",
+        "COIN_CHART_FAILURE_TEXT":"Grafiği yüklerken bir şeyler ters gitti. Bir şans daha ver.",
+        "CHART_OPTION_VALUE_24H_TEXT":"24H",
+        "CHART_OPTION_VALUE_3D_TEXT":"3D",
+        "CHART_OPTION_VALUE_7D_TEXT":"7D",
+        "CHART_OPTION_VALUE_15D_TEXT":"15D",
+        "CHART_OPTION_VALUE_1M_TEXT":"1M",
+        "CHART_OPTION_VALUE_MAX_TEXT":"MAX"
+    },
+    
+    "ALERT_LIST_SCREEN":{
+        "APP_BAR_TITLE":"Alarmlar",
+        "PERMISSION_REQUEST_TITLE":"Bildirimleri Açın",
+        "PERMISSION_REQUEST_SUBTITLE": "Bildirim gönderebilmemiz için izin vermediğinizi fark ettik. Lütfen buraya tıklayarak bildirimlerinizi açın.",
+        "NO_ALERT_TITLE":"Oh! Henüz bir alarmın yok.",
+        "NO_ALERT_SUBTITLE":"Artı simgesine tıklayarak yeni bir alarm ekleyebilirsin.",
+        "ALERT_CELL_REMOVE_TEXT":"SİL",
+        "ALERT_CELL_TARGET_TEXT":"Hedef: {}",
+        "ALERT_CELL_CURRENT_TEXT":"Mevcut: {}"
+    },
+
+
+    "ALERT_DETAIL_SCREEN":{
+    "APP_BAR_TITLE_ADD":"Ekle",
+    "APP_BAR_TITLE_UPDATE":"Güncelle",
+    "APP_BAR_TITLE_FULL":"{} Fiyat Alarmı",
+    "EXPLANATION_TEXT":"Coin fiyatı belirttiğiniz fiyata ulaştığında bildirim gönderilecektir. Bildirimleri alabilmek için lütfen bildirim için izin verdiğinizden emin olun.",
+    "ALERT_VIEWMODEL_ALERT_ADD_SUCCESS_SNACK_MESSAGE":"Alarm başarıyla eklendi",
+    "ALERT_VIEWMODEL_ALERT_ADD_FAILURE_SNACK_MESSAGE":"Bir şeyler ters gitt. Tekrar deneyin.",
+    "ALERT_VIEWMODEL_ALERT_UPDATE_SUCCESS_SNACK_MESSAGE":"Alarm başarıyla güncellendi",
+    "ALERT_VIEWMODEL_ALERT_UPDATE_FAILURE_SNACK_MESSAGE":"Bir şeyler ters gitt. Tekrar deneyin.",
+    "ALERT_VIEWMODEL_ALERT_DELETE_SUCCESS_SNACK_MESSAGE":"Alarm başarıyla silindi",
+    "ALERT_VIEWMODEL_ALERT_DELETE_FAILURE_SNACK_MESSAGE":"Bir şeyler ters gitt. Tekrar deneyin.",
+    "ALERT_VIEWMODEL_TEXTFIELD_NOT_VALID_NUMBER_SNACK_MESSAGE":"Lütfen geçerli bir sayı girin.",
+    "BUTTON_UPDATE_TEXT":"GÜNCELLE",
+    "BUTTON_SAVE_TEXT":"KAYDET",
+    "CURRENT_PRICE_TEXT":"Mevcut Fiyat: {}"
+    },
+    
+    "GLOBAL_COMPONENT":{
+        "FAILURE_WIDGET_EXPLANATION_TEXT":"Oops, bir şeyler ters gitti. Ama sakin ol - hadi bir kere daha dene.",
+        "FAILURE_WIDGET_BUTTON_TEXT":"Tekrar Dene"
+    },
+
+    "MARKET_FEATURE":{
+        "LISTING_ENUM":{
+            "MARKET_SORT_GECKO_ASC_DISPLAY_VALUE":"Artan Akıllı Sıralama",
+            "MARKET_SORT_GECKO_DESC_DISPLAY_VALUE":"Azalan Akıllı Sıralama",
+            "MARKET_SORT_ID_ASC_DISPLAY_VALUE":"Artan ID",
+            "MARKET_SORT_ID_DESC_DISPLAY_VALUE":"Azalan ID",
+            "MARKET_SORT_MARKETCAP_ASC_DISPLAY_VALUE":"En Düşük Piyasa Değeri",
+            "MARKET_SORT_MARKETCAP_DESC_DISPLAY_VALUE":"En Yüksek Piyasa Değeri",
+            "MARKET_SORT_VOLUME_ASC_DISPLAY_VALUE":"Artan Hacim",
+            "MARKET_SORT_VOLUME_DESC_DISPLAY_VALUE":"Azalan Hacim",
+            "MARKET_DATE_1H_DISPLAY_VALUE":"1H",
+            "MARKET_DATE_24H_DISPLAY_VALUE":"24H",
+            "MARKET_DATE_7D_DISPLAY_VALUE":"7D",
+            "MARKET_DATE_30D_DISPLAY_VALUE":"30D"
+        }
+    },
+
+
+    
+   
+
+    "MINI_SERVICE":{
+        "SHARE_MAIN_TEXT":"Hey, Coin Dino adında bir kripto para uygulaması buldum ve çok sevdim. Şuradan göz at! [LINK]",
+        "SHARE_SUBJECT_TEXT":"Coin Dino",
+        "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Geri Bildirim",
+        "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Merhaba, Coin Dino için bir geri bildirimim var."
+    }
+   
 }
