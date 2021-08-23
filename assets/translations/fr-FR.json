@@ -1,6 +1,158 @@
 {
+    "SETTINGS_SCREEN":{
+    "APP_BAR_TEXT":"Paramètres",
+    "FORM_HEADER_OTHERS":"Autres",
+    "FORM_SHARE_TITLE":"Partager",
+    "FORM_CONTACT_TITLE":"contact",
+    "FORM_CONTACT_SUBTITLE":"Contactez-nous pour raconter vos problèmes et suggestions",
+    "FORM_RATE_TITLE":"Noter Coin Dino",
+    "FORM_RATE_SUBTITLE":"Soutenez-nous avec votre avis",
+    "FORM_HEADER_SETTINGS":"Option",
+    "FORM_LANGUAGE_TITLE":"Langue",
+    "FORM_THEME_TITLE":"Thème",
+    "FORM_LANGUAGES_SELECTION_TITLE":"Langues",
+    "FORM_THEMES_SELECTION_TITLE":"Thèmes",
+    "IAP_CARD_TITLE":"Obtenir prime",
+    "IAP_CARD_SUBTITLE":"Pour une meilleure expérience."
+    },
     
-"title" : "FRENCH TITLE",
-"app_local_demo" : "Ejemplo de localización de aplicaciones",
-"demo_details" : "Este es un proyecto de ejemplo para cambiar el idioma con un menú desplegable de idiomas"
+
+    "SEARCH_SCREEN":{
+        "APP_BAR_TITLE_SEARCH":"Chercher",
+        "APP_BAR_TITLE_TRENDS":"Les tendances"
+    },
+
+
+    "ONBOARD_SCREEN":{
+        "DATA_NOTIFICATON_TITLE":"Recevez une notification",
+        "DATA_NOTIFICATON_DESCRIPTION":"Reçois des messages indiqués lorsque votre monnaie préférée frappe le prix cible que vous avez défini.",
+        "DATA_CATEGORY_TITLE":"Recherche Avancée",
+        "DATA_CATEGORY_DESCRIPTION":"Les pièces de recherche par leur nom, leur prix, leur catégorie, leur bonnet de marché et leurs autres options.Trouvez ce que vous voulez facilement.",
+    
+        "DATA_DETAIL_TITLE":"Des informations détaillées",
+        "DATA_DETAIL_DESCRIPTION":"Informations complètes sur les pièces de monnaie.Prix, graphique, site Web, bouchon de marché, but de la pièce de monnaie et beaucoup plus!",
+        
+        "DATA_THEME_TITLE":"Customizable Interface",
+        "DATA_THEME_DESCRIPTION":"Utilisez Coin Dino, mais vous voulez avec de nombreuses options de thème!Tout le monde a une couleur préférée.Qu'est-ce qui est à toi?"
+    },
+    
+
+    "INAPP_SCREEN":{
+        "APP_BAR_TITLE":"Acheter",
+        "RESTORE_BUTTON_TEXT":"Achat de restauration",
+        "BUY_BUTTON_TEXT":"Obtenir prime",
+        "TITLE_TEXT":"Nous savons que les annonces sont ennuyeuses.Ne sont-ils pas?",
+        "DESCRIPTION_TEXT":"Vous pouvez nous soutenir et supprimer toutes les annonces de Coin Dino en permanence en obtenant une prime avec 1 $"
+    },
+
+    "HOME_SCREEN":{
+    "APP_BAR_TITLE":"Accueil",
+    "INTERVAL_SELECTION_PAGE_TITLE":"Intervalle",
+    "ORDER_SELECTION_PAGE_TITLE":"Définir l'ordre de tri",
+    "CATEGORY_SELECTION_PAGE_TITLE":"Régler la catégorie",
+    "REFRESHED_SNACK_MESSAGE":"Rafraîchisé",
+    "HEADER_RANK_TITLE":"#",
+    "HEADER_COIN_TITLE":"Coin",
+    "HEADER_PRICE_TITLE":"Prix",
+    "HEADER_MARKETCAP_TITLE":"Capitalisation boursière"
+    },
+   
+    "DETAIL_INFO_SCREEN":{
+        "HOME_PAGE_LINK_TEXT":"Page d'accueil"
+    },
+    
+    "DETAIL_SCREEN":{
+        "VIEWMODEL_SHARE_TEXT":"Hey! Découvrez {} de Coin Dino. [LINK]",
+        "INFORMATION_ROW_MARKET_CAP_RANK_TEXT":"Classement de la casquette de marché",
+        "INFORMATION_ROW_MARKET_CAP_TEXT":"CAPITALISATION BOURSIÈRE",
+        "INFORMATION_ROW_TRADING_VOLUME_TEXT":"VOLUME D'ÉCHANGES",
+        "INFORMATION_ROW_24H_HIGH_TEXT":"24H haut",
+        "INFORMATION_ROW_24H_LOW_TEXT":"24H bas",
+        "INFORMATION_ROW_AVAILABLE_SUPPLY_TEXT":"Fourniture disponible",
+        "INFORMATION_ROW_TOTAL_SUPPLY_TEXT":"Total de l'offre",
+        "INFORMATION_ROW_ALLTIME_HIGH_TEXT":"Très haut",
+        "INFORMATION_ROW_SINCE_ALLTIME_HIGH_TEXT":"Depuis toujours élevé",
+        "INFORMATION_ROW_ALL_TIME_HIGH_DATE_TEXT":"Haute Date de tous les temps",
+        "INFORMATION_ROW_ALLTIME_LOW_TEXT":"Tout le temps bas",
+        "INFORMATION_ROW_SINCE_ALLTIME_LOW_TEXT":"Depuis tout le temps bas",
+        "INFORMATION_ROW_ALL_TIME_LOW_DATE_TEXT":"Date de tous les temps bas",
+        "HOURS_TABLE_24H_TEXT":"24H",
+        "HOURS_TABLE_7D_TEXT":"7D",
+        "HOURS_TABLE_14D_TEXT":"14D",
+        "HOURS_TABLE_30D_TEXT":"30D",
+        "HOURS_TABLE_60D_TEXT":"60D",
+        "HOURS_TABLE_1Y_TEXT":"1Y",
+        "COIN_CHART_FAILURE_TEXT":"Quelque chose s'est mal passé tout en obtenant le tableau.Donnez-lui un autre coup.",
+        "CHART_OPTION_VALUE_24H_TEXT":"24H",
+        "CHART_OPTION_VALUE_3D_TEXT":"3D",
+        "CHART_OPTION_VALUE_7D_TEXT":"7D",
+        "CHART_OPTION_VALUE_15D_TEXT":"15D",
+        "CHART_OPTION_VALUE_1M_TEXT":"1M",
+        "CHART_OPTION_VALUE_MAX_TEXT":"MAX"
+    },
+    
+    "ALERT_LIST_SCREEN":{
+        "APP_BAR_TITLE":"Alertes",
+        "PERMISSION_REQUEST_TITLE":"Activer les notifications",
+        "PERMISSION_REQUEST_SUBTITLE": "Nous avons remarqué que vous n'avez pas permis de nous autoriser de vous envoyer des notifications.Cliquez ici pour allumer vos notifications.",
+        "NO_ALERT_TITLE":"Oh!Vous n'avez aucune alerte :(",
+        "NO_ALERT_SUBTITLE":"Vous pouvez ajouter une nouvelle alerte de l'icône Plus",
+        "ALERT_CELL_REMOVE_TEXT":"SUPPRIMER",
+        "ALERT_CELL_TARGET_TEXT":"Cible: {}",
+        "ALERT_CELL_CURRENT_TEXT":"Courante: {}"
+    },
+
+   
+
+    "ALERT_DETAIL_SCREEN":{
+    "APP_BAR_TITLE_ADD":"Ajouter",
+    "APP_BAR_TITLE_UPDATE":"Mettre à jour",
+    "APP_BAR_TITLE_FULL":"{} Alerte de prix",
+    "EXPLANATION_TEXT":"Lorsque le prix atteint le prix cible, une alerte vous sera envoyée via une notification de l'application.Pour recevoir des alertes, veuillez autoriser la permission de la notification des paramètres de votre téléphone.",
+    "ALERT_VIEWMODEL_ALERT_ADD_SUCCESS_SNACK_MESSAGE":"Alerte a été ajouté avec succès",
+    "ALERT_VIEWMODEL_ALERT_ADD_FAILURE_SNACK_MESSAGE":"Quelque chose s'est mal passé.Réessayer.",
+    "ALERT_VIEWMODEL_ALERT_UPDATE_SUCCESS_SNACK_MESSAGE":"Alerte a été mise à jour avec succès",
+    "ALERT_VIEWMODEL_ALERT_UPDATE_FAILURE_SNACK_MESSAGE":"Quelque chose s'est mal passé.Réessayer.",
+    "ALERT_VIEWMODEL_ALERT_DELETE_SUCCESS_SNACK_MESSAGE":"Alerte a été supprimé avec succès",
+    "ALERT_VIEWMODEL_ALERT_DELETE_FAILURE_SNACK_MESSAGE":"Quelque chose s'est mal passé.Réessayer.",
+    "ALERT_VIEWMODEL_TEXTFIELD_NOT_VALID_NUMBER_SNACK_MESSAGE":"Vous devez entrer un numéro valide.",
+    "BUTTON_UPDATE_TEXT":"METTRE À JOUR",
+    "BUTTON_SAVE_TEXT":"ENREGISTRER",
+    "CURRENT_PRICE_TEXT":"Prix actuel: {}"
+    },
+    
+    "GLOBAL_COMPONENT":{
+        "FAILURE_WIDGET_EXPLANATION_TEXT":"Oups, quelque chose a mal tourné, mais soyez calme - donnons-lui un autre coup.",
+        "FAILURE_WIDGET_BUTTON_TEXT":"Réessayer"
+    },
+
+    "MARKET_FEATURE":{
+        "LISTING_ENUM":{
+            "MARKET_SORT_GECKO_ASC_DISPLAY_VALUE":"Classement intelligent ascendant",
+            "MARKET_SORT_GECKO_DESC_DISPLAY_VALUE":"Classement intelligent décroissant",
+            "MARKET_SORT_ID_ASC_DISPLAY_VALUE":"ID ascendant",
+            "MARKET_SORT_ID_DESC_DISPLAY_VALUE":"ID décroissant",
+            "MARKET_SORT_MARKETCAP_ASC_DISPLAY_VALUE":"Capuchon de marché le plus petit",
+            "MARKET_SORT_MARKETCAP_DESC_DISPLAY_VALUE":"Plus grand capuchon de marché",
+            "MARKET_SORT_VOLUME_ASC_DISPLAY_VALUE":"Volume ascendant",
+            "MARKET_SORT_VOLUME_DESC_DISPLAY_VALUE":"Volume descendant",
+            "MARKET_DATE_1H_DISPLAY_VALUE":"1H",
+            "MARKET_DATE_24H_DISPLAY_VALUE":"24H",
+            "MARKET_DATE_7D_DISPLAY_VALUE":"7D",
+            "MARKET_DATE_30D_DISPLAY_VALUE":"30D"
+        }
+    },
+
+
+    
+   
+
+    "MINI_SERVICE":{
+        "SHARE_MAIN_TEXT":"Hé, j'ai trouvé une application cryptocurrence et je l'aime.C'est la monnaie Dino.Vérifiez-le! [LINK]",
+        "SHARE_SUBJECT_TEXT":"Coin Dino",
+        "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Retour d'information",
+        "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Bonjour, j'ai des commentaires pour Coin Dino."
+    }
+   
 }
+
