@@ -37,9 +37,9 @@ import 'global/starting_files/launch_app.dart';
 void main() async {
   await startApp();
   runApp(
-    LocalizationHelper.shared.runAppWithEasyWidget(
+    DevicePreview(builder: (_) => LocalizationHelper.shared.runAppWithEasyWidget(
       MyApp(),
-    ),
+    ),),
   );
 }
 
@@ -66,6 +66,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           locale: context.locale,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
+          builder: DevicePreview.appBuilder,
           home: RootScreen(),
         );
       },

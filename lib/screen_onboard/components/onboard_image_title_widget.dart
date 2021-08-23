@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
 import '../../core/mini_services/image/image_helper.dart';
 
-
 class OnboardScreenImageAndTitleWidget extends StatelessWidget {
   final String image;
   final String title;
@@ -21,36 +20,41 @@ class OnboardScreenImageAndTitleWidget extends StatelessWidget {
       children: [
         Expanded(
           flex: 55,
-          child: buildAssetImage(),
-        ),
-        Spacer(flex: 2),
-        Expanded(
-          flex: 9,
-          child: buildTitleText(context),
+          child: buildAssetImage(context),
         ),
         Spacer(flex: 3),
         Expanded(
+          flex: 8,
+          child: buildTitleText(context),
+        ),
+        Spacer(flex: 1),
+        Flexible(
           flex: 15,
           child: buildDescriptionText(context),
         ),
+        Spacer(
+          flex: 3,
+        )
       ],
     );
   }
 
   Container buildDescriptionText(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: context.getWidth(0.05)),
       child: AutoSizeText(
         description,
         style: TextStyle(
           fontSize: context.getWidth(0.05),
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }
 
   Container buildTitleText(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: context.getWidth(0.05)),
       child: AutoSizeText(
         title,
         style: TextStyle(fontSize: 60),
@@ -58,9 +62,9 @@ class OnboardScreenImageAndTitleWidget extends StatelessWidget {
     );
   }
 
-  Container buildAssetImage() {
+  Container buildAssetImage(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: context.getWidth(0.05)),
       child: ImageHelper.shared.getAssetImage(imageName: image),
     );
   }

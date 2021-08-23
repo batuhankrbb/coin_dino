@@ -68,7 +68,7 @@ class SelectionPageCell extends StatelessWidget {
       text,
       minFontSize: 12,
       style: TextStyle(
-        fontSize: context.getHeight(0.024),
+        fontSize: context.getHeight(0.020),
         color: context.colorScheme.primary,
         fontWeight: FontWeight.w300,
       ),
