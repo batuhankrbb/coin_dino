@@ -93,24 +93,24 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
   final List<Widget> onbardScreenArray = [
     OnboardScreenImageAndTitleWidget(
-      description: "ONBOARD_SCREEN_DATA_NOTIFICATON_DESCRIPTION".tr(),
+      description: "ONBOARD_SCREEN.DATA_NOTIFICATON_DESCRIPTION".tr(),
       image: "onboard_notify_image",
-      title: "ONBOARD_SCREEN_DATA_NOTIFICATON_TITLE".tr(),
+      title: "ONBOARD_SCREEN.DATA_NOTIFICATON_TITLE".tr(),
     ),
     OnboardScreenImageAndTitleWidget(
-      description: "ONBOARD_SCREEN_DATA_CATEGORY_DESCRIPTION".tr(),
+      description: "ONBOARD_SCREEN.DATA_CATEGORY_DESCRIPTION".tr(),
       image: "onboard_search_image",
-      title: "ONBOARD_SCREEN_DATA_CATEGORY_TITLE".tr(),
+      title: "ONBOARD_SCREEN.DATA_CATEGORY_TITLE".tr(),
     ),
     OnboardScreenImageAndTitleWidget(
-      description: "ONBOARD_SCREEN_DATA_DETAIL_DESCRIPTION".tr(),
+      description: "ONBOARD_SCREEN.DATA_DETAIL_DESCRIPTION".tr(),
       image: "onboard_detail_image",
-      title: "Detay ONBOARD_SCREEN_DATA_DETAIL_TITLE".tr(),
+      title: "ONBOARD_SCREEN.DATA_DETAIL_TITLE".tr(),
     ),
     OnboardScreenImageAndTitleWidget(
-      description: "ONBOARD_SCREEN_DATA_THEME_DESCRIPTION".tr(),
+      description: "ONBOARD_SCREEN.DATA_THEME_DESCRIPTION".tr(),
       image: "onboard_customize_image",
-      title: "ONBOARD_SCREEN_DATA_THEME_TITLE".tr(),
+      title: "ONBOARD_SCREEN.DATA_THEME_TITLE".tr(),
     ),
   ];
 }

@@ -22,8 +22,9 @@ class UrlLauncherService {
         scheme: "mailto",
         path: "batuhankarababa@gmail.com",
         queryParameters: {
-          "subject": "MINI_SERVICE_URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT".tr(),
-          "body": "MINI_SERVICE_URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT".tr()
+          "subject":
+              "MINI_SERVICE.URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT".tr(),
+          "body": "MINI_SERVICE.URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT".tr()
         });
 
     await launch(uri.toString());

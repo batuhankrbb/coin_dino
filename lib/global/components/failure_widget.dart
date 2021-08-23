@@ -4,7 +4,8 @@ import '../../core/extensions/context_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class FailureWidget extends StatelessWidget {
-  const FailureWidget({Key? key, required this.onTryAgain, this.explanation}) : super(key: key);
+  const FailureWidget({Key? key, required this.onTryAgain, this.explanation})
+      : super(key: key);
 
   final VoidCallback onTryAgain;
   final String? explanation;
@@ -36,7 +37,7 @@ class FailureWidget extends StatelessWidget {
       child: SizedBox(
         width: context.getWidth(0.25),
         child: AutoSizeText(
-          "GLOBAL_COMPONENT_FAILURE_WIDGET_BUTTON_TEXT".tr(),
+          "GLOBAL_COMPONENT.FAILURE_WIDGET_BUTTON_TEXT".tr(),
           style: TextStyle(
               color: context.theme.buttonColor,
               fontSize: context.getWidth(0.4)),
@@ -51,7 +52,7 @@ class FailureWidget extends StatelessWidget {
     return SizedBox(
       width: context.getWidth(0.9),
       child: AutoSizeText(
-       explanation ?? "GLOBAL_COMPONENT_FAILURE_WIDGET_EXPLANATION_TEXT".tr(),
+        explanation ?? "GLOBAL_COMPONENT.FAILURE_WIDGET_EXPLANATION_TEXT".tr(),
         style: TextStyle(
             color: context.colorScheme.primary,
             fontSize: context.getWidth(0.04)),

@@ -12,7 +12,9 @@ class AlertDetailCurrentPriceText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoSizeText(
-      "ALERT_DETAIL_SCREEN_CURRENT_PRICE_TEXT".tr(args: ["\$${NumberHelper.shared.toCommaString(number: currentPrice)}"]),
+      "ALERT_DETAIL_SCREEN.CURRENT_PRICE_TEXT".tr(args: [
+        "\$${NumberHelper.shared.toCommaString(number: currentPrice)}"
+      ]),
       style: TextStyle(
         fontSize: context.getWidth(0.04),
       ),

@@ -13,7 +13,7 @@ class AlertDetailExplanationText extends StatelessWidget {
       alignment: Alignment.center,
       padding: EdgeInsets.all(context.getWidth(0.03)),
       child: AutoSizeText(
-        "ALERT_DETAIL_SCREEN_EXPLANATION_TEXT".tr(),
+        "ALERT_DETAIL_SCREEN.EXPLANATION_TEXT".tr(),
         maxLines: 4,
         style: TextStyle(
           fontSize: context.getWidth(0.05),

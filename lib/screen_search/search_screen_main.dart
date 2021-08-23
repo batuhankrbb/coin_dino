@@ -87,7 +87,7 @@ class _SearchScreenMainState extends State<SearchScreenMain>
     return customAppBar(
       context: context,
       showBackButton: widget.showBackButton,
-      title: _searchViewModel.tabIndex == 0 ? "SEARCH_SCREEN_APP_BAR_TITLE_SEARCH".tr() : "SEARCH_SCREEN_APP_BAR_TITLE_TRENDS".tr(),
+      title: _searchViewModel.tabIndex == 0 ? "SEARCH_SCREEN.APP_BAR_TITLE_SEARCH".tr() : "SEARCH_SCREEN.APP_BAR_TITLE_TRENDS".tr(),
       backgroundColor: context.colorScheme.primaryVariant,
       bottom: buildTabBar(),
     );

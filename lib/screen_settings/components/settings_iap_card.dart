@@ -65,7 +65,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AutoSizeText(
-          "SETTINGS_SCREEN_IAP_CARD_TITLE".tr(),
+          "SETTINGS_SCREEN.IAP_CARD_TITLE".tr(),
           style: TextStyle(
             color: context.colorScheme.onSurface,
             fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
           ),
         ),
         AutoSizeText(
-          "SETTINGS_SCREEN_IAP_CARD_SUBTITLE".tr(),
+          "SETTINGS_SCREEN.IAP_CARD_SUBTITLE".tr(),
           style: TextStyle(
             color: context.colorScheme.onSurface,
             fontWeight: FontWeight.normal,

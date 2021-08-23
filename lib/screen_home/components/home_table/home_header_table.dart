@@ -34,7 +34,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[0],
             child: HomeHeaderButton(
-              text: "HOME_SCREEN_HEADER_RANK_TITLE".tr()
+              text: "HOME_SCREEN.HEADER_RANK_TITLE".tr()
             ),
           ),
           Expanded(
@@ -44,7 +44,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[1],
             child: HomeHeaderButton(
-              text: "HOME_SCREEN_HEADER_COIN_TITLE".tr(),
+              text: "HOME_SCREEN.HEADER_COIN_TITLE".tr(),
             ),
           ),
           Expanded(
@@ -54,7 +54,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[2],
             child: HomeHeaderButton(
-              text: "HOME_SCREEN_HEADER_PRICE_TITLE".tr(),
+              text: "HOME_SCREEN.HEADER_PRICE_TITLE".tr(),
             ),
           ),
           Expanded(
@@ -74,7 +74,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[4],
             child: HomeHeaderButton(
-              text: "HOME_SCREEN_HEADER_MARKETCAP_TITLE".tr(),
+              text: "HOME_SCREEN.HEADER_MARKETCAP_TITLE".tr(),
             ),
           ),
           Spacer(

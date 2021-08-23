@@ -67,7 +67,7 @@ class _HomeTableState extends State<HomeTable> {
                   await homeScreenViewModel.getCoinList();
                 },
                 listView: buildListView(),
-                snackMessage: "HOME_SCREEN_REFRESHED_SNACK_MESSAGE".tr()),
+                snackMessage: "HOME_SCREEN.REFRESHED_SNACK_MESSAGE".tr()),
           ),
           if (homeScreenViewModel.isScrolled) LoadingScreen(isSmallLoading: true,),
         ],

@@ -1,5 +1,3 @@
-
-
 import '../../global/components/failure_widget.dart';
 import '../viewmodels/settings_view_model.dart';
 
@@ -19,7 +17,6 @@ import 'package:easy_localization/easy_localization.dart';
 class SettingsOptionSection extends StatelessWidget {
   SettingsOptionSection({Key? key}) : super(key: key);
 
-
   SettingsViewModel settingsViewModel = getit.get<SettingsViewModel>();
 
   @override
@@ -27,7 +24,7 @@ class SettingsOptionSection extends StatelessWidget {
     return CupertinoFormSection(
       backgroundColor: context.colorScheme.primaryVariant,
       header: SettingsFormHeader(
-        headerTitle: "SETTINGS_SCREEN_FORM_HEADER_SETTINGS".tr(),
+        headerTitle: "SETTINGS_SCREEN.FORM_HEADER_SETTINGS".tr(),
         headerIcon: Icons.settings,
       ),
       children: [
@@ -45,12 +42,12 @@ class SettingsOptionSection extends StatelessWidget {
             completedWidget: (data) {
               return SettingFormRowWidget(
                 leading: SettingsIcon(iconData: Icons.language),
-                title: "SETTINGS_SCREEN_FORM_LANGUAGE_TITLE".tr(),
+                title: "SETTINGS_SCREEN.FORM_LANGUAGE_TITLE".tr(),
                 trailing: Icon(
                   Icons.chevron_right,
                 ),
                 onTap: () async {
-                  await languageOnTap(data,context);
+                  await languageOnTap(data, context);
                 },
               );
             },
@@ -68,7 +65,7 @@ class SettingsOptionSection extends StatelessWidget {
           completedWidget: (data) {
             return SettingFormRowWidget(
                 leading: SettingsIcon(iconData: Icons.palette),
-                title: "SETTINGS_SCREEN_FORM_THEME_TITLE".tr(),
+                title: "SETTINGS_SCREEN.FORM_THEME_TITLE".tr(),
                 trailing: Icon(Icons.chevron_right),
                 onTap: () async {
                   await themeOnTap(data);
@@ -80,19 +77,23 @@ class SettingsOptionSection extends StatelessWidget {
     });
   }
 
-  Future<void> languageOnTap(LanguagePreferenceEntity data, BuildContext context) async {
+  Future<void> languageOnTap(
+      LanguagePreferenceEntity data, BuildContext context) async {
     var allLanguages = await settingsViewModel.getAllLanguages();
     settingsViewModel.tapAndNavigate(
-        allLanguages, "SETTINGS_SCREEN_FORM_LANGUAGES_SELECTION_TITLE".tr(), allLanguages.indexOf(data.rawValue),
-        (value) {
-      settingsViewModel.setLanguagePreference(allLanguages[value],context);
+        allLanguages,
+        "SETTINGS_SCREEN.FORM_LANGUAGES_SELECTION_TITLE".tr(),
+        allLanguages.indexOf(data.rawValue), (value) {
+      settingsViewModel.setLanguagePreference(allLanguages[value], context);
     });
   }
 
   Future<void> themeOnTap(ThemePreferenceEntity data) async {
     var allThemes = await settingsViewModel.getAllThemes();
     settingsViewModel.tapAndNavigate(
-        allThemes, "SETTINGS_SCREEN_FORM_THEMES_SELECTION_TITLE".tr(), allThemes.indexOf(data.rawValue), (value) {
+        allThemes,
+        "SETTINGS_SCREEN.FORM_THEMES_SELECTION_TITLE".tr(),
+        allThemes.indexOf(data.rawValue), (value) {
       settingsViewModel.setThemePreference(allThemes[value]);
     });
   }

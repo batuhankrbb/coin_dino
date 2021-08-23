@@ -17,29 +17,29 @@ class SettingsOtherSection extends StatelessWidget {
     return CupertinoFormSection(
       backgroundColor: context.colorScheme.primaryVariant,
       header: SettingsFormHeader(
-        headerTitle: "SETTINGS_SCREEN_FORM_HEADER_OTHERS".tr(),
+        headerTitle: "SETTINGS_SCREEN.FORM_HEADER_OTHERS".tr(),
         headerIcon: Icons.apps,
       ),
       children: [
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.share),
-          title: "SETTINGS_SCREEN_FORM_SHARE_TITLE".tr(),
+          title: "SETTINGS_SCREEN.FORM_SHARE_TITLE".tr(),
           onTap: () async {
             await ShareService.shared.shareApp();
           },
         ),
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.mail),
-          title: "SETTINGS_SCREEN_FORM_CONTACT_TITLE".tr(),
-          subTitle: "SETTINGS_SCREEN_FORM_CONTACT_SUBTITLE".tr(),
+          title: "SETTINGS_SCREEN.FORM_CONTACT_TITLE".tr(),
+          subTitle: "SETTINGS_SCREEN.FORM_CONTACT_SUBTITLE".tr(),
           onTap: () async {
             await UrlLauncherService.shared.sendContactEmail();
           },
         ),
         SettingFormRowWidget(
           leading: SettingsIcon(iconData: Icons.star),
-          title: "SETTINGS_SCREEN_FORM_RATE_TITLE".tr(),
-          subTitle: "SETTINGS_SCREEN_FORM_RATE_SUBTITLE".tr(),
+          title: "SETTINGS_SCREEN.FORM_RATE_TITLE".tr(),
+          subTitle: "SETTINGS_SCREEN.FORM_RATE_SUBTITLE".tr(),
           onTap: () async {
             await RatingService.shared.requestReview();
           },

@@ -14,7 +14,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return customAppBar(
       context: context,
-      title: "HOME_SCREEN_APP_BAR_TITLE".tr(),
+      title: "HOME_SCREEN.APP_BAR_TITLE".tr(),
       leading: buildLeadingNotificationButton(context),
       action: [
         buildSearchActionButton(context),

@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'alert_cell_prices_text.dart';
 
-
 class AlertCell extends StatelessWidget {
   const AlertCell(
       {Key? key,
@@ -46,7 +45,7 @@ class AlertCell extends StatelessWidget {
       alignment: Alignment.centerRight,
       color: context.colorScheme.onPrimary,
       child: AutoSizeText(
-        "ALERT_LIST_SCREEN_ALERT_CELL_REMOVE_TEXT".tr(),
+        "ALERT_LIST_SCREEN.ALERT_CELL_REMOVE_TEXT".tr(),
         style: TextStyle(
             color: context.colorScheme.onSurface,
             fontSize: context.getWidth(0.045),
@@ -87,4 +86,3 @@ class AlertCell extends StatelessWidget {
     );
   }
 }
-

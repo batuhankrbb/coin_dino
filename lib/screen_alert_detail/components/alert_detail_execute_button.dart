@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-
 class AlertDetailExecuteButton extends StatefulWidget {
   AlertDetailExecuteButton(
       {Key? key, required this.onTap, required this.isUpdate})
@@ -34,7 +33,9 @@ class _AlertDetailExecuteButtonState extends State<AlertDetailExecuteButton> {
 
   AutoSizeText buildText(BuildContext context) {
     return AutoSizeText(
-      widget.isUpdate ? "ALERT_DETAIL_SCREEN_BUTTON_UPDATE_TEXT".tr() : "ALERT_DETAIL_SCREEN_BUTTON_SAVE_TEXT".tr(),
+      widget.isUpdate
+          ? "ALERT_DETAIL_SCREEN.BUTTON_UPDATE_TEXT".tr()
+          : "ALERT_DETAIL_SCREEN.BUTTON_SAVE_TEXT".tr(),
       style: TextStyle(
         color: context.colorScheme.onSurface,
         fontWeight: FontWeight.w500,

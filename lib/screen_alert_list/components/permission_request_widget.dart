@@ -4,8 +4,11 @@ import '../../screen_alert_detail/viewmodels/screen_alert_view_model.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
+
 class PermissionRequestWidget extends StatefulWidget {
-  PermissionRequestWidget({Key? key, required this.visible, required this.onTap}) : super(key: key);
+  PermissionRequestWidget(
+      {Key? key, required this.visible, required this.onTap})
+      : super(key: key);
 
   bool visible;
   VoidCallback onTap;
@@ -16,8 +19,6 @@ class PermissionRequestWidget extends StatefulWidget {
 }
 
 class _PermissionRequestWidgetState extends State<PermissionRequestWidget> {
-
-
   @override
   Widget build(BuildContext context) {
     return Visibility(
@@ -76,7 +77,7 @@ class _PermissionRequestWidgetState extends State<PermissionRequestWidget> {
 
   AutoSizeText buildTitle(BuildContext context) {
     return AutoSizeText(
-      "ALERT_LIST_SCREEN_PERMISSION_REQUEST_TITLE".tr(),
+      "ALERT_LIST_SCREEN.PERMISSION_REQUEST_TITLE".tr(),
       style: TextStyle(
         fontSize: context.getWidth(0.05),
       ),
@@ -87,7 +88,7 @@ class _PermissionRequestWidgetState extends State<PermissionRequestWidget> {
 
   AutoSizeText buildSubtitle(BuildContext context) {
     return AutoSizeText(
-     "ALERT_LIST_SCREEN_PERMISSION_REQUEST_SUBTITLE".tr(),
+      "ALERT_LIST_SCREEN.PERMISSION_REQUEST_SUBTITLE".tr(),
       style: TextStyle(
         fontSize: context.getWidth(0.03),
       ),

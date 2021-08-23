@@ -11,8 +11,7 @@ class ShareService {
   }
 
   Future<void> shareApp() async {
-    await Share.share(
-        "MINI_SERVICE_SHARE_MAIN_TEXT".tr(),
-        subject: "MINI_SERVICE_SHARE_SUBJECT_TEXT".tr());
+    await Share.share("MINI_SERVICE.SHARE_MAIN_TEXT".tr(),
+        subject: "MINI_SERVICE.SHARE_SUBJECT_TEXT".tr());
   }
 }

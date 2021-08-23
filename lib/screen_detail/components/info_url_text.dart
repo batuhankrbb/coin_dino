@@ -37,7 +37,7 @@ class InfoUrlText extends StatelessWidget {
 
   AutoSizeText buildHomePageText(BuildContext context) {
     return AutoSizeText(
-      "DETAIL_INFO_SCREEN_HOME_PAGE_LINK_TEXT".tr(),
+      "DETAIL_INFO_SCREEN.HOME_PAGE_LINK_TEXT".tr(),
       style: TextStyle(
           color: context.colorScheme.primary,
           fontSize: context.getWidth(0.04),

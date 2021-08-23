@@ -63,7 +63,7 @@ class _SelectionPageTextFieldState extends State<SelectionPageTextField> {
             widget.textEditingController.clear();
           },
           child: AutoSizeText(
-            "GLOBAL_COMPONENT_SELECTION_PAGE_TEXTFIELD_CANCEL_TEXT".tr(),
+            "GLOBAL_COMPONENT.SELECTION_PAGE_TEXTFIELD_CANCEL_TEXT".tr(),
             style: TextStyle(
               color: context.colorScheme.secondaryVariant,
               fontSize: context.getWidth(0.035),

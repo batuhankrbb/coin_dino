@@ -54,11 +54,15 @@ abstract class _ScreenAlertViewModelBase with Store {
       var result = await alertRepository.addAlert(newAlertEntity);
       result.when(success: (_) {
         getAllAlerts();
-        AlertHelper.shared
-            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_ADD_SUCCESS_SNACK_MESSAGE".tr(), context!);
+        AlertHelper.shared.showSnackBar(
+            "ALERT_DETAIL_SCREEN.ALERT_VIEWMODEL_ALERT_ADD_SUCCESS_SNACK_MESSAGE"
+                .tr(),
+            context!);
       }, failure: (failure) {
-        AlertHelper.shared
-            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_ADD_FAILURE_SNACK_MESSAGE".tr(), context!);
+        AlertHelper.shared.showSnackBar(
+            "ALERT_DETAIL_SCREEN.ALERT_VIEWMODEL_ALERT_ADD_FAILURE_SNACK_MESSAGE"
+                .tr(),
+            context!);
       });
     });
   }
@@ -69,12 +73,16 @@ abstract class _ScreenAlertViewModelBase with Store {
       var updatedEntity = AlertEntity.copyWithTargetPrice(entity, targetPrice);
       var result = await alertRepository.updateAlert(updatedEntity);
       result.when(success: (_) {
-        AlertHelper.shared
-            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_UPDATE_SUCCESS_SNACK_MESSAGE".tr(), context!);
+        AlertHelper.shared.showSnackBar(
+            "ALERT_DETAIL_SCREEN.ALERT_VIEWMODEL_ALERT_UPDATE_SUCCESS_SNACK_MESSAGE"
+                .tr(),
+            context!);
         getAllAlerts();
       }, failure: (failure) {
-        AlertHelper.shared
-            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_UPDATE_FAILURE_SNACK_MESSAGE".tr(), context!);
+        AlertHelper.shared.showSnackBar(
+            "ALERT_DETAIL_SCREEN.ALERT_VIEWMODEL_ALERT_UPDATE_FAILURE_SNACK_MESSAGE"
+                .tr(),
+            context!);
       });
     });
   }
@@ -106,9 +114,15 @@ abstract class _ScreenAlertViewModelBase with Store {
     }
 
     result.when(success: (_) {
-      AlertHelper.shared.showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_DELETE_SUCCESS_SNACK_MESSAGE".tr(), context!);
+      AlertHelper.shared.showSnackBar(
+          "ALERT_DETAIL_SCREEN.ALERT_VIEWMODEL_ALERT_DELETE_SUCCESS_SNACK_MESSAGE"
+              .tr(),
+          context!);
     }, failure: (failure) {
-      AlertHelper.shared.showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_DELETE_FAILURE_SNACK_MESSAGE".tr(), context!);
+      AlertHelper.shared.showSnackBar(
+          "ALERT_DETAIL_SCREEN.ALERT_VIEWMODEL_ALERT_DELETE_FAILURE_SNACK_MESSAGE"
+              .tr(),
+          context!);
     });
   }
 
@@ -117,8 +131,11 @@ abstract class _ScreenAlertViewModelBase with Store {
     print(textEditingController.text);
     var newTargetPrice = num.tryParse(textEditingController.text);
     if (newTargetPrice == null) {
-      AlertHelper.shared
-          .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_TEXTFIELD_NOT_VALID_NUMBER_SNACK_MESSAGE".tr(), context!, false);
+      AlertHelper.shared.showSnackBar(
+          "ALERT_DETAIL_SCREEN.ALERT_VIEWMODEL_TEXTFIELD_NOT_VALID_NUMBER_SNACK_MESSAGE"
+              .tr(),
+          context!,
+          false);
     } else {
       await func(newTargetPrice);
       NavigationService.shared.goBack();

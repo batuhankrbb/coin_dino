@@ -39,7 +39,7 @@ class _HomeTopChipListState extends State<HomeTopChipList> {
           onTap: (i) {
             viewModel.marketDate = MarketDate.values[i];
           },
-          title: 'HOME_SCREEN_INTERTVAL_SELECTION_PAGE_TITLE'.tr(),
+          title: 'HOME_SCREEN.INTERVAL_SELECTION_PAGE_TITLE'.tr(),
         ),
         buildCategoryChip(),
         TopHomeChip(
@@ -48,7 +48,7 @@ class _HomeTopChipListState extends State<HomeTopChipList> {
           onTap: (i) {
             viewModel.marketSort = MarketSort.values[i];
           },
-          title: 'HOME_SCREEN_ORDER_SELECTION_PAGE_TITLE'.tr(),
+          title: 'HOME_SCREEN.ORDER_SELECTION_PAGE_TITLE'.tr(),
         ),
       ],
     );
@@ -66,7 +66,7 @@ class _HomeTopChipListState extends State<HomeTopChipList> {
             viewModel.selectedCategory = viewModel.categoryList[i];
           },
           isBarActive: true,
-          title: 'HOME_SCREEN_CATEGORY_SELECTION_PAGE_TITLE'.tr(),
+          title: 'HOME_SCREEN.CATEGORY_SELECTION_PAGE_TITLE'.tr(),
         );
       }
     });

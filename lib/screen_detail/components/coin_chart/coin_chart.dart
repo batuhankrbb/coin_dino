@@ -58,8 +58,7 @@ class _CoinChartState extends State<CoinChart> {
         stateResult: detailViewModel.coinChartResult,
         failureWidget: (failure) {
           return FailureWidget(
-              explanation:
-                  "DETAIL_SCREEN_COIN_CHART_FAILURE_TEXT".tr(),
+              explanation: "DETAIL_SCREEN.COIN_CHART_FAILURE_TEXT".tr(),
               onTryAgain: () {
                 detailViewModel.getCharts(coinID: widget.coinID, days: "7");
               });
@@ -67,7 +66,9 @@ class _CoinChartState extends State<CoinChart> {
         completedWidget: (data) {
           return FinanceChart(data: data);
         },
-        loadingWidget: LoadingScreen(isSmallLoading: true,),
+        loadingWidget: LoadingScreen(
+          isSmallLoading: true,
+        ),
       );
     });
   }

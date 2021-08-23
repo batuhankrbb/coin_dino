@@ -53,10 +53,7 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(
-          context: context,
-          title:
-             buildAppBarTitle(),
-          showBackButton: true),
+          context: context, title: buildAppBarTitle(), showBackButton: true),
       body: SafeArea(
         child: Column(
           children: [
@@ -131,10 +128,10 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
 
   String buildAppBarTitle() {
     var updateOrAddText = widget.isUpdate
-        ? "ALERT_DETAIL_SCREEN_APP_BAR_TITLE_UPDATE".tr()
-        : "ALERT_DETAIL_SCREEN_APP_BAR_TITLE_ADD".tr();
+        ? "ALERT_DETAIL_SCREEN.APP_BAR_TITLE_UPDATE".tr()
+        : "ALERT_DETAIL_SCREEN.APP_BAR_TITLE_ADD".tr();
     var fullAppBarTitle =
-        "ALERT_DETAIL_SCREEN_APP_BAR_TITLE_FULL".tr(args: [updateOrAddText]);
+        "ALERT_DETAIL_SCREEN.APP_BAR_TITLE_FULL".tr(args: [updateOrAddText]);
     return fullAppBarTitle;
   }
 }
