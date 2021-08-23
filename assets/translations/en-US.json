@@ -4,15 +4,15 @@
     "FORM_HEADER_OTHERS":"Others",
     "FORM_SHARE_TITLE":"Share",
     "FORM_CONTACT_TITLE":"Contact",
-    "FORM_CONTACT_SUBTITLE":"Contract with us to tell your problems & suggestions",
-    "FORM_RATE_TITLE":"Rate App",
-    "FORM_RATE_SUBTITLE":"Support us",
-    "FORM_HEADER_SETTINGS":"Settings",
+    "FORM_CONTACT_SUBTITLE":"Contact us to tell your problems & suggestions",
+    "FORM_RATE_TITLE":"Rate Coin Dino",
+    "FORM_RATE_SUBTITLE":"Support us with your review",
+    "FORM_HEADER_SETTINGS":"Options",
     "FORM_LANGUAGE_TITLE":"Language",
     "FORM_THEME_TITLE":"Theme",
     "FORM_LANGUAGES_SELECTION_TITLE":"Languages",
     "FORM_THEMES_SELECTION_TITLE":"Themes",
-    "IAP_CARD_TITLE":"Remove Ads",
+    "IAP_CARD_TITLE":"Get Premium",
     "IAP_CARD_SUBTITLE":"For a better experience."
     },
     
@@ -24,27 +24,29 @@
 
 
     "ONBOARD_SCREEN":{
-        "DATA_NOTIFICATON_DESCRIPTION":"notif desc",
-        "DATA_NOTIFICATON_TITLE":"notif title",
-        "DATA_CATEGORY_DESCRIPTION":"category desc",
-        "DATA_CATEGORY_TITLE":"category title",
-        "DATA_DETAIL_DESCRIPTION":"detail desc",
-        "DATA_DETAIL_TITLE":"detail title",
-        "DATA_THEME_DESCRIPTION":"theme desc",
-        "DATA_THEME_TITLE":"theme title"
+        "DATA_NOTIFICATON_TITLE":"Get Notified",
+        "DATA_NOTIFICATON_DESCRIPTION":"Get notified when your favorite coin hits the target price that you set.",
+        "DATA_CATEGORY_TITLE":"Advanced Search",
+        "DATA_CATEGORY_DESCRIPTION":"Search coins by their name, price, category, market cap and other options. Find what you want easily.",
+    
+        "DATA_DETAIL_TITLE":"Detailed Information",
+        "DATA_DETAIL_DESCRIPTION":"Fully detailed information about coins. Price, graph, website, market cap, purpose of the coin and many more!",
+        
+        "DATA_THEME_TITLE":"Customizable Interface",
+        "DATA_THEME_DESCRIPTION":"Use Coin Dino however you want with many theme options! Everyone has a favorite color. What is yours?"
     },
     
 
     "INAPP_SCREEN":{
         "APP_BAR_TITLE":"Purchase",
         "RESTORE_BUTTON_TEXT":"Restore Purchase",
-        "BUY_BUTTON_TEXT":"Remove Ads",
+        "BUY_BUTTON_TEXT":"Get Premium",
         "TITLE_TEXT":"We know that ads are annoying. Aren't they?",
-        "DESCRIPTION_TEXT":"You can both remove all the ads on the app permanently and support us with 1$"
+        "DESCRIPTION_TEXT":"You can support us and remove all ads in Coin Dino permanently by getting premium with $1"
     },
 
     "HOME_SCREEN":{
-        "APP_BAR_TITLE":"Home",
+    "APP_BAR_TITLE":"Home",
     "INTERVAL_SELECTION_PAGE_TITLE":"Set Interval",
     "ORDER_SELECTION_PAGE_TITLE":"Set Sort Order",
     "CATEGORY_SELECTION_PAGE_TITLE":"Set Category",
@@ -60,7 +62,7 @@
     },
     
     "DETAIL_SCREEN":{
-        "VIEWMODEL_SHARE_TEXT":"Hey! Check out {} coin",
+        "VIEWMODEL_SHARE_TEXT":"Hey! Check out {} from Coin Dino. [LINK]",
         "INFORMATION_ROW_MARKET_CAP_RANK_TEXT":"MARKET CAP RANK",
         "INFORMATION_ROW_MARKET_CAP_TEXT":"MARKET CAP",
         "INFORMATION_ROW_TRADING_VOLUME_TEXT":"TRADING VOLUME",
@@ -80,7 +82,7 @@
         "HOURS_TABLE_30D_TEXT":"30D",
         "HOURS_TABLE_60D_TEXT":"60D",
         "HOURS_TABLE_1Y_TEXT":"1Y",
-        "COIN_CHART_FAILURE_TEXT":"Something went wrong while getting chart. Give it an another shot.",
+        "COIN_CHART_FAILURE_TEXT":"Something went wrong while getting the chart. Give it another shot.",
         "CHART_OPTION_VALUE_24H_TEXT":"24H",
         "CHART_OPTION_VALUE_3D_TEXT":"3D",
         "CHART_OPTION_VALUE_7D_TEXT":"7D",
@@ -92,9 +94,9 @@
     "ALERT_LIST_SCREEN":{
         "APP_BAR_TITLE":"Alerts",
         "PERMISSION_REQUEST_TITLE":"Turn on notifications",
-        "PERMISSION_REQUEST_SUBTITLE": "We noticed that you didn't give us permission to do that. Please click here turn on your notifications.",
+        "PERMISSION_REQUEST_SUBTITLE": "We noticed that you didn't give us permission to send you notifications. Please click here to turn on your notifications.",
         "NO_ALERT_TITLE":"Oh! You have no alert :(",
-        "NO_ALERT_SUBTITLE":"You can add alert from the plus icon",
+        "NO_ALERT_SUBTITLE":"You can add a new alert from the plus icon",
         "ALERT_CELL_REMOVE_TEXT":"REMOVE",
         "ALERT_CELL_TARGET_TEXT":"Target: {}",
         "ALERT_CELL_CURRENT_TEXT":"Current: {}"
@@ -106,14 +108,14 @@
     "APP_BAR_TITLE_ADD":"Add",
     "APP_BAR_TITLE_UPDATE":"Update",
     "APP_BAR_TITLE_FULL":"{} Price Alert",
-    "EXPLANATION_TEXT":"When the price hits the target price, an alert will be sent to you via app notificaiton. To receive alerts, please allow your phone settings notification permission.",
+    "EXPLANATION_TEXT":"When the price hits the target price, an alert will be sent to you via app notification. To receive alerts, please allow your phone settings notification permission.",
     "ALERT_VIEWMODEL_ALERT_ADD_SUCCESS_SNACK_MESSAGE":"Alert has been added successfully",
     "ALERT_VIEWMODEL_ALERT_ADD_FAILURE_SNACK_MESSAGE":"Something went wrong. Try again.",
     "ALERT_VIEWMODEL_ALERT_UPDATE_SUCCESS_SNACK_MESSAGE":"Alert has been updated successfully",
     "ALERT_VIEWMODEL_ALERT_UPDATE_FAILURE_SNACK_MESSAGE":"Something went wrong. Try again.",
-    "ALERT_VIEWMODEL_ALERT_DELETE_SUCCESS_SNACK_MESSAGE":"deleted succesfully",
-    "ALERT_VIEWMODEL_ALERT_DELETE_FAILURE_SNACK_MESSAGE":"deleting failed",
-    "ALERT_VIEWMODEL_TEXTFIELD_NOT_VALID_NUMBER_SNACK_MESSAGE":"You should enter a valid number.",
+    "ALERT_VIEWMODEL_ALERT_DELETE_SUCCESS_SNACK_MESSAGE":"Alert has been deleted successfully",
+    "ALERT_VIEWMODEL_ALERT_DELETE_FAILURE_SNACK_MESSAGE":"Something went wrong. Try again.",
+    "ALERT_VIEWMODEL_TEXTFIELD_NOT_VALID_NUMBER_SNACK_MESSAGE":"You must enter a valid number.",
     "BUTTON_UPDATE_TEXT":"UPDATE",
     "BUTTON_SAVE_TEXT":"SAVE",
     "CURRENT_PRICE_TEXT":"Current Price: {}"
@@ -146,14 +148,11 @@
    
 
     "MINI_SERVICE":{
-        "SHARE_MAIN_TEXT":"Hey, I found an app that shows you a lot of information about cryptocurrencies. Check it out! [LINK]",
-        "SHARE_SUBJECT_TEXT":"Coin Dino Subject",
+        "SHARE_MAIN_TEXT":"Hey, I found a cryptocurrency app and I love it. It's Coin Dino. Check it out! [LINK]",
+        "SHARE_SUBJECT_TEXT":"Coin Dino",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Feedback",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Hello, I have a feedback for Coin Dino."
     }
-
-
-
    
 }
 
