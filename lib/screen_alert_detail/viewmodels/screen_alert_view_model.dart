@@ -9,6 +9,7 @@ import '../../features/alert/data/repository/alert_repository.dart';
 
 import '../../features/alert/domain/repository_contract/i_alert_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:mobx/mobx.dart';
 part 'screen_alert_view_model.g.dart';
 
@@ -41,10 +42,8 @@ abstract class _ScreenAlertViewModelBase with Store {
     if (!isGranted && withRequest) {
       var lastGrantedInfo = await PermissionHelper.shared
           .requestPermission(Permission.notification);
-      print("lastgrantedinfo beklendi");
       return lastGrantedInfo;
     }
-     print("isgranted döndü");
     return isGranted;
   }
 
@@ -56,10 +55,10 @@ abstract class _ScreenAlertViewModelBase with Store {
       result.when(success: (_) {
         getAllAlerts();
         AlertHelper.shared
-            .showSnackBar("Alert has been added successfully", context!);
+            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_ADD_SUCCESS_SNACK_MESSAGE".tr(), context!);
       }, failure: (failure) {
         AlertHelper.shared
-            .showSnackBar("Something went wrong. Try again.", context!);
+            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_ADD_FAILURE_SNACK_MESSAGE".tr(), context!);
       });
     });
   }
@@ -71,11 +70,11 @@ abstract class _ScreenAlertViewModelBase with Store {
       var result = await alertRepository.updateAlert(updatedEntity);
       result.when(success: (_) {
         AlertHelper.shared
-            .showSnackBar("Alert has been updated successfully", context!);
+            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_UPDATE_SUCCESS_SNACK_MESSAGE".tr(), context!);
         getAllAlerts();
       }, failure: (failure) {
         AlertHelper.shared
-            .showSnackBar("Something went wrong. Try again.", context!);
+            .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_UPDATE_FAILURE_SNACK_MESSAGE".tr(), context!);
       });
     });
   }
@@ -107,9 +106,9 @@ abstract class _ScreenAlertViewModelBase with Store {
     }
 
     result.when(success: (_) {
-      AlertHelper.shared.showSnackBar("deleted succesfully", context!);
+      AlertHelper.shared.showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_DELETE_SUCCESS_SNACK_MESSAGE".tr(), context!);
     }, failure: (failure) {
-      AlertHelper.shared.showSnackBar("deleting failed", context!);
+      AlertHelper.shared.showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_ALERT_DELETE_FAILURE_SNACK_MESSAGE".tr(), context!);
     });
   }
 
@@ -119,7 +118,7 @@ abstract class _ScreenAlertViewModelBase with Store {
     var newTargetPrice = num.tryParse(textEditingController.text);
     if (newTargetPrice == null) {
       AlertHelper.shared
-          .showSnackBar("You should enter a valid number.", context!, false);
+          .showSnackBar("ALERT_DETAIL_SCREEN_ALERT_VIEWMODEL_TEXTFIELD_NOT_VALID_NUMBER_SNACK_MESSAGE".tr(), context!, false);
     } else {
       await func(newTargetPrice);
       NavigationService.shared.goBack();

@@ -12,27 +12,6 @@ class AlertHelper {
 
   AlertHelper._privateConstructor();
 
-  void showCupertinoAlertDialog(
-      String title, String message, BuildContext context) {
-    showCupertinoDialog(
-        context: context,
-        builder: (builderContext) {
-          return CupertinoAlertDialog(
-            title: Text(title),
-            content: Text(message),
-            actions: [
-              CupertinoDialogAction(
-                child: Text("Ok"),
-                isDefaultAction: true,
-                onPressed: () {
-                  NavigationService().goBack();
-                },
-              )
-            ],
-          );
-        });
-  }
-
   void showSnackBar(String message, BuildContext context,
       [bool isPositive = true]) {
     ScaffoldMessenger.of(GlobalKeys.shared.scaffoldKey.currentContext ?? context).showSnackBar(SnackBar(
@@ -64,3 +43,4 @@ class AlertHelper {
     ));
   }
 }
+

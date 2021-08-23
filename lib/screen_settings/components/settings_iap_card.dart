@@ -7,6 +7,7 @@ import '../../core/extensions/context_extensions.dart';
 import '../../core/mini_services/image/image_helper.dart';
 import '../../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../../core/extensions/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SettingInAppPurchaseCardWidget extends StatelessWidget {
   const SettingInAppPurchaseCardWidget({Key? key}) : super(key: key);
@@ -64,7 +65,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AutoSizeText(
-          "Remove ads",
+          "SETTINGS_SCREEN_IAP_CARD_TITLE".tr(),
           style: TextStyle(
             color: context.colorScheme.onSurface,
             fontWeight: FontWeight.bold,
@@ -72,7 +73,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
           ),
         ),
         AutoSizeText(
-          "For a better experience.",
+          "SETTINGS_SCREEN_IAP_CARD_SUBTITLE".tr(),
           style: TextStyle(
             color: context.colorScheme.onSurface,
             fontWeight: FontWeight.normal,

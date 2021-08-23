@@ -16,7 +16,7 @@ import '../../viewmodels/home_screen_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'home_page_cell.dart';
 
 class HomeTable extends StatefulWidget {
@@ -67,7 +67,7 @@ class _HomeTableState extends State<HomeTable> {
                   await homeScreenViewModel.getCoinList();
                 },
                 listView: buildListView(),
-                snackMessage: "Refreshed"),
+                snackMessage: "HOME_SCREEN_REFRESHED_SNACK_MESSAGE".tr()),
           ),
           if (homeScreenViewModel.isScrolled) LoadingScreen(isSmallLoading: true,),
         ],

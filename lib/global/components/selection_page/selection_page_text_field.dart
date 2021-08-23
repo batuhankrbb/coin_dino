@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../core/extensions/context_extensions.dart';
 
 class SelectionPageTextField extends StatefulWidget {
@@ -62,7 +63,7 @@ class _SelectionPageTextFieldState extends State<SelectionPageTextField> {
             widget.textEditingController.clear();
           },
           child: AutoSizeText(
-            "Cancel",
+            "GLOBAL_COMPONENT_SELECTION_PAGE_TEXTFIELD_CANCEL_TEXT".tr(),
             style: TextStyle(
               color: context.colorScheme.secondaryVariant,
               fontSize: context.getWidth(0.035),

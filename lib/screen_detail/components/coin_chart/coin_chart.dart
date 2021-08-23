@@ -3,7 +3,7 @@ import '../../../global/components/failure_widget.dart';
 import '../../../global/components/loading_screen.dart';
 import '../chart_option/chart_option_value_data.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import '../../../features/details/domain/entity/coin_chart_entity.dart';
 import '../../../global/components/state_result_builder.dart';
 import '../../../global/starting_files/injection_container.dart';
@@ -59,7 +59,7 @@ class _CoinChartState extends State<CoinChart> {
         failureWidget: (failure) {
           return FailureWidget(
               explanation:
-                  "Something went wrong while getting chart. Give it an another shot.",
+                  "DETAIL_SCREEN_COIN_CHART_FAILURE_TEXT".tr(),
               onTryAgain: () {
                 detailViewModel.getCharts(coinID: widget.coinID, days: "7");
               });

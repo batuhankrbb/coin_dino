@@ -7,7 +7,9 @@ import '../../features/details/domain/entity/coin_chart_entity.dart';
 import '../../features/details/domain/entity/coin_detail_entity.dart';
 import '../../features/details/domain/repository_contract/i_coin_detail_repository.dart';
 import 'package:mobx/mobx.dart';
+import 'package:easy_localization/easy_localization.dart';
 part 'detail_screen_view_model.g.dart';
+
 
 class DetailScreenViewModel = _DetailScreenViewModelBase
     with _$DetailScreenViewModel;
@@ -60,7 +62,7 @@ abstract class _DetailScreenViewModelBase with Store {
   }
 
   Future<void> shareCoin(String coinName) async {
- await ShareService.shared.share(text: "HEY! Check out $coinName");
+ await ShareService.shared.share(text: "DETAIL_SCREEN_VIEWMODEL_SHARE_TEXT".tr(args: [coinName]));
   }
 
   Future<void> openWebPage(String url) async {

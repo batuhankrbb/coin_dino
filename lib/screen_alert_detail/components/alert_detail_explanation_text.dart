@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AlertDetailExplanationText extends StatelessWidget {
   const AlertDetailExplanationText({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class AlertDetailExplanationText extends StatelessWidget {
       alignment: Alignment.center,
       padding: EdgeInsets.all(context.getWidth(0.03)),
       child: AutoSizeText(
-        "When the price hits the target price, an alert will be sent to you via app notificaiton. To receive alerts, please allow your phone settings notification permission.",
+        "ALERT_DETAIL_SCREEN_EXPLANATION_TEXT".tr(),
         maxLines: 4,
         style: TextStyle(
           fontSize: context.getWidth(0.05),

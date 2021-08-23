@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../core/extensions/context_extensions.dart';
 import '../global/components/app_bar_components.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SearchScreenMain extends StatefulWidget {
   SearchScreenMain({
@@ -86,7 +87,7 @@ class _SearchScreenMainState extends State<SearchScreenMain>
     return customAppBar(
       context: context,
       showBackButton: widget.showBackButton,
-      title: _searchViewModel.tabIndex == 0 ? "Search" : "Trends",
+      title: _searchViewModel.tabIndex == 0 ? "SEARCH_SCREEN_APP_BAR_TITLE_SEARCH".tr() : "SEARCH_SCREEN_APP_BAR_TITLE_TRENDS".tr(),
       backgroundColor: context.colorScheme.primaryVariant,
       bottom: buildTabBar(),
     );

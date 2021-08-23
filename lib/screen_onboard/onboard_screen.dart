@@ -11,6 +11,7 @@ import '../global/utils/custom_colors.dart';
 import 'components/onboard_image_title_widget.dart';
 import 'components/page_view_indicator.dart';
 import 'view_model/onboard_screen_viewmodel.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OnboardScreen extends StatefulWidget {
   OnboardScreen({Key? key}) : super(key: key);
@@ -92,24 +93,24 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
   final List<Widget> onbardScreenArray = [
     OnboardScreenImageAndTitleWidget(
-      description: "dsadsadasdasd",
+      description: "ONBOARD_SCREEN_DATA_NOTIFICATON_DESCRIPTION".tr(),
       image: "onboard_notify_image",
-      title: "Bilidirm",
+      title: "ONBOARD_SCREEN_DATA_NOTIFICATON_TITLE".tr(),
     ),
     OnboardScreenImageAndTitleWidget(
-      description: "dsadasdadasd",
+      description: "ONBOARD_SCREEN_DATA_CATEGORY_DESCRIPTION".tr(),
       image: "onboard_search_image",
-      title: "Kategori",
+      title: "ONBOARD_SCREEN_DATA_CATEGORY_TITLE".tr(),
     ),
     OnboardScreenImageAndTitleWidget(
-      description: "dsadsadasdasda",
+      description: "ONBOARD_SCREEN_DATA_DETAIL_DESCRIPTION".tr(),
       image: "onboard_detail_image",
-      title: "Detay Sayfası",
+      title: "Detay ONBOARD_SCREEN_DATA_DETAIL_TITLE".tr(),
     ),
     OnboardScreenImageAndTitleWidget(
-      description: "dasdsadasdas",
+      description: "ONBOARD_SCREEN_DATA_THEME_DESCRIPTION".tr(),
       image: "onboard_customize_image",
-      title: "Renkli Tema",
+      title: "ONBOARD_SCREEN_DATA_THEME_TITLE".tr(),
     ),
   ];
 }

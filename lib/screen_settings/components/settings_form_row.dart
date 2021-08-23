@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 class SettingFormRowWidget extends StatelessWidget {
   final Widget leading;
@@ -46,7 +48,7 @@ class SettingFormRowWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AutoSizeText(
-          title,
+          title.tr(),
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: context.getWidth(0.04),
@@ -60,7 +62,7 @@ class SettingFormRowWidget extends StatelessWidget {
   Widget getSubtitle(BuildContext context) {
     if (subTitle == null) return SizedBox();
     return AutoSizeText(
-      subTitle!,
+      subTitle!.tr(),
       style: TextStyle(
         fontWeight: FontWeight.w300,
         color: context.colorScheme.secondaryVariant,

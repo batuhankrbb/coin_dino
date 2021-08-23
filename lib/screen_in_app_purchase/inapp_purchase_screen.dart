@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import '../core/extensions/context_extensions.dart';
 import 'components/in_app_purchase_button.dart';
 import 'components/in_app_purchase_text_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 class InAppPurchaseScreen extends StatefulWidget {
   const InAppPurchaseScreen({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(
-          context: context, title: "Purchase", showBackButton: true),
+          context: context, title: "INAPP_SCREEN_APP_BAR_TITLE".tr(), showBackButton: true),
       backgroundColor: context.colorScheme.onSurface,
       body: Container(
         padding: EdgeInsets.all(15),
@@ -72,7 +74,7 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
       child: TextButton(
         onPressed: null,
         child: AutoSizeText(
-          "Restore Purchase",
+          "INAPP_SCREEN_RESTORE_BUTTON_TEXT".tr(),
           textAlign: TextAlign.center,
           style: TextStyle(
               color: context.theme.buttonColor,

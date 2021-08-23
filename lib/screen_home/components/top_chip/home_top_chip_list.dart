@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import '../../../features/details/data/models/coin_detail_model.dart';
 import '../../../features/market/presentation/utils/listing_enums.dart';
 import '../../../global/starting_files/injection_container.dart';
@@ -39,7 +39,7 @@ class _HomeTopChipListState extends State<HomeTopChipList> {
           onTap: (i) {
             viewModel.marketDate = MarketDate.values[i];
           },
-          title: 'Set Interval',
+          title: 'HOME_SCREEN_INTERTVAL_SELECTION_PAGE_TITLE'.tr(),
         ),
         buildCategoryChip(),
         TopHomeChip(
@@ -48,7 +48,7 @@ class _HomeTopChipListState extends State<HomeTopChipList> {
           onTap: (i) {
             viewModel.marketSort = MarketSort.values[i];
           },
-          title: 'Set Sort Order',
+          title: 'HOME_SCREEN_ORDER_SELECTION_PAGE_TITLE'.tr(),
         ),
       ],
     );
@@ -66,7 +66,7 @@ class _HomeTopChipListState extends State<HomeTopChipList> {
             viewModel.selectedCategory = viewModel.categoryList[i];
           },
           isBarActive: true,
-          title: 'Set Category',
+          title: 'HOME_SCREEN_CATEGORY_SELECTION_PAGE_TITLE'.tr(),
         );
       }
     });

@@ -16,7 +16,7 @@ import '../global/components/cached_network_image.dart';
 
 import '../global/starting_files/injection_container.dart';
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'components/alert_detail_current_price_text.dart';
 
 class AlertDetailScreen extends StatefulWidget {
@@ -54,7 +54,8 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
     return Scaffold(
       appBar: customAppBar(
           context: context,
-          title: "${widget.isUpdate ? "Update" : "Add"} Price Alert",
+          title:
+             buildAppBarTitle(),
           showBackButton: true),
       body: SafeArea(
         child: Column(
@@ -126,5 +127,14 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
 
   Widget buildBannerAd() {
     return AdmobWidgetHelper.shared.buildBannerAdWidget(myBanner);
+  }
+
+  String buildAppBarTitle() {
+    var updateOrAddText = widget.isUpdate
+        ? "ALERT_DETAIL_SCREEN_APP_BAR_TITLE_UPDATE".tr()
+        : "ALERT_DETAIL_SCREEN_APP_BAR_TITLE_ADD".tr();
+    var fullAppBarTitle =
+        "ALERT_DETAIL_SCREEN_APP_BAR_TITLE_FULL".tr(args: [updateOrAddText]);
+    return fullAppBarTitle;
   }
 }

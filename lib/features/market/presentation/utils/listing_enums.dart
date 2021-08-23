@@ -1,4 +1,6 @@
 import '../../domain/entities/market_coin_category_entity.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 enum MarketDate { hour1, hour24, day7, day30 }
 
@@ -19,13 +21,13 @@ extension rawExtensionMarketDate on MarketDate {
   String get displayValue {
     switch (this) {
       case MarketDate.hour1:
-        return "1H";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_DATE_1H_DISPLAY_VALUE".tr();
       case MarketDate.hour24:
-        return "24H";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_DATE_24H_DISPLAY_VALUE".tr();
       case MarketDate.day7:
-        return "7D";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_DATE_7D_DISPLAY_VALUE".tr();
       case MarketDate.day30:
-        return "30D";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_DATE_30D_DISPLAY_VALUE".tr();
     }
   }
 }
@@ -66,21 +68,21 @@ extension rawExtensionMarketSort on MarketSort {
   String get displayValue {
     switch (this) {
       case MarketSort.gecko_asc:
-        return "Smart Ranking Ascending";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_GECKO_ASC_DISPLAY_VALUE".tr();
       case MarketSort.gecko_desc:
-        return "Smart Ranking Descending";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_GECKO_DESC_DISPLAY_VALUE".tr();
       case MarketSort.id_asc:
-        return "Ascending ID";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_ID_ASC_DISPLAY_VALUE".tr();
       case MarketSort.id_desc:
-        return "Descending ID";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_ID_DESC_DISPLAY_VALUE".tr();
       case MarketSort.market_cap_asc:
-        return "Smallest Market Cap";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_MARKETCAP_ASC_DISPLAY_VALUE".tr();
       case MarketSort.market_cap_desc:
-        return "Largest Market Cap";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_MARKETCAP_DESC_DISPLAY_VALUE".tr();
       case MarketSort.volume_asc:
-        return "Ascending Volume";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_VOLUME_ASC_DISPLAY_VALUE".tr();
       case MarketSort.volume_desc:
-        return "Descending Volume";
+        return "MARKET_FEATURE_LISTING_ENUM_MARKET_SORT_VOLUME_DESC_DISPLAY_VALUE".tr();
     }
   }
 }

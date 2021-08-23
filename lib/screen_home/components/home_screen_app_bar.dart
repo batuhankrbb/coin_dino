@@ -6,7 +6,7 @@ import '../../screen_alert_list/alert_list_screen.dart';
 import '../../screen_search/search_screen_main.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   HomeScreenAppBar({Key? key}) : super(key: key);
 
@@ -14,7 +14,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return customAppBar(
       context: context,
-      title: "Home",
+      title: "HOME_SCREEN_APP_BAR_TITLE".tr(),
       leading: buildLeadingNotificationButton(context),
       action: [
         buildSearchActionButton(context),

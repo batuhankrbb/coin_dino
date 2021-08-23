@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class InAppPurchaseButton extends StatelessWidget {
   const InAppPurchaseButton({Key? key, required this.onTap}) : super(key: key);
 
@@ -27,7 +27,7 @@ class InAppPurchaseButton extends StatelessWidget {
 
   AutoSizeText buildText(BuildContext context) {
     return AutoSizeText(
-      "Remove Ads",
+      "INAPP_SCREEN_BUY_BUTTON_TEXT".tr(),
       style: TextStyle(
         color: context.colorScheme.onSurface,
         fontSize: context.getWidth(0.06),

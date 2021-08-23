@@ -4,6 +4,8 @@ import 'home_header_button.dart';
 import '../../viewmodels/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import '../../../core/extensions/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 class HomeTableHeader extends StatefulWidget {
   HomeTableHeader(
@@ -32,7 +34,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[0],
             child: HomeHeaderButton(
-              text: "#",
+              text: "HOME_SCREEN_HEADER_RANK_TITLE".tr()
             ),
           ),
           Expanded(
@@ -42,7 +44,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[1],
             child: HomeHeaderButton(
-              text: "Coin",
+              text: "HOME_SCREEN_HEADER_COIN_TITLE".tr(),
             ),
           ),
           Expanded(
@@ -52,7 +54,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[2],
             child: HomeHeaderButton(
-              text: "Price",
+              text: "HOME_SCREEN_HEADER_PRICE_TITLE".tr(),
             ),
           ),
           Expanded(
@@ -72,7 +74,7 @@ class _HomeTableHeaderState extends State<HomeTableHeader> {
           Expanded(
             flex: widget.itemFlexList[4],
             child: HomeHeaderButton(
-              text: "Market Cap",
+              text: "HOME_SCREEN_HEADER_MARKETCAP_TITLE".tr(),
             ),
           ),
           Spacer(

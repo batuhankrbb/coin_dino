@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class InfoUrlText extends StatelessWidget {
   const InfoUrlText({Key? key, required this.urlText}) : super(key: key);
@@ -36,7 +37,7 @@ class InfoUrlText extends StatelessWidget {
 
   AutoSizeText buildHomePageText(BuildContext context) {
     return AutoSizeText(
-      "Home Page",
+      "DETAIL_INFO_SCREEN_HOME_PAGE_LINK_TEXT".tr(),
       style: TextStyle(
           color: context.colorScheme.primary,
           fontSize: context.getWidth(0.04),

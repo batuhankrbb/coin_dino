@@ -1,4 +1,5 @@
 import 'package:share_plus/share_plus.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ShareService {
   static final shared = ShareService._privateConstructor();
@@ -11,7 +12,7 @@ class ShareService {
 
   Future<void> shareApp() async {
     await Share.share(
-        "Hey, I found an app that shows you a lot of information about cryptocurrencies. Check it out! [LINK]",
-        subject: "Coin Dino Subject");
+        "MINI_SERVICE_SHARE_MAIN_TEXT".tr(),
+        subject: "MINI_SERVICE_SHARE_SUBJECT_TEXT".tr());
   }
 }

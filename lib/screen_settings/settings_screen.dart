@@ -19,6 +19,8 @@ import 'components/settings_iap_card.dart';
 import 'components/settings_icon.dart';
 
 import '../core/extensions/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context: context, title: "Settings"),
+      appBar: customAppBar(context: context, title: "SETTINGS_SCREEN_APP_BAR_TEXT".tr()),
       body: Container(
         padding: EdgeInsets.all(10),
         child: SingleChildScrollView(

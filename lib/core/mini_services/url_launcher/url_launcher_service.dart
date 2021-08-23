@@ -1,5 +1,5 @@
 import 'dart:core';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncherService {
@@ -22,8 +22,8 @@ class UrlLauncherService {
         scheme: "mailto",
         path: "batuhankarababa@gmail.com",
         queryParameters: {
-          "subject": "Feedback",
-          "body": "Hello, I have a feedback for Coin Dino."
+          "subject": "MINI_SERVICE_URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT".tr(),
+          "body": "MINI_SERVICE_URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT".tr()
         });
 
     await launch(uri.toString());

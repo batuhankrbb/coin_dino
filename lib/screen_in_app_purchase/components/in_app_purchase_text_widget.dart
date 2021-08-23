@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 class InappPurchaseTextWidget extends StatelessWidget {
   const InappPurchaseTextWidget({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class InappPurchaseTextWidget extends StatelessWidget {
 
   Widget buildDescription(BuildContext context) {
     return AutoSizeText(
-      "You can both remove all the ads on the app permanently and support us with 1\$",
+     "INAPP_SCREEN_DESCRIPTION_TEXT".tr(),
       textAlign: TextAlign.center,
       maxLines: 2,
       style: TextStyle(
@@ -40,7 +42,7 @@ class InappPurchaseTextWidget extends StatelessWidget {
 
   Widget buildTitle(BuildContext context) {
     return AutoSizeText(
-      "We know that ads are annoying. Aren't they?",
+      "INAPP_SCREEN_TITLE_TEXT".tr(),
       maxLines: 2,
       style: TextStyle(
         color: context.colorScheme.primary,
