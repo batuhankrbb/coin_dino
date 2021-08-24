@@ -57,6 +57,15 @@ mixin _$ScreenAlertViewModel on _ScreenAlertViewModelBase, Store {
     });
   }
 
+  final _$checkAlertPermissionsAsyncAction =
+      AsyncAction('_ScreenAlertViewModelBase.checkAlertPermissions');
+
+  @override
+  Future<bool> checkAlertPermissions({required bool withRequest}) {
+    return _$checkAlertPermissionsAsyncAction
+        .run(() => super.checkAlertPermissions(withRequest: withRequest));
+  }
+
   final _$addAlertAsyncAction =
       AsyncAction('_ScreenAlertViewModelBase.addAlert');
 

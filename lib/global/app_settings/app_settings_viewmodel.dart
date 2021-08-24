@@ -1,3 +1,5 @@
+import 'package:coin_dino/global/theme.dart';
+
 import '../../core/hive/hive_constants.dart';
 import '../../core/hive/hive_helper.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +14,13 @@ part 'app_settings_viewmodel.g.dart';
 
 class AppSettingsViewModel = _AppSettingsViewModelBase
     with _$AppSettingsViewModel;
-
+    
 abstract class _AppSettingsViewModelBase with Store {
   IPreferenceRepository _preferenceRepository =
       getit.get<IPreferenceRepository>();
 
   @observable
-  ThemeData themeData = AppThemes.shared.lightModeTheme;
+  AppTheme appTheme = AppThemes.shared.redAppTheme;
 
   @observable
   bool showOnBoard = true;
@@ -38,10 +40,13 @@ abstract class _AppSettingsViewModelBase with Store {
   void setTheme(ThemePreferenceEntity themePreference) {
     switch (themePreference) {
       case ThemePreferenceEntity.dark:
-        themeData = AppThemes.shared.darkModeTheme;
+        appTheme = AppThemes.shared.darkAppTheme;
         break;
       case ThemePreferenceEntity.light:
-        themeData = AppThemes.shared.lightModeTheme;
+        appTheme = AppThemes.shared.yellowAppTheme; //todo will be changed
+        break;
+      case ThemePreferenceEntity.red:
+        appTheme = AppThemes.shared.redAppTheme;
         break;
     }
   }
@@ -54,8 +59,8 @@ abstract class _AppSettingsViewModelBase with Store {
   }
 
   @action
-  Future<void> stopShowingOnboard() async{
- await HiveHelper.shared.putData<bool>(
-          HiveConstants.BOX_STARTING, HiveConstants.KEY_ONBOARD_SHOW, false);
+  Future<void> stopShowingOnboard() async {
+    await HiveHelper.shared.putData<bool>(
+        HiveConstants.BOX_STARTING, HiveConstants.KEY_ONBOARD_SHOW, false);
   }
 }
