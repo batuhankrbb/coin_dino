@@ -14,7 +14,7 @@ class NumberHelper {
     return percentagePrefix + NumberHelper.shared.fixNum(percentage, 2);
   }
 
-  String toCommaString({required num number, int digitNumber = 4}) {
+  String toCommaString({required num number, int digitNumber = 4, bool withDollarSymbol = false}) {
     RegExp reg = new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
     var mathFunc = (Match match) => '${match[1]},';
 
@@ -31,9 +31,9 @@ class NumberHelper {
     var finalText = numberWithCommas + fractionText; //2,145.1234124
 
     if (finalText[0] == "0" && finalText[1] == "0") {
-      return finalText.substring(1);
+      return withDollarSymbol ? "\$${finalText.substring(1)}": finalText.substring(1);
     } else {
-      return finalText;
+      return withDollarSymbol ? "\$${finalText}" : finalText;
     }
   }
 

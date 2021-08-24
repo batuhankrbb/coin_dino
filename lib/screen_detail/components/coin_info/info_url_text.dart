@@ -1,12 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
+import 'package:coin_dino/screen_detail/viewmodels/detail_screen_view_model.dart';
 import 'package:flutter/material.dart';
-import '../../core/extensions/context_extensions.dart';
+import '../../../core/extensions/context_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class InfoUrlText extends StatelessWidget {
-  const InfoUrlText({Key? key, required this.urlText}) : super(key: key);
+   InfoUrlText({Key? key, required this.urlText}) : super(key: key);
 
   final String urlText;
+
+ var _detailViewModel = getit.get<DetailScreenViewModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -46,16 +50,22 @@ class InfoUrlText extends StatelessWidget {
     );
   }
 
-  AutoSizeText buildUrlText(BuildContext context) {
-    return AutoSizeText(
-      urlText,
-      maxLines: 1,
-      textAlign: TextAlign.end,
-      style: TextStyle(
-        color: context.colorScheme.surface,
-        fontWeight: FontWeight.w500,
-        fontSize: context.getWidth(0.04),
+  Widget buildUrlText(BuildContext context) {
+    return GestureDetector(
+      onTap: () async{
+         await _detailViewModel.openWebPage(urlText);
+      },
+      child: AutoSizeText(
+        urlText,
+        maxLines: 1,
+        textAlign: TextAlign.end,
+        style: TextStyle(
+          color: context.colorScheme.surface,
+          fontWeight: FontWeight.w500,
+          fontSize: context.getWidth(0.04),
+        ),
       ),
     );
   }
 }
+

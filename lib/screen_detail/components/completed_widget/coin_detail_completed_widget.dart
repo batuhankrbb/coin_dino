@@ -37,7 +37,7 @@ class _CoinDetailCompletedWidgetState extends State<CoinDetailCompletedWidget> {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Spacer(flex: 1),
+        
         Expanded(
           flex: 20,
           child: buildGraph(),

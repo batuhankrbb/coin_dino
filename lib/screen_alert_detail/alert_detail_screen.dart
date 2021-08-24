@@ -54,69 +54,74 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
     return Scaffold(
       appBar: customAppBar(
           context: context, title: buildAppBarTitle(), showBackButton: true),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Spacer(
-              flex: 2,
-            ),
-            Expanded(
-              flex: 18,
-              child: AlertDetailHeader(
-                imageUrl: widget.alertEntity.image,
-                coinName: widget.alertEntity.name,
-                symbol: widget.alertEntity.symbol,
+      resizeToAvoidBottomInset: false,
+      body: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: unFocus,
+        child: SafeArea(
+          child: Column(
+            children: [
+              Spacer(
+                flex: 2,
               ),
-            ),
-            Spacer(
-              flex: 4,
-            ),
-            Spacer(
-              flex: 3,
-            ),
-            Expanded(
-              flex: 10,
-              child: AlertCustomTextField(
-                alertEntity: widget.alertEntity,
-                isUpdate: widget.isUpdate,
+              Expanded(
+                flex: 18,
+                child: AlertDetailHeader(
+                  imageUrl: widget.alertEntity.image,
+                  coinName: widget.alertEntity.name,
+                  symbol: widget.alertEntity.symbol,
+                ),
               ),
-            ),
-            Spacer(
-              flex: 3,
-            ),
-            Expanded(
-              flex: 8,
-              child: AlertDetailCurrentPriceText(
-                  currentPrice: widget.alertEntity.currentPrice),
-            ),
-            Spacer(
-              flex: 3,
-            ),
-            Expanded(
-              flex: 20,
-              child: AlertDetailExplanationText(),
-            ),
-            Spacer(
-              flex: 4,
-            ),
-            Expanded(
-              flex: 6,
-              child: AlertDetailExecuteButton(
-                onTap: () {
-                  if (widget.isUpdate) {
-                    alertViewModel.updateAlert(entity: widget.alertEntity);
-                  } else {
-                    alertViewModel.addAlert(entity: widget.alertEntity);
-                  }
-                },
-                isUpdate: widget.isUpdate,
+              Spacer(
+                flex: 4,
               ),
-            ),
-            Spacer(
-              flex: 14,
-            ),
-            buildBannerAd(),
-          ],
+              Spacer(
+                flex: 3,
+              ),
+              Expanded(
+                flex: 10,
+                child: AlertCustomTextField(
+                  alertEntity: widget.alertEntity,
+                  isUpdate: widget.isUpdate,
+                ),
+              ),
+              Spacer(
+                flex: 3,
+              ),
+              Expanded(
+                flex: 8,
+                child: AlertDetailCurrentPriceText(
+                    currentPrice: widget.alertEntity.currentPrice),
+              ),
+              Spacer(
+                flex: 3,
+              ),
+              Expanded(
+                flex: 20,
+                child: AlertDetailExplanationText(),
+              ),
+              Spacer(
+                flex: 4,
+              ),
+              Expanded(
+                flex: 6,
+                child: AlertDetailExecuteButton(
+                  onTap: () {
+                    if (widget.isUpdate) {
+                      alertViewModel.updateAlert(entity: widget.alertEntity);
+                    } else {
+                      alertViewModel.addAlert(entity: widget.alertEntity);
+                    }
+                  },
+                  isUpdate: widget.isUpdate,
+                ),
+              ),
+              Spacer(
+                flex: 14,
+              ),
+              buildBannerAd(),
+            ],
+          ),
         ),
       ),
     );
@@ -133,5 +138,13 @@ class _AlertDetailScreenState extends State<AlertDetailScreen> {
     var fullAppBarTitle =
         "ALERT_DETAIL_SCREEN.APP_BAR_TITLE_FULL".tr(args: [updateOrAddText]);
     return fullAppBarTitle;
+  }
+
+  void unFocus() {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      FocusManager.instance.primaryFocus?.unfocus();
+    }
   }
 }

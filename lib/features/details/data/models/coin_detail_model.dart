@@ -75,31 +75,31 @@ class CoinDetailModel extends BaseNetworkModel {
               .fixNum(marketData.priceChangePercentage60D ?? 0, 1) +
           "%",
       availableSuppy: marketData.circulatingSupply != null
-          ? NumberHelper.shared
-              .toCommaString(number: marketData.circulatingSupply!)
+          ? NumberHelper.shared.toCommaString(
+              number: marketData.circulatingSupply!, withDollarSymbol: true)
           : "-",
       totalSupply: NumberHelper.shared
-          .toCommaString(number: marketData.totalSupply ?? 0),
+          .toCommaString(number: marketData.totalSupply ?? 0,withDollarSymbol: true),
       priceChange24h: marketData.priceChange24H ?? 0,
       marketCap: marketData.marketCap?.usd != null
           ? NumberHelper.shared
-              .toCommaString(number: marketData.marketCap!.usd!)
+              .toCommaString(number: marketData.marketCap!.usd!,withDollarSymbol: true)
           : "-",
       marketCapRank: marketData.marketCapRank != null
           ? marketData.marketCapRank.toString()
           : "-",
       tradingVolume: marketData.totalVolume?.usd != null
           ? NumberHelper.shared
-              .toCommaString(number: marketData.totalVolume!.usd!)
+              .toCommaString(number: marketData.totalVolume!.usd!,withDollarSymbol: true)
           : "-",
       highest24h: marketData.high24H?.usd != null
-          ? NumberHelper.shared.toCommaString(number: marketData.high24H!.usd!)
+          ? NumberHelper.shared.toCommaString(number: marketData.high24H!.usd!,withDollarSymbol: true)
           : "-",
       lowest24h: marketData.low24H?.usd != null
-          ? NumberHelper.shared.toCommaString(number: marketData.low24H!.usd!)
+          ? NumberHelper.shared.toCommaString(number: marketData.low24H!.usd!,withDollarSymbol: true)
           : "-",
       allTimeHigh: marketData.ath?.usd != null
-          ? NumberHelper.shared.toCommaString(number: marketData.ath!.usd!)
+          ? NumberHelper.shared.toCommaString(number: marketData.ath!.usd!,withDollarSymbol: true)
           : "-",
       sinceAllTimeHigh: marketData.athChangePercentage?.usd != null
           ? "${NumberHelper.shared.toCommaString(number: marketData.athChangePercentage!.usd!)}%"
@@ -109,7 +109,7 @@ class CoinDetailModel extends BaseNetworkModel {
       allTimeLowDate:
           DateHelper.shared.formatDate(dateTime: marketData.atlDate!.usd),
       allTimeLow: marketData.atl?.usd != null
-          ? NumberHelper.shared.toCommaString(number: marketData.atl!.usd!)
+          ? NumberHelper.shared.toCommaString(number: marketData.atl!.usd!,withDollarSymbol: true)
           : "-",
       sinceAllTimeLow: marketData.atlChangePercentage?.usd != null
           ? "${NumberHelper.shared.toCommaString(number: marketData.atlChangePercentage!.usd!)}%"
