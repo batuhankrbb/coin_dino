@@ -1,3 +1,5 @@
+import 'package:background_fetch/background_fetch.dart';
+
 import 'core/localization/localization_helper.dart';
 import 'features/alert/data/model/alert_model.dart';
 import 'global/starting_files/start_app.dart';
@@ -35,12 +37,11 @@ import 'global/starting_files/injection_container.dart';
 import 'global/starting_files/launch_app.dart';
 
 void main() async {
-  await startApp();
-  runApp(
-    DevicePreview(builder: (_) => LocalizationHelper.shared.runAppWithEasyWidget(
-      MyApp(),
-    ),),
-  );
+  await AppStartConfig.shared.startApp();
+  runApp(LocalizationHelper.shared.runAppWithEasyWidget(
+    MyApp(),
+  ));
+  BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
 }
 
 class MyApp extends StatefulWidget {
@@ -66,12 +67,9 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           locale: context.locale,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: appSettingsViewModel.themeData,
-          builder: DevicePreview.appBuilder,
           home: RootScreen(),
         );
       },
     );
   }
 }
-
-
