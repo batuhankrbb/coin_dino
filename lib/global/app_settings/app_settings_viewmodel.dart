@@ -1,4 +1,4 @@
-import 'package:coin_dino/global/theme/app_theme.dart';
+
 
 import '../../core/hive/hive_constants.dart';
 import '../../core/hive/hive_helper.dart';
@@ -20,7 +20,7 @@ abstract class _AppSettingsViewModelBase with Store {
       getit.get<IPreferenceRepository>();
 
   @observable
-  AppTheme appTheme = AppThemes.shared.lightAppTheme;
+  ThemeData appTheme = AppThemes.shared.lightModeTheme;
 
   @observable
   bool showOnBoard = true;
@@ -40,16 +40,10 @@ abstract class _AppSettingsViewModelBase with Store {
   void setTheme(ThemePreferenceEntity themePreference) {
     switch (themePreference) {
       case ThemePreferenceEntity.dark:
-        appTheme = AppThemes.shared.darkAppTheme;
+        appTheme = AppThemes.shared.darkModeTheme;
         break;
       case ThemePreferenceEntity.light:
-        appTheme = AppThemes.shared.lightAppTheme;
-        break;
-      case ThemePreferenceEntity.red:
-        appTheme = AppThemes.shared.redAppTheme;
-        break;
-      case ThemePreferenceEntity.yellow:
-        appTheme = AppThemes.shared.yellowAppTheme;
+        appTheme = AppThemes.shared.lightModeTheme;
         break;
     }
   }
