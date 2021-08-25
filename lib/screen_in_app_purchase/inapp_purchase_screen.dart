@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/notification/notification_helper.dart';
 import '../core/mini_services/image/image_helper.dart';
 import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
 import '../global/components/app_bar_components.dart';
@@ -63,6 +64,7 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
   Widget buildPurchaseButton() {
     return InAppPurchaseButton(
       onTap: () {
+        
         //TODO REKLAM KALDIRMA KODU
       },
     );

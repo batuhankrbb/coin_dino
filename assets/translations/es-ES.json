@@ -144,15 +144,18 @@
         }
     },
 
-
-    
-   
-
     "MINI_SERVICE":{
         "SHARE_MAIN_TEXT":"Hey, I found a cryptocurrency app and I love it. It's Coin Dino. Check it out! [LINK]",
         "SHARE_SUBJECT_TEXT":"Coin Dino",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Feedback",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Hello, I have a feedback for Coin Dino."
+    },
+
+     "NOTIFICATION":{
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_TITLE": "¡Algunas de tus monedas solo golpean sus precios objetivo!",
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_DESCRIPTION": "Mira lo que está pasando",
+        "NOTIFICATION_COIN_ALERT_TITLE": "{} Pulse su precio objetivo!",
+        "NOTIFICATION_COIN_ALERT_DESCRIPTION": "Mira lo que está pasando"
     }
    
 }

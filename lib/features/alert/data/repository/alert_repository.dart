@@ -1,4 +1,3 @@
-
 import '../../domain/entity/alert_entity.dart';
 
 import '../../../../core/notification/notification_helper.dart';
@@ -11,6 +10,7 @@ import '../exception_handling/exception_handler.dart';
 import '../exception_handling/exceptions/alert_exceptions.dart';
 import '../model/alert_coin_model.dart';
 import '../model/alert_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AlertRepository implements IAlertRepository {
   final IAlertLocalDataSource localDataSource;
@@ -108,13 +108,7 @@ class AlertRepository implements IAlertRepository {
               element.currentPrice < (element.targetPrice ?? 0)) {
             alertsToNotify.add(element);
           }
-          alertsToNotify.forEach((element) {
-            NotificationHelper.shared.showNotification(
-                title: element.name,
-                description:
-                    "price: ${element.currentPrice} and id: ${element.coindID}",
-                payLoad: "test");
-          });
+          _sendNotifications(alertsToNotify);
         });
       }, failure: (failure) {
         throw AlertException.allAlertsFetchingException();
@@ -123,6 +117,25 @@ class AlertRepository implements IAlertRepository {
       return Result.success(result);
     } on AlertException catch (e) {
       return Result.failure(exceptionHandler.handleException(e));
+    }
+  }
+
+  void _sendNotifications(List<AlertEntity> alertsToNotify) {
+    if (alertsToNotify.length > 2) {
+      NotificationHelper.shared.showNotification(
+          title: "NOTIFICATION_MULTIPLE_COINS_ALERT_TITLE".tr(),
+          description: "NOTIFICATION_MULTIPLE_COINS_ALERT_DESCRIPTION".tr(),
+          payLoad: "payload");
+    } else {
+      alertsToNotify.forEach(
+        (element) {
+          NotificationHelper.shared.showNotification(
+              title:
+                  "NOTIFICATION_COIN_ALERT_TITLE".tr(args: ["${element.name}"]),
+              description: "NOTIFICATION_COIN_ALERT_DESCRIPTION".tr(),
+              payLoad: "payload");
+        },
+      );
     }
   }
 }

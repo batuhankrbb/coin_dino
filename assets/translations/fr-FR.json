@@ -143,16 +143,18 @@
         }
     },
 
-
-    
-   
-
     "MINI_SERVICE":{
         "SHARE_MAIN_TEXT":"Hé, j'ai trouvé une application cryptocurrence et je l'aime.C'est la monnaie Dino.Vérifiez-le! [LINK]",
         "SHARE_SUBJECT_TEXT":"Coin Dino",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Retour d'information",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Bonjour, j'ai des commentaires pour Coin Dino."
-    }
+    },
    
+    "NOTIFICATION":{
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_TITLE": "Certaines de vos pièces ont juste frappé leurs prix cibles!",
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_DESCRIPTION": "Voir ce qui se passe",
+        "NOTIFICATION_COIN_ALERT_TITLE": "{} frapper son prix cible!",
+        "NOTIFICATION_COIN_ALERT_DESCRIPTION": "Voir ce qui se passe"
+    }
 }
 

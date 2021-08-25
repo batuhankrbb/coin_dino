@@ -140,7 +140,14 @@
             "MARKET_DATE_24H_DISPLAY_VALUE":"24H",
             "MARKET_DATE_7D_DISPLAY_VALUE":"7D",
             "MARKET_DATE_30D_DISPLAY_VALUE":"30D"
-        }
+        },
+
+    "NOTIFICATION":{
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_TITLE": "Some of your coins just hit their target prices!",
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_DESCRIPTION": "See what's happening",
+        "NOTIFICATION_COIN_ALERT_TITLE": "{} hit its target price!",
+        "NOTIFICATION_COIN_ALERT_DESCRIPTION": "See what's happening"
+    }
     },
 
 

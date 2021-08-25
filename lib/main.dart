@@ -70,7 +70,6 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           locale: context.locale,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: AppThemes.shared.lightModeTheme, //* TEMPORARY. WILL BE DELETED SOON
-         
           home: RootScreen(),
         );
       },

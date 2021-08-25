@@ -142,15 +142,18 @@
         }
     },
 
-
-    
-   
-
     "MINI_SERVICE":{
         "SHARE_MAIN_TEXT":"Hey, Coin Dino adında bir kripto para uygulaması buldum ve çok sevdim. Şuradan göz at! [LINK]",
         "SHARE_SUBJECT_TEXT":"Coin Dino",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Geri Bildirim",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Merhaba, Coin Dino için bir geri bildirimim var."
+    },
+
+    "NOTIFICATION":{
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_TITLE": "Kaydettiğin coinlerden bazıları hedef fiyatlarına ulaştı!",
+        "NOTIFICATION_MULTIPLE_COINS_ALERT_DESCRIPTION": "Neler olduğuna göz at",
+        "NOTIFICATION_COIN_ALERT_TITLE": "{} hedef fiyatına ulaştı!",
+        "NOTIFICATION_COIN_ALERT_DESCRIPTION": "Neler olduğuna göz at"
     }
    
 }
