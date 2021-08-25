@@ -3,7 +3,7 @@ import 'package:background_fetch/background_fetch.dart';
 import 'core/localization/localization_helper.dart';
 import 'features/alert/data/model/alert_model.dart';
 import 'global/starting_files/start_app.dart';
-import 'global/utils/app_themes.dart';
+import 'global/theme/app_themes.dart';
 import 'root_screen.dart';
 import 'screen_alert_list/alert_list_screen.dart';
 import 'package:easy_localization/easy_localization.dart';

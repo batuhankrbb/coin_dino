@@ -1,4 +1,4 @@
-enum ThemePreferenceEntity { dark, light, red }
+enum ThemePreferenceEntity { dark, light, red, yellow }
 
 extension UltraThemePreferenceEntity on ThemePreferenceEntity {
   String get rawValue {
@@ -9,6 +9,8 @@ extension UltraThemePreferenceEntity on ThemePreferenceEntity {
         return "dark";
       case ThemePreferenceEntity.red:
         return "red";
+      case ThemePreferenceEntity.yellow:
+        return "yellow";
     }
   }
 }
@@ -22,6 +24,8 @@ extension ThemePreferenceForString on String {
         return ThemePreferenceEntity.dark;
       case "red":
         return ThemePreferenceEntity.red;
+      case "yellow":
+        return ThemePreferenceEntity.yellow;
       default:
         return ThemePreferenceEntity.light;
     }
