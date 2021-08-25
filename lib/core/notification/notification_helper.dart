@@ -24,8 +24,7 @@ class NotificationHelper {
     var initializationSettingsAndroid =
         AndroidInitializationSettings('app_icon');
 
-    var initializationSettingsIOS = IOSInitializationSettings(
-        onDidReceiveLocalNotification: _onDidReceiveLocalNotification);
+    var initializationSettingsIOS = IOSInitializationSettings();
 
     var initializationSettings = InitializationSettings(
         android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
@@ -34,13 +33,8 @@ class NotificationHelper {
         onSelectNotification: _onSelectNotification);
   }
 
-  Future<void> _onDidReceiveLocalNotification(
-      int id, String? title, String? body, String? payload) async {
-    print(payload);
-  }
-
   Future<void> _onSelectNotification(String? payload) async {
-    print(payload);
+    print("seleectt $payload");
   }
 
   void showNotification(
@@ -55,3 +49,4 @@ class NotificationHelper {
         payload: payLoad);
   }
 }
+
