@@ -5,44 +5,41 @@ class NotificationHelper {
 
   NotificationHelper._privateConstructor();
 
-  static const AndroidNotificationDetails androidPlatformChannelSpecifics =
+  AndroidNotificationDetails _androidNotificationDetails =
       AndroidNotificationDetails("1", 'coin', 'coin alert',
           importance: Importance.max,
           showProgress: true,
-          priority: Priority.high,
+          priority: Priority.max,
           channelShowBadge: true,
           playSound: true,
           showWhen: false);
-  static const IOSNotificationDetails iosNotificationDetails =
-      IOSNotificationDetails(
-          badgeNumber: 2,
-          presentSound: true,
-          presentAlert: true,
-          presentBadge: true);
 
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  IOSNotificationDetails _iosNotificationDetails = IOSNotificationDetails(
+      presentSound: true, presentAlert: true, presentBadge: true);
+
+  FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
   Future<void> initializeNotification({String? andoridIcon}) async {
-    const AndroidInitializationSettings initializationSettingsAndroid =
+    var initializationSettingsAndroid =
         AndroidInitializationSettings('app_icon');
-    final IOSInitializationSettings initializationSettingsIOS =
-        IOSInitializationSettings(
-            onDidReceiveLocalNotification: onDidReceiveLocalNotification);
-    final InitializationSettings initializationSettings =
-        InitializationSettings(
-            android: initializationSettingsAndroid,
-            iOS: initializationSettingsIOS);
-    flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onSelectNotification: onSelectNotification);
+
+    var initializationSettingsIOS = IOSInitializationSettings(
+        onDidReceiveLocalNotification: _onDidReceiveLocalNotification);
+
+    var initializationSettings = InitializationSettings(
+        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+
+    _flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: _onSelectNotification);
   }
 
-  Future onDidReceiveLocalNotification(
+  Future<void> _onDidReceiveLocalNotification(
       int id, String? title, String? body, String? payload) async {
     print(payload);
   }
 
-  Future onSelectNotification(String? payload) async {
+  Future<void> _onSelectNotification(String? payload) async {
     print(payload);
   }
 
@@ -51,28 +48,10 @@ class NotificationHelper {
       required String title,
       required String description,
       required String payLoad}) async {
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics, iOS: iosNotificationDetails);
-    await flutterLocalNotificationsPlugin.show(
+    NotificationDetails platformChannelSpecifics = NotificationDetails(
+        android: _androidNotificationDetails, iOS: _iosNotificationDetails);
+    await _flutterLocalNotificationsPlugin.show(
         channelID ?? 1, title, description, platformChannelSpecifics,
         payload: payLoad);
-  }
-
-  void showPeriodicNotification(
-      {RepeatInterval? repeatInterval,
-      required int periodicNotifChannelID,
-      required String periodicTitle,
-      required String periodicDescription,
-      required String periodicPayloads}) async {
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics, iOS: iosNotificationDetails);
-
-    await flutterLocalNotificationsPlugin.periodicallyShow(
-        periodicNotifChannelID,
-        periodicTitle,
-        periodicDescription,
-        repeatInterval ?? RepeatInterval.daily,
-        platformChannelSpecifics,
-        payload: periodicPayloads);
   }
 }

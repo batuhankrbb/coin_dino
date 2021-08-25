@@ -40,7 +40,7 @@ import 'global/starting_files/launch_app.dart';
 void main() async {
   await AppStartConfig.shared.startApp();
   runApp(LocalizationHelper.shared.runAppWithEasyWidget(
-    DevicePreview(builder: (_) => MyApp()),
+    MyApp()
   ));
 
   BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           locale: context.locale,
           onGenerateRoute: RouterService.generateCustomRoute,
           theme: AppThemes.shared.lightModeTheme, //* TEMPORARY. WILL BE DELETED SOON
-          builder: DevicePreview.appBuilder,
+         
           home: RootScreen(),
         );
       },

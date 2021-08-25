@@ -1,5 +1,6 @@
 import 'package:background_fetch/background_fetch.dart';
 import 'package:coin_dino/core/background/background_helper.dart';
+import 'package:coin_dino/core/notification/notification_helper.dart';
 import 'package:coin_dino/features/alert/data/repository/alert_repository.dart';
 import 'package:coin_dino/features/alert/domain/repository_contract/i_alert_repository.dart';
 
@@ -24,6 +25,7 @@ class AppStartConfig {
     await HiveHelper.shared.setUpHive();
     setupGetIt();
     await launchApp(); //* sets up base options
+    await NotificationHelper.shared.initializeNotification();
     await getit
         .get<AppSettingsViewModel>()
         .setUpSettings(); //* sets up theme options.
@@ -32,7 +34,7 @@ class AppStartConfig {
 
   Future<void> _setUpBackgroundFetch() async {
     var alertRepository = getit.get<IAlertRepository>();
-    await BackgroundHelper.shared.initializeBackground(() async{
+    await BackgroundHelper.shared.initializeBackground(() async {
       await alertRepository.checkAlertsForNotification();
     });
     await BackgroundHelper.shared.startBackgroundFetch();
