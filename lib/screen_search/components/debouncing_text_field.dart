@@ -32,6 +32,7 @@ class DebouncingTextField extends StatelessWidget {
       margin: EdgeInsets.only(left: context.getHeight(0.015), right: 4),
       child: Icon(
         Icons.search,
+        color: context.colorScheme.primary,
         size: context.getWidth(0.05),
       ),
     );

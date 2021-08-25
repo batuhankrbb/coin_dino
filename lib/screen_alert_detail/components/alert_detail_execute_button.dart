@@ -38,6 +38,7 @@ class _AlertDetailExecuteButtonState extends State<AlertDetailExecuteButton> {
           : "ALERT_DETAIL_SCREEN.BUTTON_SAVE_TEXT".tr(),
       style: TextStyle(
         color: context.colorScheme.onSurface,
+        
         fontWeight: FontWeight.w500,
         fontSize: context.getWidth(0.042),
       ),

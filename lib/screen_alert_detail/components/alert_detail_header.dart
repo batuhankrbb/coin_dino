@@ -44,7 +44,7 @@ class AlertDetailHeader extends StatelessWidget {
     return AutoSizeText(
           "$coinName($symbol)",
           style: TextStyle(
-              fontSize: context.getWidth(0.05), fontWeight: FontWeight.w500),
+              fontSize: context.getWidth(0.05), fontWeight: FontWeight.w500, color: context.colorScheme.primary,),
           maxLines: 1,
         );
   }

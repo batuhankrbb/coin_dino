@@ -40,6 +40,7 @@ class _SelectionPageTextFieldState extends State<SelectionPageTextField> {
           flex: 10,
           child: Icon(
             Icons.search,
+            color: context.colorScheme.primary,
             size: context.getHeight(0.028),
           ),
         ),
@@ -83,6 +84,7 @@ class _SelectionPageTextFieldState extends State<SelectionPageTextField> {
       decoration: InputDecoration(
         border: InputBorder.none,
       ),
+      style: TextStyle(color: context.colorScheme.primary),
       cursorColor: context.colorScheme.primary,
     );
   }

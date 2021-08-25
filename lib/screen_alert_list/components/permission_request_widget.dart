@@ -70,6 +70,7 @@ class _PermissionRequestWidgetState extends State<PermissionRequestWidget> {
       alignment: Alignment.center,
       child: Icon(
         Icons.notifications,
+        color: context.colorScheme.primary,
         size: context.getHeight(0.025),
       ),
     );
@@ -80,6 +81,7 @@ class _PermissionRequestWidgetState extends State<PermissionRequestWidget> {
       "ALERT_LIST_SCREEN.PERMISSION_REQUEST_TITLE".tr(),
       style: TextStyle(
         fontSize: context.getWidth(0.05),
+         color: context.colorScheme.primary,
       ),
       textAlign: TextAlign.start,
       maxLines: 1,
@@ -91,6 +93,7 @@ class _PermissionRequestWidgetState extends State<PermissionRequestWidget> {
       "ALERT_LIST_SCREEN.PERMISSION_REQUEST_SUBTITLE".tr(),
       style: TextStyle(
         fontSize: context.getWidth(0.03),
+         color: context.colorScheme.primary,
       ),
       textAlign: TextAlign.start,
       minFontSize: 8,

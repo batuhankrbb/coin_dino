@@ -31,7 +31,7 @@ class AlertHelper {
           ),
           AutoSizeText(
             message,
-            style: TextStyle(fontSize: context.getWidth(0.04)),
+            style: TextStyle(fontSize: context.getWidth(0.04),),
             maxLines: 1,
           ),
         ],

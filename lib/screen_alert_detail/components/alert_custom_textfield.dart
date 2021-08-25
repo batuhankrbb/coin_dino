@@ -95,14 +95,14 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
         )
       ],
       focusNode: focusNode,
-      style: TextStyle(fontSize: context.getWidth(0.04)),
+      style: TextStyle(fontSize: context.getWidth(0.04),color: context.colorScheme.primary),
     );
   }
 
   AutoSizeText buildAlertText() {
     return AutoSizeText(
       "1 ${widget.alertEntity.symbol.toUpperCase()}",
-      style: TextStyle(fontSize: context.getWidth(0.05)),
+      style: TextStyle(fontSize: context.getWidth(0.05), color: context.colorScheme.primary,),
       maxLines: 1,
       textAlign: TextAlign.center,
     );
@@ -125,7 +125,9 @@ class _AlertCustomTextFieldState extends State<AlertCustomTextField> {
       "USD",
       style: TextStyle(
         fontSize: context.getWidth(0.05),
+         color: context.colorScheme.primary,
       ),
+
       maxLines: 1,
       textAlign: TextAlign.center,
     );

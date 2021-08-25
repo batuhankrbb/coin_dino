@@ -52,6 +52,7 @@ class SettingFormRowWidget extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: context.getWidth(0.04),
+             color: context.colorScheme.primary,
           ),
         ),
         getSubtitle(context),

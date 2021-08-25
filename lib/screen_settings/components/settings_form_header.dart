@@ -18,12 +18,14 @@ class SettingsFormHeader extends StatelessWidget {
             headerTitle.tr(),
             style: TextStyle(
               fontSize: context.getWidth(0.045),
+               color: context.colorScheme.primary,
             ),
           ),
           Spacer(),
           Icon(
             headerIcon,
             size: context.getHeight(0.03),
+             color: context.colorScheme.primary,
           ),
         ],
       ),

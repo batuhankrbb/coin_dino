@@ -17,6 +17,7 @@ class AlertDetailCurrentPriceText extends StatelessWidget {
       ]),
       style: TextStyle(
         fontSize: context.getWidth(0.04),
+         color: context.colorScheme.primary,
       ),
       maxLines: 1,
     );

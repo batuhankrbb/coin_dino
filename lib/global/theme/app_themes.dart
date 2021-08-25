@@ -9,31 +9,33 @@ class AppThemes {
   AppThemes._privateConstructor();
 
  ThemeData get darkModeTheme => ThemeData(
-        scaffoldBackgroundColor: CustomColor.shared.white,
+        scaffoldBackgroundColor: Color(0xFF252525),
         appBarTheme: AppBarTheme(
-          backgroundColor: CustomColor.shared.white,
+          backgroundColor: Color(0xFF4C4C4C),
           elevation: 0,
           centerTitle: true,
         ),
         buttonColor: Colors.blue,
         colorScheme: ColorScheme(
-          primary: CustomColor.shared.black,
-          primaryVariant: CustomColor.shared.black,
+          primary: CustomColor.shared.white,
+          primaryVariant: Color(0xFF5D5E5D),
           secondary: CustomColor.shared.darkGreen,
-          secondaryVariant: CustomColor.shared.darkGrey,
+          secondaryVariant: Color(0xFF4C4C4C),
           surface: CustomColor.shared.lightGreen,
           background: CustomColor.shared.lightGrey,
           error: CustomColor.shared.pink,
           onPrimary: CustomColor.shared.red,
           onSecondary: CustomColor.shared.textGrey,
-          onSurface: CustomColor.shared.white,
+          onSurface: CustomColor.shared.black,
           brightness: Brightness.light,
-          onError: CustomColor.shared.darkerWhite,
+          onError: Color(0xFF5D5E5D),
           onBackground: CustomColor.shared.lightOrange,
         ),
+      
+      
       );
   
-  ThemeData get lightModeTheme => ThemeData(
+   ThemeData get lightModeTheme => ThemeData(
         scaffoldBackgroundColor: CustomColor.shared.white,
         appBarTheme: AppBarTheme(
           backgroundColor: CustomColor.shared.white,

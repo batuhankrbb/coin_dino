@@ -90,6 +90,7 @@ class TrendCell extends StatelessWidget {
             style: TextStyle(
               fontSize: context.getWidth(0.04),
               fontWeight: FontWeight.bold,
+               color: context.colorScheme.primary,
             ),
             minFontSize: 10,
           ),
@@ -102,6 +103,7 @@ class TrendCell extends StatelessWidget {
             style: TextStyle(
               fontSize: context.getWidth(0.025),
               fontWeight: FontWeight.w300,
+               color: context.colorScheme.primary,
             ),
             minFontSize: 12,
           ),

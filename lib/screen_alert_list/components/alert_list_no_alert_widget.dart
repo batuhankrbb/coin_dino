@@ -16,12 +16,12 @@ class AlertListNoAlertWidget extends StatelessWidget {
             "ALERT_LIST_SCREEN.NO_ALERT_TITLE".tr(),
             maxLines: 1,
             style: TextStyle(
-                fontSize: context.getWidth(0.06), fontWeight: FontWeight.w500),
+                fontSize: context.getWidth(0.06), fontWeight: FontWeight.w500, color: context.colorScheme.primary,),
           ),
           AutoSizeText(
             "ALERT_LIST_SCREEN.NO_ALERT_SUBTITLE".tr(),
             maxLines: 2,
-            style: TextStyle(fontSize: context.getWidth(0.03)),
+            style: TextStyle(fontSize: context.getWidth(0.03), color: context.colorScheme.primary,),
           ),
         ],
       ),

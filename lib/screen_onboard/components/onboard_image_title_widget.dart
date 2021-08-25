@@ -46,6 +46,7 @@ class OnboardScreenImageAndTitleWidget extends StatelessWidget {
         description,
         style: TextStyle(
           fontSize: context.getWidth(0.05),
+           color: context.colorScheme.primary,
         ),
         textAlign: TextAlign.center,
       ),
@@ -57,7 +58,8 @@ class OnboardScreenImageAndTitleWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: context.getWidth(0.05)),
       child: AutoSizeText(
         title,
-        style: TextStyle(fontSize: 60),
+        style: TextStyle(fontSize: 60, color: context.colorScheme.primary,),
+        
       ),
     );
   }

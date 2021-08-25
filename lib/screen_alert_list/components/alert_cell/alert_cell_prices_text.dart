@@ -26,7 +26,7 @@ class AlertCellPricesWidget extends StatelessWidget {
               "\$${NumberHelper.shared.toCommaString(number: alertEntity.targetPrice ?? 0)}"
             ]),
             maxLines: 1,
-            style: TextStyle(fontSize: context.getWidth(0.04)),
+            style: TextStyle(fontSize: context.getWidth(0.04),color: context.colorScheme.primary,),
             textAlign: TextAlign.end,
           ),
         ),
@@ -38,7 +38,7 @@ class AlertCellPricesWidget extends StatelessWidget {
               "\$${NumberHelper.shared.toCommaString(number: alertEntity.currentPrice)}"
             ]),
             maxLines: 1,
-            style: TextStyle(fontSize: context.getWidth(0.04)),
+            style: TextStyle(fontSize: context.getWidth(0.04), color: context.colorScheme.primary,),
             textAlign: TextAlign.end,
           ),
         )

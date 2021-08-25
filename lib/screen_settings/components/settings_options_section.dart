@@ -1,5 +1,7 @@
+
 import '../../global/components/failure_widget.dart';
 import '../viewmodels/settings_view_model.dart';
+import 'package:coin_dino/core/extensions/context_extensions.dart';
 
 import '../../features/preferences/domain/entity/language_preference_entity.dart';
 import '../../features/preferences/domain/entity/theme_preference_entity.dart';
@@ -28,7 +30,7 @@ class SettingsOptionSection extends StatelessWidget {
         headerIcon: Icons.settings,
       ),
       children: [
-        buildStateResultForTheme(),
+        buildStateResultForTheme(context),
         buildStateResultForLanguage(context),
       ],
     );
@@ -45,6 +47,7 @@ class SettingsOptionSection extends StatelessWidget {
                 title: "SETTINGS_SCREEN.FORM_LANGUAGE_TITLE".tr(),
                 trailing: Icon(
                   Icons.chevron_right,
+                  color: context.colorScheme.primary,
                 ),
                 onTap: () async {
                   await languageOnTap(data, context);
@@ -58,7 +61,7 @@ class SettingsOptionSection extends StatelessWidget {
     );
   }
 
-  Widget buildStateResultForTheme() {
+  Widget buildStateResultForTheme(BuildContext context) {
     return Observer(builder: (_) {
       return StateResultBuilder<ThemePreferenceEntity>(
           stateResult: settingsViewModel.themePreference,
@@ -66,7 +69,7 @@ class SettingsOptionSection extends StatelessWidget {
             return SettingFormRowWidget(
                 leading: SettingsIcon(iconData: Icons.palette),
                 title: "SETTINGS_SCREEN.FORM_THEME_TITLE".tr(),
-                trailing: Icon(Icons.chevron_right),
+                trailing: Icon(Icons.chevron_right,color: context.colorScheme.primary,),
                 onTap: () async {
                   await themeOnTap(data);
                 });

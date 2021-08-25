@@ -70,7 +70,7 @@ class AlertCell extends StatelessWidget {
     return AutoSizeText(
       alertEntity.symbol.toUpperCase(),
       maxLines: 1,
-      style: TextStyle(fontSize: context.getWidth(0.035)),
+      style: TextStyle(fontSize: context.getWidth(0.035), color: context.colorScheme.primary,),
     );
   }
 
