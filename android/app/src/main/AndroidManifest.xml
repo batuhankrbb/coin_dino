@@ -5,10 +5,9 @@
      <uses-permission android:name="android.permission.BLUETOOTH"/>
    <application
         tools:replace="android:label"
-        android:label="coin_dino"
+        android:label="Coin Dino"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
-
          <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3108242646730560~5473093730"/>
