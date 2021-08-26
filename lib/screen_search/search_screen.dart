@@ -48,17 +48,17 @@ class _SearchScreenState extends State<SearchScreen> {
     return Column(
       children: [
         Spacer(
-          flex: 2,
+          flex: 4,
         ),
         Expanded(
-          flex: 6,
+          flex: 14,
           child: buildTextField(),
         ),
         Spacer(
-          flex: 1,
+          flex: 2,
         ),
         Expanded(
-          flex: 50,
+          flex: 100,
           child: buildList(),
         ),
       ],
@@ -83,11 +83,16 @@ class _SearchScreenState extends State<SearchScreen> {
               child: StateResultBuilder<List<SearchCoinEntity>>(
                 stateResult: _searchViewModel.searchCoinsResult,
                 failureWidget: buildFailureWidget,
-                initialWidget: LoadingScreen(isSmallLoading: true,),
+                initialWidget: LoadingScreen(
+                  isSmallLoading: true,
+                ),
                 completedWidget: buildCompletedListView,
               ),
             ),
-            if (_searchViewModel.isScrolled) LoadingScreen(isSmallLoading: true,),
+            if (_searchViewModel.isScrolled)
+              LoadingScreen(
+                isSmallLoading: true,
+              ),
           ],
         );
       },

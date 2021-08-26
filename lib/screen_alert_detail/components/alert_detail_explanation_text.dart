@@ -16,7 +16,8 @@ class AlertDetailExplanationText extends StatelessWidget {
         "ALERT_DETAIL_SCREEN.EXPLANATION_TEXT".tr(),
         maxLines: 4,
         style: TextStyle(
-          fontSize: context.getWidth(0.05), color: context.colorScheme.primary,
+          fontSize: context.getWidth(0.04),
+          color: context.colorScheme.primary,
         ),
       ),
     );
