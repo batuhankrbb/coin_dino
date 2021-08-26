@@ -122,7 +122,8 @@
     
     "GLOBAL_COMPONENT":{
         "FAILURE_WIDGET_EXPLANATION_TEXT":"Oops, bir şeyler ters gitti. Ama sakin ol - hadi bir kere daha dene.",
-        "FAILURE_WIDGET_BUTTON_TEXT":"Tekrar Dene"
+        "FAILURE_WIDGET_BUTTON_TEXT":"Tekrar Dene",
+        "SELECTION_PAGE_TEXTFIELD_CANCEL_TEXT":"İptal"
     },
 
     "MARKET_FEATURE":{

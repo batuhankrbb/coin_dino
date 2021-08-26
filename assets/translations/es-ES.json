@@ -124,7 +124,8 @@
 
     "GLOBAL_COMPONENT":{
         "FAILURE_WIDGET_EXPLANATION_TEXT":"Vaya, algo salió mal, pero calmado, déjalo un poco de tiro.",
-        "FAILURE_WIDGET_BUTTON_TEXT":"Intentar otra vez"
+        "FAILURE_WIDGET_BUTTON_TEXT":"Intentar otra vez",
+        "SELECTION_PAGE_TEXTFIELD_CANCEL_TEXT":"Cancelar"
     },
 
     "MARKET_FEATURE":{

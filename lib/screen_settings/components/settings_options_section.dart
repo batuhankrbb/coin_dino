@@ -1,4 +1,3 @@
-
 import '../../global/components/failure_widget.dart';
 import '../viewmodels/settings_view_model.dart';
 import 'package:coin_dino/core/extensions/context_extensions.dart';
@@ -69,7 +68,10 @@ class SettingsOptionSection extends StatelessWidget {
             return SettingFormRowWidget(
                 leading: SettingsIcon(iconData: Icons.palette),
                 title: "SETTINGS_SCREEN.FORM_THEME_TITLE".tr(),
-                trailing: Icon(Icons.chevron_right,color: context.colorScheme.primary,),
+                trailing: Icon(
+                  Icons.chevron_right,
+                  color: context.colorScheme.primary,
+                ),
                 onTap: () async {
                   await themeOnTap(data);
                 });

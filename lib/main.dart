@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
     return Observer(
       builder: (context) {
         return MaterialApp(
+
           debugShowCheckedModeBanner: false,
           localizationsDelegates: context.localizationDelegates,
           navigatorKey: NavigationService.shared.navigatorKey,

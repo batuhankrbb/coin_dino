@@ -20,8 +20,7 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(2),
       decoration: ShapeDecoration(
-          shape: Border.all(
-              color: context.colorScheme.secondaryVariant, width: 0.3)),
+          shape: Border.all(color: context.theme.primaryColor, width: 0.3)),
       child: Column(
         children: [
           Expanded(
@@ -62,13 +61,13 @@ class CoinDetailHoursTableWidget extends StatelessWidget {
       child: AutoSizeText(
         tableTitle,
         style: TextStyle(
-          color: context.colorScheme.onSurface,
+          color: context.theme.hintColor,
           fontSize: context.getWidth(0.04),
         ),
         maxLines: 1,
       ),
       alignment: Alignment.center,
-      color: CustomColor.shared.backgroundBlueColor,
+      color: context.theme.secondaryHeaderColor,
     );
   }
 }

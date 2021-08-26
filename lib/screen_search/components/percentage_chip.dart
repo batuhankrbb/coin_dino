@@ -21,7 +21,7 @@ class PercentageChip extends StatelessWidget {
         NumberHelper.shared.giveFormattedTextByPercentage(percentage),
         minFontSize: 6,
         maxLines: 1,
-        style: TextStyle(color: context.colorScheme.onSurface, fontSize: 50),
+        style: TextStyle(color: context.theme.hintColor, fontSize: 50),
       ),
     );
   }

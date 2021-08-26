@@ -34,18 +34,21 @@ class AlertDetailHeader extends StatelessWidget {
 
   CachedNetworkImageWidget buildCoinImage(BuildContext context) {
     return CachedNetworkImageWidget(
-          imageURL: imageUrl,
-          imageHeigth: context.getHeight(0.15),
-          imageWidth: context.getHeight(0.15),
-        );
+      imageURL: imageUrl,
+      imageHeigth: context.getHeight(0.15),
+      imageWidth: context.getHeight(0.15),
+    );
   }
 
   AutoSizeText buildCoinText(BuildContext context) {
     return AutoSizeText(
-          "$coinName($symbol)",
-          style: TextStyle(
-              fontSize: context.getWidth(0.05), fontWeight: FontWeight.w500, color: context.colorScheme.primary,),
-          maxLines: 1,
-        );
+      "$coinName(${symbol.toUpperCase()})",
+      style: TextStyle(
+        fontSize: context.getWidth(0.05),
+        fontWeight: FontWeight.w500,
+        color: context.colorScheme.primary,
+      ),
+      maxLines: 1,
+    );
   }
 }

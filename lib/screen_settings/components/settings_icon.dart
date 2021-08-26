@@ -17,7 +17,7 @@ class SettingsIcon extends StatelessWidget {
         decoration: buildBoxDecoration(context),
         child: Icon(
           iconData,
-          color: context.colorScheme.onSurface,
+          color: context.theme.hintColor,
           size: context.getWidth(0.045),
         ),
       );

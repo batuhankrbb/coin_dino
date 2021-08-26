@@ -50,7 +50,7 @@ class CoinDetailInformationRowWidget extends StatelessWidget {
       style: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: context.getWidth(0.03),
-         color: context.colorScheme.primary,
+        color: context.colorScheme.primary,
       ),
       textAlign: TextAlign.end,
     );

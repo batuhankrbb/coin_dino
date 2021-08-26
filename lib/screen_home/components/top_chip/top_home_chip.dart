@@ -75,7 +75,7 @@ class _TopHomeChipState extends State<TopHomeChip> {
   Icon buildIcon(BuildContext context) {
     return Icon(
       Icons.arrow_drop_down,
-      color: context.colorScheme.onSurface,
+      color: context.theme.hintColor,
       size: context.getWidth(0.06),
     );
   }
@@ -87,7 +87,7 @@ class _TopHomeChipState extends State<TopHomeChip> {
         widget.texts[selected],
         maxLines: 1,
         style: TextStyle(
-          color: context.colorScheme.onSurface,
+          color: context.theme.hintColor,
           fontWeight: FontWeight.bold,
           fontSize: context.getWidth(0.035),
         ),

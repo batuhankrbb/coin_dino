@@ -66,7 +66,7 @@ class _SelectionPageTextFieldState extends State<SelectionPageTextField> {
           child: AutoSizeText(
             "GLOBAL_COMPONENT.SELECTION_PAGE_TEXTFIELD_CANCEL_TEXT".tr(),
             style: TextStyle(
-              color: context.colorScheme.secondaryVariant,
+              color: context.colorScheme.onBackground,
               fontSize: context.getWidth(0.035),
             ),
           ),

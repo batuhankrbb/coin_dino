@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../core/extensions/context_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-
 class SettingFormRowWidget extends StatelessWidget {
   final Widget leading;
   final String title;
@@ -26,6 +25,7 @@ class SettingFormRowWidget extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.translucent,
       child: Container(
+        color: context.theme.scaffoldBackgroundColor,
         padding: EdgeInsets.all(10),
         child: Row(
           children: [
@@ -52,7 +52,7 @@ class SettingFormRowWidget extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: context.getWidth(0.04),
-             color: context.colorScheme.primary,
+            color: context.colorScheme.primary,
           ),
         ),
         getSubtitle(context),
@@ -66,7 +66,7 @@ class SettingFormRowWidget extends StatelessWidget {
       subTitle!.tr(),
       style: TextStyle(
         fontWeight: FontWeight.w300,
-        color: context.colorScheme.secondaryVariant,
+        color: context.theme.cardColor,
         fontSize: context.getWidth(0.025),
       ),
     );

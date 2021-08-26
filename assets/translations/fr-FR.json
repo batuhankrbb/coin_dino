@@ -123,7 +123,8 @@
     
     "GLOBAL_COMPONENT":{
         "FAILURE_WIDGET_EXPLANATION_TEXT":"Oups, quelque chose a mal tourné, mais soyez calme - donnons-lui un autre coup.",
-        "FAILURE_WIDGET_BUTTON_TEXT":"Réessayer"
+        "FAILURE_WIDGET_BUTTON_TEXT":"Réessayer",
+        "SELECTION_PAGE_TEXTFIELD_CANCEL_TEXT":"Annuler"
     },
 
     "MARKET_FEATURE":{

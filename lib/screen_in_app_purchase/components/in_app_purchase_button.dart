@@ -30,7 +30,7 @@ class InAppPurchaseButton extends StatelessWidget {
     return AutoSizeText(
       "INAPP_SCREEN.BUY_BUTTON_TEXT".tr(),
       style: TextStyle(
-        color: context.colorScheme.onSurface,
+        color: context.theme.hintColor,
         fontSize: context.getWidth(0.06),
       ),
     );

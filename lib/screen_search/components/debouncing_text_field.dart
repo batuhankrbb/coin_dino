@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:coin_dino/global/utils/custom_colors.dart';
+
 import '../../core/extensions/context_extensions.dart';
 import '../../global/starting_files/injection_container.dart';
 import '../viewmodels/search_screen_view_model.dart';
@@ -20,6 +22,7 @@ class DebouncingTextField extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 4),
       child: CupertinoTextField(
+        cursorColor: context.theme.selectedRowColor,
         controller: viewModel.textEditingController,
         prefix: buildLeadingIcon(context),
         onChanged: _doDebouncedOnChange,
@@ -32,7 +35,7 @@ class DebouncingTextField extends StatelessWidget {
       margin: EdgeInsets.only(left: context.getHeight(0.015), right: 4),
       child: Icon(
         Icons.search,
-        color: context.colorScheme.primary,
+        color: context.theme.selectedRowColor,
         size: context.getWidth(0.05),
       ),
     );

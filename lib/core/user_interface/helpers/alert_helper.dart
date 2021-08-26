@@ -14,7 +14,9 @@ class AlertHelper {
 
   void showSnackBar(String message, BuildContext context,
       [bool isPositive = true]) {
-    ScaffoldMessenger.of(GlobalKeys.shared.scaffoldKey.currentContext ?? context).showSnackBar(SnackBar(
+    ScaffoldMessenger.of(
+            GlobalKeys.shared.scaffoldKey.currentContext ?? context)
+        .showSnackBar(SnackBar(
       content: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,16 +33,17 @@ class AlertHelper {
           ),
           AutoSizeText(
             message,
-            style: TextStyle(fontSize: context.getWidth(0.04),),
+            style: TextStyle(
+                fontSize: context.getWidth(0.04),
+                color: context.colorScheme.onSurface),
             maxLines: 1,
           ),
         ],
       ),
       behavior: SnackBarBehavior.fixed,
-      backgroundColor: context.colorScheme.secondaryVariant,
+      backgroundColor: context.colorScheme.onBackground,
       duration: Duration(seconds: 2),
       elevation: 4,
     ));
   }
 }
-

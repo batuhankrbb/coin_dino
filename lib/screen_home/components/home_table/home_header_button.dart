@@ -31,7 +31,7 @@ class _HomeHeaderButtonState extends State<HomeHeaderButton> {
         maxLines: 1,
         textAlign: TextAlign.center,
         style: TextStyle(
-            color: context.colorScheme.secondaryVariant,
+            color: context.theme.accentColor,
             fontSize: context.getWidth(0.031),
             fontWeight: FontWeight.w500),
       ),

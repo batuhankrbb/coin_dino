@@ -35,9 +35,8 @@ class ChartOptionCell extends StatelessWidget {
     return AutoSizeText(
       value.name,
       style: TextStyle(
-        color: isSelected
-            ? context.colorScheme.onSurface
-            : context.colorScheme.primary,
+        color:
+            isSelected ? context.theme.hintColor : context.theme.disabledColor,
         fontWeight: FontWeight.w500,
         fontSize: context.getWidth(0.04),
       ),

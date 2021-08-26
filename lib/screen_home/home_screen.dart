@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen>
         alignment: Alignment.center,
         child: Column(
           children: [
+            Spacer(),
             Expanded(
               flex: 5,
               child: HomeTopChipList(),
