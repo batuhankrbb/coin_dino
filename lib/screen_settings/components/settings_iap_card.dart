@@ -51,12 +51,8 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
 
   BoxDecoration buildBoxDecoration(BuildContext context) {
     return BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
-      gradient: LinearGradient(colors: [
-        context.colorScheme.surface,
-        context.colorScheme.secondary,
-      ]),
-    );
+        borderRadius: BorderRadius.circular(5),
+        color: context.colorScheme.error);
   }
 
   Column buildTexts(BuildContext context) {
@@ -67,7 +63,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
         AutoSizeText(
           "SETTINGS_SCREEN.IAP_CARD_TITLE".tr(),
           style: TextStyle(
-            color: context.colorScheme.onSurface,
+            color: context.theme.hintColor,
             fontWeight: FontWeight.bold,
             fontSize: context.getWidth(0.05),
           ),
@@ -75,7 +71,7 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
         AutoSizeText(
           "SETTINGS_SCREEN.IAP_CARD_SUBTITLE".tr(),
           style: TextStyle(
-            color: context.colorScheme.onSurface,
+            color: context.theme.hintColor,
             fontWeight: FontWeight.normal,
             fontSize: context.getWidth(0.03),
           ),
@@ -83,7 +79,6 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
       ],
     );
   }
-
 
   void navigateToInAppScreen() {
     NavigationService.shared.navigateTo(
@@ -93,4 +88,3 @@ class SettingInAppPurchaseCardWidget extends StatelessWidget {
     );
   }
 }
-

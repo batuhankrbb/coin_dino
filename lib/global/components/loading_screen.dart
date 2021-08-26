@@ -19,9 +19,18 @@ class LoadingScreen extends StatelessWidget {
 
   Widget buildLoadingWidget(BuildContext context) {
     if (isSmallLoading) {
-      return CupertinoActivityIndicator();
+      return _widgetWithBrightness(CupertinoActivityIndicator(), context);
     } else {
-      return CupertinoActivityIndicator(radius: context.getWidth(0.035));
+      return _widgetWithBrightness(CupertinoActivityIndicator(radius: context.getWidth(0.035)), context);
     }
+  }
+
+  Widget _widgetWithBrightness(Widget widget,BuildContext context){
+      return Theme(
+        data: ThemeData(
+            cupertinoOverrideTheme:
+                CupertinoThemeData(brightness: context.colorScheme.brightness)),
+        child: widget,
+      );
   }
 }

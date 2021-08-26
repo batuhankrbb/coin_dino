@@ -21,11 +21,14 @@ class DebouncingTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 4),
-      child: CupertinoTextField(
-        cursorColor: context.theme.selectedRowColor,
-        controller: viewModel.textEditingController,
-        prefix: buildLeadingIcon(context),
-        onChanged: _doDebouncedOnChange,
+      child: Theme(
+        data: ThemeData(brightness: context.theme.appBarTheme.brightness),
+        child: CupertinoTextField(
+          cursorColor: context.theme.selectedRowColor,
+          controller: viewModel.textEditingController,
+          prefix: buildLeadingIcon(context),
+          onChanged: _doDebouncedOnChange,
+        ),
       ),
     );
   }

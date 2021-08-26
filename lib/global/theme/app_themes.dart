@@ -23,11 +23,11 @@ class AppThemes {
         secondaryVariant: Color(0xFF4C4C4C),
         surface: CustomColor.shared.lightGreen,
         background: CustomColor.shared.lightGrey,
-        error: CustomColor.shared.pink,
+        error: Color(0xFF408115),
         onPrimary: CustomColor.shared.red,
         onSecondary: CustomColor.shared.textGrey,
         onSurface: CustomColor.shared.black,
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         onError: Color(0xFF5D5E5D),
         onBackground: CustomColor.shared.creamyWhite,
       ),
@@ -37,7 +37,7 @@ class AppThemes {
       selectedRowColor: CustomColor.shared.black,
       accentColor: CustomColor.shared.creamyWhite,
       primaryColor: CustomColor.shared.creamyWhite,secondaryHeaderColor: Color(0xFF5D5E5D),disabledColor: CustomColor.shared.lightGrey);
-
+      
   ThemeData get lightModeTheme => ThemeData(
       scaffoldBackgroundColor: CustomColor.shared.white,
       appBarTheme: AppBarTheme(
@@ -53,7 +53,7 @@ class AppThemes {
         secondaryVariant: CustomColor.shared.darkGrey,
         surface: CustomColor.shared.lightGreen,
         background: CustomColor.shared.lightGrey,
-        error: CustomColor.shared.pink,
+        error: CustomColor.shared.lightGreen,
         onPrimary: CustomColor.shared.red,
         onSecondary: CustomColor.shared.textGrey,
         onSurface: CustomColor.shared.white,

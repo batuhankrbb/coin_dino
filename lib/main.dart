@@ -40,12 +40,11 @@ import 'global/starting_files/launch_app.dart';
 void main() async {
   await AppStartConfig.shared.startApp();
   runApp(LocalizationHelper.shared.runAppWithEasyWidget(
-    MyApp()
+    MyApp(),
   ));
 
   BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
 }
-
 
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
@@ -63,7 +62,6 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
     return Observer(
       builder: (context) {
         return MaterialApp(
-
           debugShowCheckedModeBanner: false,
           localizationsDelegates: context.localizationDelegates,
           navigatorKey: NavigationService.shared.navigatorKey,
@@ -77,5 +75,3 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
     );
   }
 }
-
-
