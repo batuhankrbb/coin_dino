@@ -62,7 +62,7 @@
     },
     
     "DETAIL_SCREEN":{
-        "VIEWMODEL_SHARE_TEXT":"¡Oye!Echa un vistazo a {} de Coin Dino. [LINK]",
+        "VIEWMODEL_SHARE_TEXT":"¡Oye!Echa un vistazo a {} de Coin Dino. https://apps.apple.com/us/app/coin-dino-crypto-tracker/id1581811548",
         "INFORMATION_ROW_MARKET_CAP_RANK_TEXT":"Rango de la tapa del mercado",
         "INFORMATION_ROW_MARKET_CAP_TEXT":"TAPA DEL MERCADO",
         "INFORMATION_ROW_TRADING_VOLUME_TEXT":"VOLUMEN DE COMERCIO",
@@ -146,7 +146,7 @@
     },
 
     "MINI_SERVICE":{
-        "SHARE_MAIN_TEXT":"Hey, I found a cryptocurrency app and I love it. It's Coin Dino. Check it out! [LINK]",
+        "SHARE_MAIN_TEXT":"Hey, I found a cryptocurrency app and I love it. It's Coin Dino. Check it out! https://apps.apple.com/us/app/coin-dino-crypto-tracker/id1581811548",
         "SHARE_SUBJECT_TEXT":"Coin Dino",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Feedback",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Hello, I have a feedback for Coin Dino."

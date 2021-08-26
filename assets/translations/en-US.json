@@ -60,9 +60,9 @@
     "DETAIL_INFO_SCREEN":{
         "HOME_PAGE_LINK_TEXT":"Home Page"
     },
-    
+
     "DETAIL_SCREEN":{
-        "VIEWMODEL_SHARE_TEXT":"Hey! Check out {} from Coin Dino. [LINK]",
+        "VIEWMODEL_SHARE_TEXT":"Hey! Check out {} from Coin Dino. https://apps.apple.com/us/app/coin-dino-crypto-tracker/id1581811548",
         "INFORMATION_ROW_MARKET_CAP_RANK_TEXT":"MARKET CAP RANK",
         "INFORMATION_ROW_MARKET_CAP_TEXT":"MARKET CAP",
         "INFORMATION_ROW_TRADING_VOLUME_TEXT":"TRADING VOLUME",
@@ -156,7 +156,7 @@
    
 
     "MINI_SERVICE":{
-        "SHARE_MAIN_TEXT":"Hey, I found a cryptocurrency app and I love it. It's Coin Dino. Check it out! [LINK]",
+        "SHARE_MAIN_TEXT":"Hey, I found a cryptocurrency app and I love it. It's Coin Dino. Check it out! https://apps.apple.com/us/app/coin-dino-crypto-tracker/id1581811548",
         "SHARE_SUBJECT_TEXT":"Coin Dino",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_SUBJECT_TEXT":"Feedback",
         "URL_LAUNCHER_SEND_CONTANT_MAIL_BODY_TEXT":"Hello, I have a feedback for Coin Dino."
