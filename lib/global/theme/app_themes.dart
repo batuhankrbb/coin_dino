@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 import '../utils/custom_colors.dart';
 
 class AppThemes {

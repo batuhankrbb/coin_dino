@@ -1,9 +1,9 @@
-import '../../../../../core/utils/string_helper.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../core/constants/response_types.dart';
 import '../../../../../core/network/network_clients/coin_gecko_client.dart';
 import '../../../../../core/network/network_fetching/network_executer.dart';
+import '../../../../../core/utils/string_helper.dart';
 import '../../exception_handling/exceptions/alert_exceptions.dart';
 import '../../model/alert_coin_model.dart';
 import '../contracts/i_alert_remote_data_source.dart';

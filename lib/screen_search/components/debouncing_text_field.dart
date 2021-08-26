@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:coin_dino/global/utils/custom_colors.dart';
+import '../../global/utils/custom_colors.dart';
 
 import '../../core/extensions/context_extensions.dart';
 import '../../global/starting_files/injection_container.dart';

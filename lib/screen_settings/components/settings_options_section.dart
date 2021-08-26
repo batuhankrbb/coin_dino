@@ -1,6 +1,6 @@
 import '../../global/components/failure_widget.dart';
 import '../viewmodels/settings_view_model.dart';
-import 'package:coin_dino/core/extensions/context_extensions.dart';
+import '../../core/extensions/context_extensions.dart';
 
 import '../../features/preferences/domain/entity/language_preference_entity.dart';
 import '../../features/preferences/domain/entity/theme_preference_entity.dart';

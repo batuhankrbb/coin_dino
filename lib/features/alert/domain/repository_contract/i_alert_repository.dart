@@ -1,6 +1,5 @@
-import '../entity/alert_entity.dart';
-
 import '../../../../core/result_types/result.dart';
+import '../entity/alert_entity.dart';
 
 abstract class IAlertRepository{
   Future<Result<List<AlertEntity>>> getAllAlerts();

@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/global/starting_files/injection_container.dart';
-import 'package:coin_dino/screen_detail/viewmodels/detail_screen_view_model.dart';
+import '../../../global/starting_files/injection_container.dart';
+import '../../viewmodels/detail_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import '../../../core/extensions/context_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';

@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'chart_options.dart';
 import 'package:flutter/material.dart';
+
 import '../../../core/extensions/context_extensions.dart';
 import 'chart_option_value_data.dart';
 

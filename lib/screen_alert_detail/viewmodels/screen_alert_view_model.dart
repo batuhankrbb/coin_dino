@@ -1,16 +1,15 @@
-import '../../core/navigation/services/navigation_service.dart';
-import '../../core/permission/permission_helper.dart';
-import '../../features/alert/domain/entity/alert_entity.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:mobx/mobx.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../../core/navigation/services/navigation_service.dart';
+import '../../core/permission/permission_helper.dart';
 import '../../core/result_types/state_result.dart';
 import '../../core/user_interface/helpers/alert_helper.dart';
-import '../../features/alert/data/repository/alert_repository.dart';
-
+import '../../features/alert/domain/entity/alert_entity.dart';
 import '../../features/alert/domain/repository_contract/i_alert_repository.dart';
-import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:mobx/mobx.dart';
+
 part 'screen_alert_view_model.g.dart';
 
 class ScreenAlertViewModel = _ScreenAlertViewModelBase

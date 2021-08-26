@@ -1,5 +1,3 @@
-import '../models/market_coin_category.model.dart';
-
 import '../../../../core/result_types/result.dart';
 import '../../../preferences/data/contracts/i_preferences_local_data_source.dart';
 import '../../domain/entities/market_coin_category_entity.dart';
@@ -9,6 +7,7 @@ import '../../presentation/utils/listing_enums.dart';
 import '../data_source/contracts/i_market_remote_data_source.dart';
 import '../exception_handling/exceptions/market_exceptions.dart';
 import '../exception_handling/market_exception_handler.dart';
+import '../models/market_coin_category.model.dart';
 
 class MarketCoinRepository extends IMarketCoinRepository {
   MarketCoinRepository(

@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coin_dino/screen_detail/components/coin_info/coin_info_share_button.dart';
+import 'components/coin_info/coin_info_share_button.dart';
 import 'package:flutter/material.dart';
 
 import '../core/extensions/context_extensions.dart';

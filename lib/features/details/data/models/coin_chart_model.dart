@@ -1,6 +1,6 @@
+import '../../../../core/extensions/num_extension.dart';
 import '../../../../core/network/network_fetching/base_network_model.dart';
 import '../../domain/entity/coin_chart_entity.dart';
-import '../../../../core/extensions/num_extension.dart';
 
 class CoinChartModel extends BaseNetworkModel {
   CoinChartModel({

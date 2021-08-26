@@ -1,8 +1,9 @@
-import '../../domain/entity/alert_entity.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../core/notification/notification_helper.dart';
 import '../../../../core/result_types/result.dart';
 import '../../../preferences/data/contracts/i_preferences_local_data_source.dart';
+import '../../domain/entity/alert_entity.dart';
 import '../../domain/repository_contract/i_alert_repository.dart';
 import '../data_source/contracts/i_alert_local_data_source.dart';
 import '../data_source/contracts/i_alert_remote_data_source.dart';
@@ -10,7 +11,6 @@ import '../exception_handling/exception_handler.dart';
 import '../exception_handling/exceptions/alert_exceptions.dart';
 import '../model/alert_coin_model.dart';
 import '../model/alert_model.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class AlertRepository implements IAlertRepository {
   final IAlertLocalDataSource localDataSource;

@@ -1,8 +1,8 @@
 import 'package:background_fetch/background_fetch.dart';
-import 'package:coin_dino/core/background/background_helper.dart';
-import 'package:coin_dino/core/notification/notification_helper.dart';
-import 'package:coin_dino/features/alert/data/repository/alert_repository.dart';
-import 'package:coin_dino/features/alert/domain/repository_contract/i_alert_repository.dart';
+import '../../core/background/background_helper.dart';
+import '../../core/notification/notification_helper.dart';
+import '../../features/alert/data/repository/alert_repository.dart';
+import '../../features/alert/domain/repository_contract/i_alert_repository.dart';
 
 import '../../core/hive/hive_helper.dart';
 import '../app_settings/app_settings_viewmodel.dart';

@@ -1,15 +1,12 @@
-import '../../../screen_alert_list/alert_list_screen.dart';
-import '../../../screen_search/search_screen_main.dart';
-
-import '../../../main.dart';
-import '../../../xscreen_main/main_screen.dart';
-import '../../../screen_alert_detail/alert_detail_screen.dart';
-import '../../../screen_detail/coin_detail_screen.dart';
-import '../../../screen_home/home_screen.dart';
-import '../../../screen_in_app_purchase/inapp_purchase_screen.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../global/components/selection_page/selection_page.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../../screen_alert_detail/alert_detail_screen.dart';
+import '../../../screen_alert_list/alert_list_screen.dart';
+import '../../../screen_detail/coin_detail_screen.dart';
+import '../../../screen_in_app_purchase/inapp_purchase_screen.dart';
+import '../../../screen_search/search_screen_main.dart';
+import '../../../xscreen_main/main_screen.dart';
 
 part 'navigation_route.freezed.dart';
 

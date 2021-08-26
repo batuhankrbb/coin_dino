@@ -1,4 +1,4 @@
-import 'package:coin_dino/core/localization/localization_helper.dart';
+import '../../core/localization/localization_helper.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/navigation/routes/navigation_route.dart';

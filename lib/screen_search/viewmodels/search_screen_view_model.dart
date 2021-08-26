@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mobx/mobx.dart';
 
 import '../../core/result_types/state_result.dart';
-import '../../features/search/data/repository/search_repository.dart';
 import '../../features/search/domain/entity/search_coin_entity.dart';
 import '../../features/search/domain/entity/search_trend_entity.dart';
 import '../../features/search/domain/repository_contract/i_search_repository.dart';
-import 'package:mobx/mobx.dart';
+
 part 'search_screen_view_model.g.dart';
 
 class SearchScreenViewModel = _SearchScreenViewModelBase

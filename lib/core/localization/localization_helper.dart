@@ -1,4 +1,4 @@
-import 'package:coin_dino/features/preferences/domain/entity/language_preference_entity.dart';
+import '../../features/preferences/domain/entity/language_preference_entity.dart';
 
 import 'localization_constants.dart';
 import 'package:easy_localization/easy_localization.dart';

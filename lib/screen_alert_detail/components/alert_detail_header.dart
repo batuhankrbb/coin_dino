@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import '../../global/components/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
 import '../../core/extensions/context_extensions.dart';
+import '../../global/components/cached_network_image.dart';
 
 class AlertDetailHeader extends StatelessWidget {
   AlertDetailHeader(
