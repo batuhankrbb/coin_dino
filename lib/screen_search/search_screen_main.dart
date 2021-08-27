@@ -16,10 +16,7 @@ import '../global/components/app_bar_components.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SearchScreenMain extends StatefulWidget {
-  SearchScreenMain({
-    Key? key,
-    this.showBackButton = false
-  }) : super(key: key);
+  SearchScreenMain({Key? key, this.showBackButton = false}) : super(key: key);
 
   @override
   _SearchScreenMainState createState() => _SearchScreenMainState();
@@ -59,6 +56,7 @@ class _SearchScreenMainState extends State<SearchScreenMain>
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 12),
                 child: TabBarView(
+                  physics: NeverScrollableScrollPhysics(),
                   controller: _tabController,
                   children: [
                     SearchScreen(),
@@ -87,7 +85,9 @@ class _SearchScreenMainState extends State<SearchScreenMain>
     return customAppBar(
       context: context,
       showBackButton: widget.showBackButton,
-      title: _searchViewModel.tabIndex == 0 ? "SEARCH_SCREEN.APP_BAR_TITLE_SEARCH".tr() : "SEARCH_SCREEN.APP_BAR_TITLE_TRENDS".tr(),
+      title: _searchViewModel.tabIndex == 0
+          ? "SEARCH_SCREEN.APP_BAR_TITLE_SEARCH".tr()
+          : "SEARCH_SCREEN.APP_BAR_TITLE_TRENDS".tr(),
       backgroundColor: context.colorScheme.primaryVariant,
       bottom: buildTabBar(),
     );

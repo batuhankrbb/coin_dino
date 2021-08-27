@@ -15,6 +15,14 @@ class NavigationService {
         .pushNamed(route.rawValue, arguments: route);
   }
 
+  Future<dynamic>? navigateAndReplaceTo(NavigationRoute route) {
+    if (navigatorKey.currentState == null) {
+      return null;
+    }
+    return navigatorKey.currentState!
+        .pushReplacementNamed(route.rawValue, arguments: route);
+  }
+
   void goBack() {
     navigatorKey.currentState!.pop();
   }

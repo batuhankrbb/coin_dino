@@ -24,7 +24,7 @@ class OnboardNavigateButton extends StatelessWidget {
         onTap: () {
           appSettingsViewModel.stopShowingOnboard();
           NavigationService.shared
-              .navigateTo(NavigationRoute.toMainScreen(MainScreen()));
+              .navigateAndReplaceTo(NavigationRoute.toMainScreen(MainScreen()));
         },
         child: ElevatedButton(
             child: Icon(

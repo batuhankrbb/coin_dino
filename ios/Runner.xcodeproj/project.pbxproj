@@ -10,11 +10,10 @@
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
-		847B024626D8A54F0002BD04 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847B024526D8A54F0002BD04 /* StoreKit.framework */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		FA48C9EA3BC90A2E49305524 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200C48B3872864E4D398E6B1 /* Pods_Runner.framework */; };
+		BC3138AF71E6EA18E2D86296 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200C48B3872864E4D398E6B1 /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,8 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA48C9EA3BC90A2E49305524 /* Pods_Runner.framework in Frameworks */,
-				847B024626D8A54F0002BD04 /* StoreKit.framework in Frameworks */,
+				BC3138AF71E6EA18E2D86296 /* Pods_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
