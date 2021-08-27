@@ -1,4 +1,5 @@
 import 'package:background_fetch/background_fetch.dart';
+import 'package:flutter/services.dart';
 import '../../core/background/background_helper.dart';
 import '../../core/notification/notification_helper.dart';
 import '../../features/alert/data/repository/alert_repository.dart';
@@ -39,7 +40,15 @@ class AppStartConfig {
     });
     await BackgroundHelper.shared.startBackgroundFetch();
   }
+
+  Future<void> _setUpDeviceSettings() async{
+     await SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
+  }
 }
+
 
 void backgroundFetchHeadlessTask(HeadlessTask task) async {
   String taskId = task.taskId;
