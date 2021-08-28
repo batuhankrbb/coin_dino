@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:coin_dino/secret_file.dart';
+
 class AdmobIDHelper { //* TEST IDS
   static var shared = AdmobIDHelper._privateConstructor();
 
@@ -7,12 +9,12 @@ class AdmobIDHelper { //* TEST IDS
 
   String get alertDetailScreenBannerID {
     return _returnWithChecking(
-        iosID: "ca-app-pub-3940256099942544/2934735716",
-        androidID: "ca-app-pub-3940256099942544/6300978111");
+        iosID: SecretFile.ios_alertDetailScreenBannerID,
+        androidID: SecretFile.android_alertDetailScreenBannerID);
   }
 
   String get coinDetailScreenInterstitialID {
-    return _returnWithChecking(iosID: "ca-app-pub-3940256099942544/4411468910", androidID: "ca-app-pub-3940256099942544/1033173712");
+    return _returnWithChecking(iosID: SecretFile.ios_coinDetailScreenInterstitialID, androidID: SecretFile.android_coinDetailScreenInterstitialID);
   }
 
   String _returnWithChecking(
