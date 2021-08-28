@@ -45,7 +45,7 @@ dependencies:
   hive_flutter: ^1.0.0
   hive_generator: ^1.1.0
   html: ^0.15.0
-  in_app_purchase: ^1.0.1
+  in_app_purchase: ^1.0.8
   in_app_review: ^2.0.2
   intl: ^0.17.0
   mobx: ^2.0.1

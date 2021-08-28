@@ -143,7 +143,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 8d10c1c470fcb0e5143ed74fddd164f0a0384800
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
-  in_app_purchase_ios: 1fd2beee2a16ec0c1b52c0e8720036612dd9f86f
+  in_app_purchase_ios: 18c65275991b8a28b2a47634a7797fb23d5d773e
   in_app_review: 4a97249f7a2f539a0f294c2d9196b7fe35e49541
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
