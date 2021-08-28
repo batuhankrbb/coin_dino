@@ -55,7 +55,7 @@ dependencies:
   provider: ^5.0.0
   pull_to_refresh: ^2.0.0
   rxdart: ^0.27.1
-  share_plus: ^2.1.2
+  share_plus: ^2.1.4
   syncfusion_flutter_charts: ^19.1.67
   url_launcher: ^6.0.4
 
