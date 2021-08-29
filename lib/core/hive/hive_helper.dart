@@ -13,7 +13,7 @@ class HiveHelper {
     await Hive.openBox<String>(HiveConstants.BOX_PREFERENCES);
     await Hive.openBox<AlertModel>(HiveConstants.BOX_ALERTS);
     await Hive.openBox<bool>(HiveConstants.BOX_STARTING);
-
+    await Hive.openBox<bool>(HiveConstants.BOX_PREMIUM);
   }
 
   Future<T?> getData<T>(String boxName, dynamic key) async {

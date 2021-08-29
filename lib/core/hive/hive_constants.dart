@@ -10,4 +10,7 @@ class HiveConstants {
 
   static const String BOX_STARTING = "box_starting";
   static const String KEY_ONBOARD_SHOW = "key_onboard_show";
+
+  static const String BOX_PREMIUM = "box_premium";
+  static const String KEY_IS_PREMUM = "key_is_premium";
 }

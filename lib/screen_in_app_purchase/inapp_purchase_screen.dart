@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coin_dino/core/in_app_purchase/iap_service.dart';
 import '../core/notification/notification_helper.dart';
 import '../core/mini_services/image/image_helper.dart';
 import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
@@ -18,6 +19,18 @@ class InAppPurchaseScreen extends StatefulWidget {
 }
 
 class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
+  @override
+  void initState() {
+    IAPService.shared.initIAPSubscription();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    IAPService.shared.disposeIAP();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,9 +76,8 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
 
   Widget buildPurchaseButton() {
     return InAppPurchaseButton(
-      onTap: () {
-        
-        //TODO REKLAM KALDIRMA KODU
+      onTap: () async {
+        await IAPService.shared.purchasePremium();
       },
     );
   }
@@ -85,7 +97,7 @@ class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
         ),
       ),
       onTap: () {
-        //TODO RESTORE PURCHASE KODU
+        IAPService.shared.restorePurchase();
       },
     );
   }

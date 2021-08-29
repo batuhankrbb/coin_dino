@@ -1,8 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:coin_dino/core/hive/hive_constants.dart';
+import 'package:coin_dino/core/hive/hive_helper.dart';
+import 'package:coin_dino/global/app_settings/app_settings_viewmodel.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
 import 'package:coin_dino/secret_file.dart';
 import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_android/billing_client_wrappers.dart';
@@ -32,7 +37,7 @@ class IAPService {
   Future<void> restorePurchase() async {
     await _inAppPurchaseInstance.restorePurchases();
   }
-  
+
   Future<void> purchasePremium() async {
     if (_products.length > 0) {
       var product = _products[0];
@@ -51,13 +56,20 @@ class IAPService {
     }
   }
 
-  Future<void> initIAP() async {
+  Future<void> initIAPSubscription() async {
     await _initSubscription();
     await _initStoreInfo();
   }
 
   Future<void> disposeIAP() async {
     _subscription.cancel();
+  }
+
+  Future<bool> getIsPremium() async {
+    var isPremium = await HiveHelper.shared.getData<bool>(
+            HiveConstants.BOX_PREMIUM, HiveConstants.KEY_IS_PREMUM) ??
+        false;
+    return isPremium;
   }
 
   Future<void> _initStoreInfo() async {
@@ -94,7 +106,7 @@ class IAPService {
       //TODO SHOW STATERESULT ERROR
     } else if (purchaseItem.status == PurchaseStatus.purchased ||
         purchaseItem.status == PurchaseStatus.restored) {
-      deliverProduct(purchaseItem);
+      _deliverProduct(purchaseItem);
 
       if (purchaseItem.pendingCompletePurchase) {
         await _inAppPurchaseInstance.completePurchase(purchaseItem);
@@ -102,7 +114,10 @@ class IAPService {
     }
   }
 
-  void deliverProduct(PurchaseDetails purchaseDetails) async {
-    //! Make it premium
+  void _deliverProduct(PurchaseDetails purchaseDetails) async {
+    await HiveHelper.shared.putData<bool>(
+        HiveConstants.BOX_PREMIUM, HiveConstants.KEY_IS_PREMUM, true);
+    var appSettings = getit.get<AppSettingsViewModel>();
+    appSettings.isPremium = true;
   }
 }

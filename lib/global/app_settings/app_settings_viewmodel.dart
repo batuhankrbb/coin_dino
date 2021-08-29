@@ -1,4 +1,4 @@
-
+import 'package:coin_dino/core/in_app_purchase/iap_service.dart';
 
 import '../../core/hive/hive_constants.dart';
 import '../../core/hive/hive_helper.dart';
@@ -25,6 +25,9 @@ abstract class _AppSettingsViewModelBase with Store {
   @observable
   bool showOnBoard = true;
 
+  @observable
+  bool isPremium = false;
+
   @action
   Future<void> setUpSettings() async {
     await checkOnBoardShow();
@@ -34,6 +37,7 @@ abstract class _AppSettingsViewModelBase with Store {
     }, failure: (failure) {
       setTheme(ThemePreferenceEntity.light);
     });
+    await getPremiumData();
   }
 
   @action
@@ -59,5 +63,11 @@ abstract class _AppSettingsViewModelBase with Store {
   Future<void> stopShowingOnboard() async {
     await HiveHelper.shared.putData<bool>(
         HiveConstants.BOX_STARTING, HiveConstants.KEY_ONBOARD_SHOW, false);
+  }
+
+  @action
+  Future<void> getPremiumData() async {
+    var premium = await IAPService.shared.getIsPremium();
+    isPremium = premium;
   }
 }
