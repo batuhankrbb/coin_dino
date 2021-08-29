@@ -45,6 +45,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen>
     _tabController = TabController(length: 2, vsync: this);
     _detailViewModel.getCoinDetails(widget.coinID);
     _detailViewModel.getCharts(coinID: widget.coinID, days: "7");
+    _detailViewModel.setContext(context);
     AdmobHelper.shared.showInterstitialAd(
         interstitialID: AdmobIDHelper.shared.coinDetailScreenInterstitialID,
         onAdFailed: (error) {});

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../core/utils/number_helper.dart';
 
 import '../../core/mini_services/share/share_service.dart';
@@ -33,6 +35,12 @@ abstract class _DetailScreenViewModelBase with Store {
   @observable
   String appBarSymbol = "";
 
+  BuildContext? context;
+
+  void setContext(BuildContext context) {
+    this.context = context;
+  }
+
   @action
   Future<void> getCoinDetails(String coinID) async {
     coinDetailResult = StateResult.loading();
@@ -62,7 +70,7 @@ abstract class _DetailScreenViewModelBase with Store {
 
   Future<void> shareCoin(String coinName) async {
     await ShareService.shared
-        .share(text: "DETAIL_SCREEN.VIEWMODEL_SHARE_TEXT".tr(args: [coinName]));
+        .share(text: "DETAIL_SCREEN.VIEWMODEL_SHARE_TEXT".tr(args: [coinName]),context: context!);
   }
 
   Future<void> openWebPage(String url) async {

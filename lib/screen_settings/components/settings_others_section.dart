@@ -25,7 +25,7 @@ class SettingsOtherSection extends StatelessWidget {
           leading: SettingsIcon(iconData: Icons.share),
           title: "SETTINGS_SCREEN.FORM_SHARE_TITLE".tr(),
           onTap: () async {
-            await ShareService.shared.shareApp();
+            await ShareService.shared.shareApp(context: context);
           },
         ),
         SettingFormRowWidget(
