@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coin_dino/core/in_app_purchase/iap_service.dart';
+import 'package:coin_dino/global/starting_files/injection_container.dart';
+import 'package:coin_dino/screen_in_app_purchase/viewmodels/in_app_purchase_screen_view_model.dart';
 import '../core/notification/notification_helper.dart';
 import '../core/mini_services/image/image_helper.dart';
 import '../core/user_interface/responsive_layout/widgets/informer_widget.dart';
@@ -19,9 +21,12 @@ class InAppPurchaseScreen extends StatefulWidget {
 }
 
 class _InAppPurchaseScreenState extends State<InAppPurchaseScreen> {
+  var inAppViewModel = getit.get<InAppPurchaseScreenViewModel>();
+
   @override
   void initState() {
-    IAPService.shared.initIAPSubscription();
+    inAppViewModel.setContext(context);
+    inAppViewModel.initInAppPurchaseScreen();
     super.initState();
   }
 

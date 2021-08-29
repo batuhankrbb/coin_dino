@@ -39,6 +39,21 @@ mixin _$AppSettingsViewModel on _AppSettingsViewModelBase, Store {
     });
   }
 
+  final _$isPremiumAtom = Atom(name: '_AppSettingsViewModelBase.isPremium');
+
+  @override
+  bool get isPremium {
+    _$isPremiumAtom.reportRead();
+    return super.isPremium;
+  }
+
+  @override
+  set isPremium(bool value) {
+    _$isPremiumAtom.reportWrite(value, super.isPremium, () {
+      super.isPremium = value;
+    });
+  }
+
   final _$setUpSettingsAsyncAction =
       AsyncAction('_AppSettingsViewModelBase.setUpSettings');
 
@@ -64,6 +79,14 @@ mixin _$AppSettingsViewModel on _AppSettingsViewModelBase, Store {
         .run(() => super.stopShowingOnboard());
   }
 
+  final _$getPremiumDataAsyncAction =
+      AsyncAction('_AppSettingsViewModelBase.getPremiumData');
+
+  @override
+  Future<void> getPremiumData() {
+    return _$getPremiumDataAsyncAction.run(() => super.getPremiumData());
+  }
+
   final _$_AppSettingsViewModelBaseActionController =
       ActionController(name: '_AppSettingsViewModelBase');
 
@@ -82,7 +105,8 @@ mixin _$AppSettingsViewModel on _AppSettingsViewModelBase, Store {
   String toString() {
     return '''
 appTheme: ${appTheme},
-showOnBoard: ${showOnBoard}
+showOnBoard: ${showOnBoard},
+isPremium: ${isPremium}
     ''';
   }
 }

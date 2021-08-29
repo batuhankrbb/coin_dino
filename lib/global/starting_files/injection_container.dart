@@ -1,3 +1,5 @@
+import 'package:coin_dino/screen_in_app_purchase/viewmodels/in_app_purchase_screen_view_model.dart';
+
 import '../../screen_alert_detail/viewmodels/screen_alert_view_model.dart';
 import '../../screen_settings/viewmodels/settings_view_model.dart';
 import '../../xscreen_main/components/main_tab_bar.dart';
@@ -50,6 +52,7 @@ void setupGetIt() {
   _setupAppSettings();
   _setupOnboardScreen();
   _setUpMainScreen();
+  _setUpInAppPurchaseScreen();
 }
 
 void _setUpAlertFeature() {
@@ -74,7 +77,6 @@ void _setUpAlertFeature() {
 
 void _setUpMarketFeature() {
   getit.registerLazySingleton<IMarketCoinRepository>(() => MarketCoinRepository(
-
       marketRemoteDataSource: getit(),
       exceptionHandler: getit(),
       preferencesLocalDataSource: getit()));
@@ -154,5 +156,12 @@ void _setupOnboardScreen() {
 }
 
 void _setUpMainScreen() {
-  getit.registerLazySingleton<MainScreenViewModel>(() => MainScreenViewModel(),);
+  getit.registerLazySingleton<MainScreenViewModel>(
+    () => MainScreenViewModel(),
+  );
+}
+
+void _setUpInAppPurchaseScreen() {
+  getit.registerLazySingleton<InAppPurchaseScreenViewModel>(
+      () => InAppPurchaseScreenViewModel());
 }

@@ -87,7 +87,6 @@ class IAPService {
   }
 
   Future<void> _initSubscription() async {
-    //? DONE
     final Stream<List<PurchaseDetails>> purchaseUpdated =
         _inAppPurchaseInstance.purchaseStream;
     _subscription = purchaseUpdated.listen((purchaseDetailList) {
@@ -97,13 +96,13 @@ class IAPService {
     }, onDone: () {
       _subscription.cancel();
     }, onError: (error) {
-      //TODO SHOW STATERESULT ERROR
+      //TODO SHOW ALERT
     });
   }
 
   Future<void> _handlePurchase(PurchaseDetails purchaseItem) async {
     if (purchaseItem.status == PurchaseStatus.error) {
-      //TODO SHOW STATERESULT ERROR
+      //TODO SHOW ALERT
     } else if (purchaseItem.status == PurchaseStatus.purchased ||
         purchaseItem.status == PurchaseStatus.restored) {
       _deliverProduct(purchaseItem);
