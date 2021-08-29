@@ -39,7 +39,9 @@ class IAPService {
   }
 
   Future<void> restorePurchase() async {
-    await _inAppPurchaseInstance.restorePurchases();
+    try {
+      await _inAppPurchaseInstance.restorePurchases();
+    } catch (e) {}
   }
 
   Future<void> purchasePremium() async {
@@ -55,6 +57,7 @@ class IAPService {
           productDetails: product,
         );
       }
+
       await _inAppPurchaseInstance.buyNonConsumable(
           purchaseParam: purchaseParam);
     }
@@ -111,21 +114,23 @@ class IAPService {
   Future<void> _handlePurchase(PurchaseDetails purchaseItem) async {
     if (purchaseItem.status == PurchaseStatus.error) {
       errorAlertFunction();
+      await _inAppPurchaseInstance.completePurchase(purchaseItem);
     } else if (purchaseItem.status == PurchaseStatus.purchased ||
         purchaseItem.status == PurchaseStatus.restored) {
-      _deliverProduct(purchaseItem);
+     await  _deliverProduct(purchaseItem);
       if (purchaseItem.status == PurchaseStatus.purchased) {
         purchaseFunction();
       } else {
         restoreFunction();
       }
-      if (purchaseItem.pendingCompletePurchase) {
-        await _inAppPurchaseInstance.completePurchase(purchaseItem);
-      }
+    }
+
+    if (purchaseItem.pendingCompletePurchase) {
+      await _inAppPurchaseInstance.completePurchase(purchaseItem);
     }
   }
 
-  void _deliverProduct(PurchaseDetails purchaseDetails) async {
+  Future<void> _deliverProduct(PurchaseDetails purchaseDetails) async {
     await HiveHelper.shared.putData<bool>(
         HiveConstants.BOX_PREMIUM, HiveConstants.KEY_IS_PREMUM, true);
     var appSettings = getit.get<AppSettingsViewModel>();
