@@ -28,6 +28,10 @@ class IAPService {
 
   late StreamSubscription<List<PurchaseDetails>> _subscription;
 
+  late VoidCallback errorAlertFunction;
+  late VoidCallback purchaseFunction;
+  late VoidCallback restoreFunction;
+
   void initializeIAPService() {
     if (defaultTargetPlatform == TargetPlatform.android) {
       InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
@@ -56,7 +60,13 @@ class IAPService {
     }
   }
 
-  Future<void> initIAPSubscription() async {
+  Future<void> initIAPSubscription(
+      {required VoidCallback errorAlertFunction,
+      required VoidCallback purchaseFunction,
+      required VoidCallback restoreFunction}) async {
+    this.errorAlertFunction = errorAlertFunction;
+    this.purchaseFunction = purchaseFunction;
+    this.restoreFunction = restoreFunction;
     await _initSubscription();
     await _initStoreInfo();
   }
@@ -73,7 +83,6 @@ class IAPService {
   }
 
   Future<void> _initStoreInfo() async {
-    //? DONE
     final bool isAvailable = await _inAppPurchaseInstance.isAvailable();
     ProductDetailsResponse productDetailResponse =
         await _inAppPurchaseInstance.queryProductDetails(_productIds);
@@ -81,7 +90,6 @@ class IAPService {
     if (productDetailResponse.error != null ||
         productDetailResponse.productDetails.isEmpty ||
         !isAvailable) {
-      //TODO SHOW STATERESULT ERROR
       return;
     }
   }
@@ -96,17 +104,21 @@ class IAPService {
     }, onDone: () {
       _subscription.cancel();
     }, onError: (error) {
-      //TODO SHOW ALERT
+      errorAlertFunction();
     });
   }
 
   Future<void> _handlePurchase(PurchaseDetails purchaseItem) async {
     if (purchaseItem.status == PurchaseStatus.error) {
-      //TODO SHOW ALERT
+      errorAlertFunction();
     } else if (purchaseItem.status == PurchaseStatus.purchased ||
         purchaseItem.status == PurchaseStatus.restored) {
       _deliverProduct(purchaseItem);
-
+      if (purchaseItem.status == PurchaseStatus.purchased) {
+        purchaseFunction();
+      } else {
+        restoreFunction();
+      }
       if (purchaseItem.pendingCompletePurchase) {
         await _inAppPurchaseInstance.completePurchase(purchaseItem);
       }
