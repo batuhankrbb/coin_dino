@@ -42,7 +42,14 @@
         "RESTORE_BUTTON_TEXT":"Achat de restauration",
         "BUY_BUTTON_TEXT":"Obtenir prime",
         "TITLE_TEXT":"Nous savons que les annonces sont ennuyeuses.Ne sont-ils pas?",
-        "DESCRIPTION_TEXT":"Vous pouvez nous soutenir et supprimer toutes les annonces de Coin Dino en permanence en obtenant une prime avec 1 $"
+        "DESCRIPTION_TEXT":"Vous pouvez nous soutenir et supprimer toutes les annonces de Coin Dino en permanence en obtenant une prime avec 1 $",
+        "ERROR_ALERT_TITLE": "Oops!",
+        "ERROR_ALERT_MESSAGE": "Quelque chose s'est mal passé." ,
+        "PURCHASE_ALERT_TITLE":"Super!",
+        "PURCHASE_ALERT_MESSAGE":"Vous êtes prime maintenant!",
+        "RESTORE_ALERT_TITLE":"Restauré!",
+        "RESTORE_ALERT_MESSAGE":"Votre prime a été restaurée si vous en aviez un",
+        "BUY_BUTTON_PREMIUM_TEXT":"Tu es prime :)"
     },
 
     "HOME_SCREEN":{

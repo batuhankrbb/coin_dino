@@ -42,7 +42,14 @@
         "RESTORE_BUTTON_TEXT":"Satın Alımı Geri Yükle",
         "BUY_BUTTON_TEXT":"Premium Ol",
         "TITLE_TEXT":"Biliyoruz ki reklamlar can sıkıcı. Değil mi?",
-        "DESCRIPTION_TEXT":"$1 ile bize destek olabilir ve premium olarak Coin Dino içerisindeki bütün reklamlardan sonsuza dek kurtulabilirsiniz."
+        "DESCRIPTION_TEXT":"$1 ile bize destek olabilir ve premium olarak Coin Dino içerisindeki bütün reklamlardan sonsuza dek kurtulabilirsiniz.",
+        "ERROR_ALERT_TITLE": "Oops!",
+        "ERROR_ALERT_MESSAGE": "Bir şeyler ters gitti" ,
+        "PURCHASE_ALERT_TITLE":"Harika!",
+        "PURCHASE_ALERT_MESSAGE":"Artık Premium Üyesin",
+        "RESTORE_ALERT_TITLE":"Yenilendi!",
+        "RESTORE_ALERT_MESSAGE":"Eğer mevcutsa premium üyeliğin yenilendi.",
+        "BUY_BUTTON_PREMIUM_TEXT":"Premium Üyesin :)"
     },
 
     "HOME_SCREEN":{

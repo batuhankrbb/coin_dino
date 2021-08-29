@@ -42,7 +42,14 @@
         "RESTORE_BUTTON_TEXT":"Restore Purchase",
         "BUY_BUTTON_TEXT":"Get Premium",
         "TITLE_TEXT":"We know that ads are annoying. Aren't they?",
-        "DESCRIPTION_TEXT":"You can support us and remove all ads in Coin Dino permanently by getting premium with $1"
+        "DESCRIPTION_TEXT":"You can support us and remove all ads in Coin Dino permanently by getting premium with $1",
+        "ERROR_ALERT_TITLE": "Oops!",
+        "ERROR_ALERT_MESSAGE": "Something went wrong." ,
+        "PURCHASE_ALERT_TITLE":"Great!",
+        "PURCHASE_ALERT_MESSAGE":"You are premium now!",
+        "RESTORE_ALERT_TITLE":"Restored!",
+        "RESTORE_ALERT_MESSAGE":"Your premium has been restored if you had one",
+        "BUY_BUTTON_PREMIUM_TEXT":"You're Premium :)"
     },
 
     "HOME_SCREEN":{

@@ -42,7 +42,14 @@
         "RESTORE_BUTTON_TEXT":"Restaurar la compra",
         "BUY_BUTTON_TEXT":"Hazte premium",
         "TITLE_TEXT":"Sabemos que los anuncios son molestos.No son?",
-        "DESCRIPTION_TEXT":"Puede apoyarnos y eliminar todos los anuncios en la Coin Dino permanentemente al obtener una prima con $ 1"
+        "DESCRIPTION_TEXT":"Puede apoyarnos y eliminar todos los anuncios en la Coin Dino permanentemente al obtener una prima con $ 1",
+        "ERROR_ALERT_TITLE": "¡UPS!",
+        "ERROR_ALERT_MESSAGE": "Algo salió mal." ,
+        "PURCHASE_ALERT_TITLE":"¡Excelente!",
+        "PURCHASE_ALERT_MESSAGE":"¡Eres premium ahora!",
+        "RESTORE_ALERT_TITLE":"¡Restaurada!",
+        "RESTORE_ALERT_MESSAGE":"Su prima ha sido restaurada si tuviste uno.",
+        "BUY_BUTTON_PREMIUM_TEXT":"Eres premium :)"
     },
 
     "HOME_SCREEN":{
