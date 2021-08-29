@@ -1,4 +1,5 @@
 import 'package:background_fetch/background_fetch.dart';
+import 'package:flutter/services.dart';
 
 import 'core/localization/localization_helper.dart';
 import 'features/alert/data/model/alert_model.dart';
@@ -59,6 +60,10 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return Observer(
       builder: (context) {
         return MaterialApp(

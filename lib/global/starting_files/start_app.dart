@@ -23,6 +23,7 @@ class AppStartConfig {
   Future<void> startApp() async {
     WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
+  await _setUpDeviceSettings();
     await MobileAds.instance.initialize();
     await HiveHelper.shared.setUpHive();
     setupGetIt();
@@ -33,6 +34,7 @@ class AppStartConfig {
         .get<AppSettingsViewModel>()
         .setUpSettings(); //* sets up theme options.
     await _setUpBackgroundFetch();
+    
   }
 
   Future<void> _setUpBackgroundFetch() async {
