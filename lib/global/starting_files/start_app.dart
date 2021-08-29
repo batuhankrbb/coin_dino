@@ -26,13 +26,13 @@ class AppStartConfig {
     await MobileAds.instance.initialize();
     await HiveHelper.shared.setUpHive();
     setupGetIt();
+    initializeIAPService();
     await launchApp(); //* sets up base options
     await NotificationHelper.shared.initializeNotification();
     await getit
         .get<AppSettingsViewModel>()
         .setUpSettings(); //* sets up theme options.
     await _setUpBackgroundFetch();
-     IAPService.shared.initializeIAPService();
   }
 
   Future<void> _setUpBackgroundFetch() async {

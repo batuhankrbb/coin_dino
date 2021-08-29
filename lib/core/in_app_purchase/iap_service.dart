@@ -32,12 +32,6 @@ class IAPService {
   late VoidCallback purchaseFunction;
   late VoidCallback restoreFunction;
 
-  void initializeIAPService() {
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
-    }
-  }
-
   Future<void> restorePurchase() async {
     try {
       await _inAppPurchaseInstance.restorePurchases();
@@ -137,3 +131,9 @@ class IAPService {
     appSettings.isPremium = true;
   }
 }
+
+void initializeIAPService() {
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
+    }
+  }
