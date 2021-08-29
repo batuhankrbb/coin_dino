@@ -1,4 +1,5 @@
 import 'package:background_fetch/background_fetch.dart';
+import 'package:coin_dino/core/in_app_purchase/iap_service.dart';
 import 'package:flutter/services.dart';
 import '../../core/background/background_helper.dart';
 import '../../core/notification/notification_helper.dart';
@@ -31,6 +32,7 @@ class AppStartConfig {
         .get<AppSettingsViewModel>()
         .setUpSettings(); //* sets up theme options.
     await _setUpBackgroundFetch();
+     IAPService.shared.initializeIAPService();
   }
 
   Future<void> _setUpBackgroundFetch() async {
@@ -41,14 +43,13 @@ class AppStartConfig {
     await BackgroundHelper.shared.startBackgroundFetch();
   }
 
-  Future<void> _setUpDeviceSettings() async{
-     await SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown,
-      ]);
+  Future<void> _setUpDeviceSettings() async {
+    await SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 }
-
 
 void backgroundFetchHeadlessTask(HeadlessTask task) async {
   String taskId = task.taskId;

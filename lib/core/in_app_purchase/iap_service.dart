@@ -24,19 +24,16 @@ class IAPService {
   late StreamSubscription<List<PurchaseDetails>> _subscription;
 
   void initializeIAPService() {
-    //? DONE
     if (defaultTargetPlatform == TargetPlatform.android) {
       InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
     }
   }
 
   Future<void> restorePurchase() async {
-    //? DONE
     await _inAppPurchaseInstance.restorePurchases();
   }
-
+  
   Future<void> purchasePremium() async {
-    //? DONE
     if (_products.length > 0) {
       var product = _products[0];
       late PurchaseParam purchaseParam;
@@ -60,7 +57,6 @@ class IAPService {
   }
 
   Future<void> disposeIAP() async {
-    //? DONE
     _subscription.cancel();
   }
 
@@ -98,21 +94,12 @@ class IAPService {
       //TODO SHOW STATERESULT ERROR
     } else if (purchaseItem.status == PurchaseStatus.purchased ||
         purchaseItem.status == PurchaseStatus.restored) {
-      bool valid = await _verifyPurchase(purchaseItem);
-      if (valid) {
-        deliverProduct(purchaseItem);
-      } else {
-        //TODO SHOW STATERESULT ERROR
-      }
+      deliverProduct(purchaseItem);
 
       if (purchaseItem.pendingCompletePurchase) {
         await _inAppPurchaseInstance.completePurchase(purchaseItem);
       }
     }
-  }
-
-  Future<bool> _verifyPurchase(PurchaseDetails purchaseDetails) {
-    return Future<bool>.value(true);
   }
 
   void deliverProduct(PurchaseDetails purchaseDetails) async {
