@@ -123,16 +123,16 @@ class AlertRepository implements IAlertRepository {
   void _sendNotifications(List<AlertEntity> alertsToNotify) {
     if (alertsToNotify.length > 2) {
       NotificationHelper.shared.showNotification(
-          title: "NOTIFICATION_MULTIPLE_COINS_ALERT_TITLE".tr(),
-          description: "NOTIFICATION_MULTIPLE_COINS_ALERT_DESCRIPTION".tr(),
+          title: "NOTIFICATION.NOTIFICATION_MULTIPLE_COINS_ALERT_TITLE".tr(),
+          description: "NOTIFICATION.NOTIFICATION_MULTIPLE_COINS_ALERT_DESCRIPTION".tr(),
           payLoad: "payload");
     } else {
       alertsToNotify.forEach(
         (element) {
           NotificationHelper.shared.showNotification(
               title:
-                  "NOTIFICATION_COIN_ALERT_TITLE".tr(args: ["${element.name}"]),
-              description: "NOTIFICATION_COIN_ALERT_DESCRIPTION".tr(),
+                  "NOTIFICATION.NOTIFICATION_COIN_ALERT_TITLE".tr(args: ["${element.name}"]),
+              description: "NOTIFICATION.NOTIFICATION_COIN_ALERT_DESCRIPTION".tr(),
               payLoad: "payload");
         },
       );
