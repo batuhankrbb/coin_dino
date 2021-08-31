@@ -4,7 +4,7 @@ Big cryptocurrency application that shows you details about cryptocurrencies and
 
 Available platforms: iOS, Android, iPadOS
 
-App Store: https://apps.apple.com/us/app/coin-dino-crypto-tracker/id1581811548 (will be available in 2 days)
+App Store: https://apps.apple.com/us/app/coin-dino-crypto-tracker/id1581811548
 
 Play Store: https://play.google.com/store/apps/details?id=com.ibrahimkarababa.coindinolast
 
