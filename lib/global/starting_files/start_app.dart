@@ -23,7 +23,7 @@ class AppStartConfig {
   Future<void> startApp() async {
     WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
-  await _setUpDeviceSettings();
+    await _setUpDeviceSettings();
     await MobileAds.instance.initialize();
     await HiveHelper.shared.setUpHive();
     setupGetIt();
@@ -34,15 +34,18 @@ class AppStartConfig {
         .get<AppSettingsViewModel>()
         .setUpSettings(); //* sets up theme options.
     await _setUpBackgroundFetch();
-    
   }
 
   Future<void> _setUpBackgroundFetch() async {
-    var alertRepository = getit.get<IAlertRepository>();
-    await BackgroundHelper.shared.initializeBackground(() async {
-      await alertRepository.checkAlertsForNotification();
-    });
-    await BackgroundHelper.shared.startBackgroundFetch();
+    try {
+      var alertRepository = getit.get<IAlertRepository>();
+      await BackgroundHelper.shared.initializeBackground(() async {
+        await alertRepository.checkAlertsForNotification();
+      });
+      await BackgroundHelper.shared.startBackgroundFetch();
+    } catch (e) {
+      print("Error in StartApp/setUpBackgroundFetch");
+    }
   }
 
   Future<void> _setUpDeviceSettings() async {
